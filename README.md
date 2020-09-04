@@ -3,7 +3,8 @@
 #Project-semester2-Group6
 
 Project Members:
-- Osuntuyi Michael 3870707
-- Smirnov Kirill 3775321
-- Hamers Loek 435115
-- Ebowusim Michael
+
+Osuntuyi Michael 3870707
+Smirnov Kirill 3775321
+Hamers Loek 435115
+Ebowusim Michael 4050630
