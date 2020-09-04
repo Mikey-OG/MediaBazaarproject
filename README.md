@@ -4,7 +4,7 @@
 
 Project Members:
 
-Osuntuyi Michael 3870707
-Smirnov Kirill 3775321
-Hamers Loek 435115
-Ebowusim Michael 4050630
+- Osuntuyi Michael 3870707
+- Smirnov Kirill 3775321
+- Hamers Loek 435115
+- Ebowusim Michael 4050630
