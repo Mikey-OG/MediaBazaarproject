@@ -1,0 +1,18 @@
+Increase buttons size
+Fill table with clean data
+Allow employee to change password
+Add Employee Management to Stock Manager form to see who works under them
+Have only 3 shifts (Morning,Afternoon,Night)
+See who is working on chosen day, shift, shifts of a person
+Add Re-Stock warning(minimum-quantity)
+
+Reminder
+Process Report Reminder
+
+
+What has been implemented 
+Admin must be able to open all other forms
+Add dismiss table with fired employees with dates
+Employees must see their schedule
+Rename DepartmentID to Category in stock
+Put search bar in employee related forms
