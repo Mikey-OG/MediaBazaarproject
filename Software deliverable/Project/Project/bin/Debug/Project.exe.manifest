@@ -127,14 +127,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Project.exe" size="284640">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Project.exe" size="286688">
       <assemblyIdentity name="Project" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>BTRZo4gJctVHLuEer50fYdaULmdFtQ/hHV60xR4vubs=</dsig:DigestValue>
+        <dsig:DigestValue>G0e79EnsmtDNOiQxsWBkia4PDW6F2LfAD76r7FI44mk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

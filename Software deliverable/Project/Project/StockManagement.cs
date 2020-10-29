@@ -112,13 +112,14 @@ namespace Project
 
         private void Seemorebtn_Click(object sender, EventArgs e)
         {
-            stock.SeeMore(dataGridView1);
+            stock.SeeMore(dataGridView1, stock.LastSQL);
         }
 
         private void RowResetbtn_Click(object sender, EventArgs e)
         {
             stock.MaxRows = 0;
-            stock.SeeMore(dataGridView1);
+            stock.SeeMore(dataGridView1, stock.LastSQL);
         }
+
     }
 }

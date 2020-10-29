@@ -28,33 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ltbAdminLog = new System.Windows.Forms.ListBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listBox1
-            // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(13, 13);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(550, 340);
-            this.listBox1.TabIndex = 1;
-            // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.listBox1);
+            this.panel1.Controls.Add(this.ltbAdminLog);
             this.panel1.Location = new System.Drawing.Point(12, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(579, 370);
-            this.panel1.TabIndex = 2;
+            this.panel1.TabIndex = 3;
+            // 
+            // ltbAdminLog
+            // 
+            this.ltbAdminLog.FormattingEnabled = true;
+            this.ltbAdminLog.ItemHeight = 16;
+            this.ltbAdminLog.Location = new System.Drawing.Point(13, 13);
+            this.ltbAdminLog.Name = "ltbAdminLog";
+            this.ltbAdminLog.Size = new System.Drawing.Size(550, 340);
+            this.ltbAdminLog.TabIndex = 1;
             // 
             // AdminLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 416);
+            this.ClientSize = new System.Drawing.Size(618, 408);
             this.Controls.Add(this.panel1);
             this.Name = "AdminLog";
             this.Text = "AdminLog";
@@ -65,7 +65,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ListBox ltbAdminLog;
     }
 }

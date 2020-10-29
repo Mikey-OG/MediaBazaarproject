@@ -23,6 +23,7 @@ namespace Project
         Employee employee;
         Department department;
         Roles role;
+        private StockManager stock = new StockManager();
         GeneralManagement GeneralManagement;
         MySqlConnection conn = new MySqlConnection("server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;");
         private int UserID;
@@ -78,11 +79,12 @@ namespace Project
             {
                 MessageBox.Show("Error\n" + se.Message, "Authentication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error\n" + ex.Message, "Authentication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         //Form load functions
         public void FillDepartmentComboBox()
         {
@@ -426,6 +428,17 @@ namespace Project
             {
                 MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Seemorebtn_Click(object sender, EventArgs e)
+        {
+            stock.SeeMore(DataGridEmployees,GeneralManagement.LastSQL);
+        }
+
+        private void RowResetbtn_Click(object sender, EventArgs e)
+        {
+            stock.MaxRows = 0;
+            stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL);
         }
 
         private void btnOpenAdminLog_Click(object sender, EventArgs e)

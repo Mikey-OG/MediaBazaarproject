@@ -348,15 +348,17 @@ namespace Project
                 conn.Close();
             }
         }
-        public void SeeMore(DataGridView a)
+        public void SeeMore(DataGridView a, string sql)
         {
             conn.Open();
-            LastSQL = LastSQL.Remove(LastSQL.Length - 3);
+            int indexOfSteam = LastSQL.IndexOf("LIMIT");
+            if (indexOfSteam >= 0)
+                sql = sql.Remove(indexOfSteam);
             MaxRows += 10;
-            LastSQL = LastSQL + MaxRows+";";
+            LastSQL = LastSQL +" LIMIT "+ MaxRows+";";
             try
             {
-                adpt = new MySqlDataAdapter(LastSQL, conn);
+                adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
                 a.DataSource = dt;

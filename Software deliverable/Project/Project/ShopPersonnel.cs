@@ -15,6 +15,7 @@ namespace Project
     {
         string UserValidation;
         private StockManager stock = new StockManager();
+        private Encryption Cry = new Encryption();
         private GeneralManagement generalManagement = new GeneralManagement();
         public ShopPersonnel(string validation)
         {
@@ -126,6 +127,17 @@ namespace Project
         {
             gbStock.Visible = false;
             gbEmployee.Visible = true;
+        }
+
+        private void Seemorebtn_Click(object sender, EventArgs e)
+        {
+            stock.SeeMore(dataGridView1, stock.LastSQL);
+        }
+
+        private void RowResetbtn_Click(object sender, EventArgs e)
+        {
+            stock.MaxRows = 0;
+            stock.SeeMore(dataGridView1, stock.LastSQL);
         }
     }
 }
