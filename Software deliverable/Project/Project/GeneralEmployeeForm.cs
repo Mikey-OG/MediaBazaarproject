@@ -78,26 +78,6 @@ namespace Project
             this.Hide();
         }
 
-        private void GeneralEmployeeForm_Load(object sender, EventArgs e)
-        {
-            //using (MySqlConnection conn = new MySqlConnection(connStr))
-            //{
-            //    string sql2 = "SELECT * FROM employees WHERE FormAccess = 'EmployeeForm';";
-            //    adpt = new MySqlDataAdapter(sql2, conn);
-            //    dt = new DataTable();
-            //    adpt.Fill(dt);
-
-            //    if (dt.Rows.Count == 1)
-            //    {
-            //        btnDepartmentManagement.Visible = false;
-            //        btnRoleManagement.Visible = false;
-            //        btnViewStock.Visible = false;
-            //    }
-            //}
-
-            //it checks the username and checks the formpermission it was given
-        }
-
         private void btnViewShopPersonnel_Click(object sender, EventArgs e)
         {
             ShopPersonnel shopPersonnel = new ShopPersonnel(UserValidation);

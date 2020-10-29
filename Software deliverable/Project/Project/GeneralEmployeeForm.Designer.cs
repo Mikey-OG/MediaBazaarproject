@@ -201,7 +201,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "GeneralEmployeeForm";
             this.Text = "GeneralEmployeeForm";
-            this.Load += new System.EventHandler(this.GeneralEmployeeForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
