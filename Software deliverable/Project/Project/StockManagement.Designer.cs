@@ -46,6 +46,8 @@
             this.btnLowStock = new System.Windows.Forms.Button();
             this.btnReturnMenu = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.Seemorebtn = new System.Windows.Forms.Button();
+            this.RowResetbtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +55,7 @@
             // 
             this.DecreaseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.DecreaseBtn.Location = new System.Drawing.Point(664, 293);
-            this.DecreaseBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DecreaseBtn.Margin = new System.Windows.Forms.Padding(2);
             this.DecreaseBtn.Name = "DecreaseBtn";
             this.DecreaseBtn.Size = new System.Drawing.Size(147, 29);
             this.DecreaseBtn.TabIndex = 36;
@@ -76,7 +78,7 @@
             // 
             this.IncreaseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.IncreaseBtn.Location = new System.Drawing.Point(664, 260);
-            this.IncreaseBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.IncreaseBtn.Margin = new System.Windows.Forms.Padding(2);
             this.IncreaseBtn.Name = "IncreaseBtn";
             this.IncreaseBtn.Size = new System.Drawing.Size(147, 29);
             this.IncreaseBtn.TabIndex = 34;
@@ -88,7 +90,7 @@
             // 
             this.ValueBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.ValueBox.Location = new System.Drawing.Point(664, 230);
-            this.ValueBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ValueBox.Margin = new System.Windows.Forms.Padding(2);
             this.ValueBox.Name = "ValueBox";
             this.ValueBox.Size = new System.Drawing.Size(147, 26);
             this.ValueBox.TabIndex = 33;
@@ -99,7 +101,7 @@
             this.RefreshBtn.Image = ((System.Drawing.Image)(resources.GetObject("RefreshBtn.Image")));
             this.RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.RefreshBtn.Location = new System.Drawing.Point(664, 361);
-            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(2);
             this.RefreshBtn.Name = "RefreshBtn";
             this.RefreshBtn.Size = new System.Drawing.Size(147, 29);
             this.RefreshBtn.TabIndex = 32;
@@ -113,7 +115,7 @@
             this.DeletRowBtn.Image = ((System.Drawing.Image)(resources.GetObject("DeletRowBtn.Image")));
             this.DeletRowBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.DeletRowBtn.Location = new System.Drawing.Point(664, 171);
-            this.DeletRowBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DeletRowBtn.Margin = new System.Windows.Forms.Padding(2);
             this.DeletRowBtn.Name = "DeletRowBtn";
             this.DeletRowBtn.Size = new System.Drawing.Size(147, 29);
             this.DeletRowBtn.TabIndex = 31;
@@ -127,7 +129,7 @@
             this.NewRowBtn.Image = ((System.Drawing.Image)(resources.GetObject("NewRowBtn.Image")));
             this.NewRowBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.NewRowBtn.Location = new System.Drawing.Point(664, 103);
-            this.NewRowBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NewRowBtn.Margin = new System.Windows.Forms.Padding(2);
             this.NewRowBtn.Name = "NewRowBtn";
             this.NewRowBtn.Size = new System.Drawing.Size(147, 29);
             this.NewRowBtn.TabIndex = 30;
@@ -174,7 +176,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(12, 26);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(642, 506);
+            this.dataGridView1.Size = new System.Drawing.Size(642, 470);
             this.dataGridView1.TabIndex = 26;
             // 
             // button1
@@ -236,7 +238,7 @@
             this.btnReturnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnReturnMenu.Image")));
             this.btnReturnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReturnMenu.Location = new System.Drawing.Point(664, 465);
-            this.btnReturnMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReturnMenu.Margin = new System.Windows.Forms.Padding(2);
             this.btnReturnMenu.Name = "btnReturnMenu";
             this.btnReturnMenu.Size = new System.Drawing.Size(146, 31);
             this.btnReturnMenu.TabIndex = 41;
@@ -251,7 +253,7 @@
             this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHelp.Location = new System.Drawing.Point(722, 8);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(88, 30);
             this.btnHelp.TabIndex = 43;
@@ -259,11 +261,35 @@
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
+            // Seemorebtn
+            // 
+            this.Seemorebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Seemorebtn.Location = new System.Drawing.Point(12, 501);
+            this.Seemorebtn.Name = "Seemorebtn";
+            this.Seemorebtn.Size = new System.Drawing.Size(97, 30);
+            this.Seemorebtn.TabIndex = 44;
+            this.Seemorebtn.Text = "See more";
+            this.Seemorebtn.UseVisualStyleBackColor = true;
+            this.Seemorebtn.Click += new System.EventHandler(this.Seemorebtn_Click);
+            // 
+            // RowResetbtn
+            // 
+            this.RowResetbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.RowResetbtn.Location = new System.Drawing.Point(115, 502);
+            this.RowResetbtn.Name = "RowResetbtn";
+            this.RowResetbtn.Size = new System.Drawing.Size(75, 29);
+            this.RowResetbtn.TabIndex = 45;
+            this.RowResetbtn.Text = "Resest";
+            this.RowResetbtn.UseVisualStyleBackColor = true;
+            this.RowResetbtn.Click += new System.EventHandler(this.RowResetbtn_Click);
+            // 
             // StockManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 543);
+            this.Controls.Add(this.RowResetbtn);
+            this.Controls.Add(this.Seemorebtn);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnReturnMenu);
             this.Controls.Add(this.btnLowStock);
@@ -308,5 +334,7 @@
         private System.Windows.Forms.Button btnLowStock;
         private System.Windows.Forms.Button btnReturnMenu;
         private System.Windows.Forms.Button btnHelp;
+        private System.Windows.Forms.Button Seemorebtn;
+        private System.Windows.Forms.Button RowResetbtn;
     }
 }
