@@ -35,6 +35,7 @@ namespace Project
                 department = new Department(tbDepartmentName.Text);
                 if (gm.AddDepartment(department) == true)
                 {
+                    gm.NewDepartmentLog(department);
                     MessageBox.Show("Information Added", "Department Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 gm.FillWithDepartments(dataGridView1);
@@ -53,6 +54,7 @@ namespace Project
                 {
                     if (gm.RemoveDepartment(departmentID) == true)
                     {
+                        gm.DepartmentRemovelLog(tbDepartmentName.Text);
                         MessageBox.Show("Information Removed", "Department Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     gm.FillWithDepartments(dataGridView1);
@@ -75,6 +77,7 @@ namespace Project
                 department = new Department(tbDepartmentName.Text);
                 if (gm.UpdateDepartment(department, departmentID) == true)
                 {
+                    gm.DepartmentUpdateLog(department);
                     MessageBox.Show("Information Updated", "Department Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 

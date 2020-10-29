@@ -54,29 +54,28 @@
             // 
             this.panel3.Controls.Add(this.tbDepartmentName);
             this.panel3.Controls.Add(this.lblDepartmentName);
-            this.panel3.Location = new System.Drawing.Point(401, 42);
-            this.panel3.Margin = new System.Windows.Forms.Padding(2);
+            this.panel3.Location = new System.Drawing.Point(535, 52);
+            this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(337, 77);
+            this.panel3.Size = new System.Drawing.Size(449, 95);
             this.panel3.TabIndex = 7;
             // 
             // tbDepartmentName
             // 
-            this.tbDepartmentName.Location = new System.Drawing.Point(142, 32);
-            this.tbDepartmentName.Margin = new System.Windows.Forms.Padding(2);
+            this.tbDepartmentName.Location = new System.Drawing.Point(189, 39);
+            this.tbDepartmentName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbDepartmentName.Multiline = true;
             this.tbDepartmentName.Name = "tbDepartmentName";
-            this.tbDepartmentName.Size = new System.Drawing.Size(190, 26);
+            this.tbDepartmentName.Size = new System.Drawing.Size(252, 31);
             this.tbDepartmentName.TabIndex = 0;
             // 
             // lblDepartmentName
             // 
             this.lblDepartmentName.AutoSize = true;
             this.lblDepartmentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartmentName.Location = new System.Drawing.Point(7, 35);
-            this.lblDepartmentName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDepartmentName.Location = new System.Drawing.Point(9, 43);
             this.lblDepartmentName.Name = "lblDepartmentName";
-            this.lblDepartmentName.Size = new System.Drawing.Size(129, 18);
+            this.lblDepartmentName.Size = new System.Drawing.Size(163, 24);
             this.lblDepartmentName.TabIndex = 2;
             this.lblDepartmentName.Text = "Department Name";
             // 
@@ -84,10 +83,9 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(403, 23);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(537, 28);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 17);
+            this.label3.Size = new System.Drawing.Size(185, 20);
             this.label3.TabIndex = 3;
             this.label3.Text = "Department Information";
             // 
@@ -96,13 +94,13 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 10);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(388, 346);
+            this.dataGridView1.Size = new System.Drawing.Size(517, 426);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
@@ -115,10 +113,10 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnAddDepartment);
             this.panel1.Controls.Add(this.btnRemoveaDepartment);
-            this.panel1.Location = new System.Drawing.Point(9, 362);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2);
+            this.panel1.Location = new System.Drawing.Point(12, 446);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(731, 107);
+            this.panel1.Size = new System.Drawing.Size(975, 132);
             this.panel1.TabIndex = 5;
             // 
             // btnVIewEmployeeDepartments
@@ -126,10 +124,10 @@
             this.btnVIewEmployeeDepartments.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVIewEmployeeDepartments.Image = ((System.Drawing.Image)(resources.GetObject("btnVIewEmployeeDepartments.Image")));
             this.btnVIewEmployeeDepartments.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVIewEmployeeDepartments.Location = new System.Drawing.Point(5, 61);
-            this.btnVIewEmployeeDepartments.Margin = new System.Windows.Forms.Padding(2);
+            this.btnVIewEmployeeDepartments.Location = new System.Drawing.Point(7, 75);
+            this.btnVIewEmployeeDepartments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVIewEmployeeDepartments.Name = "btnVIewEmployeeDepartments";
-            this.btnVIewEmployeeDepartments.Size = new System.Drawing.Size(280, 39);
+            this.btnVIewEmployeeDepartments.Size = new System.Drawing.Size(373, 48);
             this.btnVIewEmployeeDepartments.TabIndex = 13;
             this.btnVIewEmployeeDepartments.Text = "View Employees and departments";
             this.btnVIewEmployeeDepartments.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -142,10 +140,10 @@
             this.btnRefresh.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(289, 61);
-            this.btnRefresh.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRefresh.Location = new System.Drawing.Point(385, 75);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(89, 39);
+            this.btnRefresh.Size = new System.Drawing.Size(119, 48);
             this.btnRefresh.TabIndex = 12;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -157,10 +155,10 @@
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(361, 19);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpdate.Location = new System.Drawing.Point(481, 23);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(189, 39);
+            this.btnUpdate.Size = new System.Drawing.Size(252, 48);
             this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Update Departments";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -172,10 +170,10 @@
             this.btnReturnToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturnToMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnReturnToMenu.Image")));
             this.btnReturnToMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturnToMenu.Location = new System.Drawing.Point(554, 19);
-            this.btnReturnToMenu.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReturnToMenu.Location = new System.Drawing.Point(739, 23);
+            this.btnReturnToMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReturnToMenu.Name = "btnReturnToMenu";
-            this.btnReturnToMenu.Size = new System.Drawing.Size(131, 39);
+            this.btnReturnToMenu.Size = new System.Drawing.Size(175, 48);
             this.btnReturnToMenu.TabIndex = 8;
             this.btnReturnToMenu.Text = "Return Menu";
             this.btnReturnToMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -186,10 +184,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(2, 0);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(3, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(69, 17);
+            this.label4.Size = new System.Drawing.Size(82, 20);
             this.label4.TabIndex = 7;
             this.label4.Text = "Functions";
             // 
@@ -198,10 +195,10 @@
             this.btnAddDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddDepartment.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDepartment.Image")));
             this.btnAddDepartment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAddDepartment.Location = new System.Drawing.Point(5, 19);
-            this.btnAddDepartment.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddDepartment.Location = new System.Drawing.Point(7, 23);
+            this.btnAddDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddDepartment.Name = "btnAddDepartment";
-            this.btnAddDepartment.Size = new System.Drawing.Size(167, 39);
+            this.btnAddDepartment.Size = new System.Drawing.Size(223, 48);
             this.btnAddDepartment.TabIndex = 3;
             this.btnAddDepartment.Text = "Add Department";
             this.btnAddDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -213,10 +210,10 @@
             this.btnRemoveaDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveaDepartment.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveaDepartment.Image")));
             this.btnRemoveaDepartment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveaDepartment.Location = new System.Drawing.Point(176, 19);
-            this.btnRemoveaDepartment.Margin = new System.Windows.Forms.Padding(2);
+            this.btnRemoveaDepartment.Location = new System.Drawing.Point(235, 23);
+            this.btnRemoveaDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemoveaDepartment.Name = "btnRemoveaDepartment";
-            this.btnRemoveaDepartment.Size = new System.Drawing.Size(181, 39);
+            this.btnRemoveaDepartment.Size = new System.Drawing.Size(240, 48);
             this.btnRemoveaDepartment.TabIndex = 4;
             this.btnRemoveaDepartment.Text = "Remove Department";
             this.btnRemoveaDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -228,10 +225,10 @@
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(652, 10);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHelp.Location = new System.Drawing.Point(869, 12);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(88, 30);
+            this.btnHelp.Size = new System.Drawing.Size(117, 37);
             this.btnHelp.TabIndex = 18;
             this.btnHelp.Text = "Help";
             this.btnHelp.UseVisualStyleBackColor = true;
@@ -240,9 +237,10 @@
             // RowResetbtn
             // 
             this.RowResetbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.RowResetbtn.Location = new System.Drawing.Point(115, 474);
+            this.RowResetbtn.Location = new System.Drawing.Point(153, 583);
+            this.RowResetbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.RowResetbtn.Name = "RowResetbtn";
-            this.RowResetbtn.Size = new System.Drawing.Size(75, 29);
+            this.RowResetbtn.Size = new System.Drawing.Size(100, 36);
             this.RowResetbtn.TabIndex = 47;
             this.RowResetbtn.Text = "Resest";
             this.RowResetbtn.UseVisualStyleBackColor = true;
@@ -251,9 +249,10 @@
             // Seemorebtn
             // 
             this.Seemorebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Seemorebtn.Location = new System.Drawing.Point(12, 473);
+            this.Seemorebtn.Location = new System.Drawing.Point(16, 582);
+            this.Seemorebtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Seemorebtn.Name = "Seemorebtn";
-            this.Seemorebtn.Size = new System.Drawing.Size(97, 30);
+            this.Seemorebtn.Size = new System.Drawing.Size(129, 37);
             this.Seemorebtn.TabIndex = 46;
             this.Seemorebtn.Text = "See more";
             this.Seemorebtn.UseVisualStyleBackColor = true;
@@ -261,9 +260,9 @@
             // 
             // DepartmentManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 512);
+            this.ClientSize = new System.Drawing.Size(1000, 630);
             this.Controls.Add(this.RowResetbtn);
             this.Controls.Add(this.Seemorebtn);
             this.Controls.Add(this.label3);
@@ -271,7 +270,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "DepartmentManagement";
             this.Text = "DepartmentManagement";
             this.panel3.ResumeLayout(false);

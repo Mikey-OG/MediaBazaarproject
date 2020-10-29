@@ -669,12 +669,177 @@ namespace Project
             }
         }
 
+        
+        //TRANSACTION LOGS
+        //Admin page logs
+        public void NewEmployeeLog(Employee employee)
+        {
+            try
+            {
+                conn.Open();
+                log = $"New employee {employee.FirstName} {employee.LastName} has been added, Time of addition {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void EmployeeUpdateLog(Employee employee)
+        {
+            try
+            {
+                conn.Open();
+                log = $"Employee {employee.FirstName} {employee.LastName} records were updated, Time of update {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void EmployeeDismissalLog(Employee employee)
+        {
+            try
+            {
+                conn.Open();
+                log = $"Employee {employee.FirstName} {employee.LastName} was Dismissed, Time of dismissal {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //Role page logs
         public void NewRolesLog(Roles role)
         {
             try
             {
                 conn.Open();
                 log = $"New role {role.RoleName} has been added, Time of addition {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void RoleUpdateLog(Roles role)
+        {
+            try
+            {
+                conn.Open();
+                log = $"Role {role.RoleName} was updated, Time of update {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void RoleRemovelLog(string roleName)
+        {
+            try
+            {
+                conn.Open();
+                log = $"Role {roleName} was removed, Time of removal {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //Department Logs
+        public void NewDepartmentLog(Department department)
+        {
+            try
+            {
+                conn.Open();
+                log = $"New Department {department.DepartmentName} has been added, Time of addition {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void DepartmentUpdateLog(Department department)
+        {
+            try
+            {
+                conn.Open();
+                log = $"Department {department.DepartmentName} was updated, Time of update {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void DepartmentRemovelLog(string departmentName)
+        {
+            try
+            {
+                conn.Open();
+                log = $"Department {departmentName} was removed, Time of removal {DateTime.Now}";
                 cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
                 cmd.Parameters.AddWithValue("@Logs", log);
                 cmd.ExecuteNonQuery();

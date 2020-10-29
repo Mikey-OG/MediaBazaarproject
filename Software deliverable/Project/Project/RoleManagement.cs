@@ -67,6 +67,7 @@ namespace Project
         {
             if(gm.RemoveRole(roleID)==true)
             {
+                gm.RoleRemovelLog(tbRole.Text);
                 MessageBox.Show("Information Removed", "Role Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }     
             gm.FillWithRoles(dataGridView1);
@@ -77,6 +78,7 @@ namespace Project
             Roles role = new Roles(tbRole.Text);
             if(gm.UpdateRole(role,cmbFormAccess.Text, roleID) == true)
             {
+                gm.RoleUpdateLog(role);
                 MessageBox.Show("Information Updated", "Role Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             

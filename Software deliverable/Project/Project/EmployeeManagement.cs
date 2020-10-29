@@ -38,7 +38,6 @@ namespace Project
             FillRoleNameComboBox();
             if (validation == "Admin")
             {
-                btnOpenAdminLog.Visible = true;
                 UserValidation = "Admin";
             }
             else
@@ -250,9 +249,9 @@ namespace Project
                 {
                     if (GeneralManagement.RemoveEmployee(dismissedEmployee, UserID))
                     {
+                        GeneralManagement.EmployeeDismissalLog(dismissedEmployee);
                         GeneralManagement.FillWithEmployee(DataGridEmployees);
                         MessageBox.Show("Employee dissmissal date has been added", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                     }
                 }
                 else
@@ -305,6 +304,7 @@ namespace Project
                             if (GeneralManagement.AddEmployee(employee, department, role) == true)
                             {
                                 Email();
+                                GeneralManagement.NewEmployeeLog(employee);
                                 GeneralManagement.FillWithEmployee(DataGridEmployees);
                                 ClearFields();
                                 MessageBox.Show("Information Added", "Employee Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -361,6 +361,7 @@ namespace Project
                         {
                             if (GeneralManagement.UpdateEMployee(employee, department, role, UserID) == true)
                             {
+                                GeneralManagement.EmployeeUpdateLog(employee);
                                 GeneralManagement.FillWithEmployee(DataGridEmployees);
                                 ClearFields();
                                 MessageBox.Show("Information Added", "Employee Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
