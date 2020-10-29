@@ -12,6 +12,8 @@ namespace Project
 {
     class StockManager
     {
+        public int MaxRows = 10;
+        public string LastSQL = $"";
         MySqlConnection conn = new MySqlConnection("server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;");
         MySqlDataAdapter adpt;
         DataTable dt;
@@ -21,7 +23,9 @@ namespace Project
             try
             {
                 conn.Open();
-                adpt = new MySqlDataAdapter("SELECT * FROM stockinventory", conn);
+                string sql = $"SELECT * FROM stockinventory LIMIT {MaxRows};";
+                LastSQL = sql;
+                adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
                 datagrid.DataSource = dt;
@@ -37,7 +41,8 @@ namespace Project
             try
             {
                 string searchresult = textbox.Text;
-                string sql = $"SELECT * FROM stockinventory WHERE Name LIKE '%{searchresult}%';";
+                string sql = $"SELECT * FROM stockinventory WHERE Name LIKE '%{searchresult}%' LIMIT {MaxRows};";
+                LastSQL = sql;
                 conn.Open();
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
@@ -62,7 +67,8 @@ namespace Project
                 string sql2 = $"INSERT INTO stockinventory(`ProductID`) VALUES ('{maxID + 1}')";
                 MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
                 cmd2.ExecuteScalar();
-                string sql3 = $"SELECT * FROM stockinventory WHERE ProductID = {maxID + 1};";
+                string sql3 = $"SELECT * FROM stockinventory WHERE ProductID = {maxID + 1} LIMIT {MaxRows};";
+                LastSQL = sql3;
                 adpt = new MySqlDataAdapter(sql3, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -161,7 +167,8 @@ namespace Project
             try
             {
                 conn.Open();
-                string sql = "SELECT * FROM stockinventory;";
+                string sql = $"SELECT * FROM stockinventory LIMIT {MaxRows};";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -199,7 +206,8 @@ namespace Project
         public void EmptyStock(DataGridView datagrid)
         {
             conn.Open();
-            string sql = $"SELECT * FROM stockinventory WHERE Quantity <= 10 OR Quantity IS NULL;";
+            string sql = $"SELECT * FROM stockinventory WHERE Quantity <= 10 OR Quantity IS NULL LIMIT {MaxRows};";
+            LastSQL = sql;
             try
             {
                 adpt = new MySqlDataAdapter(sql, conn);
@@ -256,7 +264,7 @@ namespace Project
             try
             {
                 conn.Open();
-                string query = "SELECT DISTINCT Category FROM stockinventory;";
+                string query = $"SELECT DISTINCT Category FROM stockinventory LIMIT {MaxRows};";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 MySqlDataReader dr;
                 dr = cmd.ExecuteReader();
@@ -282,7 +290,8 @@ namespace Project
                 MySqlCommand cmd = new MySqlCommand(sql1, conn);
                 Object result = cmd.ExecuteScalar();
                 int ID = Convert.ToInt32(result);
-                string sql = $"SELECT * FROM schedules WHERE UserID = {result};";
+                string sql = $"SELECT * FROM schedules WHERE UserID = {result} LIMIT {MaxRows};";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -302,7 +311,8 @@ namespace Project
             try
             {
                 conn.Open();
-                string sql = "SELECT `UserID`, `FirstName`, `LastName`,  `Salary` FROM `employees` WHERE `FormAccess` = 'ShopPersonnelForm' and `DepartmentName`= 'Sales';";
+                string sql = $"SELECT `UserID`, `FirstName`, `LastName`,  `Salary` FROM `employees` WHERE `FormAccess` = 'ShopPersonnelForm' and `DepartmentName`= 'Sales' LIMIT {MaxRows};";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -333,6 +343,31 @@ namespace Project
             {
                 MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void SeeMore(DataGridView a, string sql)
+        {
+            conn.Open();
+            int indexOfSteam = LastSQL.IndexOf("LIMIT");
+            if (indexOfSteam >= 0)
+                sql = sql.Remove(indexOfSteam);
+            MaxRows += 10;
+            LastSQL = LastSQL +" LIMIT "+ MaxRows+";";
+            try
+            {
+                adpt = new MySqlDataAdapter(sql, conn);
+                dt = new DataTable();
+                adpt.Fill(dt);
+                a.DataSource = dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             finally
             {
                 conn.Close();

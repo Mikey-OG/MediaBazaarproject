@@ -20,6 +20,7 @@ namespace Project
         public StockManagement(string validation)
         {
             InitializeComponent();
+            this.dataGridView1.DataError += this.DataGridView1_DataError;
             stock.FillTable(dataGridView1);
             if(validation == "Admin")
             {
@@ -29,6 +30,11 @@ namespace Project
             {
                 btnReturnMenu.Visible = false;
             }
+        }
+       
+        private void DataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs anError)
+        {
+            MessageBox.Show("Error\n" + "Invalid Input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void SearchBtn_Click(object sender, EventArgs e)
@@ -103,5 +109,17 @@ namespace Project
                 "3)Click on the value you want to increase/decrease and press a button. " +
                 "4)Refresh to see the original table. ", "Help", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
+
+        private void Seemorebtn_Click(object sender, EventArgs e)
+        {
+            stock.SeeMore(dataGridView1, stock.LastSQL);
+        }
+
+        private void RowResetbtn_Click(object sender, EventArgs e)
+        {
+            stock.MaxRows = 0;
+            stock.SeeMore(dataGridView1, stock.LastSQL);
+        }
+
     }
 }

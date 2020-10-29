@@ -69,6 +69,7 @@
             this.tbUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnOpenAdminLog = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnViewDismissedEmployees = new System.Windows.Forms.Button();
             this.btnReturnMenu = new System.Windows.Forms.Button();
@@ -77,6 +78,8 @@
             this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.RowResetbtn = new System.Windows.Forms.Button();
+            this.Seemorebtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridEmployees)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -152,7 +155,7 @@
             this.btnSearchForEmployee.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnSearchForEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchForEmployee.Image")));
             this.btnSearchForEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchForEmployee.Location = new System.Drawing.Point(22, 591);
+            this.btnSearchForEmployee.Location = new System.Drawing.Point(21, 591);
             this.btnSearchForEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearchForEmployee.Name = "btnSearchForEmployee";
             this.btnSearchForEmployee.Size = new System.Drawing.Size(216, 39);
@@ -307,7 +310,7 @@
             // tbCity
             // 
             this.tbCity.Location = new System.Drawing.Point(257, 50);
-            this.tbCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCity.Margin = new System.Windows.Forms.Padding(4);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(224, 22);
             this.tbCity.TabIndex = 23;
@@ -497,6 +500,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnOpenAdminLog);
             this.groupBox1.Controls.Add(this.btnRefresh);
             this.groupBox1.Controls.Add(this.btnViewDismissedEmployees);
             this.groupBox1.Controls.Add(this.btnReturnMenu);
@@ -514,6 +518,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Functions";
             // 
+            // btnOpenAdminLog
+            // 
+            this.btnOpenAdminLog.Location = new System.Drawing.Point(865, 86);
+            this.btnOpenAdminLog.Name = "btnOpenAdminLog";
+            this.btnOpenAdminLog.Size = new System.Drawing.Size(190, 46);
+            this.btnOpenAdminLog.TabIndex = 8;
+            this.btnOpenAdminLog.Text = "Open Admin Log";
+            this.btnOpenAdminLog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOpenAdminLog.UseVisualStyleBackColor = true;
+            this.btnOpenAdminLog.Click += new System.EventHandler(this.btnOpenAdminLog_Click);
+            // 
             // btnRefresh
             // 
             this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -523,9 +538,10 @@
             this.btnRefresh.Location = new System.Drawing.Point(304, 82);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(133, 50);
+            this.btnRefresh.Size = new System.Drawing.Size(125, 50);
             this.btnRefresh.TabIndex = 7;
             this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRefresh.UseVisualStyleBackColor = true;
             this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
@@ -565,7 +581,7 @@
             this.btnClearFields.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClearFields.Image = ((System.Drawing.Image)(resources.GetObject("btnClearFields.Image")));
             this.btnClearFields.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClearFields.Location = new System.Drawing.Point(682, 21);
+            this.btnClearFields.Location = new System.Drawing.Point(683, 21);
             this.btnClearFields.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnClearFields.Name = "btnClearFields";
             this.btnClearFields.Size = new System.Drawing.Size(195, 50);
@@ -633,11 +649,37 @@
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
+            // RowResetbtn
+            // 
+            this.RowResetbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.RowResetbtn.Location = new System.Drawing.Point(145, 678);
+            this.RowResetbtn.Margin = new System.Windows.Forms.Padding(4);
+            this.RowResetbtn.Name = "RowResetbtn";
+            this.RowResetbtn.Size = new System.Drawing.Size(100, 36);
+            this.RowResetbtn.TabIndex = 47;
+            this.RowResetbtn.Text = "Resest";
+            this.RowResetbtn.UseVisualStyleBackColor = true;
+            this.RowResetbtn.Click += new System.EventHandler(this.RowResetbtn_Click);
+            // 
+            // Seemorebtn
+            // 
+            this.Seemorebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Seemorebtn.Location = new System.Drawing.Point(8, 677);
+            this.Seemorebtn.Margin = new System.Windows.Forms.Padding(4);
+            this.Seemorebtn.Name = "Seemorebtn";
+            this.Seemorebtn.Size = new System.Drawing.Size(129, 37);
+            this.Seemorebtn.TabIndex = 46;
+            this.Seemorebtn.Text = "See more";
+            this.Seemorebtn.UseVisualStyleBackColor = true;
+            this.Seemorebtn.Click += new System.EventHandler(this.Seemorebtn_Click);
+            // 
             // Employee_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1683, 733);
+            this.ClientSize = new System.Drawing.Size(1683, 734);
+            this.Controls.Add(this.RowResetbtn);
+            this.Controls.Add(this.Seemorebtn);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
@@ -703,5 +745,8 @@
         private System.Windows.Forms.Button btnSearchForEmployee;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tbUserFirstName;
+        private System.Windows.Forms.Button RowResetbtn;
+        private System.Windows.Forms.Button Seemorebtn;
+        private System.Windows.Forms.Button btnOpenAdminLog;
     }
 }

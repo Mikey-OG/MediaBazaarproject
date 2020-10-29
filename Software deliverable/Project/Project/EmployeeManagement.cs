@@ -9,22 +9,28 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
+using System.Net;
+using System.Net.Mail;
 using System.Runtime.CompilerServices;
 
 namespace Project
 {
     public partial class Employee_Management : Form
     {
+        static string to;
+        static Employee_Management em;
         string UserValidation;
         Employee employee;
         Department department;
         Roles role;
+        private StockManager stock = new StockManager();
         GeneralManagement GeneralManagement;
         MySqlConnection conn = new MySqlConnection("server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;");
         private int UserID;
         public Employee_Management(string validation)
         {
             InitializeComponent();
+            em = this;
             GeneralManagement = new GeneralManagement();
             GeneralManagement.FillWithEmployee(DataGridEmployees);
             FillDepartmentComboBox();
@@ -40,6 +46,42 @@ namespace Project
                 {
                     UserValidation = "EmployeeManager";
                 }
+            }
+        }
+
+        //email
+        public void Email()
+        {
+            string from, pass;
+            MailMessage message;
+            SmtpClient smtp;
+
+            try
+            {
+                message = new MailMessage();
+                to = tbEmail.Text;
+                message.Subject = "Log in Deatils";
+                message.Body = $"Welcome to Media Baazar, Your username is {tbUserName.Text} and your password is {tbPassword.Text} " +
+                    $"please ensure you change your password after your first log in Thank you " +
+                    $"Signed Management";
+                from = "mikosuntuyi@gmail.com";
+                pass = "Mikoko@02";
+                message.To.Add(to);
+                message.From = new MailAddress(from);
+                smtp = new SmtpClient("smtp.gmail.com");
+                smtp.EnableSsl = true;
+                smtp.Port = 587;
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Credentials = new NetworkCredential(from, pass);
+                smtp.Send(message);
+            }
+            catch (SmtpException se)
+            {
+                MessageBox.Show("Error\n" + se.Message, "Authentication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Authentication Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -261,6 +303,7 @@ namespace Project
                         {
                             if (GeneralManagement.AddEmployee(employee, department, role) == true)
                             {
+                                Email();
                                 GeneralManagement.FillWithEmployee(DataGridEmployees);
                                 ClearFields();
                                 MessageBox.Show("Information Added", "Employee Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -385,6 +428,23 @@ namespace Project
             {
                 MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Seemorebtn_Click(object sender, EventArgs e)
+        {
+            stock.SeeMore(DataGridEmployees,GeneralManagement.LastSQL);
+        }
+
+        private void RowResetbtn_Click(object sender, EventArgs e)
+        {
+            stock.MaxRows = 0;
+            stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL);
+        }
+
+        private void btnOpenAdminLog_Click(object sender, EventArgs e)
+        {
+            AdminLog adminlog = new AdminLog();
+            adminlog.Show();
         }
     }
 }

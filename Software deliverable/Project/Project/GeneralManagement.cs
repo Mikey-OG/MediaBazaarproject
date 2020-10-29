@@ -15,7 +15,9 @@ namespace Project
     public class GeneralManagement : IEmployeeManage, IStockManage
     {
         MySqlConnection conn = new MySqlConnection("server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;");
+        private Encryption Cry = new Encryption();
         MySqlDataAdapter adpt;
+        public string LastSQL = $"";
         DataTable dt;
         DataSet ds = new DataSet();
         MySqlCommand cmd;
@@ -25,7 +27,9 @@ namespace Project
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("SELECT * FROM employees WHERE Password = '" + employee.GetPassword() + "'", conn);
+                string sql = "SELECT * FROM employees WHERE Password = '" + employee.GetPassword() + "'";
+                cmd = new MySqlCommand(sql, conn);
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adpt.Fill(ds);
@@ -40,7 +44,8 @@ namespace Project
                     cmd = new MySqlCommand("INSERT INTO employees (UserName, Email, Password, FirstName, LastName, DateOfBirth, PhoneNumber, Nationality, City, ZipCode, Adress, Salary, DateOfHire, DepartmentName, FormAccess, RoleName) VALUES(@UserName, @Email, @Password, @FirstName, @LastName, @DateOfBirth, @PhoneNumber, @Nationality, @City, @ZipCode, @Adress, @Salary, @DateOfHire, @DepartmentName, @FormAccess, @RoleName)", conn);
                     cmd.Parameters.AddWithValue("@UserName", employee.UserName);
                     cmd.Parameters.AddWithValue("@Email", employee.GetEmail());
-                    cmd.Parameters.AddWithValue("@Password", employee.GetPassword());
+                    string pass = Cry.Encrypt(employee.GetPassword());
+                    cmd.Parameters.AddWithValue("@Password", pass);
                     cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
                     cmd.Parameters.AddWithValue("@LastName", employee.LastName);
                     cmd.Parameters.AddWithValue("@DateOfBirth", employee.DateOfBirth);
@@ -73,7 +78,9 @@ namespace Project
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("SELECT * FROM roles WHERE RoleName = '" + role.RoleName+ "'", conn);
+                string sql = "SELECT * FROM roles WHERE RoleName = '" + role.RoleName + "'";
+                LastSQL = sql;
+                cmd = new MySqlCommand(sql, conn);
                 adpt = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adpt.Fill(ds);
@@ -108,7 +115,9 @@ namespace Project
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("SELECT * FROM departments WHERE DepartMentName = '" + department.DepartmentName + "'", conn);
+                string sql = "SELECT * FROM departments WHERE DepartMentName = '" + department.DepartmentName + "'";
+                LastSQL = sql;
+                cmd = new MySqlCommand(sql, conn);
                 adpt = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adpt.Fill(ds);
@@ -167,7 +176,9 @@ namespace Project
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("SELECT * FROM employees WHERE Password = '" + employee.GetPassword() + "'" ,conn);
+                string sql = "SELECT * FROM employees WHERE Password = '" + employee.GetPassword() + "'";
+                LastSQL = sql;
+                cmd = new MySqlCommand(sql,conn);
                 adpt = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adpt.Fill(ds);
@@ -197,7 +208,9 @@ namespace Project
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("SELECT * FROM roles WHERE RoleName = '" + role.RoleName + "'", conn);
+                string sql = "SELECT * FROM roles WHERE RoleName = '" + role.RoleName + "'";
+                LastSQL = sql;
+                cmd = new MySqlCommand(sql, conn);
                 adpt = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adpt.Fill(ds);
@@ -230,7 +243,9 @@ namespace Project
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("SELECT * FROM departments WHERE DepartMentName = '" + department.DepartmentName + "'", conn);
+                string sql = "SELECT * FROM departments WHERE DepartMentName = '" + department.DepartmentName + "'";
+                LastSQL = sql;
+                cmd = new MySqlCommand(sql, conn);
                 adpt = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adpt.Fill(ds);
@@ -263,6 +278,7 @@ namespace Project
             {
                 conn.Open();
                 string sql = "SELECT * FROM employees";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -279,7 +295,9 @@ namespace Project
             try
             {
                 conn.Open();
-                adpt = new MySqlDataAdapter("SELECT * FROM roles", conn);
+                string sql = "SELECT * FROM roles";
+                LastSQL = sql;
+                adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
                 dataGrid.DataSource = dt;
@@ -297,7 +315,9 @@ namespace Project
             try
             {
                 conn.Open();
-                adpt = new MySqlDataAdapter("SELECT * FROM departments", conn);
+                string sql = "SELECT * FROM departments";
+                LastSQL = sql;
+                adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
                 dataGrid.DataSource = dt;
@@ -314,7 +334,9 @@ namespace Project
             try
             {
                 conn.Open();
-                adpt = new MySqlDataAdapter($"SELECT * FROM schedules WHERE (UserID='{UserID}')", conn);
+                string sql = $"SELECT * FROM schedules WHERE (UserID='{UserID}')";
+                LastSQL = sql;
+                adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
                 dataGrid.DataSource = dt;
@@ -332,6 +354,7 @@ namespace Project
             {
                 conn.Open();
                 string sql = "SELECT * FROM stockinventory";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -352,7 +375,9 @@ namespace Project
                 int index = WorkDate.IndexOf(" ");
                 string Workdate = WorkDate.Substring(0, index);
                 conn.Open();
-                adpt = new MySqlDataAdapter($"SELECT * FROM schedules WHERE WorkDate='{Workdate}' AND TimeShift='{ShiftTime}'", conn);
+                string sql = $"SELECT * FROM schedules WHERE WorkDate='{Workdate}' AND TimeShift='{ShiftTime}'";
+                LastSQL = sql;
+                adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
                 dataGrid.DataSource = dt;
@@ -371,6 +396,7 @@ namespace Project
             {
                 conn.Open();
                 string sql = "SELECT UserID, FirstName, LastName, DepartmentName, RoleName FROM employees WHERE DismissalDate IS NULL";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -389,6 +415,7 @@ namespace Project
             {
                 conn.Open();
                 string sql = "SELECT * FROM employeeS WHERE DismissalDate IS NOT NULL";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -407,6 +434,7 @@ namespace Project
             {
                 conn.Open();
                 string sql = "SELECT E.UserName, D.DepartmentName FROM employees AS E INNER JOIN departments D ON E.DepartmentName = D.DepartmentName";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -425,6 +453,7 @@ namespace Project
             {
                 conn.Open();
                 string sql = "SELECT E.Username, R.RoleName, R.FormAccess FROM employees As E INNER JOIN roles As R ON E.RoleName = R.RoleName";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -553,7 +582,7 @@ namespace Project
                     conn.Open();
                     cmd = new MySqlCommand($"UPDATE employees SET Password= @Password WHERE UserName = @UserName", conn);
                     cmd.Parameters.AddWithValue("@UserName", UserName);
-                    cmd.Parameters.AddWithValue("@Password", Password);
+                    cmd.Parameters.AddWithValue("@Password", Cry.Encrypt(Password));
                     cmd.ExecuteNonQuery();
                 }
                 else
@@ -591,7 +620,9 @@ namespace Project
             try
             {
                 conn.Open();
-                adpt = new MySqlDataAdapter($"SELECT * FROM employees WHERE FirstName LIKE '%{name}%';", conn);
+                string sql = $"SELECT * FROM employees WHERE FirstName LIKE '%{name}%';";
+                LastSQL = sql;
+                adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
                 dataGrid.DataSource = dt;
@@ -621,6 +652,11 @@ namespace Project
                 }
             }
             return false;
+        }
+
+        public void NewRolesLog()
+        {
+
         }
     }
 }

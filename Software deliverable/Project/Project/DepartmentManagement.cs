@@ -14,6 +14,7 @@ namespace Project
     {
         string UserValidation;
         GeneralManagement gm;
+        private StockManager stock = new StockManager();
         Department department;
         int departmentID;
         public DepartmentManagement(string validation)
@@ -146,6 +147,17 @@ namespace Project
             {
                 MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void RowResetbtn_Click(object sender, EventArgs e)
+        {
+            stock.MaxRows = 0;
+            stock.SeeMore(dataGridView1, gm.LastSQL);
+        }
+
+        private void Seemorebtn_Click(object sender, EventArgs e)
+        {
+            stock.SeeMore(dataGridView1, gm.LastSQL);
         }
     }
 }
