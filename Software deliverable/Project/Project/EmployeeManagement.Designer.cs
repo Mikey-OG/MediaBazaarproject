@@ -156,6 +156,9 @@
             this.btnSearchForEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchForEmployee.Image")));
             this.btnSearchForEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Osuntuyi-Michael
             this.btnSearchForEmployee.Location = new System.Drawing.Point(21, 591);
             this.btnSearchForEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 =======
@@ -323,9 +326,12 @@
 <<<<<<< HEAD
             this.tbCity.Location = new System.Drawing.Point(257, 50);
             this.tbCity.Margin = new System.Windows.Forms.Padding(4);
+<<<<<<< HEAD
 =======
             this.tbCity.Location = new System.Drawing.Point(193, 41);
 >>>>>>> adc9317121b1826198fec1fbd5a90813062f41be
+=======
+>>>>>>> Osuntuyi-Michael
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(169, 20);
             this.tbCity.TabIndex = 23;
@@ -566,10 +572,14 @@
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnRefresh.Name = "btnRefresh";
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.btnRefresh.Size = new System.Drawing.Size(125, 50);
 =======
             this.btnRefresh.Size = new System.Drawing.Size(100, 41);
 >>>>>>> adc9317121b1826198fec1fbd5a90813062f41be
+=======
+            this.btnRefresh.Size = new System.Drawing.Size(125, 50);
+>>>>>>> Osuntuyi-Michael
             this.btnRefresh.TabIndex = 7;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -613,6 +623,9 @@
             this.btnClearFields.Image = ((System.Drawing.Image)(resources.GetObject("btnClearFields.Image")));
             this.btnClearFields.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Osuntuyi-Michael
             this.btnClearFields.Location = new System.Drawing.Point(683, 21);
             this.btnClearFields.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 =======
@@ -689,15 +702,21 @@
             // 
             this.RowResetbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Osuntuyi-Michael
             this.RowResetbtn.Location = new System.Drawing.Point(145, 678);
             this.RowResetbtn.Margin = new System.Windows.Forms.Padding(4);
             this.RowResetbtn.Name = "RowResetbtn";
             this.RowResetbtn.Size = new System.Drawing.Size(100, 36);
+<<<<<<< HEAD
 =======
             this.RowResetbtn.Location = new System.Drawing.Point(109, 551);
             this.RowResetbtn.Name = "RowResetbtn";
             this.RowResetbtn.Size = new System.Drawing.Size(75, 29);
 >>>>>>> adc9317121b1826198fec1fbd5a90813062f41be
+=======
+>>>>>>> Osuntuyi-Michael
             this.RowResetbtn.TabIndex = 47;
             this.RowResetbtn.Text = "Resest";
             this.RowResetbtn.UseVisualStyleBackColor = true;
@@ -707,15 +726,21 @@
             // 
             this.Seemorebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Osuntuyi-Michael
             this.Seemorebtn.Location = new System.Drawing.Point(8, 677);
             this.Seemorebtn.Margin = new System.Windows.Forms.Padding(4);
             this.Seemorebtn.Name = "Seemorebtn";
             this.Seemorebtn.Size = new System.Drawing.Size(129, 37);
+<<<<<<< HEAD
 =======
             this.Seemorebtn.Location = new System.Drawing.Point(6, 550);
             this.Seemorebtn.Name = "Seemorebtn";
             this.Seemorebtn.Size = new System.Drawing.Size(97, 30);
 >>>>>>> adc9317121b1826198fec1fbd5a90813062f41be
+=======
+>>>>>>> Osuntuyi-Michael
             this.Seemorebtn.TabIndex = 46;
             this.Seemorebtn.Text = "See more";
             this.Seemorebtn.UseVisualStyleBackColor = true;
@@ -726,10 +751,14 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 <<<<<<< HEAD
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1683, 734);
 =======
             this.ClientSize = new System.Drawing.Size(1262, 596);
 >>>>>>> adc9317121b1826198fec1fbd5a90813062f41be
+=======
+            this.ClientSize = new System.Drawing.Size(1683, 734);
+>>>>>>> Osuntuyi-Michael
             this.Controls.Add(this.RowResetbtn);
             this.Controls.Add(this.Seemorebtn);
             this.Controls.Add(this.btnHelp);
@@ -800,8 +829,11 @@
         private System.Windows.Forms.Button RowResetbtn;
         private System.Windows.Forms.Button Seemorebtn;
 <<<<<<< HEAD
+<<<<<<< HEAD
         private System.Windows.Forms.Button btnOpenAdminLog;
 =======
 >>>>>>> adc9317121b1826198fec1fbd5a90813062f41be
+=======
+>>>>>>> Osuntuyi-Michael
     }
 }

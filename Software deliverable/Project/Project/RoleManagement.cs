@@ -57,6 +57,7 @@ namespace Project
             Roles role = new Roles(tbRole.Text);
             if (gm.AddRole(role, cmbFormAccess.Text)==true)
             {
+                gm.NewRolesLog(role);
                 MessageBox.Show("Information Added", "Role Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             gm.FillWithRoles(dataGridView1);

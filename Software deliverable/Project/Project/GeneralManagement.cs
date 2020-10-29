@@ -14,11 +14,13 @@ namespace Project
 {
     public class GeneralManagement : IEmployeeManage, IStockManage
     {
+        private string log;
         MySqlConnection conn = new MySqlConnection("server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;");
         private Encryption Cry = new Encryption();
         MySqlDataAdapter adpt;
         public string LastSQL = $"";
         DataTable dt;
+        MySqlDataReader dr;
         DataSet ds = new DataSet();
         MySqlCommand cmd;
 
@@ -92,7 +94,7 @@ namespace Project
                 }
                 else
                 {
-                    cmd = new MySqlCommand("INSERT INTO roles (RoleName, FormAccess) VALUES(@RoleName, @FormAccess)", conn);
+                    cmd = new MySqlCommand("INSERT INTO roles (RoleName, FormAccess, LogTime_Date) VALUES(@RoleName, @FormAccess, CURRENT_TIMESTAMP)", conn);
                     cmd.Parameters.AddWithValue("@RoleName", role.RoleName);
                     cmd.Parameters.AddWithValue("@FormAccess", fileAccess);
                     cmd.ExecuteNonQuery();
@@ -466,6 +468,18 @@ namespace Project
             finally { conn.Close(); }
         }
 
+        public void FillWithLogs(ListBox listbox)
+        {
+            conn.Open();
+            string sql = "SELECT * FROM logs";
+            cmd = new MySqlCommand(sql, conn);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                listbox.Items.Add(dr["Logs"].ToString());
+            }
+
+        }
         public bool RemoveEmployee(Employee employee, int UserID)
         {
             try
@@ -535,6 +549,24 @@ namespace Project
                 MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
+        }
+
+        public bool RemoveScheduleMessageBoxYesNo()
+        {
+            DialogResult dialog = MessageBox.Show("Are you sure you want to remove this schedule",
+             "Dismiss", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialog == DialogResult.Yes)
+            {
+                return true;
+            }
+            else
+            {
+                if (dialog == DialogResult.No)
+                {
+                    return false;
+                }
+            }
+            return false;
         }
 
         public bool DissmissMessageBoxYesNo()
@@ -636,22 +668,25 @@ namespace Project
                 conn.Close();
             }
         }
-        public bool RemoveScheduleMessageBoxYesNo()
+
+        public void NewRolesLog(Roles role)
         {
-            DialogResult dialog = MessageBox.Show("Are you sure you want to remove this schedule",
-             "Dismiss", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dialog == DialogResult.Yes)
+            try
             {
-                return true;
+                conn.Open();
+                log = $"New role {role.RoleName} has been added, Time of addition {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
             }
-            else
+            catch (Exception ex)
             {
-                if (dialog == DialogResult.No)
-                {
-                    return false;
-                }
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            return false;
+            finally
+            {
+                conn.Close();
+            }
         }
 
         public void NewRolesLog()

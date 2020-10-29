@@ -38,6 +38,7 @@ namespace Project
             FillRoleNameComboBox();
             if (validation == "Admin")
             {
+                btnOpenAdminLog.Visible = true;
                 UserValidation = "Admin";
             }
             else
@@ -441,6 +442,7 @@ namespace Project
             stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         private void btnOpenAdminLog_Click(object sender, EventArgs e)
         {
@@ -449,5 +451,7 @@ namespace Project
         }
 =======
 >>>>>>> adc9317121b1826198fec1fbd5a90813062f41be
+=======
+>>>>>>> Osuntuyi-Michael
     }
 }
