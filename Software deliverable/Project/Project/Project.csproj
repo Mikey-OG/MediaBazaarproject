@@ -82,6 +82,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
+    <Compile Include="AdminLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminLog.Designer.cs">
+      <DependentUpon>AdminLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Department.cs" />
     <Compile Include="DepartmentManagement.cs">
       <SubType>Form</SubType>
@@ -147,6 +153,9 @@
       <DependentUpon>StockInput.cs</DependentUpon>
     </Compile>
     <Compile Include="Variables.cs" />
+    <EmbeddedResource Include="AdminLog.resx">
+      <DependentUpon>AdminLog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DepartmentManagement.resx">
       <DependentUpon>DepartmentManagement.cs</DependentUpon>
     </EmbeddedResource>

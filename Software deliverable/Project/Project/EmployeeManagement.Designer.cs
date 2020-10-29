@@ -77,6 +77,7 @@
             this.btnUpdateEmployee = new System.Windows.Forms.Button();
             this.btnAddEmployee = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.btnOpenAdminLog = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridEmployees)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -307,7 +308,7 @@
             // tbCity
             // 
             this.tbCity.Location = new System.Drawing.Point(257, 50);
-            this.tbCity.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tbCity.Margin = new System.Windows.Forms.Padding(4);
             this.tbCity.Name = "tbCity";
             this.tbCity.Size = new System.Drawing.Size(224, 22);
             this.tbCity.TabIndex = 23;
@@ -497,6 +498,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnOpenAdminLog);
             this.groupBox1.Controls.Add(this.btnRefresh);
             this.groupBox1.Controls.Add(this.btnViewDismissedEmployees);
             this.groupBox1.Controls.Add(this.btnReturnMenu);
@@ -633,6 +635,17 @@
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
+            // btnOpenAdminLog
+            // 
+            this.btnOpenAdminLog.Location = new System.Drawing.Point(856, 95);
+            this.btnOpenAdminLog.Name = "btnOpenAdminLog";
+            this.btnOpenAdminLog.Size = new System.Drawing.Size(199, 37);
+            this.btnOpenAdminLog.TabIndex = 8;
+            this.btnOpenAdminLog.Text = "Open Admin Log";
+            this.btnOpenAdminLog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnOpenAdminLog.UseVisualStyleBackColor = true;
+            this.btnOpenAdminLog.Click += new System.EventHandler(this.btnOpenAdminLog_Click);
+            // 
             // Employee_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -703,5 +716,6 @@
         private System.Windows.Forms.Button btnSearchForEmployee;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.TextBox tbUserFirstName;
+        private System.Windows.Forms.Button btnOpenAdminLog;
     }
 }

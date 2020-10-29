@@ -85,7 +85,7 @@ namespace Project
                 }
                 else
                 {
-                    cmd = new MySqlCommand("INSERT INTO roles (RoleName, FormAccess) VALUES(@RoleName, @FormAccess)", conn);
+                    cmd = new MySqlCommand("INSERT INTO roles (RoleName, FormAccess, LogTIme&Date) VALUES(@RoleName, @FormAccess, CURRENT_TIMESTAMP)", conn);
                     cmd.Parameters.AddWithValue("@RoleName", role.RoleName);
                     cmd.Parameters.AddWithValue("@FormAccess", fileAccess);
                     cmd.ExecuteNonQuery();
@@ -621,6 +621,11 @@ namespace Project
                 }
             }
             return false;
+        }
+
+        public void NewRolesLog()
+        {
+
         }
     }
 }

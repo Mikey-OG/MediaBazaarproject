@@ -427,5 +427,11 @@ namespace Project
                 MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnOpenAdminLog_Click(object sender, EventArgs e)
+        {
+            AdminLog adminlog = new AdminLog();
+            adminlog.Show();
+        }
     }
 }
