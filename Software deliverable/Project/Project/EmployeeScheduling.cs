@@ -14,6 +14,7 @@ namespace Project
     {
         string UserValidation;
         GeneralManagement GeneralManagement;
+        private StockManager stock = new StockManager();
         private int UserID, ScheduleID;
         public EmployeeScheduling(string validation)
         {
@@ -94,6 +95,17 @@ namespace Project
                 " 2) The remove button requires user to select the schedule row he wants to delete" +
                 " 3) The search button requeres user ti input the required data in the combobox and calender" +
                 " 4) Return menu button takes user back to the meu button where he can slect a new form to access", "Help", MessageBoxButtons.OK, MessageBoxIcon.Question);
+        }
+
+        private void Seemorebtn_Click(object sender, EventArgs e)
+        {
+            stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL);
+        }
+
+        private void RowResetbtn_Click(object sender, EventArgs e)
+        {
+            stock.MaxRows = 0;
+            stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL);
         }
 
         private void btnAddSchedule_Click(object sender, EventArgs e)
