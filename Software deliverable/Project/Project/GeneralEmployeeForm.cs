@@ -109,5 +109,11 @@ namespace Project
         {
             MessageBox.Show("Here you can access specified forms by clicking on their corresponding button", "Help", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
+
+        private void btnAdminLog_Click(object sender, EventArgs e)
+        {
+            AdminLog adminlog = new AdminLog();
+            adminlog.Show();
+        }
     }
 }

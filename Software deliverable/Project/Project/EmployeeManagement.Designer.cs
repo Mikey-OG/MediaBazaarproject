@@ -69,7 +69,6 @@
             this.tbUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnOpenAdminLog = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnViewDismissedEmployees = new System.Windows.Forms.Button();
             this.btnReturnMenu = new System.Windows.Forms.Button();
@@ -500,7 +499,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnOpenAdminLog);
             this.groupBox1.Controls.Add(this.btnRefresh);
             this.groupBox1.Controls.Add(this.btnViewDismissedEmployees);
             this.groupBox1.Controls.Add(this.btnReturnMenu);
@@ -517,17 +515,6 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Functions";
-            // 
-            // btnOpenAdminLog
-            // 
-            this.btnOpenAdminLog.Location = new System.Drawing.Point(865, 86);
-            this.btnOpenAdminLog.Name = "btnOpenAdminLog";
-            this.btnOpenAdminLog.Size = new System.Drawing.Size(190, 46);
-            this.btnOpenAdminLog.TabIndex = 8;
-            this.btnOpenAdminLog.Text = "Open Admin Log";
-            this.btnOpenAdminLog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnOpenAdminLog.UseVisualStyleBackColor = true;
-            this.btnOpenAdminLog.Click += new System.EventHandler(this.btnOpenAdminLog_Click);
             // 
             // btnRefresh
             // 
@@ -747,6 +734,5 @@
         private System.Windows.Forms.TextBox tbUserFirstName;
         private System.Windows.Forms.Button RowResetbtn;
         private System.Windows.Forms.Button Seemorebtn;
-        private System.Windows.Forms.Button btnOpenAdminLog;
     }
 }

@@ -38,6 +38,7 @@ namespace Project
             FillRoleNameComboBox();
             if (validation == "Admin")
             {
+                btnOpenAdminLog.Visible = true;
                 UserValidation = "Admin";
             }
             else
@@ -439,12 +440,6 @@ namespace Project
         {
             stock.MaxRows = 0;
             stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL);
-        }
-
-        private void btnOpenAdminLog_Click(object sender, EventArgs e)
-        {
-            AdminLog adminlog = new AdminLog();
-            adminlog.Show();
         }
     }
 }
