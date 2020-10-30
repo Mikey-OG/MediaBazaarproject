@@ -179,7 +179,24 @@ namespace Project
                 }
                 else
                 {
-                    cmd = new MySqlCommand("UPDATE employees SET UserName= '" + employee.UserName + "', Email= '" + employee.GetEmail() + "', Password= '" + employee.GetPassword() + "', FirstName= '" + employee.FirstName + "', LastName= '" + employee.LastName + "', DateOfBirth= '" + employee.DateOfBirth + "', PhoneNumber= '" + employee.GetPhoneNo() + "', Nationality= '" + employee.Nationality + "', City= '" + employee.City + "', ZipCode= '" + employee.Zipcode + "', Adress= '" + employee.Address + "', Salary= '" + employee.Salary + "', DateOfHire= '" + employee.HireDate + "', DepartmentName= '" + department.DepartmentName + "', FormAccess= '" + employee.FormAccess + "', RoleName= '" + role.RoleName + "' WHERE UserID ='" + UserID + "';", conn);
+                    cmd = new MySqlCommand("UPDATE employees SET UserName= @UserName, Email= @Email, Password= @Password, FirstName= @FirstName, LastName= @LastName, DateOfBirth= @DateOfBirth, PhoneNumber= @PhoneNumber, Nationality= @Nationality, City= @City, ZipCode= @ZipCode, Adress= @Adress, Salary= @Salary, DateOfHire= @DateOfHire, DepartmentName= @DepartmentName, FormAccess= @FormAccess, RoleName= @RoleName WHERE UserID =@UserID;", conn);
+                    cmd.Parameters.AddWithValue("@UserName", employee.UserName);
+                    cmd.Parameters.AddWithValue("@Email", employee.GetEmail());
+                    cmd.Parameters.AddWithValue("@Password", employee.GetPassword());
+                    cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
+                    cmd.Parameters.AddWithValue("@LastName", employee.LastName);
+                    cmd.Parameters.AddWithValue("@DateOfBirth", employee.DateOfBirth);
+                    cmd.Parameters.AddWithValue("@PhoneNumber", employee.GetPhoneNo());
+                    cmd.Parameters.AddWithValue("@Nationality", employee.Nationality);
+                    cmd.Parameters.AddWithValue("@City", employee.City);
+                    cmd.Parameters.AddWithValue("@ZipCode", employee.Zipcode);
+                    cmd.Parameters.AddWithValue("@Adress", employee.Address);
+                    cmd.Parameters.AddWithValue("@Salary", employee.Salary);
+                    cmd.Parameters.AddWithValue("@DateOfHire", employee.HireDate);
+                    cmd.Parameters.AddWithValue("@DepartmentName", department.DepartmentName);
+                    cmd.Parameters.AddWithValue("@FormAccess", employee.FormAccess);
+                    cmd.Parameters.AddWithValue("@RoleName", role.RoleName);
+                    cmd.Parameters.AddWithValue("@UserID", UserID);
                     cmd.ExecuteNonQuery();
                     return true;
                 }          
