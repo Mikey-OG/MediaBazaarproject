@@ -876,6 +876,6 @@ namespace Project
         }
 
         //Stock Logs
-        public void NewStockLog()
+    
     }
 }
