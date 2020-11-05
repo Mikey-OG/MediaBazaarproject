@@ -774,6 +774,7 @@ namespace Project
             }
         }
 
+<<<<<<< HEAD
         public void RoleUpdateLog(Roles role)
         {
             try
@@ -877,5 +878,11 @@ namespace Project
 
         //Stock Logs
     
+=======
+        public void NewRolesLog()
+        {
+
+        }
+>>>>>>> Smirnov-Kirill
     }
 }

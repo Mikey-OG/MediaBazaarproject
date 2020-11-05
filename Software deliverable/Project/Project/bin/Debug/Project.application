@@ -14,7 +14,15 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+<<<<<<< HEAD
         <dsig:DigestValue>wEuEm30UJ/gDe92X9CzDbg4FjRMyBhHJ6gHXzpP46P8=</dsig:DigestValue>
+=======
+<<<<<<< HEAD
+        <dsig:DigestValue>4a0wzjAUOjila0Si/7EikdLmPV2m5/REpFzTWf+ecGg=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>2UPUj7fM59FCG/bpf2quoRys0IWYeSOMfx24hyGNPZU=</dsig:DigestValue>
+>>>>>>> Osuntuyi-Michael
+>>>>>>> Smirnov-Kirill
       </hash>
     </dependentAssembly>
   </dependency>
