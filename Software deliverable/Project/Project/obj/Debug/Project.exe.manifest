@@ -129,17 +129,23 @@
   <dependency>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Project.exe" size="293856">
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> Smirnov-Kirill
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Project.exe" size="286688">
 =======
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Project.exe" size="289760">
 >>>>>>> Osuntuyi-Michael
+<<<<<<< HEAD
 >>>>>>> Smirnov-Kirill
 =======
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Project.exe" size="294880">
 >>>>>>> Moonen-Luc
+=======
+>>>>>>> Smirnov-Kirill
       <assemblyIdentity name="Project" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
@@ -149,13 +155,17 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <dsig:DigestValue>Gml2OofeOnj0FH0+cy/M/uhM8lXwvU/i6w4ry7QJEnY=</dsig:DigestValue>
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> Smirnov-Kirill
         <dsig:DigestValue>G0e79EnsmtDNOiQxsWBkia4PDW6F2LfAD76r7FI44mk=</dsig:DigestValue>
 =======
         <dsig:DigestValue>BYoespi11w3923NTxv+dWvswS2FH3hrtrgMhq95VACI=</dsig:DigestValue>
 >>>>>>> Osuntuyi-Michael
+<<<<<<< HEAD
 >>>>>>> Smirnov-Kirill
 =======
         <dsig:DigestValue>gXhrML/mtjZFAzgfYG1gxnvpUaJn4KzT93kQcKsGY40=</dsig:DigestValue>
@@ -166,6 +176,8 @@
         <dsig:DigestValue>gXhrML/mtjZFAzgfYG1gxnvpUaJn4KzT93kQcKsGY40=</dsig:DigestValue>
 >>>>>>> Osuntuyi-Michael
 >>>>>>> Ebowusim-Michael
+=======
+>>>>>>> Smirnov-Kirill
       </hash>
     </dependentAssembly>
   </dependency>

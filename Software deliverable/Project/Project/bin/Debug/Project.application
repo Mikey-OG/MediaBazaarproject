@@ -17,13 +17,17 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <dsig:DigestValue>KgIgJzW0vUOEQNl3QKRV9mWN2fqhFgV4oZ7zbPf2v4k=</dsig:DigestValue>
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> Smirnov-Kirill
         <dsig:DigestValue>4a0wzjAUOjila0Si/7EikdLmPV2m5/REpFzTWf+ecGg=</dsig:DigestValue>
 =======
         <dsig:DigestValue>2UPUj7fM59FCG/bpf2quoRys0IWYeSOMfx24hyGNPZU=</dsig:DigestValue>
 >>>>>>> Osuntuyi-Michael
+<<<<<<< HEAD
 >>>>>>> Smirnov-Kirill
 =======
         <dsig:DigestValue>wEuEm30UJ/gDe92X9CzDbg4FjRMyBhHJ6gHXzpP46P8=</dsig:DigestValue>
@@ -34,6 +38,8 @@
         <dsig:DigestValue>wEuEm30UJ/gDe92X9CzDbg4FjRMyBhHJ6gHXzpP46P8=</dsig:DigestValue>
 >>>>>>> Osuntuyi-Michael
 >>>>>>> Ebowusim-Michael
+=======
+>>>>>>> Smirnov-Kirill
       </hash>
     </dependentAssembly>
   </dependency>

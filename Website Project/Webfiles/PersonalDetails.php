@@ -15,7 +15,11 @@ require_once ('NavigationBar.php');
 <div class = "message">
 <h3>Important Message</h3>
 <p>if you notice errors in your personal details<br>
+<<<<<<< HEAD
 	click on the link to<a href="UpdateForm.php"> update your persnal details</a>
+=======
+	click on the link to<a href="#"> update your persnal details</a>
+>>>>>>> Smirnov-Kirill
 </p>
 </div>
 </main>
