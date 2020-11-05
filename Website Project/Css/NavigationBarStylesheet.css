@@ -21,7 +21,16 @@ nav a:active {
 	background-color: #4CAF50;
     color: white;
 }
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+div {
+=======
 .navusername {
+>>>>>>> Osuntuyi-Michael
+=======
+.navusername {
+>>>>>>> Smirnov-Kirill
 	float: right;
     color: white;
     text-align: center;
@@ -31,6 +40,12 @@ nav a:active {
 
 .navigationBarRight {
 	float: right;
+<<<<<<< HEAD
+<<<<<<< HEAD
+}
+=======
+=======
+>>>>>>> Smirnov-Kirill
 }
 
 
@@ -39,3 +54,7 @@ nav a:active {
 
 
 
+<<<<<<< HEAD
+>>>>>>> Osuntuyi-Michael
+=======
+>>>>>>> Smirnov-Kirill
