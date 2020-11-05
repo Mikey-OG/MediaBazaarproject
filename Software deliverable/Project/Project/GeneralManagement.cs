@@ -178,7 +178,7 @@ namespace Project
             try
             {
                 conn.Open();
-                string sql = "SELECT * FROM employees WHERE Password = '" + employee.GetPassword() + "'";
+                string sql = "SELECT * FROM employees WHERE Password = '" + Cry.Encrypt(employee.GetPassword()) + "'";
                 LastSQL = sql;
                 cmd = new MySqlCommand(sql,conn);
                 adpt = new MySqlDataAdapter(cmd);
@@ -192,7 +192,7 @@ namespace Project
                 }
                 else
                 {
-                    cmd = new MySqlCommand("UPDATE employees SET UserName= '" + employee.UserName + "', Email= '" + employee.GetEmail() + "', Password= '" + employee.GetPassword() + "', FirstName= '" + employee.FirstName + "', LastName= '" + employee.LastName + "', DateOfBirth= '" + employee.DateOfBirth + "', PhoneNumber= '" + employee.GetPhoneNo() + "', Nationality= '" + employee.Nationality + "', City= '" + employee.City + "', ZipCode= '" + employee.Zipcode + "', Adress= '" + employee.Address + "', Salary= '" + employee.Salary + "', DateOfHire= '" + employee.HireDate + "', DepartmentName= '" + department.DepartmentName + "', FormAccess= '" + employee.FormAccess + "', RoleName= '" + role.RoleName + "' WHERE UserID ='" + UserID + "';", conn);
+                    cmd = new MySqlCommand("UPDATE employees SET UserName= '" + employee.UserName + "', Email= '" + employee.GetEmail() + "', Password= '" + Cry.Encrypt(employee.GetPassword()) + "', FirstName= '" + employee.FirstName + "', LastName= '" + employee.LastName + "', DateOfBirth= '" + employee.DateOfBirth + "', PhoneNumber= '" + employee.GetPhoneNo() + "', Nationality= '" + employee.Nationality + "', City= '" + employee.City + "', ZipCode= '" + employee.Zipcode + "', Adress= '" + employee.Address + "', Salary= '" + employee.Salary + "', DateOfHire= '" + employee.HireDate + "', DepartmentName= '" + department.DepartmentName + "', FormAccess= '" + employee.FormAccess + "', RoleName= '" + role.RoleName + "' WHERE UserID ='" + UserID + "';", conn);
                     cmd.ExecuteNonQuery();
                     return true;
                 }          
