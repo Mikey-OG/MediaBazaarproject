@@ -148,6 +148,7 @@
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <dsig:DigestValue>Gml2OofeOnj0FH0+cy/M/uhM8lXwvU/i6w4ry7QJEnY=</dsig:DigestValue>
 =======
 <<<<<<< HEAD
@@ -159,6 +160,12 @@
 =======
         <dsig:DigestValue>gXhrML/mtjZFAzgfYG1gxnvpUaJn4KzT93kQcKsGY40=</dsig:DigestValue>
 >>>>>>> Moonen-Luc
+=======
+        <dsig:DigestValue>xvIMtc/zOKgt2wCHqHghFrp10urip7TWlBsp46hCBnI=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>gXhrML/mtjZFAzgfYG1gxnvpUaJn4KzT93kQcKsGY40=</dsig:DigestValue>
+>>>>>>> Osuntuyi-Michael
+>>>>>>> Ebowusim-Michael
       </hash>
     </dependentAssembly>
   </dependency>
