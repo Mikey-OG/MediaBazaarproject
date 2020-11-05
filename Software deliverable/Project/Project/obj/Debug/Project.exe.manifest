@@ -128,6 +128,7 @@
   </dependency>
   <dependency>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Project.exe" size="293856">
 =======
 <<<<<<< HEAD
@@ -136,12 +137,16 @@
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Project.exe" size="289760">
 >>>>>>> Osuntuyi-Michael
 >>>>>>> Smirnov-Kirill
+=======
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Project.exe" size="294880">
+>>>>>>> Moonen-Luc
       <assemblyIdentity name="Project" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+<<<<<<< HEAD
 <<<<<<< HEAD
         <dsig:DigestValue>Gml2OofeOnj0FH0+cy/M/uhM8lXwvU/i6w4ry7QJEnY=</dsig:DigestValue>
 =======
@@ -151,6 +156,9 @@
         <dsig:DigestValue>BYoespi11w3923NTxv+dWvswS2FH3hrtrgMhq95VACI=</dsig:DigestValue>
 >>>>>>> Osuntuyi-Michael
 >>>>>>> Smirnov-Kirill
+=======
+        <dsig:DigestValue>gXhrML/mtjZFAzgfYG1gxnvpUaJn4KzT93kQcKsGY40=</dsig:DigestValue>
+>>>>>>> Moonen-Luc
       </hash>
     </dependentAssembly>
   </dependency>
