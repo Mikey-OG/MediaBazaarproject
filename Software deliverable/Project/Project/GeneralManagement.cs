@@ -14,9 +14,13 @@ namespace Project
 {
     public class GeneralManagement : IEmployeeManage, IStockManage
     {
+        private string log;
         MySqlConnection conn = new MySqlConnection("server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;");
+        private Encryption Cry = new Encryption();
         MySqlDataAdapter adpt;
+        public string LastSQL = $"";
         DataTable dt;
+        MySqlDataReader dr;
         DataSet ds = new DataSet();
         MySqlCommand cmd;
 
@@ -25,7 +29,9 @@ namespace Project
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("SELECT * FROM employees WHERE Password = '" + employee.GetPassword() + "'", conn);
+                string sql = "SELECT * FROM employees WHERE Password = '" + employee.GetPassword() + "'";
+                cmd = new MySqlCommand(sql, conn);
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adpt.Fill(ds);
@@ -40,7 +46,8 @@ namespace Project
                     cmd = new MySqlCommand("INSERT INTO employees (UserName, Email, Password, FirstName, LastName, DateOfBirth, PhoneNumber, Nationality, City, ZipCode, Adress, Salary, DateOfHire, DepartmentName, FormAccess, RoleName) VALUES(@UserName, @Email, @Password, @FirstName, @LastName, @DateOfBirth, @PhoneNumber, @Nationality, @City, @ZipCode, @Adress, @Salary, @DateOfHire, @DepartmentName, @FormAccess, @RoleName)", conn);
                     cmd.Parameters.AddWithValue("@UserName", employee.UserName);
                     cmd.Parameters.AddWithValue("@Email", employee.GetEmail());
-                    cmd.Parameters.AddWithValue("@Password", employee.GetPassword());
+                    string pass = Cry.Encrypt(employee.GetPassword());
+                    cmd.Parameters.AddWithValue("@Password", pass);
                     cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
                     cmd.Parameters.AddWithValue("@LastName", employee.LastName);
                     cmd.Parameters.AddWithValue("@DateOfBirth", employee.DateOfBirth);
@@ -73,7 +80,10 @@ namespace Project
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("SELECT * FROM roles WHERE RoleName = '" + role.RoleName+ "'", conn);
+                string sql = "SELECT * FROM roles WHERE RoleName = @RoleName";
+                LastSQL = sql;
+                cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@RoleName", role.RoleName);
                 adpt = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adpt.Fill(ds);
@@ -85,7 +95,7 @@ namespace Project
                 }
                 else
                 {
-                    cmd = new MySqlCommand("INSERT INTO roles (RoleName, FormAccess) VALUES(@RoleName, @FormAccess)", conn);
+                    cmd = new MySqlCommand("INSERT INTO roles (RoleName, FormAccess, LogTime_Date) VALUES(@RoleName, @FormAccess, CURRENT_TIMESTAMP)", conn);
                     cmd.Parameters.AddWithValue("@RoleName", role.RoleName);
                     cmd.Parameters.AddWithValue("@FormAccess", fileAccess);
                     cmd.ExecuteNonQuery();
@@ -108,7 +118,10 @@ namespace Project
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("SELECT * FROM departments WHERE DepartMentName = '" + department.DepartmentName + "'", conn);
+                string sql = "SELECT * FROM departments WHERE DepartMentName = @Department";
+                LastSQL = sql;
+                cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@Department", department.DepartmentName);
                 adpt = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adpt.Fill(ds);
@@ -167,7 +180,9 @@ namespace Project
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("SELECT * FROM employees WHERE Password = '" + employee.GetPassword() + "'" ,conn);
+                string sql = "SELECT * FROM employees WHERE Password = '" + employee.GetPassword() + "'";
+                LastSQL = sql;
+                cmd = new MySqlCommand(sql,conn);
                 adpt = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adpt.Fill(ds);
@@ -214,7 +229,10 @@ namespace Project
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("SELECT * FROM roles WHERE RoleName = '" + role.RoleName + "'", conn);
+                string sql = "SELECT * FROM roles WHERE RoleName = @RoleName";
+                LastSQL = sql;
+                cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@RoleName", role.RoleName);
                 adpt = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adpt.Fill(ds);
@@ -247,7 +265,10 @@ namespace Project
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("SELECT * FROM departments WHERE DepartMentName = '" + department.DepartmentName + "'", conn);
+                string sql = "SELECT * FROM departments WHERE DepartMentName = @DepartmentName";
+                LastSQL = sql;
+                cmd = new MySqlCommand(sql, conn);
+                cmd.Parameters.AddWithValue("@DepartmentName", department.DepartmentName);
                 adpt = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adpt.Fill(ds);
@@ -280,6 +301,7 @@ namespace Project
             {
                 conn.Open();
                 string sql = "SELECT * FROM employees";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -296,7 +318,9 @@ namespace Project
             try
             {
                 conn.Open();
-                adpt = new MySqlDataAdapter("SELECT * FROM roles", conn);
+                string sql = "SELECT * FROM roles";
+                LastSQL = sql;
+                adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
                 dataGrid.DataSource = dt;
@@ -314,7 +338,9 @@ namespace Project
             try
             {
                 conn.Open();
-                adpt = new MySqlDataAdapter("SELECT * FROM departments", conn);
+                string sql = "SELECT * FROM departments";
+                LastSQL = sql;
+                adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
                 dataGrid.DataSource = dt;
@@ -331,7 +357,9 @@ namespace Project
             try
             {
                 conn.Open();
-                adpt = new MySqlDataAdapter($"SELECT * FROM schedules WHERE (UserID='{UserID}')", conn);
+                string sql = $"SELECT * FROM schedules WHERE (UserID='{UserID}')";
+                LastSQL = sql;
+                adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
                 dataGrid.DataSource = dt;
@@ -349,6 +377,7 @@ namespace Project
             {
                 conn.Open();
                 string sql = "SELECT * FROM stockinventory";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -369,7 +398,9 @@ namespace Project
                 int index = WorkDate.IndexOf(" ");
                 string Workdate = WorkDate.Substring(0, index);
                 conn.Open();
-                adpt = new MySqlDataAdapter($"SELECT * FROM schedules WHERE WorkDate='{Workdate}' AND TimeShift='{ShiftTime}'", conn);
+                string sql = $"SELECT * FROM schedules WHERE WorkDate='{Workdate}' AND TimeShift='{ShiftTime}'";
+                LastSQL = sql;
+                adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
                 dataGrid.DataSource = dt;
@@ -388,6 +419,7 @@ namespace Project
             {
                 conn.Open();
                 string sql = "SELECT UserID, FirstName, LastName, DepartmentName, RoleName FROM employees WHERE DismissalDate IS NULL";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -406,6 +438,7 @@ namespace Project
             {
                 conn.Open();
                 string sql = "SELECT * FROM employeeS WHERE DismissalDate IS NOT NULL";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -424,6 +457,7 @@ namespace Project
             {
                 conn.Open();
                 string sql = "SELECT E.UserName, D.DepartmentName FROM employees AS E INNER JOIN departments D ON E.DepartmentName = D.DepartmentName";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -442,6 +476,7 @@ namespace Project
             {
                 conn.Open();
                 string sql = "SELECT E.Username, R.RoleName, R.FormAccess FROM employees As E INNER JOIN roles As R ON E.RoleName = R.RoleName";
+                LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
@@ -454,6 +489,18 @@ namespace Project
             finally { conn.Close(); }
         }
 
+        public void FillWithLogs(ListBox listbox)
+        {
+            conn.Open();
+            string sql = "SELECT * FROM logs";
+            cmd = new MySqlCommand(sql, conn);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                listbox.Items.Add(dr["Logs"].ToString());
+            }
+
+        }
         public bool RemoveEmployee(Employee employee, int UserID)
         {
             try
@@ -525,6 +572,24 @@ namespace Project
             finally { conn.Close(); }
         }
 
+        public bool RemoveScheduleMessageBoxYesNo()
+        {
+            DialogResult dialog = MessageBox.Show("Are you sure you want to remove this schedule",
+             "Dismiss", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialog == DialogResult.Yes)
+            {
+                return true;
+            }
+            else
+            {
+                if (dialog == DialogResult.No)
+                {
+                    return false;
+                }
+            }
+            return false;
+        }
+
         public bool DissmissMessageBoxYesNo()
         {
             DialogResult dialog = MessageBox.Show("Are you sure you want to dismiss this employee",
@@ -570,7 +635,7 @@ namespace Project
                     conn.Open();
                     cmd = new MySqlCommand($"UPDATE employees SET Password= @Password WHERE UserName = @UserName", conn);
                     cmd.Parameters.AddWithValue("@UserName", UserName);
-                    cmd.Parameters.AddWithValue("@Password", Password);
+                    cmd.Parameters.AddWithValue("@Password", Cry.Encrypt(Password));
                     cmd.ExecuteNonQuery();
                 }
                 else
@@ -608,7 +673,9 @@ namespace Project
             try
             {
                 conn.Open();
-                adpt = new MySqlDataAdapter($"SELECT * FROM employees WHERE FirstName LIKE '%{name}%';", conn);
+                string sql = $"SELECT * FROM employees WHERE FirstName LIKE '%{name}%';";
+                LastSQL = sql;
+                adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
                 adpt.Fill(dt);
                 dataGrid.DataSource = dt;
@@ -622,22 +689,193 @@ namespace Project
                 conn.Close();
             }
         }
-        public bool RemoveScheduleMessageBoxYesNo()
+
+        
+        //TRANSACTION LOGS
+        //Admin page logs
+        public void NewEmployeeLog(Employee employee)
         {
-            DialogResult dialog = MessageBox.Show("Are you sure you want to remove this schedule",
-             "Dismiss", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dialog == DialogResult.Yes)
+            try
             {
-                return true;
+                conn.Open();
+                log = $"New employee {employee.FirstName} {employee.LastName} has been added, Time of addition {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
             }
-            else
+            catch (Exception ex)
             {
-                if (dialog == DialogResult.No)
-                {
-                    return false;
-                }
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            return false;
+            finally
+            {
+                conn.Close();
+            }
         }
+
+        public void EmployeeUpdateLog(Employee employee)
+        {
+            try
+            {
+                conn.Open();
+                log = $"Employee {employee.FirstName} {employee.LastName} records were updated, Time of update {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void EmployeeDismissalLog(Employee employee)
+        {
+            try
+            {
+                conn.Open();
+                log = $"Employee {employee.FirstName} {employee.LastName} was Dismissed, Time of dismissal {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //Role page logs
+        public void NewRolesLog(Roles role)
+        {
+            try
+            {
+                conn.Open();
+                log = $"New role {role.RoleName} has been added, Time of addition {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void RoleUpdateLog(Roles role)
+        {
+            try
+            {
+                conn.Open();
+                log = $"Role {role.RoleName} was updated, Time of update {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void RoleRemovelLog(string roleName)
+        {
+            try
+            {
+                conn.Open();
+                log = $"Role {roleName} was removed, Time of removal {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //Department Logs
+        public void NewDepartmentLog(Department department)
+        {
+            try
+            {
+                conn.Open();
+                log = $"New Department {department.DepartmentName} has been added, Time of addition {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void DepartmentUpdateLog(Department department)
+        {
+            try
+            {
+                conn.Open();
+                log = $"Department {department.DepartmentName} was updated, Time of update {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public void DepartmentRemovelLog(string departmentName)
+        {
+            try
+            {
+                conn.Open();
+                log = $"Department {departmentName} was removed, Time of removal {DateTime.Now}";
+                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
+                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        //Stock Logs
+    
     }
 }

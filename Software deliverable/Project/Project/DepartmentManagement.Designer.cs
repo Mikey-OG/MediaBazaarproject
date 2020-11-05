@@ -43,6 +43,8 @@
             this.btnAddDepartment = new System.Windows.Forms.Button();
             this.btnRemoveaDepartment = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.RowResetbtn = new System.Windows.Forms.Button();
+            this.Seemorebtn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -114,7 +116,7 @@
             this.panel1.Location = new System.Drawing.Point(12, 446);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(879, 132);
+            this.panel1.Size = new System.Drawing.Size(975, 132);
             this.panel1.TabIndex = 5;
             // 
             // btnVIewEmployeeDepartments
@@ -125,7 +127,7 @@
             this.btnVIewEmployeeDepartments.Location = new System.Drawing.Point(7, 75);
             this.btnVIewEmployeeDepartments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnVIewEmployeeDepartments.Name = "btnVIewEmployeeDepartments";
-            this.btnVIewEmployeeDepartments.Size = new System.Drawing.Size(345, 48);
+            this.btnVIewEmployeeDepartments.Size = new System.Drawing.Size(373, 48);
             this.btnVIewEmployeeDepartments.TabIndex = 13;
             this.btnVIewEmployeeDepartments.Text = "View Employees and departments";
             this.btnVIewEmployeeDepartments.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -138,7 +140,7 @@
             this.btnRefresh.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnRefresh.Image = ((System.Drawing.Image)(resources.GetObject("btnRefresh.Image")));
             this.btnRefresh.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRefresh.Location = new System.Drawing.Point(358, 75);
+            this.btnRefresh.Location = new System.Drawing.Point(385, 75);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
             this.btnRefresh.Size = new System.Drawing.Size(119, 48);
@@ -153,10 +155,10 @@
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
             this.btnUpdate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUpdate.Location = new System.Drawing.Point(438, 23);
+            this.btnUpdate.Location = new System.Drawing.Point(481, 23);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(234, 48);
+            this.btnUpdate.Size = new System.Drawing.Size(252, 48);
             this.btnUpdate.TabIndex = 9;
             this.btnUpdate.Text = "Update Departments";
             this.btnUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -168,7 +170,7 @@
             this.btnReturnToMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturnToMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnReturnToMenu.Image")));
             this.btnReturnToMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturnToMenu.Location = new System.Drawing.Point(678, 23);
+            this.btnReturnToMenu.Location = new System.Drawing.Point(739, 23);
             this.btnReturnToMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReturnToMenu.Name = "btnReturnToMenu";
             this.btnReturnToMenu.Size = new System.Drawing.Size(175, 48);
@@ -196,7 +198,7 @@
             this.btnAddDepartment.Location = new System.Drawing.Point(7, 23);
             this.btnAddDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddDepartment.Name = "btnAddDepartment";
-            this.btnAddDepartment.Size = new System.Drawing.Size(196, 48);
+            this.btnAddDepartment.Size = new System.Drawing.Size(223, 48);
             this.btnAddDepartment.TabIndex = 3;
             this.btnAddDepartment.Text = "Add Department";
             this.btnAddDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -208,10 +210,10 @@
             this.btnRemoveaDepartment.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRemoveaDepartment.Image = ((System.Drawing.Image)(resources.GetObject("btnRemoveaDepartment.Image")));
             this.btnRemoveaDepartment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRemoveaDepartment.Location = new System.Drawing.Point(209, 23);
+            this.btnRemoveaDepartment.Location = new System.Drawing.Point(235, 23);
             this.btnRemoveaDepartment.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemoveaDepartment.Name = "btnRemoveaDepartment";
-            this.btnRemoveaDepartment.Size = new System.Drawing.Size(223, 48);
+            this.btnRemoveaDepartment.Size = new System.Drawing.Size(240, 48);
             this.btnRemoveaDepartment.TabIndex = 4;
             this.btnRemoveaDepartment.Text = "Remove Department";
             this.btnRemoveaDepartment.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -232,11 +234,37 @@
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
+            // RowResetbtn
+            // 
+            this.RowResetbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.RowResetbtn.Location = new System.Drawing.Point(153, 583);
+            this.RowResetbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RowResetbtn.Name = "RowResetbtn";
+            this.RowResetbtn.Size = new System.Drawing.Size(100, 36);
+            this.RowResetbtn.TabIndex = 47;
+            this.RowResetbtn.Text = "Resest";
+            this.RowResetbtn.UseVisualStyleBackColor = true;
+            this.RowResetbtn.Click += new System.EventHandler(this.RowResetbtn_Click);
+            // 
+            // Seemorebtn
+            // 
+            this.Seemorebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.Seemorebtn.Location = new System.Drawing.Point(16, 582);
+            this.Seemorebtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Seemorebtn.Name = "Seemorebtn";
+            this.Seemorebtn.Size = new System.Drawing.Size(129, 37);
+            this.Seemorebtn.TabIndex = 46;
+            this.Seemorebtn.Text = "See more";
+            this.Seemorebtn.UseVisualStyleBackColor = true;
+            this.Seemorebtn.Click += new System.EventHandler(this.Seemorebtn_Click);
+            // 
             // DepartmentManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 589);
+            this.ClientSize = new System.Drawing.Size(1000, 630);
+            this.Controls.Add(this.RowResetbtn);
+            this.Controls.Add(this.Seemorebtn);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.panel3);
@@ -271,5 +299,7 @@
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Button btnVIewEmployeeDepartments;
+        private System.Windows.Forms.Button RowResetbtn;
+        private System.Windows.Forms.Button Seemorebtn;
     }
 }

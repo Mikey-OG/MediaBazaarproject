@@ -15,6 +15,7 @@ namespace Project
 {
     public partial class Form1 : Form
     {
+        private Encryption Cry = new Encryption();
         string connStr = "server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;";
         MySqlDataAdapter adpt;
         DataTable dt;
@@ -34,7 +35,8 @@ namespace Project
             {
                 try
                 {
-                    string sql = "SELECT * FROM employees WHERE Username = '" + tbUserName.Text.Trim() + "' and Password = '" + tbPassword.Text.Trim() + "' and FormAccess = 'AdminForm';";
+                    string pass = Cry.Encrypt(tbPassword.Text.Trim());
+                    string sql = "SELECT * FROM employees WHERE Username = '" + tbUserName.Text.Trim() + "' and Password = '" + pass + "' and FormAccess = 'AdminForm';";
                     adpt = new MySqlDataAdapter(sql, conn);
                     dt = new DataTable();
                     adpt.Fill(dt);
@@ -50,7 +52,7 @@ namespace Project
                     }
                     else
                     {
-                        string sql2 = "SELECT * FROM employees WHERE Username = '" + tbUserName.Text.Trim() + "' and Password = '" + tbPassword.Text.Trim() + "' and FormAccess = 'EmployeeForm';";
+                        string sql2 = "SELECT * FROM employees WHERE Username = '" + tbUserName.Text.Trim() + "' and Password = '" + pass + "' and FormAccess = 'EmployeeForm';";
                         adpt = new MySqlDataAdapter(sql2, conn);
                         dt = new DataTable();
                         adpt.Fill(dt);
@@ -66,7 +68,7 @@ namespace Project
                         }
                         else
                         {
-                            string sql3 = "SELECT * FROM employees WHERE Username = '" + tbUserName.Text.Trim() + "' and Password = '" + tbPassword.Text.Trim() + "' and FormAccess = 'StockManagerForm';";
+                            string sql3 = "SELECT * FROM employees WHERE Username = '" + tbUserName.Text.Trim() + "' and Password = '" + pass + "' and FormAccess = 'StockManagerForm';";
                             adpt = new MySqlDataAdapter(sql3, conn);
                             dt = new DataTable();
                             adpt.Fill(dt);
@@ -82,7 +84,7 @@ namespace Project
                             }
                             else
                             {
-                                string sql4 = "SELECT * FROM employees WHERE Username = '" + tbUserName.Text.Trim() + "' and Password = '" + tbPassword.Text.Trim() + "' and FormAccess = 'ShopPersonnelForm';";
+                                string sql4 = "SELECT * FROM employees WHERE Username = '" + tbUserName.Text.Trim() + "' and Password = '" + pass + "' and FormAccess = 'ShopPersonnelForm';";
                                 adpt = new MySqlDataAdapter(sql4, conn);
                                 dt = new DataTable();
                                 adpt.Fill(dt);

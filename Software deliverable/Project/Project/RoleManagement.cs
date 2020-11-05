@@ -16,6 +16,7 @@ namespace Project
     {
         string UserValidation;
         GeneralManagement gm;
+        private StockManager stock = new StockManager();
         MySqlConnection conn = new MySqlConnection("server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;");
         int roleID;
         public RoleManagement(string validation)
@@ -56,6 +57,7 @@ namespace Project
             Roles role = new Roles(tbRole.Text);
             if (gm.AddRole(role, cmbFormAccess.Text)==true)
             {
+                gm.NewRolesLog(role);
                 MessageBox.Show("Information Added", "Role Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             gm.FillWithRoles(dataGridView1);
@@ -65,6 +67,7 @@ namespace Project
         {
             if(gm.RemoveRole(roleID)==true)
             {
+                gm.RoleRemovelLog(tbRole.Text);
                 MessageBox.Show("Information Removed", "Role Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }     
             gm.FillWithRoles(dataGridView1);
@@ -75,6 +78,7 @@ namespace Project
             Roles role = new Roles(tbRole.Text);
             if(gm.UpdateRole(role,cmbFormAccess.Text, roleID) == true)
             {
+                gm.RoleUpdateLog(role);
                 MessageBox.Show("Information Updated", "Role Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
@@ -135,6 +139,17 @@ namespace Project
             {
                 MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void Seemorebtn_Click(object sender, EventArgs e)
+        {
+            stock.SeeMore(dataGridView1, gm.LastSQL);
+        }
+
+        private void RowResetbtn_Click(object sender, EventArgs e)
+        {
+            stock.MaxRows = 0;
+            stock.SeeMore(dataGridView1, gm.LastSQL);
         }
     }
 }

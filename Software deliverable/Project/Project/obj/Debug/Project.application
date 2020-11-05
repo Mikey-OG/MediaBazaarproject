@@ -14,7 +14,11 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+<<<<<<< HEAD
         <dsig:DigestValue>L4T0wwwxaS8OBCC0VMzZo/UpQ1APc4WTzT8jTU792GY=</dsig:DigestValue>
+=======
+        <dsig:DigestValue>wEuEm30UJ/gDe92X9CzDbg4FjRMyBhHJ6gHXzpP46P8=</dsig:DigestValue>
+>>>>>>> Osuntuyi-Michael
       </hash>
     </dependentAssembly>
   </dependency>
