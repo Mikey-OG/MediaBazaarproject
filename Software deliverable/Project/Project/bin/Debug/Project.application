@@ -15,6 +15,12 @@
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        <dsig:DigestValue>wEuEm30UJ/gDe92X9CzDbg4FjRMyBhHJ6gHXzpP46P8=</dsig:DigestValue>
+=======
+>>>>>>> Osuntuyi-Michael
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -28,6 +34,7 @@
         <dsig:DigestValue>2UPUj7fM59FCG/bpf2quoRys0IWYeSOMfx24hyGNPZU=</dsig:DigestValue>
 >>>>>>> Osuntuyi-Michael
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Smirnov-Kirill
 =======
         <dsig:DigestValue>wEuEm30UJ/gDe92X9CzDbg4FjRMyBhHJ6gHXzpP46P8=</dsig:DigestValue>
@@ -39,6 +46,8 @@
 >>>>>>> Osuntuyi-Michael
 >>>>>>> Ebowusim-Michael
 =======
+=======
+>>>>>>> Osuntuyi-Michael
 >>>>>>> Smirnov-Kirill
       </hash>
     </dependentAssembly>
