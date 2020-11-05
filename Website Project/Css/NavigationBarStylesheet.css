@@ -21,8 +21,12 @@ nav a:active {
 	background-color: #4CAF50;
     color: white;
 }
+<<<<<<< HEAD
 
 div {
+=======
+.navusername {
+>>>>>>> Osuntuyi-Michael
 	float: right;
     color: white;
     text-align: center;
@@ -32,4 +36,15 @@ div {
 
 .navigationBarRight {
 	float: right;
+<<<<<<< HEAD
 }
+=======
+}
+
+
+
+
+
+
+
+>>>>>>> Osuntuyi-Michael
