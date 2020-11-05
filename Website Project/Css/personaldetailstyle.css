@@ -1,0 +1,24 @@
+.personalDetails{
+    font-size: 28px;
+    margin: auto;
+    width:50%;
+    text-align: center;
+
+}
+
+.personalDetails h1{
+    font-style: italic;
+}
+
+.message h3{
+ font-size: 26px;
+ color:green;
+}
+
+.message p{
+ font-size: 23px;
+}
+
+.message a:hover{
+color:green;
+}
