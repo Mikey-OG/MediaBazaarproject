@@ -7,22 +7,8 @@
 
 <nav>
 	<a href="#">Schedule</a>
-<<<<<<< HEAD
-	<a href="PersonalDetails.php">Personal Details</a>
-	<a href="#">Stock</a>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-	<a href="#">Personal Details</a>
-=======
-	<a href="PersonalDetails.php">Personal Details</a>
->>>>>>> Osuntuyi-Michael
-	<a href="#">Stock</a>
-=======
 	<a href="PersonalDetails.php">Personal Details</a>
 	<a href="stock.php">Stock</a>
->>>>>>> Smirnov-Kirill
->>>>>>> Smirnov-Kirill
 	<?php 
 		if ($_SESSION['FormAccess'] == "StockManagerForm" || $_SESSION['FormAccess'] == "AdminForm") { echo "<a href='#'>Stock Management</a>"; } 
 	?>
@@ -32,18 +18,9 @@
 	<?php 
 		if ($_SESSION['FormAccess'] == "AdminForm") { echo "<a href='#'>Admin</a>"; } 
 	?>
-<<<<<<< HEAD
 	<?php echo "<div class = 'navusername'> " . $_SESSION['userName'] . "</div>" ?>
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 	<?php echo "<div> " . $_SESSION['userName'] . "</div>" ?>
-=======
-	<?php echo "<div class = 'navusername'> " . $_SESSION['userName'] . "</div>" ?>
->>>>>>> Osuntuyi-Michael
-=======
-	<?php echo "<div class = 'navusername'> " . $_SESSION['userName'] . "</div>" ?>
->>>>>>> Smirnov-Kirill
->>>>>>> Smirnov-Kirill
+
 	<a href="../Logic/Logout.php" class="navigationBarRight">Log out</a>
 </nav>	
