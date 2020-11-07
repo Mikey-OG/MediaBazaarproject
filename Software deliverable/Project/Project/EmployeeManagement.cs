@@ -60,12 +60,12 @@ namespace Project
             {
                 message = new MailMessage();
                 to = tbEmail.Text;
-                message.Subject = "Log in Deatils";
+                message.Subject = "Log in Deatils from Group3 Melior";
                 message.Body = $"Welcome to Media Baazar, Your username is {tbUserName.Text} and your password is {tbPassword.Text} " +
                     $"please ensure you change your password after your first log in Thank you " +
                     $"Signed Management";
-                from = "mikosuntuyi@gmail.com";
-                pass = "Mikoko@02";
+                from = "mediabazzar0fontys@gmail.com";
+                pass = "groupMelior3";
                 message.To.Add(to);
                 message.From = new MailAddress(from);
                 smtp = new SmtpClient("smtp.gmail.com");
@@ -442,17 +442,13 @@ namespace Project
             stock.MaxRows = 0;
             stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL);
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
         private void btnOpenAdminLog_Click(object sender, EventArgs e)
         {
             AdminLog adminlog = new AdminLog();
             adminlog.Show();
         }
-=======
->>>>>>> adc9317121b1826198fec1fbd5a90813062f41be
-=======
->>>>>>> Osuntuyi-Michael
+
     }
 }
