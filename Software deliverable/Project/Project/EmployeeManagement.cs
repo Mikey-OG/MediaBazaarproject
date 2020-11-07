@@ -446,6 +446,7 @@ namespace Project
 
         private void btnOpenAdminLog_Click(object sender, EventArgs e)
         {
+            //works
             AdminLog adminlog = new AdminLog();
             adminlog.Show();
         }
