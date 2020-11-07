@@ -197,9 +197,13 @@ namespace Project
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     cmd = new MySqlCommand("UPDATE employees SET UserName= '" + employee.UserName + "', Email= '" + employee.GetEmail() + "', Password= '" + Cry.Encrypt(employee.GetPassword()) + "', FirstName= '" + employee.FirstName + "', LastName= '" + employee.LastName + "', DateOfBirth= '" + employee.DateOfBirth + "', PhoneNumber= '" + employee.GetPhoneNo() + "', Nationality= '" + employee.Nationality + "', City= '" + employee.City + "', ZipCode= '" + employee.Zipcode + "', Adress= '" + employee.Address + "', Salary= '" + employee.Salary + "', DateOfHire= '" + employee.HireDate + "', DepartmentName= '" + department.DepartmentName + "', FormAccess= '" + employee.FormAccess + "', RoleName= '" + role.RoleName + "' WHERE UserID ='" + UserID + "';", conn);
 =======
 =======
+>>>>>>> Osuntuyi-Michael
+=======
+
 >>>>>>> Osuntuyi-Michael
                     cmd = new MySqlCommand("UPDATE employees SET UserName= @UserName, Email= @Email, Password= @Password, FirstName= @FirstName, LastName= @LastName, DateOfBirth= @DateOfBirth, PhoneNumber= @PhoneNumber, Nationality= @Nationality, City= @City, ZipCode= @ZipCode, Adress= @Adress, Salary= @Salary, DateOfHire= @DateOfHire, DepartmentName= @DepartmentName, FormAccess= @FormAccess, RoleName= @RoleName WHERE UserID =@UserID;", conn);
                     cmd.Parameters.AddWithValue("@UserName", employee.UserName);
@@ -220,12 +224,16 @@ namespace Project
                     cmd.Parameters.AddWithValue("@RoleName", role.RoleName);
                     cmd.Parameters.AddWithValue("@UserID", UserID);
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Moonen-Luc
 =======
 >>>>>>> Osuntuyi-Michael
 =======
+=======
+
+>>>>>>> Osuntuyi-Michael
                     cmd = new MySqlCommand("UPDATE employees SET UserName= '" + employee.UserName + "', Email= '" + employee.GetEmail() + "', Password= '" + Cry.Encrypt(employee.GetPassword()) + "', FirstName= '" + employee.FirstName + "', LastName= '" + employee.LastName + "', DateOfBirth= '" + employee.DateOfBirth + "', PhoneNumber= '" + employee.GetPhoneNo() + "', Nationality= '" + employee.Nationality + "', City= '" + employee.City + "', ZipCode= '" + employee.Zipcode + "', Adress= '" + employee.Address + "', Salary= '" + employee.Salary + "', DateOfHire= '" + employee.HireDate + "', DepartmentName= '" + department.DepartmentName + "', FormAccess= '" + employee.FormAccess + "', RoleName= '" + role.RoleName + "' WHERE UserID ='" + UserID + "';", conn);
->>>>>>> Smirnov-Kirill
+
                     cmd.ExecuteNonQuery();
                     return true;
                 }          
@@ -791,7 +799,11 @@ namespace Project
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+>>>>>>> Osuntuyi-Michael
+=======
+
 >>>>>>> Osuntuyi-Michael
         public void RoleUpdateLog(Roles role)
         {
@@ -900,12 +912,5 @@ namespace Project
         }
 
         //Stock Logs
-    
-=======
-        public void NewRolesLog()
-        {
-
-        }
->>>>>>> Smirnov-Kirill
     }
 }

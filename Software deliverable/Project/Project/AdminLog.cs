@@ -12,22 +12,16 @@ namespace Project
 {
     public partial class AdminLog : Form
     {
-<<<<<<< HEAD
-        public AdminLog()
-        {
-            InitializeComponent();
-=======
         GeneralManagement gm;
         public AdminLog()
         {
-            InitializeComponent();
+            InitializeComponent();        
             gm = new GeneralManagement();
         }
 
         private void btnViewLogs_Click(object sender, EventArgs e)
         {
             gm.FillWithLogs(ltbAdminLog);
->>>>>>> Osuntuyi-Michael
         }
     }
 }
