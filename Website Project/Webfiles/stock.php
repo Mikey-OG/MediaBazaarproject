@@ -13,8 +13,12 @@
             <form method="post" action="stock.php">
             <input type="text" placeholder="Search Name.." name="search">
             <button type="submit" value="click" name="submit">Search</button>
+            <div>
+              <button type="submit" value="clk" name="sblowstock">Show low stock</button>
+           </div>
             </form>
         </div>
+       
     </div>
     <?php
               function Search()
@@ -29,7 +33,9 @@
               {
                   Search();
               }
-            ?>
+
+  ?>
+   
 </body>
 
 <?php
