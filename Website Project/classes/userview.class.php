@@ -18,4 +18,9 @@ class Userview
 	{
 		$this->usermodel->ShowAllEmployees();
 	}
+
+	public function ShowEmployeesInfoToAdminBySearch($firstname): void
+	{
+		$this->usermodel->ShowUserSelectedUserInfo($firstname);
+	}
 }
