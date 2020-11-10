@@ -16,7 +16,7 @@
 		if ($_SESSION['FormAccess'] == "EmployeeForm" || $_SESSION['FormAccess'] == "AdminForm") { echo "<a href='#'>Employee Management</a>"; } 
 	?>
 	<?php 
-		if ($_SESSION['FormAccess'] == "AdminForm") { echo "<a href='#'>Admin</a>"; } 
+		if ($_SESSION['FormAccess'] == "AdminForm") { echo "<a href='Admin.php'>Admin</a>"; } 
 	?>
 	<?php echo "<div class = 'navusername'> " . $_SESSION['userName'] . "</div>" ?>
 
