@@ -64,4 +64,10 @@ class UserModel
 			echo '</table>';	
 		}
 	}
+
+	public function ShowUserSelectedUserInfo($Firstname)
+	{
+		$sql = "SELECT * FROM employees WHERE Firstname LIKE %$Firstname%";
+
+	}
 }
