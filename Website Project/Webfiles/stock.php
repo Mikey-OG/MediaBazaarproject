@@ -13,8 +13,12 @@
             <form method="post" action="stock.php">
             <input type="text" placeholder="Search Name.." name="search">
             <button type="submit" value="click" name="submit">Search</button>
+            <div>
+              <button type="submit" value="clk" name="sblowstock">Show low stock</button>
+           </div>
             </form>
         </div>
+       
     </div>
     <?php
               function Search()
@@ -29,7 +33,21 @@
               {
                   Search();
               }
-            ?>
+
+
+            function LowStock()
+           {
+                  echo "<table style='border: solid 1px black;'>";
+                  echo "<tr><th>ProductID</th><th>Name</th><th>Price</th><th>Quantity</th><th>StockDate</th><th>Category</th></tr>";
+                  $Connection = new Connection();
+                  $Connection->Connect("SELECT ProductID,Name,Price,Quantity,StockDate,Category FROM stockinventory WHERE Quantity <= 10");
+        }
+        if(isset($_POST['sblowstock']))
+        {
+           LowStock();
+        }
+  ?>
+   
 </body>
 
 <?php
