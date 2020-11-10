@@ -14,4 +14,13 @@ class Userview
 		$this->usermodel->ShowUserInformationUsingPreparedStatements($username);
 	}
 
+	public function ShowAllEmployeesInfoToAdmin(): void
+	{
+		$this->usermodel->ShowAllEmployees();
+	}
+
+	public function ShowEmployeesInfoToAdminBySearch($firstname): void
+	{
+		$this->usermodel->ShowUserSelectedUserInfo($firstname);
+	}
 }
