@@ -9,45 +9,44 @@
 <body>
 
     <div class="topnav">
+    <form method="post" action="stock.php">
         <div class="search-container">
-            <form method="post" action="stock.php">
             <input type="text" placeholder="Search Name.." name="search">
-            <button type="submit" value="click" name="submit">Search</button>
-            <div>
-              <button type="submit" value="clk" name="sblowstock">Show low stock</button>
-           </div>
-            </form>
+            <button type="submit" value="click" name="submit">Search</button> 
         </div>
-       
+        <div class="search-container">
+            <input type="number" placeholder="Search a value.." name="lowtext">
+            <button type="submit" value="click" name="lowstock">Check Low Stock</button>
+        </div>
+        </form>
     </div>
     <?php
-              function Search()
+              function Search($sql)
               {
                   echo "<table style='border: solid 1px black;'>";
-                  echo "<tr><th>ProductID</th><th>Name</th><th>Price</th><th>Quantity</th><th>StockDate</th><th>Category</th></tr>";
-                  $Search = $_POST["search"];
+                  echo "<tr><th>ProductID</th><th>Name</th><th>Price</th><th>Quantity</th><th>Category</th></tr>";
                   $Connection = new Connection();
-                  $Connection->Connect("SELECT ProductID,Name,Price,Quantity,StockDate,Category FROM stockinventory WHERE Name LIKE '%$Search%'");
+                  $Connection->Connect($sql);
               }
+              
               if(isset($_POST['submit']))
               {
-                  Search();
+                  $Search = $_POST["search"];
+                  Search("SELECT ProductID,Name,Price,Quantity,Category FROM stockinventory WHERE Name LIKE '%$Search%'");
               }
-
-           function LowStock()
-           {
-                  echo "<table style='border: solid 1px black;'>";
-                  echo "<tr><th>ProductID</th><th>Name</th><th>Price</th><th>Quantity</th><th>StockDate</th><th>Category</th></tr>";
+              if(isset($_POST['lowstock']))
+              {
                   $Connection = new Connection();
-                  $Connection->Connect("SELECT ProductID,Name,Price,Quantity,StockDate,Category FROM stockinventory WHERE Quantity <= 10");
-        }
-        if(isset($_POST['sblowstock']))
-        {
-           LowStock();
-        }
-
-  ?>
-   
+                  $Search = $_POST["lowtext"];
+                  if($Search==0)
+                  {
+                    echo "Please input a proper value";
+                  }
+                  else{
+                    Search("SELECT ProductID,Name,Price,Quantity,Category FROM stockinventory WHERE Quantity <= $Search OR Quantity IS NULL");
+                  }
+              }
+            ?>
 </body>
 
 <?php
