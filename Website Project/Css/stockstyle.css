@@ -28,7 +28,7 @@
     padding-left: 1px;
   }
   
-  .topnav input[type=text] {
+  .topnav input[type=text],.topnav input[type=number]{
     padding: 6px;
     margin-top: 8px;
     font-size: 17px;
@@ -37,7 +37,7 @@
     outline-style: solid;
     outline-width: 1px;
   }
-  
+
   .topnav .search-container button {
     float: right;
     padding: 6px;

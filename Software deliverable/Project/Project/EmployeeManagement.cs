@@ -434,13 +434,13 @@ namespace Project
 
         private void Seemorebtn_Click(object sender, EventArgs e)
         {
-            stock.SeeMore(DataGridEmployees,GeneralManagement.LastSQL);
+            stock.SeeMore(DataGridEmployees,GeneralManagement.LastSQL,10);
         }
 
         private void RowResetbtn_Click(object sender, EventArgs e)
         {
             stock.MaxRows = 0;
-            stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL);
+            stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL,10);
         }
 
 
@@ -451,5 +451,9 @@ namespace Project
             adminlog.Show();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            label19.Text = GeneralManagement.LastSQL;
+        }
     }
 }
