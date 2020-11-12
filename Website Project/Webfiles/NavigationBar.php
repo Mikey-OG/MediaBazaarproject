@@ -8,7 +8,7 @@
 <nav>
 	<a href="#">Schedule</a>
 	<a href="PersonalDetails.php">Personal Details</a>
-	<a href="stock.php">Stock</a>
+	<a href="newstock.php">Stock</a>
 	<?php 
 		if ($_SESSION['FormAccess'] == "StockManagerForm" || $_SESSION['FormAccess'] == "AdminForm") { echo "<a href='#'>Stock Management</a>"; } 
 	?>
