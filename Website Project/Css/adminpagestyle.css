@@ -3,7 +3,7 @@
 }
 
 .adminpage .search_bar{
-	margin-left: 9%;
+	margin-left: 17%;
 	width:27%;
 }
 
@@ -12,15 +12,25 @@
 	background-color: #ededed;
 }
 
-.adminpage .searchTable{
-	width : 70%;
-}
-.adminpage tr th{
- background-color: #333;
- color:white;
-}
+.adminpage tr:nth-child(even){
+	background-color: lightgrey;
+ }
 
 .adminpage tr td{
  background-color:green;
  color:white;
+}
+
+.CompanyStats h3{
+ font-size: 26px;
+ color:green;
+}
+
+.CompanyStats p{
+ margin-top:-1%;	
+ font-size: 23px;
+}
+
+.CompanyStats a:hover{
+color:green;
 }
