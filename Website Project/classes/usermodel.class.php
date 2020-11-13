@@ -106,6 +106,45 @@ class UserModel
 			}
 			echo '</table>';	
 		}
+	}
 
+	public function ShowEmployeesPerRole()
+	{
+		$sql = "SELECT COUNT(UserName) AS EmployeePerRole, RoleName FROM employees GROUP BY RoleName";
+		$stmt = $this->conn->connect()->query($sql);
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) 
+        {
+            echo "['".$row['RoleName']."',".$row['EmployeePerRole']."],";
+        }
+	}
+
+	public function ShowEmployeesPerDepartment()
+	{
+		$sql = "SELECT COUNT(UserName) AS EmployeePerDepartment, DepartmentName FROM employees GROUP BY DepartmentName";
+		$stmt = $this->conn->connect()->query($sql);
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) 
+        {
+           	echo "['".$row['DepartmentName']."',".$row['EmployeePerDepartment']."],";
+        }
+	}
+
+	public function ShowProductsPerCategory()
+	{
+		$sql = "SELECT COUNT(Name) AS ProductsPerCategory, Category FROM stockinventory GROUP BY Category";
+		$stmt = $this->conn->connect()->query($sql);
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) 
+        {
+           	echo "['".$row['Category']."',".$row['ProductsPerCategory']."],";
+        }
+	}
+
+	public function ShowEmployeesPerCity()
+	{
+		$sql = "SELECT COUNT(UserName) AS EmployeePerCity, City FROM employees GROUP BY City";
+		$stmt = $this->conn->connect()->query($sql);
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) 
+        {
+           	echo "['".$row['City']."',".$row['EmployeePerCity']."],";
+        }
 	}
 }
