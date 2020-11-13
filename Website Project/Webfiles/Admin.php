@@ -2,7 +2,7 @@
 require_once ('NavigationBar.php');
 ?>
 <main>
-	<link rel="stylesheet" href="../Css/adminpagestylesheet.css">
+	<link rel="stylesheet" href="../Css/adminpagestyling.css">
 	<div class = "adminpage">
 	<h1>Welcome Admin</h1>
     <form class = "search_bar" method="post" action="Admin.php">
@@ -20,8 +20,14 @@ require_once ('NavigationBar.php');
 		else
 		{
 			$usv->ShowAllEmployeesInfoToAdmin();
-		}
-		
+		}	
 ?>
+
+</div>
+<div class = "CompanyStats">
+<h3>Company Stats</h3>
+<p>Click to view a graphical representation of the<br>
+	<a link href = "EmployeeStatsChart.php"> Company Stats</a><br>
+</p>
 </div>
 </main>
