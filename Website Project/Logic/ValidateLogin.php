@@ -13,11 +13,13 @@
 	class Validate {
 
 		public function validateLogin(string $userName, string $password) {
+			require_once('../classes/encryption.php');
+			$cry = new Encryption();
 
 			$UserInfo = new UserInfo();
 
 
-			if ($userName == $UserInfo->getUserInlog($userName, 0) && $password == $UserInfo->getUserInlog($userName, 1)) {
+			if ($userName == $UserInfo->getUserInlog($userName, 0) && $cry->Encrypt($password) == $UserInfo->getUserInlog($userName, 1)) {
 
 				$_SESSION['userName'] = $userName; 
 				$_SESSION['FormAccess'] = $UserInfo->getUserInlog($userName, 2);

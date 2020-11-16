@@ -37,7 +37,7 @@
 }
 .topnav input[type=text],.topnav input[type=number]{
   padding: 6px;
-  margin-top: 7px;
+  margin-top: 8px;
   font-size: 17px;
   border: none;
   padding-right:30px;
@@ -64,7 +64,7 @@
 
 .stockpage table{
   float: left;
-  width : 50%;
+  width : 56.8%;
   background-color: #ededed;
 }
 
