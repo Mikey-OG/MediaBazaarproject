@@ -31,6 +31,7 @@
  font-size: 23px;
 }
 
-.CompanyStats a:hover{
-color:green;
+.CompanyStats button{
+	margin-top:-20px;
+	font-size: 20px;
 }
