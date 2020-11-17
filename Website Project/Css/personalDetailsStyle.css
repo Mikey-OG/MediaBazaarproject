@@ -20,10 +20,17 @@
 }
 
 .message p{
+margin-top:-10px;
  font-size: 23px;
 }
 
 .message button{
-font-size: 20px;
-margin-top:-15px;
+margin-top:-20px;
+background-color: #4CAF50;
+color: white;
+cursor: pointer;
+width: 170px;
+padding: 10px 20px;
+border: none;
+border-radius: 10px;
 }
