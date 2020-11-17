@@ -3,11 +3,15 @@
     margin: auto;
     width:50%;
     text-align: center;
-
 }
 
 .personalDetails h1{
     font-style: italic;
+}
+
+ .details{
+	text-align: left;
+	margin-left: 17%;
 }
 
 .message h3{
@@ -19,6 +23,7 @@
  font-size: 23px;
 }
 
-.message a:hover{
-color:green;
+.message button{
+font-size: 20px;
+margin-top:-15px;
 }
