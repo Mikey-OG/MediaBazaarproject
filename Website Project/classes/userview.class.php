@@ -14,4 +14,33 @@ class Userview
 		$this->usermodel->ShowUserInformationUsingPreparedStatements($username);
 	}
 
+	public function ShowAllEmployeesInfoToAdmin(): void
+	{
+		$this->usermodel->ShowAllEmployees();
+	}
+
+	public function ShowEmployeesInfoToAdminBySearch($firstname): void
+	{
+		$this->usermodel->ShowUserSelectedUserInfo($firstname);
+	}
+
+	public function ShowUserEmployeesPerRole(): void
+	{
+		$this->usermodel->ShowEmployeesPerRole();
+	}
+
+	public function ShowUserEmployeesPerDepartment(): void
+	{
+		$this->usermodel->ShowEmployeesPerDepartment();
+	}
+
+	public function ShowUserProductsPerCategory(): void
+	{
+		$this->usermodel->ShowProductsPerCategory();
+	}
+
+	public function ShowUserEmployeesPerCity(): void
+	{
+		$this->usermodel->ShowEmployeesPerCity();
+	}
 }

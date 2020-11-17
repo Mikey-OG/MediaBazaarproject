@@ -5,14 +5,29 @@ require_once ('NavigationBar.php');
 	<link rel="stylesheet" href="../Css/adminpagestyle.css">
 	<div class = "adminpage">
 	<h1>Welcome Admin</h1>
-    <form class = "search_bar" method="post" action="">
-    <input type="text" placeholder="Employee name.." name="search">
-    <button type="submit" name="submit">Search For Employee</button>
+    <form class = "search_bar" method="post" action="Admin.php">
+    <input type="text" placeholder="Employee name.." name="search_firstname">
+    <button type="submit" name="search">Search For Employee</button>
 	</form>
 <?php
 		require_once('../classes/userview.class.php');
 		$usv = new Userview();
-		$usv->ShowAllEmployeesInfoToAdmin();
+		if(isset($_POST['search']))
+		{
+			$firstname = $_POST['search_firstname'];
+			$usv->ShowEmployeesInfoToAdminBySearch($firstname);
+		}
+		else
+		{
+			$usv->ShowAllEmployeesInfoToAdmin();
+		}	
 ?>
+
+</div>
+<div class = "CompanyStats">
+<h3>Company Stats</h3>
+<p>Click to view a graphical representation of the<br>
+	<a link href = "EmployeeStatsChart.php"> Company Stats</a><br>
+</p>
 </div>
 </main>

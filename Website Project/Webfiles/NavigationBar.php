@@ -8,15 +8,14 @@
 <nav>
 	<a href="#">Schedule</a>
 	<a href="PersonalDetails.php">Personal Details</a>
-	<a href="stock.php">Stock</a>
 	<?php 
-		if ($_SESSION['FormAccess'] == "StockManagerForm" || $_SESSION['FormAccess'] == "AdminForm") { echo "<a href='#'>Stock Management</a>"; } 
+		if ($_SESSION['FormAccess'] == "StockManagerForm" || $_SESSION['FormAccess'] == "AdminForm") { echo "<a href='newstock.php'>Stock</a>"; } 
 	?>
 	<?php 
 		if ($_SESSION['FormAccess'] == "EmployeeForm" || $_SESSION['FormAccess'] == "AdminForm") { echo "<a href='#'>Employee Management</a>"; } 
 	?>
 	<?php 
-		if ($_SESSION['FormAccess'] == "AdminForm") { echo "<a href='#'>Admin</a>"; } 
+		if ($_SESSION['FormAccess'] == "AdminForm") { echo "<a href='Admin.php'>Admin</a>"; } 
 	?>
 	<?php echo "<div class = 'navusername'> " . $_SESSION['userName'] . "</div>" ?>
 

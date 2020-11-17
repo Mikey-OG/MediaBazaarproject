@@ -304,7 +304,7 @@ namespace Project
             try
             {
                 conn.Open();
-                string sql = "SELECT * FROM employees";
+                string sql = "SELECT * FROM employees LIMIT 10";
                 LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
