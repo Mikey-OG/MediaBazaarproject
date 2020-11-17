@@ -23,6 +23,11 @@ $stm = new StockModel();
             <div class="search-container">
                 <button type="submit" value="click" name="lowstock">Check Low Stock</button>
             </div>
+            <div class="search-container">
+                <button type="submit" value="click" name="reset">Reset</button>
+                <input type="number" placeholder="Set Limit.." name="limitset">
+                <button type="submit" value="click" name="limit">Set Limit</button>
+             </div>
             </form>
     </div>
 <?php
@@ -38,7 +43,22 @@ $stm = new StockModel();
                 $stm->ShowLowStock();
             }	
             else{
-                $stm->ShowStock();
+                if(isset($_POST['limit']))
+                {
+                    $increase = $_POST["limitset"];
+                    $stm->LimitSearch($increase);
+                }
+                else{
+                    if(isset($_POST['reset']))
+                    {
+                        $String = $_POST["categories"];
+                        $Search = "";
+                        $stm->SearchStock($Search,$String);
+                    }
+                    else{
+                        $stm->ShowStock();
+                    }
+                }
             }
         }
 ?>

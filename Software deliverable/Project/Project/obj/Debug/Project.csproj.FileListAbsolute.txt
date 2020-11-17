@@ -495,3 +495,4 @@ C:\Users\usuario\Desktop\Software deliverable\Project\Project\obj\Debug\Project.
 C:\Users\usuario\Desktop\Software deliverable\Project\Project\obj\Debug\Project.csproj.CopyComplete
 C:\Users\usuario\Desktop\Software deliverable\Project\Project\obj\Debug\Project.exe
 C:\Users\usuario\Desktop\Software deliverable\Project\Project\obj\Debug\Project.pdb
+C:\Users\usuario\Desktop\Project\Project\obj\Debug\Project.AdminLog.resources
