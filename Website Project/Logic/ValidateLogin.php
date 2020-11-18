@@ -23,7 +23,8 @@
 
 				$_SESSION['userName'] = $userName; 
 				$_SESSION['FormAccess'] = $UserInfo->getUserInlog($userName, 2);
-				echo "<script> location.href='../Webfiles/NavigationBar.php'</script>"; 
+				$_SESSION['UserID'] = $UserInfo->getUserInlog($userName, 3);
+				echo "<script> location.href='../Webfiles/ScheduleViewPage.php'</script>"; 
 
 			}
 

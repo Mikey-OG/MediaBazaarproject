@@ -6,13 +6,13 @@
 <link rel="stylesheet" href="../Css/NavigationBarStylesheet.css">
 
 <nav>
-	<a href="#">Schedule</a>
+	<a href="ScheduleViewPage.php">Schedule</a>
 	<a href="PersonalDetails.php">Personal Details</a>
 	<?php 
 		if ($_SESSION['FormAccess'] == "StockManagerForm" || $_SESSION['FormAccess'] == "AdminForm") { echo "<a href='newstock.php'>Stock</a>"; } 
 	?>
 	<?php 
-		if ($_SESSION['FormAccess'] == "EmployeeForm" || $_SESSION['FormAccess'] == "AdminForm") { echo "<a href='#'>Employee Management</a>"; } 
+		if ($_SESSION['FormAccess'] == "EmployeeForm" || $_SESSION['FormAccess'] == "AdminForm") { echo "<a href='#'>Add Schedule</a>"; } 
 	?>
 	<?php 
 		if ($_SESSION['FormAccess'] == "AdminForm") { echo "<a href='Admin.php'>Admin</a>"; } 
