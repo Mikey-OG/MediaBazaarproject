@@ -13,18 +13,18 @@ namespace Project
 
     public class Employee : Account 
     {
-        protected string firstName;
-        protected string lastName;
-        protected string DOB;
-        protected string email;
-        protected string phoneNo;
-        protected string nationality;
-        protected string city;
-        protected string ZipCode;
-        protected string address;
-        protected int salary;
-        protected string hireDate;
-        protected string dismissDate;
+        private string firstName;
+        private string lastName;
+        private string DOB;
+        private string email;
+        private string phoneNo;
+        private string nationality;
+        private string city;
+        private string ZipCode;
+        private string address;
+        private int salary;
+        private string hireDate;
+        private string dismissDate;
         public Employee(string userName, string firstName, string lastName, string nationality, string city,
             string ZipCode, string DOB, string hireDate, string address, string formAccess, int salary)
         {
