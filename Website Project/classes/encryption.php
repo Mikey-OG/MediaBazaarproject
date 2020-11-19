@@ -7,7 +7,6 @@ class Encryption
         
         // Must be exact 32 chars (256 bit)
         $password = substr(hash('sha256', $password, true), 0, 32);
-        echo "Password:" . $password . "\n";
         
         // IV must be exact 16 chars (128 bit)
         $iv = chr(0x48). chr(0x75). chr(0x69). chr(0x6d). chr(0x21). chr(0x5a). chr(0x55). chr(0x62). chr(0x68). chr(0x72). chr(0x60). chr(0x64). chr(0x78). chr(0x42). chr(0x35). chr(0x16);
@@ -27,7 +26,6 @@ class Encryption
         
         // Must be exact 32 chars (256 bit)
         $password = substr(hash('sha256', $password, true), 0, 32);
-        echo "Password:" . $password . "\n";
         
         // IV must be exact 16 chars (128 bit)
         $iv = chr(0x48). chr(0x75). chr(0x69). chr(0x6d). chr(0x21). chr(0x5a). chr(0x55). chr(0x62). chr(0x68). chr(0x72). chr(0x60). chr(0x64). chr(0x78). chr(0x42). chr(0x35). chr(0x16);

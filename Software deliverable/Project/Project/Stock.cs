@@ -225,7 +225,7 @@ namespace Project
                 conn.Close();
             }
         }
-        public void StockInput(TextBox a, TextBox b, TextBox c, ComboBox d, DateTimePicker f, RichTextBox e)
+        public void StockInput(TextBox a, TextBox b, TextBox c, ComboBox d, TextBox f, RichTextBox e)
         {
             try
             {
@@ -233,14 +233,14 @@ namespace Project
                 double price = Convert.ToDouble(b.Text);
                 string desc = e.Text;
                 int quan = Convert.ToInt32(c.Text);
-                string Date = f.Value.ToString("yyyy-M-d");
+                int minquan = Convert.ToInt32(f.Text);
                 string Category = Convert.ToString(d.Text);
                 conn.Open();
                 string sql1 = "SELECT MAX(ProductID) FROM stockinventory;";
                 MySqlCommand cmd = new MySqlCommand(sql1, conn);
                 Object result = cmd.ExecuteScalar();
                 int maxID = Convert.ToInt32(result);
-                string sql2 = $"INSERT INTO `stockinventory`(`ProductID`, `Name`, `Price`, `Description`, `Quantity`, `StockDate`, `Category`) VALUES ('{maxID + 1}','{name}','{price}','{desc}','{quan}','{Date}','{Category}')";
+                string sql2 = $"INSERT INTO `stockinventory`(`ProductID`, `Name`, `Price`, `Description`, `Quantity`, `MinimumQuantity`, `Category`) VALUES ('{maxID + 1}','{name}','{price}','{desc}','{quan}','{minquan}','{Category}')";
                 MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
                 cmd2.ExecuteScalar();
                 a.Text = "";
