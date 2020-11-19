@@ -6,57 +6,45 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
-using System.Text.RegularExpressions;
 
 namespace Project
 {
 
-    public class Employee : Account 
+    public class Employee : Account
     {
         protected string firstName;
         protected string lastName;
         protected string DOB;
         protected string email;
-        protected string phoneNo;
+        protected int phoneNo;
         protected string nationality;
         protected string city;
         protected string ZipCode;
         protected string address;
         protected int salary;
         protected string hireDate;
-        protected string dismissDate;
-        public Employee(string userName, string firstName, string lastName, string nationality, string city,
-            string ZipCode, string DOB, string hireDate, string address, string formAccess, int salary)
+        protected int department;
+        protected int roleID;
+        public Employee(int userID, string password, string userName, string firstName, string lastName, string email, int phoneNo,
+                         string nationality, string city, string ZipCode, string DOB, string hireDate, string address, int department, int roleID, int salary)
         {
+            base.UserID = userID;
+            base.Password = password;
             base.UserName = userName;
-            base.FormAccess = formAccess;
             this.firstName = firstName;
             this.lastName = lastName;
-            this.nationality = nationality;
-            this.city = city;
-            this.ZipCode = ZipCode;
-            this.DOB = DOB;
-            this.hireDate = hireDate;
-            this.address = address;  
-            this.salary = salary;
-        }
-        public Employee(string userName, string firstName, string lastName, string nationality, string city,
-           string ZipCode, string DOB, string hireDate, string address, string formAccess, int salary, string dismissDate)
-        {
-            base.UserName = userName;
-            base.FormAccess = formAccess;
-            this.firstName = firstName;
-            this.lastName = lastName;
+            this.email = email;
+            this.phoneNo = phoneNo;
             this.nationality = nationality;
             this.city = city;
             this.ZipCode = ZipCode;
             this.DOB = DOB;
             this.hireDate = hireDate;
             this.address = address;
+            this.department = department;
+            this.roleID = roleID;
             this.salary = salary;
-            this.dismissDate = dismissDate;
         }
-
         public string FirstName
         {
             get
@@ -80,41 +68,28 @@ namespace Project
                 lastName = value;
             }
         }
-
-        //Regex
-        public bool SetEmail(string givenEmail)
+        public string Email
         {
-            if(Regex.IsMatch(givenEmail, "^[a-z0-9A-Z]{5,20}@[a-z]{3,8}.(com|org|in|nl)$"))
+            get
             {
-                this.email = givenEmail;
-                return true;
+                return email;
             }
-            return false;
-        }
-
-        public string GetEmail()
-        {
-            return email;
-        }
-
-
-        //Regex
-        public bool SetPhoneNO(string phone)
-        {
-            if (Regex.IsMatch(phone, "^(\\+)[0-9]{1,4}[0-9]{5,15}$"))
+            set
             {
-                this.phoneNo = phone;
-                return true;
+                email = value;
             }
-            return false;
         }
-
-        public string GetPhoneNo()
+        public int PhoneNO
         {
-            return phoneNo;
+            get
+            {
+                return phoneNo;
+            }
+            set
+            {
+                phoneNo = value;
+            }
         }
-
-
         public string Nationality
         {
             get
@@ -171,6 +146,17 @@ namespace Project
                 hireDate = value;
             }
         }
+        public int EmployeeDepartment
+        {
+            get
+            {
+                return department;
+            }
+            set
+            {
+                department = value;
+            }
+        }
         public string Address
         {
             get
@@ -182,6 +168,17 @@ namespace Project
                 address = value;
             }
         }
+        public int RoleID
+        {
+            get
+            {
+                return roleID;
+            }
+            set
+            {
+                roleID = value;
+            }
+        }
         public int Salary
         {
             get
@@ -191,18 +188,6 @@ namespace Project
             set
             {
                 salary = value;
-            }
-        }
-
-        public string DismissDate
-        {
-            get
-            {
-                return dismissDate;
-            }
-            set
-            {
-                dismissDate = value;
             }
         }
     }
