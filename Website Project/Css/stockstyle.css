@@ -63,9 +63,11 @@
 }
 
 .stockpage table{
-  float: left;
-  width : 56.8%;
-  background-color: #ededed;
+  width : 80%;
+  background-color: white;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
 }
 
 .stockpage tr:nth-child(odd){
@@ -73,12 +75,63 @@
 }
 
 .stockpage tr:nth-child(even){
-  background-color: lightgray;
+  background-color: #D9D9D9;
 }
 
 .stockpage tr td{
-  background-color:gray;
+  background-color: #333;
+  color: white;
+  text-align: center;
+  font-weight: bold;
 }
+
+.actionBar {
+  display: block;
+  background: #333;
+  max-width: 80%;
+  margin: 0 auto;
+  margin-top: 1%;
+  color: white;
+  margin-bottom: -1.1%;
+}
+
+.button {
+  background: #4CAF50;
+  text-decoration: none;
+  color: white;
+  padding: 1%;
+  border-radius: 5px;
+  margin-top: -0.3%;
+  border: none;
+  font-weight: bold;
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+.textbox {
+  width: 30%;
+  text-align: center;
+  padding: 0.7%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+.category {
+  text-align: center;
+  padding: 0.7%;
+  margin-left: 1%;
+}
+
+.textboxRight{
+  width: 10%;
+  text-align: center;
+  padding: 0.7%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 15.5%
+} 
 
 @media screen and (max-width: 600px) {
   .topnav .search-container {
