@@ -19,9 +19,9 @@ class Userview
 		$this->usermodel->ShowAllEmployees();
 	}
 
-	public function ShowEmployeesInfoToAdminBySearch($firstname): void
+	public function ShowEmployeesInfoToAdminBySearch($Search,$String): void
 	{
-		$this->usermodel->ShowUserSelectedUserInfo($firstname);
+		$this->usermodel->ShowUserSelectedUserInfo($Search,$String);
 	}
 
 	public function ShowUserEmployeesPerRole(): void
