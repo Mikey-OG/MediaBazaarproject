@@ -64,12 +64,10 @@ class UserModel
 		}
 	}
 
-	public function ShowUserSelectedUserInfo($firstname)
+	public function ShowUserSelectedUserInfo($Search,$String)
 	{
-		$sql = "SELECT UserName, Email, FirstName, LastName, Nationality, Salary, DepartmentName, RoleName FROM employees WHERE FirstName LIKE :firstname";
-		$stmt = $this->conn->connect()->prepare($sql);
-		$stmt->bindParam('firstname', $firstname);
-		$stmt->execute();
+		$sql = "SELECT UserName, Email, FirstName, LastName, Nationality, Salary, DepartmentName, RoleName FROM employees WHERE $String LIKE '%$Search%'";
+		$stmt = $this->conn->connect()->query($sql);
 		if($stmt)
 		{
 			echo'
