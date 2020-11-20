@@ -95,6 +95,7 @@
     <Compile Include="DepartmentManagement.Designer.cs">
       <DependentUpon>DepartmentManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="DepartmentManager.cs" />
     <Compile Include="EmployeeManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +116,10 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="IDepartmentManage.cs" />
+    <Compile Include="IRoleManage.cs" />
+    <Compile Include="IScheduleManage.cs" />
+    <Compile Include="RoleManager.cs" />
     <Compile Include="StockManagement.cs">
       <SubType>Form</SubType>
     </Compile>

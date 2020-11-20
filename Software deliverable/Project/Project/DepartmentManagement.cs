@@ -16,12 +16,14 @@ namespace Project
         GeneralManagement gm;
         private StockManager stock = new StockManager();
         Department department;
+        DepartmentManager dm;
         int departmentID;
         public DepartmentManagement(string validation)
         {
             InitializeComponent();
             gm = new GeneralManagement();
-            gm.FillWithDepartments(dataGridView1);
+            dm = new DepartmentManager();
+            dm.FillWithDepartments(dataGridView1);
             if(validation == "Admin")
             {
                 UserValidation = "Admin";
@@ -33,12 +35,12 @@ namespace Project
             try
             {
                 department = new Department(tbDepartmentName.Text);
-                if (gm.AddDepartment(department) == true)
+                if (dm.AddDepartment(department) == true)
                 {
-                    gm.NewDepartmentLog(department);
+                    dm.NewDepartmentLog(department);
                     MessageBox.Show("Information Added", "Department Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                gm.FillWithDepartments(dataGridView1);
+                dm.FillWithDepartments(dataGridView1);
             }
             catch (Exception ex)
             {
@@ -50,18 +52,18 @@ namespace Project
         {
             try
             {
-                if (gm.DepartmentRemoveMessageBoxYesNo() == true)
+                if (dm.DepartmentRemoveMessageBoxYesNo() == true)
                 {
-                    if (gm.RemoveDepartment(departmentID) == true)
+                    if (dm.RemoveDepartment(departmentID) == true)
                     {
-                        gm.DepartmentRemovelLog(tbDepartmentName.Text);
+                        dm.DepartmentRemovelLog(tbDepartmentName.Text);
                         MessageBox.Show("Information Removed", "Department Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
-                    gm.FillWithDepartments(dataGridView1);
+                    dm.FillWithDepartments(dataGridView1);
                 }
                 else
                 {
-                    gm.FillWithDepartments(dataGridView1);
+                    dm.FillWithDepartments(dataGridView1);
                 }
             }
             catch (Exception ex)
@@ -75,13 +77,13 @@ namespace Project
             try
             {
                 department = new Department(tbDepartmentName.Text);
-                if (gm.UpdateDepartment(department, departmentID) == true)
+                if (dm.UpdateDepartment(department, departmentID) == true)
                 {
-                    gm.DepartmentUpdateLog(department);
+                    dm.DepartmentUpdateLog(department);
                     MessageBox.Show("Information Updated", "Department Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
-                gm.FillWithDepartments(dataGridView1);
+                dm.FillWithDepartments(dataGridView1);
             }
             catch (Exception ex)
             {
@@ -122,7 +124,7 @@ namespace Project
         {
             try
             {
-                gm.FillWithDepartments(dataGridView1);
+                dm.FillWithDepartments(dataGridView1);
             }
             catch (Exception ex)
             {
