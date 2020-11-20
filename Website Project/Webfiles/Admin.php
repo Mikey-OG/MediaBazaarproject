@@ -9,7 +9,7 @@ require_once ('NavigationBar.php');
                 <option>UserName</option>
                 <option>FirstName</option>
                 <option>LastName</option>
-                <option>Salary</option>
+                <option>Salarys</option>
                 <option>DepartmentName</option>
                 <option>RoleName</option>
             </select>
