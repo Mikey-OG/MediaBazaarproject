@@ -1,22 +1,35 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" href="../Css/ScheduleViewPageStylesheet.css">
 	<title>Schedule View</title>
 </head>
 <body>
-	<?php include ('NavigationBar.php'); ?>
+	<?php include ('NavigationBar.php');?>
+	<form class="actionBar" method="post">
+		<input type="submit" class= "button" name="dateDecrease" value="<">
+		<div class="actionBar-date">
+			<?php
+				require ('../Logic/ScheduleInput.php');
+				$ScheduleInput = new ScheduleInput();
+			 	if(isset($_POST['dateDecrease'])) { $_SESSION['Date'] = date("d-m-Y", strtotime($_SESSION['Date'] . ' - 7 days'));}
+				if(isset($_POST['dateIncrease'])) { $_SESSION['Date'] = date("d-m-Y", strtotime($_SESSION['Date'] . ' + 7 days'));}
+				$date = new DateTime($_SESSION['Date']);
+				$week = $date->format("W");
+				echo "Week ". $week;
+			?>
+		</div>
+		<input type="submit" class= "button" name="dateIncrease" value=">">
+	</form>
 	<div class="cards">
 		<?php
-		require ('../Logic/ScheduleInput.php');
-		$ScheduleInput = new ScheduleInput();
 		if ($_SESSION['FormAccess'] == "StockManagerForm" || $_SESSION['FormAccess'] == "EmployeeForm" || $_SESSION['FormAccess'] == "AdminForm") {
 		$countDay = 0;
 		while ($countDay < 7) {
 			echo "
 			<div class='card'>
 				<div class='card-date'>
-					". $ScheduleInput->Date($countDay) ."
+					". $ScheduleInput->Date($countDay, $_SESSION['Date']) ."
 				</div>
 				<div class='card-schedule'>
 					<div class='card-schedule-column'>
