@@ -19,8 +19,7 @@ class UserModel
 		$stmt->execute(array(':username' => $username));
 		while ($row = $stmt->fetch())
 		{
-			echo "ID: " . htmlentities($row['UserID']) . "<br><br>" . "UserName: " . htmlentities($row['UserName']) . "<br><br>" . "Email: " .  htmlentities($row['Email']) . "<br><br>" . "FirstName: " . htmlentities($row['FirstName']) . "<br><br>" . "LastName: " . htmlentities($row['LastName']) . "<br><br>" . "DOB: " . htmlentities($row['DateOfBirth']) . "<br><br>" . "PhoneNumber: " . htmlentities($row['PhoneNumber']) . "<br><br>" . "Nationality: " . htmlentities($row['Nationality']) . "<br><br>" 
-			. "City: " . htmlentities($row['City']) . "<br><br>" . "ZipCode: " . htmlentities($row['ZipCode']) . "<br><br>" . "Address: " . htmlentities($row['Adress']) . "<br>";
+			echo "<div class='name'>ID</div><div class='item'> " . htmlentities($row['UserID']) . "</div><div class='name'>Username</div><div class='item'>" . htmlentities($row['UserName']) . "</div><div class='name'>Email</div><div class='item'>" .  htmlentities($row['Email']) .  "</div><div class='name'>First name</div><div class='item'>" . htmlentities($row['FirstName']) . "</div><div class='name'>Last name</div><div class='item'>" . htmlentities($row['LastName']) . "</div><div class='name'>Date of birth</div><div class='item'>" . htmlentities($row['DateOfBirth']) . "</div><div class='name'>Phonenumber</div><div class='item'>" . htmlentities($row['PhoneNumber']) . "</div><div class='name'>Nationality</div><div class='item'>" . htmlentities($row['Nationality']) . "</div><div class='name'>City</div><div class='item'>" . htmlentities($row['City']) . "</div><div class='name'>Zip code</div><div class='item'>" . htmlentities($row['ZipCode']) . "</div><div class='name'>Address</div><div class='item'>" . htmlentities($row['Adress']) . "</div>";
 		}
 	}
 
@@ -65,12 +64,10 @@ class UserModel
 		}
 	}
 
-	public function ShowUserSelectedUserInfo($firstname)
+	public function ShowUserSelectedUserInfo($Search,$String)
 	{
-		$sql = "SELECT UserName, Email, FirstName, LastName, Nationality, Salary, DepartmentName, RoleName FROM employees WHERE FirstName LIKE :firstname";
-		$stmt = $this->conn->connect()->prepare($sql);
-		$stmt->bindParam('firstname', $firstname);
-		$stmt->execute();
+		$sql = "SELECT UserName, Email, FirstName, LastName, Nationality, Salary, DepartmentName, RoleName FROM employees WHERE $String LIKE '%$Search%'";
+		$stmt = $this->conn->connect()->query($sql);
 		if($stmt)
 		{
 			echo'

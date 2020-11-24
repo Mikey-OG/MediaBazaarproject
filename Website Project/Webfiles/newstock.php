@@ -6,29 +6,23 @@ $stm = new StockModel();
 <main>
 <div class ="stockpage">
 <link rel="stylesheet" href="../Css/stockstyle.css">
-    <div class="topnav">
+    <div class="actionBar">
         <form method="post" action="newstock.php">
-            <div class="search-container">
-            <select  data-rel="chosen"  name="categories">
+            <select  data-rel="chosen"  name="categories" class="category">
                 <option>ProductID</option>
                 <option>Name</option>
                 <option>Price</option>
                 <option>Quantity</option>
                 <option>MinimumQuantity</option>
                 <option>Category</option>
-		    </select>
-                <input type="text" placeholder="Search For.." name="search">
-                <button type="submit" value="click" name="submit">Search</button> 
-            </div>
-            <div class="search-container">
-                <button type="submit" value="click" name="lowstock">Check Low Stock</button>
-            </div>
-            <div class="search-container">
-                <button type="submit" value="click" name="reset">Reset</button>
-                <input type="number" placeholder="Set Limit.." name="limitset">
-                <button type="submit" value="click" name="limit">Set Limit</button>
-             </div>
-            </form>
+            </select>
+            <input type="text" placeholder="Search For..." name="search" class="textbox">
+            <input type="submit" value="Search" name="submit" class="button">
+            <input type="submit" value="Check Low Stock" name="lowstock" class="button">
+            <input type="submit" value="Reset" name="reset" class="button">
+            <input type="number" placeholder="Set Limit..." name="limitset" class="textboxRight">
+            <input type="submit" value="Set Limit" name="limit" class="button">
+        </form>
     </div>
 <?php
 		if(isset($_POST['submit']))

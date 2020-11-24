@@ -19,12 +19,6 @@ namespace Project
             this.roleName = roleName;
             this.employees = new List<Employee>();
         }
-        public Roles(string roleName, int roleID)
-        {
-            this.roleName = roleName;
-            this.roleID = roleID;
-            this.employees = new List<Employee>();
-        }
 
         public string RoleName
         {

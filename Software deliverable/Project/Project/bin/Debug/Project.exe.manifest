@@ -127,14 +127,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Project.exe" size="297440">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Project.exe" size="297952">
       <assemblyIdentity name="Project" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Xs70/s2OFA4MWgKnOlhbKrf/RyclIWtCdF3YCZZq81c=</dsig:DigestValue>
+        <dsig:DigestValue>avxZM00Xuhkvk6u0/OnN2q+xdZZJLOC2k07kSjrHq5A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -231,13 +231,13 @@
       <dsig:DigestValue>zr7zhjaGyze5U7vwKW3ZjYXHEUoRSN/6jBR5bWu1tiw=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="Project.exe.config" size="516">
+  <file name="Project.exe.config" size="529">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>tFl9WY4Im4qnhvSCV1M5/SZkjw3vIIYsHkWmZx2rGwI=</dsig:DigestValue>
+      <dsig:DigestValue>Cf6v5LLx9o2o9sa0INx1ggUhyPP2Xv6038+8HJgPG1o=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

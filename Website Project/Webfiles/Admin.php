@@ -3,19 +3,29 @@ require_once ('NavigationBar.php');
 ?>
 <main>
 	<link rel="stylesheet" href="../Css/adminpagestyling.css">
+	<div class="actionBar">
+		<form method="post" action="Admin.php">
+			    <select  data-rel="chosen"  name="categories" class="category">
+                <option>UserName</option>
+                <option>FirstName</option>
+                <option>LastName</option>
+                <option>Salarys</option>
+                <option>DepartmentName</option>
+                <option>RoleName</option>
+            </select>
+			<input type="text" placeholder="Search For..." name="search" class="textbox">
+			<input type="submit" name="submit" class="button" value="Search">
+		</form>
+	</div>
 	<div class = "adminpage">
-	<h1>Welcome Admin</h1>
-    <form class = "search_bar" method="post" action="Admin.php">
-    <input type="text" placeholder="Employee name.." name="search_firstname">
-    <button type="submit" name="search">Search For Employee</button>
-	</form>
 <?php
 		require_once('../classes/userview.class.php');
 		$usv = new Userview();
-		if(isset($_POST['search']))
+		if(isset($_POST['submit']))
 		{
-			$firstname = $_POST['search_firstname'];
-			$usv->ShowEmployeesInfoToAdminBySearch($firstname);
+			$String = $_POST["categories"];
+			$Search = $_POST['search'];
+			$usv->ShowEmployeesInfoToAdminBySearch($Search,$String);
 		}
 		else
 		{
@@ -23,13 +33,5 @@ require_once ('NavigationBar.php');
 		}	
 ?>
 
-</div>
-<div class = "CompanyStats">
-<h3>Company Stats</h3>
-<p>Click to view a graphical representation of the<br>
-	<form action="EmployeeStatsChart.php" method="post">
-	<button type="submit">Company Stats</button>
-	</form>
-</p>
 </div>
 </main>

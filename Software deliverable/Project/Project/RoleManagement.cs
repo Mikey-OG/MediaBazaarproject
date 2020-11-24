@@ -16,6 +16,7 @@ namespace Project
     {
         string UserValidation;
         GeneralManagement gm;
+        RoleManager rm;
         private StockManager stock = new StockManager();
         MySqlConnection conn = new MySqlConnection("server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;");
         int roleID;
@@ -23,7 +24,8 @@ namespace Project
         {
             InitializeComponent();
             gm = new GeneralManagement();
-            gm.FillWithRoles(dataGridView1);
+            rm = new RoleManager();
+            rm.FillWithRoles(dataGridView1);
             FillFormAccessComboBox();
             if(validation == "Admin")
             {
@@ -55,34 +57,34 @@ namespace Project
         private void btnAddRole_Click(object sender, EventArgs e)
         {
             Roles role = new Roles(tbRole.Text);
-            if (gm.AddRole(role, cmbFormAccess.Text)==true)
+            if (rm.AddRole(role, cmbFormAccess.Text)==true)
             {
-                gm.NewRolesLog(role);
+                rm.NewRolesLog(role);
                 MessageBox.Show("Information Added", "Role Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            gm.FillWithRoles(dataGridView1);
+            rm.FillWithRoles(dataGridView1);
         }
 
         private void btnRemoveRole_Click(object sender, EventArgs e)
         {
-            if(gm.RemoveRole(roleID)==true)
+            if(rm.RemoveRole(roleID)==true)
             {
-                gm.RoleRemovelLog(tbRole.Text);
+                rm.RoleRemovelLog(tbRole.Text);
                 MessageBox.Show("Information Removed", "Role Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }     
-            gm.FillWithRoles(dataGridView1);
+            rm.FillWithRoles(dataGridView1);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             Roles role = new Roles(tbRole.Text);
-            if(gm.UpdateRole(role,cmbFormAccess.Text, roleID) == true)
+            if(rm.UpdateRole(role,cmbFormAccess.Text, roleID) == true)
             {
-                gm.RoleUpdateLog(role);
+                rm.RoleUpdateLog(role);
                 MessageBox.Show("Information Updated", "Role Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             
-            gm.FillWithRoles(dataGridView1);
+            rm.FillWithRoles(dataGridView1);
         }
 
         private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -121,7 +123,7 @@ namespace Project
         {
             try
             {
-                gm.FillWithRoles(dataGridView1);
+                rm.FillWithRoles(dataGridView1);
             }
             catch (Exception ex)
             {

@@ -12,7 +12,7 @@ using System.Text.RegularExpressions;
 
 namespace Project
 {
-    public class GeneralManagement : IEmployeeManage, IStockManage
+    public class GeneralManagement : IEmployeeManage, IStockManage, IScheduleManage
     {
         private string log;
         MySqlConnection conn = new MySqlConnection("server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;");
@@ -75,80 +75,7 @@ namespace Project
             }
             return false;
         }
-        public bool AddRole(Roles role, string fileAccess)
-        {
-            try
-            {
-                conn.Open();
-                string sql = "SELECT * FROM roles WHERE RoleName = @RoleName";
-                LastSQL = sql;
-                cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RoleName", role.RoleName);
-                adpt = new MySqlDataAdapter(cmd);
-                dt = new DataTable();
-                adpt.Fill(ds);
-                int i = ds.Tables[0].Rows.Count;
-                if (i > 0)
-                {
-                    MessageBox.Show("Role Already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ds.Clear();
-                }
-                else
-                {
-                    cmd = new MySqlCommand("INSERT INTO roles (RoleName, FormAccess, LogTime_Date) VALUES(@RoleName, @FormAccess, CURRENT_TIMESTAMP)", conn);
-                    cmd.Parameters.AddWithValue("@RoleName", role.RoleName);
-                    cmd.Parameters.AddWithValue("@FormAccess", fileAccess);
-                    cmd.ExecuteNonQuery();
-                    return true;
-                }            
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return false;
-        }
 
-        public bool AddDepartment(Department department)
-        {
-            try
-            {
-                conn.Open();
-                string sql = "SELECT * FROM departments WHERE DepartMentName = @Department";
-                LastSQL = sql;
-                cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@Department", department.DepartmentName);
-                adpt = new MySqlDataAdapter(cmd);
-                dt = new DataTable();
-                adpt.Fill(ds);
-                int i = ds.Tables[0].Rows.Count;
-                if (i > 0)
-                {
-                    MessageBox.Show("Department Already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ds.Clear();
-                }
-                else
-                {
-                    cmd = new MySqlCommand("INSERT INTO departments (DepartmentName) VALUES( @DepartmentName)", conn);
-                    cmd.Parameters.AddWithValue("@DepartmentName", department.DepartmentName);
-                    cmd.ExecuteNonQuery();
-                    return true;
-                }            
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return false;
-        }
 
         public bool AddSchedule(int UserID, string Date, string TimeShift)
         {
@@ -228,76 +155,8 @@ namespace Project
             return false;
         }
 
-        public bool UpdateRole(Roles role, string fileAccess, int roleID)
-        {
-            try
-            {
-                conn.Open();
-                string sql = "SELECT * FROM roles WHERE RoleName = @RoleName";
-                LastSQL = sql;
-                cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@RoleName", role.RoleName);
-                adpt = new MySqlDataAdapter(cmd);
-                dt = new DataTable();
-                adpt.Fill(ds);
-                int i = ds.Tables[0].Rows.Count;
-                if (i > 0)
-                {
-                    MessageBox.Show("Role Already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ds.Clear();
-                }
-                else
-                {
-                    cmd = new MySqlCommand($"UPDATE roles SET RoleName= @RoleName, FormAccess= @FormAccess WHERE RoleID = @roleID", conn);
-                    cmd.Parameters.AddWithValue("@roleID", roleID);
-                    cmd.Parameters.AddWithValue("@RoleName", role.RoleName);
-                    cmd.Parameters.AddWithValue("@FormAccess", fileAccess);
-                    cmd.ExecuteNonQuery();
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally { conn.Close(); }
-            return false;
-        }
 
-        public bool UpdateDepartment(Department department, int departmentID)
-        {
-            try
-            {
-                conn.Open();
-                string sql = "SELECT * FROM departments WHERE DepartMentName = @DepartmentName";
-                LastSQL = sql;
-                cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@DepartmentName", department.DepartmentName);
-                adpt = new MySqlDataAdapter(cmd);
-                dt = new DataTable();
-                adpt.Fill(ds);
-                int i = ds.Tables[0].Rows.Count;
-                if (i > 0)
-                {
-                    MessageBox.Show("Department Already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ds.Clear();
-                }
-                else
-                {
-                    cmd = new MySqlCommand($"UPDATE departments SET DepartmentName= @DepartmentName WHERE DepartmentID = @departmentID", conn);
-                    cmd.Parameters.AddWithValue("@DepartmentID", departmentID);
-                    cmd.Parameters.AddWithValue("@DepartmentName", department.DepartmentName);
-                    cmd.ExecuteNonQuery();
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally { conn.Close(); }
-            return false;
-        }
+
 
         public void FillWithEmployee(DataGridView dataGrid)
         {
@@ -317,44 +176,8 @@ namespace Project
             }
             finally { conn.Close(); }
         }
-        public void FillWithRoles(DataGridView dataGrid)
-        {
-            try
-            {
-                conn.Open();
-                string sql = "SELECT * FROM roles";
-                LastSQL = sql;
-                adpt = new MySqlDataAdapter(sql, conn);
-                dt = new DataTable();
-                adpt.Fill(dt);
-                dataGrid.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally { conn.Close(); }
-        }
 
 
-        public void FillWithDepartments(DataGridView dataGrid)
-        {
-            try
-            {
-                conn.Open();
-                string sql = "SELECT * FROM departments";
-                LastSQL = sql;
-                adpt = new MySqlDataAdapter(sql, conn);
-                dt = new DataTable();
-                adpt.Fill(dt);
-                dataGrid.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally { conn.Close(); }
-        }
 
         public void FillWithSchedule(DataGridView dataGrid, int UserID)
         {
@@ -524,41 +347,7 @@ namespace Project
             return false;
         }
 
-        public bool RemoveRole(int roleID)
-        {
-            try
-            {
-                conn.Open();
-                cmd = new MySqlCommand("DELETE FROM roles WHERE RoleID=@RoleID", conn);
-                cmd.Parameters.AddWithValue("@RoleID", roleID);
-                cmd.ExecuteNonQuery();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally { conn.Close(); }
-            return false;
-        }
 
-        public bool RemoveDepartment(int departmentID)
-        {
-            try
-            {
-                conn.Open();
-                cmd = new MySqlCommand("DELETE FROM departments WHERE DepartmentID=@DepartmentID", conn);
-                cmd.Parameters.AddWithValue("@DepartmentID", departmentID);
-                cmd.ExecuteNonQuery();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally { conn.Close(); }
-            return false;
-        }
 
         public void RemoveSchedule(int ScheduleID)
         {
@@ -612,23 +401,6 @@ namespace Project
             return false;
         }
 
-        public bool DepartmentRemoveMessageBoxYesNo()
-        {
-            DialogResult dialog = MessageBox.Show("Are you sure you want to remomve this department",
-             "Remove department", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (dialog == DialogResult.Yes)
-            {
-                return true;
-            }
-            else
-            {
-                if (dialog == DialogResult.No)
-                {
-                    return false;
-                }
-            }
-            return false;
-        }
 
         public void ChangePassword(string UserName, string Password)
         {
@@ -756,130 +528,6 @@ namespace Project
                 conn.Close();
             }
         }
-
-        //Role page logs
-        public void NewRolesLog(Roles role)
-        {
-            try
-            {
-                conn.Open();
-                log = $"New role {role.RoleName} has been added, Time of addition {DateTime.Now}";
-                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-
-        public void RoleUpdateLog(Roles role)
-        {
-            try
-            {
-                conn.Open();
-                log = $"Role {role.RoleName} was updated, Time of update {DateTime.Now}";
-                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public void RoleRemovelLog(string roleName)
-        {
-            try
-            {
-                conn.Open();
-                log = $"Role {roleName} was removed, Time of removal {DateTime.Now}";
-                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        //Department Logs
-        public void NewDepartmentLog(Department department)
-        {
-            try
-            {
-                conn.Open();
-                log = $"New Department {department.DepartmentName} has been added, Time of addition {DateTime.Now}";
-                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public void DepartmentUpdateLog(Department department)
-        {
-            try
-            {
-                conn.Open();
-                log = $"Department {department.DepartmentName} was updated, Time of update {DateTime.Now}";
-                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public void DepartmentRemovelLog(string departmentName)
-        {
-            try
-            {
-                conn.Open();
-                log = $"Department {departmentName} was removed, Time of removal {DateTime.Now}";
-                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
         //Stock Logs
     }
 }
