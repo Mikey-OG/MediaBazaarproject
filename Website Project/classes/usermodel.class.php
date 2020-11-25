@@ -2,7 +2,6 @@
 //this class takes care of the connection to the databse 
 //and user input
 require_once('../DataBase/Connection.php');
-
 class UserModel
 {
 	private Connection  $conn;
@@ -20,12 +19,9 @@ class UserModel
 		$stmt->execute(array(':username' => $username));
 		while ($row = $stmt->fetch())
 		{
-			echo "<div class='name'>ID</div><div class='item'> " . htmlentities($row['UserID']) . "</div><div class='name'>Username</div><div class='item' name='uname'>" . htmlentities($row['UserName']) . "</div><div class='name'>Email</div><div class='item' name='email' >" .  htmlentities($row['Email']) .  "</div><div class='name'>First name</div><div class='item' name='fname'>" . htmlentities($row['FirstName']) . "</div><div class='name'>Last name</div><div class='item' name='lname'>" . htmlentities($row['LastName']) . "</div><div class='name'>Date of birth</div><div class='item' name='dob'>" . htmlentities($row['DateOfBirth']) . "</div><div class='name'>Phonenumber</div><div class='item' name='phone' >" . htmlentities($row['PhoneNumber']) . "</div><div class='name'>Nationality</div><div class='item' name='nationality'>" . htmlentities($row['Nationality']) . "</div><div class='name'>City</div><div class='item' name='city'>" . htmlentities($row['City']) . "</div><div class='name'>Zip code</div><div class='item' name='zipcode'>" . htmlentities($row['ZipCode']) . "</div><div class='name'>Address</div><div class='item' name='address'>" . htmlentities($row['Adress']) . "</div>";
+			echo "<div class='name'>ID</div><div class='item'> " . htmlentities($row['UserID']) . "</div><div class='name'>Username</div><div class='item'>" . htmlentities($row['UserName']) . "</div><div class='name'>Email</div><div class='item'>" .  htmlentities($row['Email']) .  "</div><div class='name'>First name</div><div class='item'>" . htmlentities($row['FirstName']) . "</div><div class='name'>Last name</div><div class='item'>" . htmlentities($row['LastName']) . "</div><div class='name'>Date of birth</div><div class='item'>" . htmlentities($row['DateOfBirth']) . "</div><div class='name'>Phonenumber</div><div class='item'>" . htmlentities($row['PhoneNumber']) . "</div><div class='name'>Nationality</div><div class='item'>" . htmlentities($row['Nationality']) . "</div><div class='name'>City</div><div class='item'>" . htmlentities($row['City']) . "</div><div class='name'>Zip code</div><div class='item'>" . htmlentities($row['ZipCode']) . "</div><div class='name'>Address</div><div class='item'>" . htmlentities($row['Adress']) . "</div>";
 		}
 	}
-
-  
-	
 
 	public function ShowAllEmployees()
 	{
