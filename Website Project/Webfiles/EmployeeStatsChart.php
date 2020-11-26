@@ -20,7 +20,7 @@ require_once ('NavigationBar.php');
         ?>
         ]);
         var chart = new google.visualization.PieChart(document.getElementById('EmployeeRole_div'));
-        chart.draw(data, {width: 700, height: 400, title: 'Amount Of Employees Per Role'});
+        chart.draw(data, {width: 700, height: 400, title: 'Number Of Employees Per Role'});
       }
 </script>
 
@@ -37,7 +37,7 @@ require_once ('NavigationBar.php');
         ?>
         ]);
         var chart = new google.visualization.PieChart(document.getElementById('EmployeeDepartment_div'));
-        chart.draw(data, {width: 700, height: 400, title: 'Amount Of Employees Per Department'});
+        chart.draw(data, {width: 700, height: 400, title: 'Number Of Employees Per Department'});
       }
 </script>
 
@@ -54,7 +54,7 @@ require_once ('NavigationBar.php');
         ?>
         ]);
         var chart = new google.visualization.PieChart(document.getElementById('ProductsCategory_div'));
-        chart.draw(data, {width: 700, height: 400, title: 'Amount of Products Per Category'});
+        chart.draw(data, {width: 700, height: 400, title: 'Number of Products Per Category'});
       }
 </script>
 
@@ -71,7 +71,7 @@ require_once ('NavigationBar.php');
         ?>
         ]);
         var chart = new google.visualization.PieChart(document.getElementById('EmployeeCity_div'));
-        chart.draw(data, {width: 700, height: 400, title: 'Amount of Employees Per City'});
+        chart.draw(data, {width: 700, height: 400, title: 'Number of Employees Per City'});
       }
 </script>
 
