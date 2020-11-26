@@ -438,7 +438,6 @@ C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software delive
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\bin\Debug\MySql.Data.xml
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.csprojAssemblyReference.cache
-C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.exe.config
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.AdminLog.resources
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.DepartmentManagement.resources
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.Employee_Management.resources

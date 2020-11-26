@@ -83,8 +83,10 @@ namespace Project
 
         //Regex
         public bool SetEmail(string givenEmail)
-        {
-            if(Regex.IsMatch(givenEmail, "^[a-z0-9A-Z]{5,20}@[a-z]{3,8}.(com|org|in|nl)$"))
+        {                                                                                                                  
+            if(Regex.IsMatch(givenEmail, "^[a-z0-9A-Z]{5,20}@[a-z]{3,8}.(com|org|in|nl)$") 
+                || Regex.IsMatch(givenEmail, "^[a-zA-Z]{1,2}.[a-zA-Z]{2,15}@student.fontys.nl$") 
+                || Regex.IsMatch(givenEmail, "^[a-zA-Z]{1}.[a-zA-Z]{2,15}@fontys.nl$"))
             {
                 this.email = givenEmail;
                 return true;
