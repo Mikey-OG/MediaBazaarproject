@@ -67,5 +67,10 @@
 	padding: 0.7%;
 	margin-top: 1%;
 	margin-bottom: 1%;
-	margin-left: 20%;
+}
+
+.category {
+  text-align: center;
+  padding: 0.7%;
+  margin-left: 17%;
 }
