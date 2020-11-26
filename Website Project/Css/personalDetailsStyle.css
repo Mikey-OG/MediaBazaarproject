@@ -3,7 +3,6 @@
 	margin: 0 auto;
 	margin-top: 1%;
 	border: 1px solid black;
-	height: 595px;
 }
 
 .title {
@@ -31,48 +30,22 @@
 }
 
 .item{
-	padding-top: 1.5%;
+	margin-top: 1.5%;
 	text-align: center;
 	border-bottom: 1px solid black;
-	-moz-appearance: textfield;
-    -webkit-appearance: textfield;
-    border: 1px solid darkgray;
-    box-shadow: 1px 1px 1px 0 lightgray inset;  
-    -webkit-transition: 0.8s;
-    transition: 0.8s;
-
-
 }
 
-input {
-    padding-top: 1.5%;
-    font-size: 16px;
-	text-align: center;
-	/*border-bottom: 1px solid black;*/
-	-moz-appearance: textfield;
-    -webkit-appearance: textfield;
-    /*border: 1px solid darkgray;*/
-    /*box-shadow: 1px 1px 1px 0 lightgray inset;  */
-    -webkit-transition: 0.8s;
-    transition: 0.8s;
-    border: none;
-}
-
-.updateBtn {
-	background-color: #4CAF50;
+.button {
+	background: #4CAF50;
 	text-decoration: none;
-	cursor: pointer;
 	color: white;
 	padding: 0.3%;
 	border-radius: 5px;
-	border: none;
 	float: right;
 	margin-top: -0.3%;
-	width: 60px;
-	height: 30px;
 }
 
-.updateBtn:hover {
+.button:hover {
 	opacity: 0.8;
 }
 
