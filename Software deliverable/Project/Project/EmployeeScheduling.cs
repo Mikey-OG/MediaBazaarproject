@@ -34,6 +34,7 @@ namespace Project
                     UserValidation = "EmployeeManager";
                 }
             }
+            GeneralManagement.AccountSecurity(GeneralManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
         }
 
         private void DataGridEmployees_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -105,7 +106,21 @@ namespace Project
         private void RowResetbtn_Click(object sender, EventArgs e)
         {
             stock.MaxRows = 0;
+            GeneralManagement.AccountSecurity(GeneralManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
             stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL,10);
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            if (lbAccountSecurity.Text == "False")
+            {
+                test testform = new test();
+                testform.Show();
+            }
+            else
+            {
+                GeneralManagement.LogOut(this);
+            }
         }
 
         private void btnAddSchedule_Click(object sender, EventArgs e)

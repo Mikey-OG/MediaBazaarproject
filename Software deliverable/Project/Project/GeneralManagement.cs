@@ -109,7 +109,7 @@ namespace Project
                 conn.Open();
                 string sql = "SELECT * FROM employees WHERE Password = '" + Cry.Encrypt(employee.GetPassword()) + "'";
                 LastSQL = sql;
-                cmd = new MySqlCommand(sql,conn);
+                cmd = new MySqlCommand(sql, conn);
                 adpt = new MySqlDataAdapter(cmd);
                 dt = new DataTable();
                 adpt.Fill(ds);
@@ -145,7 +145,7 @@ namespace Project
 
                     cmd.ExecuteNonQuery();
                     return true;
-                }          
+                }
             }
             catch (Exception ex)
             {
@@ -409,7 +409,7 @@ namespace Project
                 if (Regex.IsMatch(Password, "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,15}$"))
                 {
                     conn.Open();
-                    cmd = new MySqlCommand($"UPDATE employees SET Password= @Password WHERE UserName = @UserName", conn);
+                    cmd = new MySqlCommand($"UPDATE employees SET Password= @Password, AccountSecure = True WHERE UserName = @UserName", conn);
                     cmd.Parameters.AddWithValue("@UserName", UserName);
                     cmd.Parameters.AddWithValue("@Password", Cry.Encrypt(Password));
                     cmd.ExecuteNonQuery();
@@ -466,7 +466,7 @@ namespace Project
             }
         }
 
-        
+
         //TRANSACTION LOGS
         //Admin page logs
         public void NewEmployeeLog(Employee employee)
@@ -528,6 +528,49 @@ namespace Project
                 conn.Close();
             }
         }
-        //Stock Logs
+
+        public string GetUsername(string UserName)
+        {
+            try
+            {
+                conn.Open();
+                cmd = new MySqlCommand($"SELECT LastName FROM employees WHERE UserName = @UserName", conn);
+                cmd.Parameters.AddWithValue("@UserName", UserName);
+                cmd.ExecuteNonQuery();
+                return UserName;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally { conn.Close(); }
+            return UserName;
+        }
+
+        public void AccountSecurity(string AcctUsername, Label label)
+        {
+            try
+            {
+                conn.Open();
+                cmd = new MySqlCommand($"SELECT AccountSecure FROM employees WHERE UserName = @UserName", conn);
+                cmd.Parameters.AddWithValue("@UserName", AcctUsername);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    label.Text = dr["AccountSecure"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally { conn.Close(); }
+        }
+        public void LogOut(Form form)
+        {
+            Form1 loginForm = new Form1();
+            loginForm.Show();
+            form.Hide();
+        }
     }
 }

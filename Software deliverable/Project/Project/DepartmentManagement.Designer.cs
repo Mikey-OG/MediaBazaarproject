@@ -45,6 +45,9 @@
             this.btnHelp = new System.Windows.Forms.Button();
             this.RowResetbtn = new System.Windows.Forms.Button();
             this.Seemorebtn = new System.Windows.Forms.Button();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.lbAccountSecurity = new System.Windows.Forms.Label();
+            this.lbSecureText = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -54,7 +57,7 @@
             // 
             this.panel3.Controls.Add(this.tbDepartmentName);
             this.panel3.Controls.Add(this.lblDepartmentName);
-            this.panel3.Location = new System.Drawing.Point(535, 52);
+            this.panel3.Location = new System.Drawing.Point(535, 78);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(449, 95);
@@ -83,7 +86,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(537, 28);
+            this.label3.Location = new System.Drawing.Point(537, 54);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(185, 20);
             this.label3.TabIndex = 3;
@@ -94,7 +97,7 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 38);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -113,7 +116,7 @@
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.btnAddDepartment);
             this.panel1.Controls.Add(this.btnRemoveaDepartment);
-            this.panel1.Location = new System.Drawing.Point(12, 446);
+            this.panel1.Location = new System.Drawing.Point(12, 472);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(975, 132);
@@ -225,7 +228,7 @@
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(869, 12);
+            this.btnHelp.Location = new System.Drawing.Point(869, 38);
             this.btnHelp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(117, 37);
@@ -237,8 +240,8 @@
             // RowResetbtn
             // 
             this.RowResetbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.RowResetbtn.Location = new System.Drawing.Point(153, 583);
-            this.RowResetbtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.RowResetbtn.Location = new System.Drawing.Point(153, 609);
+            this.RowResetbtn.Margin = new System.Windows.Forms.Padding(4);
             this.RowResetbtn.Name = "RowResetbtn";
             this.RowResetbtn.Size = new System.Drawing.Size(100, 36);
             this.RowResetbtn.TabIndex = 47;
@@ -249,8 +252,8 @@
             // Seemorebtn
             // 
             this.Seemorebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Seemorebtn.Location = new System.Drawing.Point(16, 582);
-            this.Seemorebtn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Seemorebtn.Location = new System.Drawing.Point(16, 608);
+            this.Seemorebtn.Margin = new System.Windows.Forms.Padding(4);
             this.Seemorebtn.Name = "Seemorebtn";
             this.Seemorebtn.Size = new System.Drawing.Size(129, 37);
             this.Seemorebtn.TabIndex = 46;
@@ -258,11 +261,47 @@
             this.Seemorebtn.UseVisualStyleBackColor = true;
             this.Seemorebtn.Click += new System.EventHandler(this.Seemorebtn_Click);
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(869, 609);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(117, 38);
+            this.btnLogOut.TabIndex = 48;
+            this.btnLogOut.Text = "Log out";
+            this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // lbAccountSecurity
+            // 
+            this.lbAccountSecurity.AutoSize = true;
+            this.lbAccountSecurity.Location = new System.Drawing.Point(115, 9);
+            this.lbAccountSecurity.Name = "lbAccountSecurity";
+            this.lbAccountSecurity.Size = new System.Drawing.Size(20, 17);
+            this.lbAccountSecurity.TabIndex = 55;
+            this.lbAccountSecurity.Text = "...";
+            // 
+            // lbSecureText
+            // 
+            this.lbSecureText.AutoSize = true;
+            this.lbSecureText.Location = new System.Drawing.Point(9, 9);
+            this.lbSecureText.Name = "lbSecureText";
+            this.lbSecureText.Size = new System.Drawing.Size(108, 17);
+            this.lbSecureText.TabIndex = 54;
+            this.lbSecureText.Text = "Account Secure";
+            // 
             // DepartmentManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1000, 630);
+            this.ClientSize = new System.Drawing.Size(1000, 660);
+            this.Controls.Add(this.lbAccountSecurity);
+            this.Controls.Add(this.lbSecureText);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.RowResetbtn);
             this.Controls.Add(this.Seemorebtn);
             this.Controls.Add(this.label3);
@@ -270,6 +309,7 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "DepartmentManagement";
             this.Text = "DepartmentManagement";
@@ -301,5 +341,8 @@
         private System.Windows.Forms.Button btnVIewEmployeeDepartments;
         private System.Windows.Forms.Button RowResetbtn;
         private System.Windows.Forms.Button Seemorebtn;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Label lbAccountSecurity;
+        private System.Windows.Forms.Label lbSecureText;
     }
 }

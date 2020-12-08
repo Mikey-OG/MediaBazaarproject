@@ -47,6 +47,7 @@ namespace Project
                     UserValidation = "EmployeeManager";
                 }
             }
+            GeneralManagement.AccountSecurity(GeneralManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
         }
 
         //email
@@ -397,6 +398,7 @@ namespace Project
             try
             {
                 GeneralManagement.FillWithEmployee(DataGridEmployees);
+                GeneralManagement.AccountSecurity(GeneralManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
             }
             catch (Exception ex)
             {
@@ -451,9 +453,22 @@ namespace Project
             adminlog.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogOut_Click(object sender, EventArgs e)
         {
-            label19.Text = GeneralManagement.LastSQL;
+            if(lbAccountSecurity.Text == "False")
+            {
+                test testform = new test();
+                testform.Show();
+            }
+            else
+            {
+                GeneralManagement.LogOut(this);
+            }
         }
+
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    label19.Text = GeneralManagement.LastSQL;
+        //}
     }
 }

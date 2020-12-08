@@ -31,6 +31,7 @@ namespace Project
             {
                 UserValidation = "Admin";
             }
+            gm.AccountSecurity(gm.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
         }
         public void FillFormAccessComboBox()
         {
@@ -150,8 +151,22 @@ namespace Project
 
         private void RowResetbtn_Click(object sender, EventArgs e)
         {
-            stock.MaxRows = 0;
-            stock.SeeMore(dataGridView1, gm.LastSQL,10);
+            gm.AccountSecurity(gm.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
+            //stock.MaxRows = 0;
+            //stock.SeeMore(dataGridView1, gm.LastSQL,10);
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            if (lbAccountSecurity.Text == "False")
+            {
+                test testform = new test();
+                testform.Show();
+            }
+            else
+            {
+                gm.LogOut(this);
+            }
         }
     }
 }

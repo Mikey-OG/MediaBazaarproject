@@ -30,6 +30,7 @@ namespace Project
             {
                 btnReturnMenu.Visible = false;
             }
+            generalManagement.AccountSecurity(generalManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
         }
        
         private void DataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs anError)
@@ -72,12 +73,7 @@ namespace Project
             stock.Save();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form1 loginForm = new Form1();
-            loginForm.Show();
-            this.Hide();
-        }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -117,9 +113,22 @@ namespace Project
 
         private void RowResetbtn_Click(object sender, EventArgs e)
         {
+            generalManagement.AccountSecurity(generalManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
             stock.MaxRows = 0;
             stock.SeeMore(dataGridView1, stock.LastSQL,10);
         }
 
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            if (lbAccountSecurity.Text == "False")
+            {
+                test testform = new test();
+                testform.Show();
+            }
+            else
+            {
+                generalManagement.LogOut(this);
+            }
+        }
     }
 }

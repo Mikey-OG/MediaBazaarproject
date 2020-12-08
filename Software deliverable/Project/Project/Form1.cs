@@ -123,17 +123,9 @@ namespace Project
             }
         }
 
-        private void cbShowPassword_CheckedChanged(object sender, EventArgs e)
+        private void btnViewPassword_Click(object sender, EventArgs e)
         {
-            if(cbShowPassword.Checked)
-            {
-                tbPassword.UseSystemPasswordChar = true;
-            }
-            else
-            {
-                tbPassword.UseSystemPasswordChar = false;
-            }
+            tbPassword.UseSystemPasswordChar = true;
         }
-
     }
 }

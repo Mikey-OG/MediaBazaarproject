@@ -495,3 +495,4 @@ C:\Users\usuario\Desktop\Software deliverable\Project\Project\obj\Debug\Project.
 C:\Users\usuario\Desktop\Software deliverable\Project\Project\obj\Debug\Project.exe
 C:\Users\usuario\Desktop\Software deliverable\Project\Project\obj\Debug\Project.pdb
 C:\Users\usuario\Desktop\Project\Project\obj\Debug\Project.AdminLog.resources
+C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.test.resources

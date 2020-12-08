@@ -14,8 +14,8 @@ namespace Project
 {
     public partial class GeneralEmployeeForm : Form
     {
+        GeneralManagement gm = new GeneralManagement();
         string UserValidation;
-        Employee_Management employee_Management;
         public GeneralEmployeeForm(string validation)
         {
             InitializeComponent();
@@ -50,12 +50,6 @@ namespace Project
             this.Hide();
         }
 
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
-            Form1 loginForm = new Form1();
-            loginForm.Show();
-            this.Hide();
-        }
 
         private void btnEmployeeManagement_Click(object sender, EventArgs e)
         {
