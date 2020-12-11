@@ -23,6 +23,12 @@ namespace Project
         MySqlDataReader dr;
         DataSet ds = new DataSet();
         MySqlCommand cmd;
+        Stack<Logs> deletedLogs;
+
+        public GeneralManagement()
+        {
+            deletedLogs = new Stack<Logs>();
+        }
         public bool AddEmployee(Employee employee, Department department, Roles role)
         {
             try
@@ -494,9 +500,10 @@ namespace Project
             try
             {
                 conn.Open();
-                log = $"Employee {employee.FirstName} {employee.LastName} records were updated, Time of update {DateTime.Now}";
+                log = $"Employee {employee.FirstName} {employee.LastName} records were updated, Time of update";
+                Logs logs = new Logs(log, DateTime.Now);
                 cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.Parameters.AddWithValue("@Logs", logs.ToString());
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -514,9 +521,10 @@ namespace Project
             try
             {
                 conn.Open();
-                log = $"Employee {employee.FirstName} {employee.LastName} was Dismissed, Time of dismissal {DateTime.Now}";
+                log = $"Employee {employee.FirstName} {employee.LastName} was Dismissed, Time of dismissal";
+                Logs logs = new Logs(log, DateTime.Now);
                 cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
+                cmd.Parameters.AddWithValue("@Logs", logs.ToString());
                 cmd.ExecuteNonQuery();
             }
             catch (Exception ex)
@@ -565,6 +573,15 @@ namespace Project
                 MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally { conn.Close(); }
+        }
+
+        public void RemoveLog(Logs logs)
+        {
+            conn.Open();
+            cmd = new MySqlCommand("DELETE FROM logs WHERE Logs=@LogName", conn);
+            cmd.Parameters.AddWithValue("@LogName", logs.NameOfLog);
+            cmd.ExecuteNonQuery();
+            deletedLogs.Push(logs);
         }
         public void LogOut(Form form)
         {

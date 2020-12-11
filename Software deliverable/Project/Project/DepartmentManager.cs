@@ -195,6 +195,7 @@ namespace Project
             }
         }
 
+
         public bool DepartmentRemoveMessageBoxYesNo()
         {
             DialogResult dialog = MessageBox.Show("Are you sure you want to remomve this department",

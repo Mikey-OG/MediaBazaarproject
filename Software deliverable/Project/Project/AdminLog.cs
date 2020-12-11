@@ -13,6 +13,7 @@ namespace Project
     public partial class AdminLog : Form
     {
         GeneralManagement gm;
+
         public AdminLog()
         {
             InitializeComponent();        
@@ -22,6 +23,11 @@ namespace Project
         private void btnViewLogs_Click(object sender, EventArgs e)
         {
             gm.FillWithLogs(ltbAdminLog);
+        }
+
+        private void btnDeleteLog_Click(object sender, EventArgs e)
+        {
+            //gm.RemoveLog();
         }
     }
 }

@@ -34,12 +34,14 @@
             this.ltbAdminLog = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btnDeleteLog = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnDeleteLog);
             this.panel1.Controls.Add(this.btnViewLogs);
             this.panel1.Controls.Add(this.ltbAdminLog);
             this.panel1.Location = new System.Drawing.Point(3, 99);
@@ -90,6 +92,18 @@
             this.panel2.Size = new System.Drawing.Size(524, 65);
             this.panel2.TabIndex = 5;
             // 
+            // btnDeleteLog
+            // 
+            this.btnDeleteLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteLog.Location = new System.Drawing.Point(300, 351);
+            this.btnDeleteLog.Name = "btnDeleteLog";
+            this.btnDeleteLog.Size = new System.Drawing.Size(149, 34);
+            this.btnDeleteLog.TabIndex = 3;
+            this.btnDeleteLog.Text = "Deleted Logs";
+            this.btnDeleteLog.UseVisualStyleBackColor = true;
+            this.btnDeleteLog.Click += new System.EventHandler(this.btnDeleteLog_Click);
+            // 
             // AdminLog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -114,5 +128,6 @@
         private System.Windows.Forms.Button btnViewLogs;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button btnDeleteLog;
     }
 }
