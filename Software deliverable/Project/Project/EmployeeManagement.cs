@@ -443,6 +443,7 @@ namespace Project
         {
             stock.MaxRows = 0;
             stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL,10);
+            GeneralManagement.AccountSecurity(GeneralManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
         }
 
 

@@ -119,6 +119,8 @@
     <Compile Include="IDepartmentManage.cs" />
     <Compile Include="IRoleManage.cs" />
     <Compile Include="IScheduleManage.cs" />
+    <Compile Include="LogManager.cs" />
+    <Compile Include="Logs.cs" />
     <Compile Include="RoleManager.cs" />
     <Compile Include="StockManagement.cs">
       <SubType>Form</SubType>

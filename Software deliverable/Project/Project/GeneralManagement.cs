@@ -23,7 +23,6 @@ namespace Project
         MySqlDataReader dr;
         DataSet ds = new DataSet();
         MySqlCommand cmd;
-
         public bool AddEmployee(Employee employee, Department department, Roles role)
         {
             try
@@ -43,7 +42,7 @@ namespace Project
                 }
                 else
                 {
-                    cmd = new MySqlCommand("INSERT INTO employees (UserName, Email, Password, FirstName, LastName, DateOfBirth, PhoneNumber, Nationality, City, ZipCode, Adress, Salary, DateOfHire, DepartmentName, FormAccess, RoleName) VALUES(@UserName, @Email, @Password, @FirstName, @LastName, @DateOfBirth, @PhoneNumber, @Nationality, @City, @ZipCode, @Adress, @Salary, @DateOfHire, @DepartmentName, @FormAccess, @RoleName)", conn);
+                    cmd = new MySqlCommand("INSERT INTO employees (UserName, Email, Password, FirstName, LastName, DateOfBirth, PhoneNumber, Nationality, City, ZipCode, Adress, Salary, DateOfHire, DepartmentName, FormAccess, RoleName, AccountSecure) VALUES(@UserName, @Email, @Password, @FirstName, @LastName, @DateOfBirth, @PhoneNumber, @Nationality, @City, @ZipCode, @Adress, @Salary, @DateOfHire, @DepartmentName, @FormAccess, @RoleName, FALSE)", conn);
                     cmd.Parameters.AddWithValue("@UserName", employee.UserName);
                     cmd.Parameters.AddWithValue("@Email", employee.GetEmail());
                     string pass = Cry.Encrypt(employee.GetPassword());
@@ -474,10 +473,11 @@ namespace Project
             try
             {
                 conn.Open();
-                log = $"New employee {employee.FirstName} {employee.LastName} has been added, Time of addition {DateTime.Now}";
+                log = $"New employee {employee.FirstName} {employee.LastName} has been added, Time of addition";
+                Logs logs = new Logs(log, DateTime.Now);           
                 cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
-                cmd.ExecuteNonQuery();
+                cmd.Parameters.AddWithValue("@Logs", logs.ToString());
+                cmd.ExecuteNonQuery();    
             }
             catch (Exception ex)
             {
