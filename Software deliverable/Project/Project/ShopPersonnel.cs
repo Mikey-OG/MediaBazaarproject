@@ -139,5 +139,11 @@ namespace Project
             stock.MaxRows = 0;
             stock.SeeMore(dataGridView1, stock.LastSQL,10);
         }
+
+        private void attendancebtn_Click(object sender, EventArgs e)
+        {
+            Qr qrform = new Qr();
+            qrform.Show();
+        }
     }
 }

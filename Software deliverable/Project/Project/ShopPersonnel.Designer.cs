@@ -55,6 +55,7 @@
             this.gbEmployee = new System.Windows.Forms.GroupBox();
             this.RowResetbtn = new System.Windows.Forms.Button();
             this.Seemorebtn = new System.Windows.Forms.Button();
+            this.attendancebtn = new System.Windows.Forms.Button();
             this.gbStock.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -210,7 +211,7 @@
             // tbPassword
             // 
             this.tbPassword.Location = new System.Drawing.Point(28, 128);
-            this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(2);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(184, 26);
             this.tbPassword.TabIndex = 40;
@@ -221,7 +222,7 @@
             this.btnReturnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnReturnMenu.Image")));
             this.btnReturnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReturnMenu.Location = new System.Drawing.Point(864, 471);
-            this.btnReturnMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReturnMenu.Margin = new System.Windows.Forms.Padding(2);
             this.btnReturnMenu.Name = "btnReturnMenu";
             this.btnReturnMenu.Size = new System.Drawing.Size(129, 32);
             this.btnReturnMenu.TabIndex = 10;
@@ -294,7 +295,7 @@
             this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHelp.Location = new System.Drawing.Point(998, 9);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(88, 30);
             this.btnHelp.TabIndex = 40;
@@ -307,7 +308,7 @@
             this.rbSHowStocFunctions.AutoSize = true;
             this.rbSHowStocFunctions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbSHowStocFunctions.Location = new System.Drawing.Point(602, 44);
-            this.rbSHowStocFunctions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbSHowStocFunctions.Margin = new System.Windows.Forms.Padding(2);
             this.rbSHowStocFunctions.Name = "rbSHowStocFunctions";
             this.rbSHowStocFunctions.Size = new System.Drawing.Size(185, 21);
             this.rbSHowStocFunctions.TabIndex = 44;
@@ -321,7 +322,7 @@
             this.rbSHowPeronalFunctions.AutoSize = true;
             this.rbSHowPeronalFunctions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbSHowPeronalFunctions.Location = new System.Drawing.Point(840, 44);
-            this.rbSHowPeronalFunctions.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbSHowPeronalFunctions.Margin = new System.Windows.Forms.Padding(2);
             this.rbSHowPeronalFunctions.Name = "rbSHowPeronalFunctions";
             this.rbSHowPeronalFunctions.Size = new System.Drawing.Size(289, 21);
             this.rbSHowPeronalFunctions.TabIndex = 45;
@@ -339,9 +340,9 @@
             this.gbEmployee.Controls.Add(this.tbPassword);
             this.gbEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbEmployee.Location = new System.Drawing.Point(840, 83);
-            this.gbEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbEmployee.Margin = new System.Windows.Forms.Padding(2);
             this.gbEmployee.Name = "gbEmployee";
-            this.gbEmployee.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbEmployee.Padding = new System.Windows.Forms.Padding(2);
             this.gbEmployee.Size = new System.Drawing.Size(230, 201);
             this.gbEmployee.TabIndex = 46;
             this.gbEmployee.TabStop = false;
@@ -370,11 +371,23 @@
             this.Seemorebtn.UseVisualStyleBackColor = true;
             this.Seemorebtn.Click += new System.EventHandler(this.Seemorebtn_Click);
             // 
+            // attendancebtn
+            // 
+            this.attendancebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.attendancebtn.Location = new System.Drawing.Point(465, 474);
+            this.attendancebtn.Name = "attendancebtn";
+            this.attendancebtn.Size = new System.Drawing.Size(121, 30);
+            this.attendancebtn.TabIndex = 49;
+            this.attendancebtn.Text = "Mark Present";
+            this.attendancebtn.UseVisualStyleBackColor = true;
+            this.attendancebtn.Click += new System.EventHandler(this.attendancebtn_Click);
+            // 
             // ShopPersonnel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1095, 513);
+            this.Controls.Add(this.attendancebtn);
             this.Controls.Add(this.RowResetbtn);
             this.Controls.Add(this.Seemorebtn);
             this.Controls.Add(this.gbEmployee);
@@ -385,7 +398,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gbStock);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "ShopPersonnel";
             this.Text = "ShopPersonnel";
             this.gbStock.ResumeLayout(false);
@@ -429,5 +442,6 @@
         private System.Windows.Forms.GroupBox gbEmployee;
         private System.Windows.Forms.Button RowResetbtn;
         private System.Windows.Forms.Button Seemorebtn;
+        private System.Windows.Forms.Button attendancebtn;
     }
 }

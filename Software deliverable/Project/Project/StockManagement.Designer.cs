@@ -48,6 +48,7 @@
             this.btnHelp = new System.Windows.Forms.Button();
             this.Seemorebtn = new System.Windows.Forms.Button();
             this.RowResetbtn = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -283,11 +284,23 @@
             this.RowResetbtn.UseVisualStyleBackColor = true;
             this.RowResetbtn.Click += new System.EventHandler(this.RowResetbtn_Click);
             // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button3.Location = new System.Drawing.Point(552, 502);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(102, 34);
+            this.button3.TabIndex = 46;
+            this.button3.Text = "Export PDF";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // StockManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(823, 543);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.RowResetbtn);
             this.Controls.Add(this.Seemorebtn);
             this.Controls.Add(this.btnHelp);
@@ -336,5 +349,6 @@
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Button Seemorebtn;
         private System.Windows.Forms.Button RowResetbtn;
+        private System.Windows.Forms.Button button3;
     }
 }

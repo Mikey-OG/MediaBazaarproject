@@ -495,3 +495,11 @@ C:\Users\usuario\Desktop\Software deliverable\Project\Project\obj\Debug\Project.
 C:\Users\usuario\Desktop\Software deliverable\Project\Project\obj\Debug\Project.exe
 C:\Users\usuario\Desktop\Software deliverable\Project\Project\obj\Debug\Project.pdb
 C:\Users\usuario\Desktop\Project\Project\obj\Debug\Project.AdminLog.resources
+C:\Users\usuario\Desktop\Project\Project\bin\Debug\itextsharp.dll
+C:\Users\usuario\Desktop\Project\Project\bin\Debug\itextsharp.xml
+C:\Users\usuario\Desktop\Project\Project\bin\Debug\QRCoder.dll
+C:\Users\usuario\Desktop\Project\Project\bin\Debug\zxing.dll
+C:\Users\usuario\Desktop\Project\Project\bin\Debug\zxing.presentation.dll
+C:\Users\usuario\Desktop\Project\Project\bin\Debug\zxing.xml
+C:\Users\usuario\Desktop\Project\Project\bin\Debug\zxing.presentation.xml
+C:\Users\usuario\Desktop\Project\Project\obj\Debug\Project.Qr.resources
