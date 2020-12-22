@@ -8,6 +8,7 @@ namespace Project
 {
     public class Department
     {
+        private int id;
         private string departmentName;
         private List<Employee> employees;
 
@@ -17,6 +18,18 @@ namespace Project
         {
             this.departmentName = departmentName;
             this.employees = new List<Employee>();
+        }
+
+        public int ID
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
         }
 
         public string DepartmentName

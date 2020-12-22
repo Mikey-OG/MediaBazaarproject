@@ -33,7 +33,7 @@
             this.tbDepartmentName = new System.Windows.Forms.TextBox();
             this.lblDepartmentName = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvDepartments = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnVIewEmployeeDepartments = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
@@ -49,7 +49,7 @@
             this.lbAccountSecurity = new System.Windows.Forms.Label();
             this.lbSecureText = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,20 +92,20 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Department Information";
             // 
-            // dataGridView1
+            // dgvDepartments
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 38);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(517, 426);
-            this.dataGridView1.TabIndex = 6;
-            this.dataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
+            this.dgvDepartments.AllowUserToAddRows = false;
+            this.dgvDepartments.AllowUserToDeleteRows = false;
+            this.dgvDepartments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDepartments.Location = new System.Drawing.Point(12, 38);
+            this.dgvDepartments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvDepartments.Name = "dgvDepartments";
+            this.dgvDepartments.ReadOnly = true;
+            this.dgvDepartments.RowHeadersWidth = 51;
+            this.dgvDepartments.RowTemplate.Height = 24;
+            this.dgvDepartments.Size = new System.Drawing.Size(517, 426);
+            this.dgvDepartments.TabIndex = 6;
+            this.dgvDepartments.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseClick);
             // 
             // panel1
             // 
@@ -307,7 +307,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvDepartments);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -315,7 +315,7 @@
             this.Text = "DepartmentManagement";
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -329,7 +329,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbDepartmentName;
         private System.Windows.Forms.Label lblDepartmentName;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvDepartments;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnReturnToMenu;

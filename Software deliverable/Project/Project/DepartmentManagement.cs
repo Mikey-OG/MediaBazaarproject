@@ -17,18 +17,40 @@ namespace Project
         private StockManager stock = new StockManager();
         Department department;
         DepartmentManager dm;
-        int departmentID;
+        int departmentID = 0;
         public DepartmentManagement(string validation)
         {
             InitializeComponent();
             gm = new GeneralManagement();
             dm = new DepartmentManager();
-            dm.FillWithDepartments(dataGridView1);
-            if(validation == "Admin")
+            dgvDepartments.DataSource = dm.GetAllDepartments();
+            if (validation == "Admin")
             {
                 UserValidation = "Admin";
             }
             gm.AccountSecurity(gm.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
+        }
+
+        public void LoadNewData()
+        {
+            //the code here is to empty the dat grid view and then load in the new data in the list 
+            dgvDepartments.DataSource = null;
+            dgvDepartments.Rows.Clear();
+            dgvDepartments.DataSource = dm.GetAllDepartments();
+        }
+
+        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            DataGridViewRow row;
+            try
+            {
+                row = dgvDepartments.Rows[e.RowIndex];
+                departmentID = Convert.ToInt32(row.Cells[0].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnAddDepartment_Click(object sender, EventArgs e)
@@ -40,8 +62,8 @@ namespace Project
                 {
                     dm.NewDepartmentLog(department);
                     MessageBox.Show("Information Added", "Department Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadNewData();
                 }
-                dm.FillWithDepartments(dataGridView1);
             }
             catch (Exception ex)
             {
@@ -59,12 +81,8 @@ namespace Project
                     {
                         dm.DepartmentRemovelLog(tbDepartmentName.Text);
                         MessageBox.Show("Information Removed", "Department Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LoadNewData();
                     }
-                    dm.FillWithDepartments(dataGridView1);
-                }
-                else
-                {
-                    dm.FillWithDepartments(dataGridView1);
                 }
             }
             catch (Exception ex)
@@ -78,27 +96,13 @@ namespace Project
             try
             {
                 department = new Department(tbDepartmentName.Text);
-                if (dm.UpdateDepartment(department, departmentID) == true)
+                department.ID = departmentID;
+                if (dm.UpdateDepartment(department) == true)
                 {
                     dm.DepartmentUpdateLog(department);
                     MessageBox.Show("Information Updated", "Department Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadNewData();
                 }
-
-                dm.FillWithDepartments(dataGridView1);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void dataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            DataGridViewRow row;
-            try
-            {
-                row = dataGridView1.Rows[e.RowIndex];
-                departmentID = Convert.ToInt32(row.Cells[0].Value);
             }
             catch (Exception ex)
             {
@@ -125,7 +129,7 @@ namespace Project
         {
             try
             {
-                dm.FillWithDepartments(dataGridView1);
+                LoadNewData();
             }
             catch (Exception ex)
             {
@@ -147,7 +151,7 @@ namespace Project
         {
             try
             {
-                gm.FIllWithEmployeeAndDepartment(dataGridView1);
+                gm.FIllWithEmployeeAndDepartment(dgvDepartments);
             }
             catch (Exception ex)
             {
@@ -164,7 +168,7 @@ namespace Project
 
         private void Seemorebtn_Click(object sender, EventArgs e)
         {
-            stock.SeeMore(dataGridView1, gm.LastSQL,10);
+            stock.SeeMore(dgvDepartments, gm.LastSQL,10);
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)

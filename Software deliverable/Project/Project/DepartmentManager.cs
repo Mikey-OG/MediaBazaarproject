@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Project
 {
-    public class DepartmentManager: IDepartmentManage
+    public class DepartmentManager
     {
         private string log;
         public string LastSQL = $"";
@@ -19,8 +19,14 @@ namespace Project
         DataSet ds = new DataSet();
         MySqlDataAdapter adpt;
         MySqlCommand cmd;
+        MySqlDataReader dr;
         DataTable dt;
+        List<Department> departments;
 
+        public DepartmentManager()
+        {
+          departments = new List<Department>();
+        }
         public bool DepartmentDoesNotExists(Department department)
         {
             conn.Open();
@@ -44,6 +50,29 @@ namespace Project
             }
         }
 
+        //this is to add the data gottn from the database into a list 
+        public void AddToListOFDepartments()
+        {
+            try
+            {
+                string sql = "SELECT * FROM departments";
+                cmd = new MySqlCommand(sql, conn);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Department department = new Department(dr[1].ToString());
+                    department.ID = Convert.ToInt32(dr[0]);
+                    departments.Add(department);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally { conn.Close(); }
+        }
+
+        //this is to add a department into the database
         public bool AddDepartment(Department department)
         {
             try
@@ -54,6 +83,7 @@ namespace Project
                     cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@DepartmentName", department.DepartmentName);
                     cmd.ExecuteNonQuery();
+                    departments.Clear();
                     return true;
                 }
             }
@@ -68,8 +98,19 @@ namespace Project
             return false;
         }
 
-
-        public bool UpdateDepartment(Department department, int departmentID)
+        //test
+        //public Department FinDepartment(Department department)
+        //{
+        //    foreach (var item in departments)
+        //    {
+        //        if(item.ID == department.ID)
+        //        {
+        //            return department;
+        //        }
+        //    }
+        //    return null;
+        //}
+        public bool UpdateDepartment(Department department)
         {
             try
             {
@@ -77,8 +118,9 @@ namespace Project
                 {
                     string sql = $"UPDATE departments SET DepartmentName= @DepartmentName WHERE DepartmentID = @departmentID";
                     cmd = new MySqlCommand(sql, conn);
-                    cmd.Parameters.AddWithValue("@DepartmentID", departmentID);
+                    cmd.Parameters.AddWithValue("@DepartmentID", department.ID);
                     cmd.Parameters.AddWithValue("@DepartmentName", department.DepartmentName);
+                    departments.Clear();
                     cmd.ExecuteNonQuery();
                     return true;
                 }
@@ -100,6 +142,7 @@ namespace Project
                 string sql = "DELETE FROM departments WHERE DepartmentID=@DepartmentID";
                 cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@DepartmentID", departmentID);
+                departments.Clear();
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -111,25 +154,14 @@ namespace Project
             return false;
         }
 
-        public void FillWithDepartments(DataGridView dataGrid)
-        {
-            try
-            {
-                conn.Open();
-                string sql = "SELECT * FROM departments";
-                LastSQL = sql;
-                adpt = new MySqlDataAdapter(sql, conn);
-                dt = new DataTable();
-                adpt.Fill(dt);
-                dataGrid.DataSource = dt;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally { conn.Close(); }
-        }
 
+
+        public List<Department> GetAllDepartments()
+        {
+            conn.Open();
+            AddToListOFDepartments();
+            return departments;
+        }
 
         //Department Logs
         public void NewDepartmentLog(Department department)
