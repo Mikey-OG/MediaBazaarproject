@@ -21,28 +21,37 @@ namespace Project
         MySqlCommand cmd;
         DataTable dt;
 
+        public bool DepartmentDoesNotExists(Department department)
+        {
+            conn.Open();
+            string sql = "SELECT * FROM departments WHERE DepartMentName = @Department";
+            LastSQL = sql;
+            cmd = new MySqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@Department", department.DepartmentName);
+            adpt = new MySqlDataAdapter(cmd);
+            dt = new DataTable();
+            adpt.Fill(ds);
+            int i = ds.Tables[0].Rows.Count;
+            if (i > 0)
+            {
+                MessageBox.Show("Department Already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ds.Clear();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         public bool AddDepartment(Department department)
         {
             try
             {
-                conn.Open();
-                string sql = "SELECT * FROM departments WHERE DepartMentName = @Department";
-                LastSQL = sql;
-                cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@Department", department.DepartmentName);
-                adpt = new MySqlDataAdapter(cmd);
-                dt = new DataTable();
-                adpt.Fill(ds);
-                int i = ds.Tables[0].Rows.Count;
-                if (i > 0)
+                if(DepartmentDoesNotExists(department) == true)
                 {
-                    MessageBox.Show("Department Already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ds.Clear();
-                }
-                else
-                {
-                    cmd = new MySqlCommand("INSERT INTO departments (DepartmentName) VALUES( @DepartmentName)", conn);
+                    string sql = "INSERT INTO departments (DepartmentName) VALUES( @DepartmentName)";
+                    cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@DepartmentName", department.DepartmentName);
                     cmd.ExecuteNonQuery();
                     return true;
@@ -64,23 +73,10 @@ namespace Project
         {
             try
             {
-                conn.Open();
-                string sql = "SELECT * FROM departments WHERE DepartMentName = @DepartmentName";
-                LastSQL = sql;
-                cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@DepartmentName", department.DepartmentName);
-                adpt = new MySqlDataAdapter(cmd);
-                dt = new DataTable();
-                adpt.Fill(ds);
-                int i = ds.Tables[0].Rows.Count;
-                if (i > 0)
+                if(DepartmentDoesNotExists(department) == true)
                 {
-                    MessageBox.Show("Department Already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ds.Clear();
-                }
-                else
-                {
-                    cmd = new MySqlCommand($"UPDATE departments SET DepartmentName= @DepartmentName WHERE DepartmentID = @departmentID", conn);
+                    string sql = $"UPDATE departments SET DepartmentName= @DepartmentName WHERE DepartmentID = @departmentID";
+                    cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@DepartmentID", departmentID);
                     cmd.Parameters.AddWithValue("@DepartmentName", department.DepartmentName);
                     cmd.ExecuteNonQuery();
@@ -101,7 +97,8 @@ namespace Project
             try
             {
                 conn.Open();
-                cmd = new MySqlCommand("DELETE FROM departments WHERE DepartmentID=@DepartmentID", conn);
+                string sql = "DELETE FROM departments WHERE DepartmentID=@DepartmentID";
+                cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@DepartmentID", departmentID);
                 cmd.ExecuteNonQuery();
                 return true;

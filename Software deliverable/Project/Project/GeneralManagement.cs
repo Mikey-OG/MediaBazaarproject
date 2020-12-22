@@ -29,26 +29,39 @@ namespace Project
         {
             deletedLogs = new Stack<Logs>();
         }
+
+        public bool EmployeeDoesNotExist(Employee employee)
+        {
+            conn.Open();
+            string sql = "SELECT * FROM employees WHERE Password = '" + employee.GetPassword() + "'";
+            cmd = new MySqlCommand(sql, conn);
+            LastSQL = sql;
+            adpt = new MySqlDataAdapter(cmd);
+            dt = new DataTable();
+            adpt.Fill(ds);
+            int i = ds.Tables[0].Rows.Count;
+            if (i > 0)
+            {
+                MessageBox.Show("Password already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ds.Clear();
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
         public bool AddEmployee(Employee employee, Department department, Roles role)
         {
             try
             {
-                conn.Open();
-                string sql = "SELECT * FROM employees WHERE Password = '" + employee.GetPassword() + "'";
-                cmd = new MySqlCommand(sql, conn);
-                LastSQL = sql;
-                adpt = new MySqlDataAdapter(cmd);
-                dt = new DataTable();
-                adpt.Fill(ds);
-                int i = ds.Tables[0].Rows.Count;
-                if (i > 0)
+                if(EmployeeDoesNotExist(employee) == true)
                 {
-                    MessageBox.Show("Password already exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ds.Clear();
-                }
-                else
-                {
-                    cmd = new MySqlCommand("INSERT INTO employees (UserName, Email, Password, FirstName, LastName, DateOfBirth, PhoneNumber, Nationality, City, ZipCode, Adress, Salary, DateOfHire, DepartmentName, FormAccess, RoleName, AccountSecure) VALUES(@UserName, @Email, @Password, @FirstName, @LastName, @DateOfBirth, @PhoneNumber, @Nationality, @City, @ZipCode, @Adress, @Salary, @DateOfHire, @DepartmentName, @FormAccess, @RoleName, FALSE)", conn);
+                    string sql = "INSERT INTO employees (UserName, Email, Password, FirstName, LastName, DateOfBirth, PhoneNumber, Nationality, City, ZipCode, Adress, " +
+                        "Salary, DateOfHire, DepartmentName, FormAccess, RoleName, AccountSecure)" +
+                        " VALUES(@UserName, @Email, @Password, @FirstName, @LastName, @DateOfBirth, @PhoneNumber, @Nationality, @City, @ZipCode, @Adress, @Salary," +
+                        " @DateOfHire, @DepartmentName, @FormAccess, @RoleName, FALSE)";
+                    cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@UserName", employee.UserName);
                     cmd.Parameters.AddWithValue("@Email", employee.GetEmail());
                     string pass = Cry.Encrypt(employee.GetPassword());
@@ -111,26 +124,14 @@ namespace Project
         {
             try
             {
-                conn.Open();
-                string sql = "SELECT * FROM employees WHERE Password = '" + Cry.Encrypt(employee.GetPassword()) + "'";
-                LastSQL = sql;
-                cmd = new MySqlCommand(sql, conn);
-                adpt = new MySqlDataAdapter(cmd);
-                dt = new DataTable();
-                adpt.Fill(ds);
-                int i = ds.Tables[0].Rows.Count;
-                if (i > 0)
+                if(EmployeeDoesNotExist(employee) == true)
                 {
-                    MessageBox.Show("Please User Already exists with this FormAccess and Username please change one  of them ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    ds.Clear();
-                }
-                else
-                {
-
-                    cmd = new MySqlCommand("UPDATE employees SET UserName= @UserName, Email= @Email, Password= @Password, FirstName= @FirstName, LastName= @LastName, DateOfBirth= @DateOfBirth, PhoneNumber= @PhoneNumber, Nationality= @Nationality, City= @City, ZipCode= @ZipCode, Adress= @Adress, Salary= @Salary, DateOfHire= @DateOfHire, DepartmentName= @DepartmentName, FormAccess= @FormAccess, RoleName= @RoleName WHERE UserID =@UserID;", conn);
+                    cmd = new MySqlCommand("UPDATE employees SET UserName= @UserName, Email= @Email, Password= @Password, FirstName= @FirstName, LastName= @LastName, " +
+                        "DateOfBirth= @DateOfBirth, PhoneNumber= @PhoneNumber, Nationality= @Nationality, City= @City, ZipCode= @ZipCode, Adress= @Adress, Salary= @Salary," +
+                        " DateOfHire= @DateOfHire, DepartmentName= @DepartmentName, FormAccess= @FormAccess, RoleName= @RoleName WHERE UserID =@UserID;", conn);
                     cmd.Parameters.AddWithValue("@UserName", employee.UserName);
                     cmd.Parameters.AddWithValue("@Email", employee.GetEmail());
-                    cmd.Parameters.AddWithValue("@Password", employee.GetPassword());
+                    cmd.Parameters.AddWithValue("@Password", Cry.Encrypt(employee.GetPassword()));
                     cmd.Parameters.AddWithValue("@FirstName", employee.FirstName);
                     cmd.Parameters.AddWithValue("@LastName", employee.LastName);
                     cmd.Parameters.AddWithValue("@DateOfBirth", employee.DateOfBirth);
@@ -146,8 +147,6 @@ namespace Project
                     cmd.Parameters.AddWithValue("@RoleName", role.RoleName);
                     cmd.Parameters.AddWithValue("@UserID", UserID);
 
-                    cmd = new MySqlCommand("UPDATE employees SET UserName= '" + employee.UserName + "', Email= '" + employee.GetEmail() + "', Password= '" + Cry.Encrypt(employee.GetPassword()) + "', FirstName= '" + employee.FirstName + "', LastName= '" + employee.LastName + "', DateOfBirth= '" + employee.DateOfBirth + "', PhoneNumber= '" + employee.GetPhoneNo() + "', Nationality= '" + employee.Nationality + "', City= '" + employee.City + "', ZipCode= '" + employee.Zipcode + "', Adress= '" + employee.Address + "', Salary= '" + employee.Salary + "', DateOfHire= '" + employee.HireDate + "', DepartmentName= '" + department.DepartmentName + "', FormAccess= '" + employee.FormAccess + "', RoleName= '" + role.RoleName + "' WHERE UserID ='" + UserID + "';", conn);
-
                     cmd.ExecuteNonQuery();
                     return true;
                 }
@@ -161,19 +160,23 @@ namespace Project
         }
 
 
+        public void FillDataGridTable(string sql, DataGridView dataGrid)
+        {
+            conn.Open();
+            LastSQL = sql;
+            adpt = new MySqlDataAdapter(sql, conn);
+            dt = new DataTable();
+            adpt.Fill(dt);
+            dataGrid.DataSource = dt;
+        }
 
 
         public void FillWithEmployee(DataGridView dataGrid)
         {
             try
             {
-                conn.Open();
                 string sql = "SELECT * FROM employees LIMIT 10";
-                LastSQL = sql;
-                adpt = new MySqlDataAdapter(sql, conn);
-                dt = new DataTable();
-                adpt.Fill(dt);
-                dataGrid.DataSource = dt;
+                FillDataGridTable(sql, dataGrid);
             }
             catch (Exception ex)
             {
@@ -268,13 +271,8 @@ namespace Project
         {
             try
             {
-                conn.Open();
-                string sql = "SELECT * FROM employeeS WHERE DismissalDate IS NOT NULL";
-                LastSQL = sql;
-                adpt = new MySqlDataAdapter(sql, conn);
-                dt = new DataTable();
-                adpt.Fill(dt);
-                dataGrid.DataSource = dt;
+                string sql = "SELECT * FROM employees WHERE DismissalDate IS NOT NULL";
+                FillDataGridTable(sql, dataGrid);
             }
             catch (Exception ex)
             {
@@ -287,13 +285,8 @@ namespace Project
         {
             try
             {
-                conn.Open();
                 string sql = "SELECT E.UserName, D.DepartmentName FROM employees AS E INNER JOIN departments D ON E.DepartmentName = D.DepartmentName";
-                LastSQL = sql;
-                adpt = new MySqlDataAdapter(sql, conn);
-                dt = new DataTable();
-                adpt.Fill(dt);
-                dataGrid.DataSource = dt;
+                FillDataGridTable(sql, dataGrid);
             }
             catch (Exception ex)
             {
@@ -306,13 +299,8 @@ namespace Project
         {
             try
             {
-                conn.Open();
                 string sql = "SELECT E.Username, R.RoleName, R.FormAccess FROM employees As E INNER JOIN roles As R ON E.RoleName = R.RoleName";
-                LastSQL = sql;
-                adpt = new MySqlDataAdapter(sql, conn);
-                dt = new DataTable();
-                adpt.Fill(dt);
-                dataGrid.DataSource = dt;
+                FillDataGridTable(sql, dataGrid);           
             }
             catch (Exception ex)
             {
