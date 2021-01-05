@@ -157,6 +157,13 @@
     <Compile Include="StockInput.Designer.cs">
       <DependentUpon>StockInput.cs</DependentUpon>
     </Compile>
+    <Compile Include="Update.cs" />
+    <Compile Include="UpdateDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateDetailsForm.Designer.cs">
+      <DependentUpon>UpdateDetailsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Variables.cs" />
     <EmbeddedResource Include="AdminLog.resx">
       <DependentUpon>AdminLog.cs</DependentUpon>
@@ -196,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StockInput.resx">
       <DependentUpon>StockInput.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateDetailsForm.resx">
+      <DependentUpon>UpdateDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Project_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">

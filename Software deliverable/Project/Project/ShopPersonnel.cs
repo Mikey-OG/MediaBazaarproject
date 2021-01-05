@@ -139,5 +139,12 @@ namespace Project
             stock.MaxRows = 0;
             stock.SeeMore(dataGridView1, stock.LastSQL,10);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            UpdateDetailsForm update = new UpdateDetailsForm(2);
+            update.Show();
+        }
     }
 }

@@ -48,16 +48,17 @@
             this.btnHelp = new System.Windows.Forms.Button();
             this.Seemorebtn = new System.Windows.Forms.Button();
             this.RowResetbtn = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // DecreaseBtn
             // 
             this.DecreaseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.DecreaseBtn.Location = new System.Drawing.Point(664, 293);
-            this.DecreaseBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.DecreaseBtn.Location = new System.Drawing.Point(885, 361);
+            this.DecreaseBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DecreaseBtn.Name = "DecreaseBtn";
-            this.DecreaseBtn.Size = new System.Drawing.Size(147, 29);
+            this.DecreaseBtn.Size = new System.Drawing.Size(196, 36);
             this.DecreaseBtn.TabIndex = 36;
             this.DecreaseBtn.Text = "Decrease";
             this.DecreaseBtn.UseVisualStyleBackColor = true;
@@ -67,20 +68,19 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.label1.Location = new System.Drawing.Point(665, 208);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(887, 256);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(130, 20);
+            this.label1.Size = new System.Drawing.Size(166, 25);
             this.label1.TabIndex = 35;
             this.label1.Text = "Change value by:";
             // 
             // IncreaseBtn
             // 
             this.IncreaseBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.IncreaseBtn.Location = new System.Drawing.Point(664, 260);
-            this.IncreaseBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.IncreaseBtn.Location = new System.Drawing.Point(885, 320);
+            this.IncreaseBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.IncreaseBtn.Name = "IncreaseBtn";
-            this.IncreaseBtn.Size = new System.Drawing.Size(147, 29);
+            this.IncreaseBtn.Size = new System.Drawing.Size(196, 36);
             this.IncreaseBtn.TabIndex = 34;
             this.IncreaseBtn.Text = "Increase";
             this.IncreaseBtn.UseVisualStyleBackColor = true;
@@ -89,10 +89,10 @@
             // ValueBox
             // 
             this.ValueBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.ValueBox.Location = new System.Drawing.Point(664, 230);
-            this.ValueBox.Margin = new System.Windows.Forms.Padding(2);
+            this.ValueBox.Location = new System.Drawing.Point(885, 283);
+            this.ValueBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ValueBox.Name = "ValueBox";
-            this.ValueBox.Size = new System.Drawing.Size(147, 26);
+            this.ValueBox.Size = new System.Drawing.Size(195, 30);
             this.ValueBox.TabIndex = 33;
             // 
             // RefreshBtn
@@ -100,10 +100,10 @@
             this.RefreshBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.RefreshBtn.Image = ((System.Drawing.Image)(resources.GetObject("RefreshBtn.Image")));
             this.RefreshBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.RefreshBtn.Location = new System.Drawing.Point(664, 361);
-            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.RefreshBtn.Location = new System.Drawing.Point(885, 444);
+            this.RefreshBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.RefreshBtn.Name = "RefreshBtn";
-            this.RefreshBtn.Size = new System.Drawing.Size(147, 29);
+            this.RefreshBtn.Size = new System.Drawing.Size(196, 36);
             this.RefreshBtn.TabIndex = 32;
             this.RefreshBtn.Text = "Refresh";
             this.RefreshBtn.UseVisualStyleBackColor = true;
@@ -114,10 +114,10 @@
             this.DeletRowBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.DeletRowBtn.Image = ((System.Drawing.Image)(resources.GetObject("DeletRowBtn.Image")));
             this.DeletRowBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.DeletRowBtn.Location = new System.Drawing.Point(664, 171);
-            this.DeletRowBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.DeletRowBtn.Location = new System.Drawing.Point(885, 210);
+            this.DeletRowBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DeletRowBtn.Name = "DeletRowBtn";
-            this.DeletRowBtn.Size = new System.Drawing.Size(147, 29);
+            this.DeletRowBtn.Size = new System.Drawing.Size(196, 36);
             this.DeletRowBtn.TabIndex = 31;
             this.DeletRowBtn.Text = "Delete Row";
             this.DeletRowBtn.UseVisualStyleBackColor = true;
@@ -128,10 +128,10 @@
             this.NewRowBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.NewRowBtn.Image = ((System.Drawing.Image)(resources.GetObject("NewRowBtn.Image")));
             this.NewRowBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.NewRowBtn.Location = new System.Drawing.Point(664, 103);
-            this.NewRowBtn.Margin = new System.Windows.Forms.Padding(2);
+            this.NewRowBtn.Location = new System.Drawing.Point(885, 127);
+            this.NewRowBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NewRowBtn.Name = "NewRowBtn";
-            this.NewRowBtn.Size = new System.Drawing.Size(147, 29);
+            this.NewRowBtn.Size = new System.Drawing.Size(196, 36);
             this.NewRowBtn.TabIndex = 30;
             this.NewRowBtn.Text = "New Row";
             this.NewRowBtn.UseVisualStyleBackColor = true;
@@ -142,9 +142,10 @@
             this.SearchBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.SearchBtn.Image = ((System.Drawing.Image)(resources.GetObject("SearchBtn.Image")));
             this.SearchBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SearchBtn.Location = new System.Drawing.Point(664, 69);
+            this.SearchBtn.Location = new System.Drawing.Point(885, 85);
+            this.SearchBtn.Margin = new System.Windows.Forms.Padding(4);
             this.SearchBtn.Name = "SearchBtn";
-            this.SearchBtn.Size = new System.Drawing.Size(147, 29);
+            this.SearchBtn.Size = new System.Drawing.Size(196, 36);
             this.SearchBtn.TabIndex = 29;
             this.SearchBtn.Text = "Search Name";
             this.SearchBtn.UseVisualStyleBackColor = true;
@@ -152,9 +153,10 @@
             // 
             // SearchBox
             // 
-            this.SearchBox.Location = new System.Drawing.Point(664, 43);
+            this.SearchBox.Location = new System.Drawing.Point(885, 53);
+            this.SearchBox.Margin = new System.Windows.Forms.Padding(4);
             this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(147, 20);
+            this.SearchBox.Size = new System.Drawing.Size(195, 22);
             this.SearchBox.TabIndex = 28;
             // 
             // SaveBtn
@@ -162,9 +164,10 @@
             this.SaveBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.SaveBtn.Image = ((System.Drawing.Image)(resources.GetObject("SaveBtn.Image")));
             this.SaveBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SaveBtn.Location = new System.Drawing.Point(664, 327);
+            this.SaveBtn.Location = new System.Drawing.Point(885, 402);
+            this.SaveBtn.Margin = new System.Windows.Forms.Padding(4);
             this.SaveBtn.Name = "SaveBtn";
-            this.SaveBtn.Size = new System.Drawing.Size(147, 29);
+            this.SaveBtn.Size = new System.Drawing.Size(196, 36);
             this.SaveBtn.TabIndex = 27;
             this.SaveBtn.Text = "Save changes";
             this.SaveBtn.UseVisualStyleBackColor = true;
@@ -173,10 +176,11 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 26);
+            this.dataGridView1.Location = new System.Drawing.Point(16, 32);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(642, 470);
+            this.dataGridView1.Size = new System.Drawing.Size(856, 578);
             this.dataGridView1.TabIndex = 26;
             // 
             // button1
@@ -184,9 +188,10 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(664, 501);
+            this.button1.Location = new System.Drawing.Point(885, 617);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 35);
+            this.button1.Size = new System.Drawing.Size(195, 43);
             this.button1.TabIndex = 37;
             this.button1.Text = "Log Out";
             this.button1.UseVisualStyleBackColor = true;
@@ -197,9 +202,10 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(664, 137);
+            this.button2.Location = new System.Drawing.Point(885, 169);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(147, 29);
+            this.button2.Size = new System.Drawing.Size(196, 36);
             this.button2.TabIndex = 38;
             this.button2.Text = "Input Data";
             this.button2.UseVisualStyleBackColor = true;
@@ -210,9 +216,10 @@
             this.btnEmployees.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnEmployees.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployees.Image")));
             this.btnEmployees.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEmployees.Location = new System.Drawing.Point(664, 430);
+            this.btnEmployees.Location = new System.Drawing.Point(885, 529);
+            this.btnEmployees.Margin = new System.Windows.Forms.Padding(4);
             this.btnEmployees.Name = "btnEmployees";
-            this.btnEmployees.Size = new System.Drawing.Size(147, 29);
+            this.btnEmployees.Size = new System.Drawing.Size(196, 36);
             this.btnEmployees.TabIndex = 39;
             this.btnEmployees.Text = "Employees";
             this.btnEmployees.UseVisualStyleBackColor = true;
@@ -223,9 +230,10 @@
             this.btnLowStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.btnLowStock.Image = ((System.Drawing.Image)(resources.GetObject("btnLowStock.Image")));
             this.btnLowStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLowStock.Location = new System.Drawing.Point(664, 395);
+            this.btnLowStock.Location = new System.Drawing.Point(885, 486);
+            this.btnLowStock.Margin = new System.Windows.Forms.Padding(4);
             this.btnLowStock.Name = "btnLowStock";
-            this.btnLowStock.Size = new System.Drawing.Size(147, 29);
+            this.btnLowStock.Size = new System.Drawing.Size(196, 36);
             this.btnLowStock.TabIndex = 40;
             this.btnLowStock.Text = "Show Low Stock";
             this.btnLowStock.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -237,10 +245,10 @@
             this.btnReturnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnReturnMenu.Image")));
             this.btnReturnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturnMenu.Location = new System.Drawing.Point(664, 465);
-            this.btnReturnMenu.Margin = new System.Windows.Forms.Padding(2);
+            this.btnReturnMenu.Location = new System.Drawing.Point(885, 572);
+            this.btnReturnMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReturnMenu.Name = "btnReturnMenu";
-            this.btnReturnMenu.Size = new System.Drawing.Size(146, 31);
+            this.btnReturnMenu.Size = new System.Drawing.Size(195, 38);
             this.btnReturnMenu.TabIndex = 41;
             this.btnReturnMenu.Text = "Return Menu";
             this.btnReturnMenu.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -252,10 +260,10 @@
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(722, 8);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(2);
+            this.btnHelp.Location = new System.Drawing.Point(963, 10);
+            this.btnHelp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(88, 30);
+            this.btnHelp.Size = new System.Drawing.Size(117, 37);
             this.btnHelp.TabIndex = 43;
             this.btnHelp.Text = "Help";
             this.btnHelp.UseVisualStyleBackColor = true;
@@ -264,9 +272,10 @@
             // Seemorebtn
             // 
             this.Seemorebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Seemorebtn.Location = new System.Drawing.Point(12, 501);
+            this.Seemorebtn.Location = new System.Drawing.Point(16, 617);
+            this.Seemorebtn.Margin = new System.Windows.Forms.Padding(4);
             this.Seemorebtn.Name = "Seemorebtn";
-            this.Seemorebtn.Size = new System.Drawing.Size(97, 30);
+            this.Seemorebtn.Size = new System.Drawing.Size(129, 37);
             this.Seemorebtn.TabIndex = 44;
             this.Seemorebtn.Text = "See more";
             this.Seemorebtn.UseVisualStyleBackColor = true;
@@ -275,19 +284,32 @@
             // RowResetbtn
             // 
             this.RowResetbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.RowResetbtn.Location = new System.Drawing.Point(115, 502);
+            this.RowResetbtn.Location = new System.Drawing.Point(153, 618);
+            this.RowResetbtn.Margin = new System.Windows.Forms.Padding(4);
             this.RowResetbtn.Name = "RowResetbtn";
-            this.RowResetbtn.Size = new System.Drawing.Size(75, 29);
+            this.RowResetbtn.Size = new System.Drawing.Size(100, 36);
             this.RowResetbtn.TabIndex = 45;
             this.RowResetbtn.Text = "Resest";
             this.RowResetbtn.UseVisualStyleBackColor = true;
             this.RowResetbtn.Click += new System.EventHandler(this.RowResetbtn_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(281, 616);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(168, 38);
+            this.btnUpdate.TabIndex = 46;
+            this.btnUpdate.Text = "Personal Info";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // StockManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(823, 543);
+            this.ClientSize = new System.Drawing.Size(1097, 668);
+            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.RowResetbtn);
             this.Controls.Add(this.Seemorebtn);
             this.Controls.Add(this.btnHelp);
@@ -307,6 +329,7 @@
             this.Controls.Add(this.SearchBox);
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.dataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StockManagement";
             this.Text = "Form2";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -336,5 +359,6 @@
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Button Seemorebtn;
         private System.Windows.Forms.Button RowResetbtn;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

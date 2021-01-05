@@ -121,5 +121,10 @@ namespace Project
             stock.SeeMore(dataGridView1, stock.LastSQL,10);
         }
 
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateDetailsForm update = new UpdateDetailsForm(3);
+            update.Show();
+        }
     }
 }
