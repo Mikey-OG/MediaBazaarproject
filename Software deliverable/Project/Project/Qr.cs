@@ -28,5 +28,10 @@ namespace Project
             Bitmap qrCodeImage = qrCode.GetGraphic(8);
             this.pictureBox1.Image = qrCodeImage;
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://localhost/Website%20Project/Webfiles/Attendance.php?Key=" + encry.Encrypt(DateTime.Now.ToString("dd-MM-yyyy") + Variables.User));
+        }
     }
 }

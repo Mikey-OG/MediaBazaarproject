@@ -50,7 +50,7 @@ $zipcode= $rowval['ZipCode'];
 
      if($_SESSION['userName'] != $username)
      {
-      session_destroy(); 
+    
        header("refresh:1; url=LoginPage.php");
        echo '<script type="text/javascript"> alert("You have been logged out because you changed your username,please re-login with your new username.")</script>';
      }
