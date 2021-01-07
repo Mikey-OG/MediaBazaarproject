@@ -22,7 +22,7 @@ else{
         mysqli_select_db($conn,'dbi435115');
         $ID = $_SESSION['UserID'];
         $Attended = true;
-        $CurrentDate = date("d-m-Y");
+        $CurrentDate = date("d/m/Y");
         $sql_run = mysqli_query($conn,"UPDATE `schedules` SET `Attended`='$Attended' WHERE UserID='$ID' AND WorkDate='$CurrentDate'");
         if($sql_run)
         {
@@ -36,6 +36,8 @@ else{
     else
     {
         echo "The QR Code is incorrect";
+        echo $OnlineKey.".................";
+        echo $Key;
     }
 }
 ?>
