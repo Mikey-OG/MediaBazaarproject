@@ -11,7 +11,7 @@ class StockModel
 
 	public function ShowStock()
 	{
-		$sql = "SELECT ProductID,Name,Price,Quantity,MinimumQuantity,Category FROM stockinventory";
+		$sql = "SELECT ProductID,Name,Price,Quantity,MinQuantity,Category FROM stockinventory";
 		$_SESSION['LastSQL'] = $sql;
 		$stmt = $this->conn->connect()->query($sql);
 		if($stmt)
@@ -37,7 +37,7 @@ class StockModel
 							<th>'.$row->Name.'</th>
 							<th>'.$row->Price.'</th>
 							<th>'.$row->Quantity.'</th>
-							<th>'.$row->MinimumQuantity.'</th>
+							<th>'.$row->MinQuantity.'</th>
 							<th>'.$row->Category.'</th>
 						</tr>
 					'
@@ -48,7 +48,7 @@ class StockModel
     }
     public function SearchStock($Search,$String)
 	{
-		$sql = "SELECT ProductID,Name,Price,Quantity,MinimumQuantity,Category FROM stockinventory WHERE $String LIKE '%$Search%'";
+		$sql = "SELECT ProductID,Name,Price,Quantity,MinQuantity,Category FROM stockinventory WHERE $String LIKE '%$Search%'";
 		$_SESSION['LastSQL'] = $sql;
 		$stmt = $this->conn->connect()->query($sql);
 		if($stmt)
@@ -74,7 +74,7 @@ class StockModel
 							<th>'.$row->Name.'</th>
 							<th>'.$row->Price.'</th>
 							<th>'.$row->Quantity.'</th>
-							<th>'.$row->MinimumQuantity.'</th>
+							<th>'.$row->MinQuantity.'</th>
 							<th>'.$row->Category.'</th>
 						</tr>
 					'
@@ -85,7 +85,7 @@ class StockModel
 	}
 	public function ShowLowStock()
 	{
-		$sql = "SELECT ProductID,Name,Price,Quantity,MinimumQuantity,Category FROM stockinventory WHERE Quantity <= MinimumQuantity OR Quantity IS NULL";
+		$sql = "SELECT ProductID,Name,Price,Quantity,MinQuantity,Category FROM stockinventory WHERE Quantity <= MinQuantity OR Quantity IS NULL";
 		$_SESSION['LastSQL'] = $sql;
 		$stmt = $this->conn->connect()->query($sql);
 		if($stmt)
@@ -111,7 +111,7 @@ class StockModel
 							<th>'.$row->Name.'</th>
 							<th>'.$row->Price.'</th>
 							<th>'.$row->Quantity.'</th>
-							<th>'.$row->MinimumQuantity.'</th>
+							<th>'.$row->MinQuantity.'</th>
 							<th>'.$row->Category.'</th>
 						</tr>
 					'
@@ -156,7 +156,7 @@ class StockModel
 							<th>'.$row->Name.'</th>
 							<th>'.$row->Price.'</th>
 							<th>'.$row->Quantity.'</th>
-							<th>'.$row->MinimumQuantity.'</th>
+							<th>'.$row->MinQuantity.'</th>
 							<th>'.$row->Category.'</th>
 						</tr>
 					'
