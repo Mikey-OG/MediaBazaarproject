@@ -140,10 +140,11 @@ namespace Project
             stock.SeeMore(dataGridView1, stock.LastSQL,10);
         }
 
-        private void attendancebtn_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            Qr qrform = new Qr();
-            qrform.Show();
+
+            UpdateDetailsForm update = new UpdateDetailsForm(2);
+            update.Show();
         }
     }
 }

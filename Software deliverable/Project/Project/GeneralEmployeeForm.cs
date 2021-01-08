@@ -95,5 +95,11 @@ namespace Project
             AdminLog adminlog = new AdminLog();
             adminlog.Show();
         }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateDetailsForm update = new UpdateDetailsForm(1);
+            update.Show();
+        }
     }
 }

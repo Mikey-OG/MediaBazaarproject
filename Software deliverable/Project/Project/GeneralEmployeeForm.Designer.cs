@@ -39,11 +39,13 @@
             this.btnEmployeeManagement = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
+            this.btnUpdate = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.btnViewShopPersonnel);
             this.groupBox1.Controls.Add(this.btnAdminLog);
             this.groupBox1.Controls.Add(this.btnViewStock);
@@ -52,11 +54,11 @@
             this.groupBox1.Controls.Add(this.btnSchedulingEmployees);
             this.groupBox1.Controls.Add(this.btnEmployeeManagement);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(12, 5);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(306, 461);
+            this.groupBox1.Size = new System.Drawing.Size(306, 521);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Functions";
@@ -166,7 +168,7 @@
             this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
             this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLogOut.Location = new System.Drawing.Point(324, 428);
+            this.btnLogOut.Location = new System.Drawing.Point(324, 488);
             this.btnLogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogOut.Name = "btnLogOut";
             this.btnLogOut.Size = new System.Drawing.Size(117, 38);
@@ -190,11 +192,22 @@
             this.btnHelp.UseVisualStyleBackColor = true;
             this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Location = new System.Drawing.Point(6, 457);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(290, 53);
+            this.btnUpdate.TabIndex = 19;
+            this.btnUpdate.Text = "Personal Info";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // GeneralEmployeeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(463, 498);
+            this.ClientSize = new System.Drawing.Size(495, 531);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.groupBox1);
@@ -218,5 +231,6 @@
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.Button btnAdminLog;
         private System.Windows.Forms.Button btnViewShopPersonnel;
+        private System.Windows.Forms.Button btnUpdate;
     }
 }

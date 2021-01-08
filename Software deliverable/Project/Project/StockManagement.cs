@@ -121,9 +121,10 @@ namespace Project
             stock.SeeMore(dataGridView1, stock.LastSQL,10);
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void btnUpdate_Click(object sender, EventArgs e)
         {
-            stock.ExportToPdf(dataGridView1);
+            UpdateDetailsForm update = new UpdateDetailsForm(3);
+            update.Show();
         }
     }
 }
