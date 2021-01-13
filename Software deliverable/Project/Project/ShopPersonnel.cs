@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using Project.DAL;
 
 namespace Project
 {
@@ -16,12 +17,12 @@ namespace Project
         string UserValidation;
         private StockManager stock = new StockManager();
         private Encryption Cry = new Encryption();
-        private GeneralManagement generalManagement = new GeneralManagement();
+        private EmployeeManagementDAL generalManagement = new EmployeeManagementDAL();
         public ShopPersonnel(string validation)
         {
             InitializeComponent();
             stock.FillTable(dataGridView1);
-            if(validation == "Admin")
+            if (validation == "Admin")
             {
                 UserValidation = "Admin";
             }
@@ -29,6 +30,7 @@ namespace Project
             {
                 btnReturnMenu.Visible = false;
             }
+            generalManagement.AccountSecurity(generalManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -62,12 +64,6 @@ namespace Project
             stock.ShowSchedule(dataGridView1);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form1 loginForm = new Form1();
-            loginForm.Show();
-            this.Hide();
-        }
 
         private void btnReturnMenu_Click(object sender, EventArgs e)
         {
@@ -131,19 +127,31 @@ namespace Project
 
         private void Seemorebtn_Click(object sender, EventArgs e)
         {
-            stock.SeeMore(dataGridView1, stock.LastSQL,10);
+            stock.SeeMore(dataGridView1, stock.LastSQL, 10);
         }
 
         private void RowResetbtn_Click(object sender, EventArgs e)
         {
+            generalManagement.AccountSecurity(generalManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
             stock.MaxRows = 0;
-            stock.SeeMore(dataGridView1, stock.LastSQL,10);
+            stock.SeeMore(dataGridView1, stock.LastSQL, 10);
         }
 
-        private void attendancebtn_Click(object sender, EventArgs e)
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            generalManagement.LogOut(this);
+        }
+
+        private void btnattendance_Click(object sender, EventArgs e)
         {
             Qr qrform = new Qr();
             qrform.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            UpdateDetailsForm update = new UpdateDetailsForm(2);
+            update.Show();
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using Project.DAL;
 
 namespace Project
 {
@@ -16,13 +17,13 @@ namespace Project
     {
         string UserValidation;
         private StockManager stock = new StockManager();
-        GeneralManagement generalManagement = new GeneralManagement();
+        EmployeeManagementDAL generalManagement = new EmployeeManagementDAL();
         public StockManagement(string validation)
         {
             InitializeComponent();
             this.dataGridView1.DataError += this.DataGridView1_DataError;
             stock.FillTable(dataGridView1);
-            if(validation == "Admin")
+            if (validation == "Admin")
             {
                 UserValidation = "Admin";
             }
@@ -30,8 +31,9 @@ namespace Project
             {
                 btnReturnMenu.Visible = false;
             }
+            generalManagement.AccountSecurity(generalManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
         }
-       
+
         private void DataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs anError)
         {
             MessageBox.Show("Error\n" + "Invalid Input", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -72,12 +74,7 @@ namespace Project
             stock.Save();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form1 loginForm = new Form1();
-            loginForm.Show();
-            this.Hide();
-        }
+
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -112,13 +109,19 @@ namespace Project
 
         private void Seemorebtn_Click(object sender, EventArgs e)
         {
-            stock.SeeMore(dataGridView1, stock.LastSQL,10);
+            stock.SeeMore(dataGridView1, stock.LastSQL, 10);
         }
 
         private void RowResetbtn_Click(object sender, EventArgs e)
         {
+            generalManagement.AccountSecurity(generalManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
             stock.MaxRows = 0;
-            stock.SeeMore(dataGridView1, stock.LastSQL,10);
+            stock.SeeMore(dataGridView1, stock.LastSQL, 10);
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            generalManagement.LogOut(this);
         }
 
         private void button3_Click(object sender, EventArgs e)

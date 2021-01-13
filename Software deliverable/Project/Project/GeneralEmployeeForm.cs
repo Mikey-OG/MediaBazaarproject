@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using Project.DAL;
 
 namespace Project
 {
     public partial class GeneralEmployeeForm : Form
     {
         string UserValidation;
-        Employee_Management employee_Management;
         public GeneralEmployeeForm(string validation)
         {
             InitializeComponent();
@@ -50,12 +50,6 @@ namespace Project
             this.Hide();
         }
 
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
-            Form1 loginForm = new Form1();
-            loginForm.Show();
-            this.Hide();
-        }
 
         private void btnEmployeeManagement_Click(object sender, EventArgs e)
         {
@@ -94,6 +88,12 @@ namespace Project
         {
             AdminLog adminlog = new AdminLog();
             adminlog.Show();
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateDetailsForm update = new UpdateDetailsForm(1);
+            update.Show();
         }
     }
 }

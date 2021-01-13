@@ -21,7 +21,7 @@ namespace Project
 
         private void Qr_Load(object sender, EventArgs e)
         {
-            string code = "http://localhost/Website%20Project/Webfiles/Attendance.php?Key="+encry.Encrypt(DateTime.Now.ToString("dd-MM-yyyy")+Variables.User);
+            string code = "http://localhost/Website%20Project/Webfiles/Attendance.php?Key=" + encry.Encrypt(DateTime.Now.ToString("dd-MM-yyyy") + Variables.User);
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(code, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
@@ -33,5 +33,7 @@ namespace Project
         {
             System.Diagnostics.Process.Start("http://localhost/Website%20Project/Webfiles/Attendance.php?Key=" + encry.Encrypt(DateTime.Now.ToString("dd-MM-yyyy") + Variables.User));
         }
+
+
     }
 }

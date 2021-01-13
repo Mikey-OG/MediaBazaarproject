@@ -27,7 +27,7 @@ namespace Project
 
         private void btnAddData_Click(object sender, EventArgs e)
         {
-            stock.StockInput(textBox1, textBox2, textBox4, comboBox1,textBox3, richTextBox1);
+            stock.StockInput(textBox1, textBox2, textBox4, comboBox1,dateTimePicker1, richTextBox1);
         }
     }
 }

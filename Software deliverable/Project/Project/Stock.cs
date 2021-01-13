@@ -228,7 +228,7 @@ namespace Project
                 conn.Close();
             }
         }
-        public void StockInput(TextBox a, TextBox b, TextBox c, ComboBox d, TextBox f, RichTextBox e)
+        public void StockInput(TextBox a, TextBox b, TextBox c, ComboBox d, DateTimePicker f, RichTextBox e)
         {
             try
             {
@@ -236,14 +236,14 @@ namespace Project
                 double price = Convert.ToDouble(b.Text);
                 string desc = e.Text;
                 int quan = Convert.ToInt32(c.Text);
-                int minquan = Convert.ToInt32(f.Text);
+                string Date = f.Value.ToString("yyyy-M-d");
                 string Category = Convert.ToString(d.Text);
                 conn.Open();
                 string sql1 = "SELECT MAX(ProductID) FROM stockinventory;";
                 MySqlCommand cmd = new MySqlCommand(sql1, conn);
                 Object result = cmd.ExecuteScalar();
                 int maxID = Convert.ToInt32(result);
-                string sql2 = $"INSERT INTO `stockinventory`(`ProductID`, `Name`, `Price`, `Description`, `Quantity`, `MinQuantity`, `Category`) VALUES ('{maxID + 1}','{name}','{price}','{desc}','{quan}','{minquan}','{Category}')";
+                string sql2 = $"INSERT INTO `stockinventory`(`ProductID`, `Name`, `Price`, `Description`, `Quantity`, `StockDate`, `Category`) VALUES ('{maxID + 1}','{name}','{price}','{desc}','{quan}','{Date}','{Category}')";
                 MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
                 cmd2.ExecuteScalar();
                 a.Text = "";
@@ -383,6 +383,7 @@ namespace Project
                 conn.Close();
             }
         }
+
         public void ExportToPdf(DataGridView dgv)
         {
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
@@ -401,7 +402,7 @@ namespace Project
             {
                 PdfPCell cell = new PdfPCell(); //create object from the pdfpcell class
                 cell.BackgroundColor = BaseColor.LIGHT_GRAY; //set color of cells to gray
-                cell.AddElement(new Chunk(dgv.Columns[j].HeaderText.ToUpper(),font2));
+                cell.AddElement(new Chunk(dgv.Columns[j].HeaderText.ToUpper(), font2));
                 table.AddCell(cell);
             }
             for (int i = 0; i < dgv.Rows.Count; i++)

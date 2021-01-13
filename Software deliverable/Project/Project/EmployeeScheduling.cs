@@ -7,33 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project.DAL;
 
 namespace Project
 {
     public partial class EmployeeScheduling : Form
     {
         string UserValidation;
-        GeneralManagement GeneralManagement;
+        EmployeeManagementDAL GeneralManagement;
         private StockManager stock = new StockManager();
         private int UserID, ScheduleID;
         public EmployeeScheduling(string validation)
         {
             InitializeComponent();
-            GeneralManagement = new GeneralManagement();
+            GeneralManagement = new EmployeeManagementDAL();
             GeneralManagement.FillWithEmployeeSchedule(DataGridEmployees);
             dtWorkDate.MinDate = DateTime.Today;
 
-            if(validation == "Admin")
+            if (validation == "Admin")
             {
                 UserValidation = "Admin";
             }
             else
             {
-                if(validation == "EmployeeManager")
+                if (validation == "EmployeeManager")
                 {
                     UserValidation = "EmployeeManager";
                 }
             }
+            GeneralManagement.AccountSecurity(GeneralManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
         }
 
         private void DataGridEmployees_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -99,18 +101,24 @@ namespace Project
 
         private void Seemorebtn_Click(object sender, EventArgs e)
         {
-            stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL,10);
+            stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL, 10);
         }
 
         private void RowResetbtn_Click(object sender, EventArgs e)
         {
             stock.MaxRows = 0;
-            stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL,10);
+            GeneralManagement.AccountSecurity(GeneralManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
+            stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL, 10);
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            GeneralManagement.LogOut(this);
         }
 
         private void btnAddSchedule_Click(object sender, EventArgs e)
         {
-            if(GeneralManagement.AddSchedule(UserID, dtWorkDate.Value.ToString(), cmbTimeShift.Text)==true)
+            if (GeneralManagement.AddSchedule(UserID, dtWorkDate.Value.ToString(), cmbTimeShift.Text) == true)
             {
                 MessageBox.Show("Information Added", "Schedule Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 GeneralManagement.FillWithSchedule(DataGridSchedule, UserID);

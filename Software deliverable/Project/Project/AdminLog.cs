@@ -7,21 +7,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project.DAL;
 
 namespace Project
 {
     public partial class AdminLog : Form
     {
-        GeneralManagement gm;
+        EmployeeManagementDAL gm;
+
         public AdminLog()
         {
             InitializeComponent();        
-            gm = new GeneralManagement();
+            gm = new EmployeeManagementDAL();
         }
 
         private void btnViewLogs_Click(object sender, EventArgs e)
         {
             gm.FillWithLogs(ltbAdminLog);
+        }
+
+        private void btnDeleteLog_Click(object sender, EventArgs e)
+        {
+            //gm.RemoveLog();
         }
     }
 }

@@ -582,4 +582,18 @@
         tgfFAAAAAElFTkSuQmCC
 </value>
   </data>
+  <data name="btnLogOut.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAfJJREFUOE+l
+        kt9Lk1Ecxg+EYDdelJUXy1wzY/5azl8zQ0VtF7JsqDAt2VLXlKmvU9deJJUxLIy8CUQQxBZExW7EGiiy
+        3HQgc6EOpCAEqbuu9E94/B4n2DvfSdADHw6c830+vLznsP/ON1GLf+WkIg0/2JkyIOS5v59ygek5tK0j
+        ColsIoO4mFQQdRUh5CzGn88iwvODwWQCw9QlsFl2VvLaZcOqQ4Ofk9U4CL7CTKcmSNtSwTR7f1yWE0Sc
+        dxAQCvHDo8Nvbwe6y9L50Klggg3w4svYRFyQyMaQBit9Bdh1l+OX1yoVPGciH/LsuOGMDsIR6cPolghP
+        bBzCZg/YMAnCjgIs2fMQGyvB3my7VEBl9/Y49Mu1qPSXoX65CoaAHqY1I4SoLS5Y68+H36bG1ogW39+0
+        yH7B45AJDwMNMIdbYduwHJfHYs/iglV7Lha6biPi1GDG9QiipVH2Hzg2e+OFRCaHrfCZs7E+kI+PQg06
+        Gyqkgr9vgRcSs2S9hQ9tSny1q7EuVuJp6eWzAnoH9S/S5AVfnqjgbckEFwUELey6hGs8EfA5WuXztkmx
+        u2hWwm9Vo7/iCh/kZTWhIjIJLkkh5DNnVNz81HrjcNGiwtC9q1xQR1QRd4kcIpU4P++arxt9bVkYqbnG
+        BSbiAaHkZ8nD2BF+GRtbltL6jAAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>
