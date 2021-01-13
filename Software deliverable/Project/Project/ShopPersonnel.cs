@@ -137,15 +137,20 @@ namespace Project
             stock.SeeMore(dataGridView1, stock.LastSQL, 10);
         }
 
+<<<<<<< HEAD
         private void btnLogout_Click(object sender, EventArgs e)
         {
             generalManagement.LogOut(this);
         }
 
         private void btnattendance_Click(object sender, EventArgs e)
+=======
+        private void button2_Click(object sender, EventArgs e)
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
         {
-            Qr qrform = new Qr();
-            qrform.Show();
+
+            UpdateDetailsForm update = new UpdateDetailsForm(2);
+            update.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)

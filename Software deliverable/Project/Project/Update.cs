@@ -19,7 +19,11 @@ namespace Project
         public string LastSQL = $"";
         private Encryption Cry = new Encryption();
 
+<<<<<<< HEAD
         public void Insert(string username, string email, string password, string firstname, string lastname, DateTime dob, string phone, string nationality, string address, string city, string zipcode)
+=======
+        public void Insert(string username, string email, string password,string firstname, string lastname, DateTime dob, string phone, string nationality, string address, string city, string zipcode)
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
         {
             Account account;
             account = new Account();
@@ -32,11 +36,19 @@ namespace Project
                 adpt = new MySqlDataAdapter(cmd);
                 // dt = new DataTable();
                 dr = cmd.ExecuteReader();
+<<<<<<< HEAD
                 while (dr.Read())
                 {
                     username = dr.GetValue(0).ToString();
                     email = dr.GetValue(1).ToString();
                     password = Cry.Decrypt(dr.GetValue(2).ToString());
+=======
+                while(dr.Read())
+                {
+                    username = dr.GetValue(0).ToString();
+                    email = dr.GetValue(1).ToString();
+                    password= Cry.Decrypt(dr.GetValue(2).ToString());
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
                     firstname = dr.GetValue(3).ToString();
                     lastname = dr.GetValue(4).ToString();
                     dob = Convert.ToDateTime(dr.GetValue(5));
@@ -44,10 +56,17 @@ namespace Project
                     nationality = dr.GetValue(7).ToString();
                     address = dr.GetValue(8).ToString();
                     city = dr.GetValue(9).ToString();
+<<<<<<< HEAD
                     zipcode = dr.GetValue(10).ToString();
 
                 }
 
+=======
+                    zipcode= dr.GetValue(10).ToString();
+                    
+                }
+                
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             }
             catch (Exception ex)
             {
@@ -61,12 +80,17 @@ namespace Project
 
         }
 
+<<<<<<< HEAD
         public void UpdateDetails(int userID, string username, string email, string password, string firstname, string lastname, DateTime dob, string phone, string nationality, string address, string city, string zipcode)
+=======
+        public void UpdateDetails(int userID,string username,string email,string password,string firstname,string lastname,DateTime dob,string phone,string nationality,string address,string city,string zipcode)
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
         {
             Account account = new Account();
             try
             {
                 conn.Open();
+<<<<<<< HEAD
                 string sql = "UPDATE employee SET Username='" + username + "',Email='" + email + "',Password='" + Cry.Encrypt(password) + "',FirstName='" + firstname + "',LastName='" + lastname + "',DateOfBirth='" + dob.ToString("dd-MM-yyyy") + "',PhoneNumber='" + phone + "',Nationality='" + nationality + "',Adress='" + address + "',City='" + city + "',ZipCode='" + zipcode + "' WHERE UserID= '" + userID + "'";
                 cmd = new MySqlCommand(sql, conn);
                 adpt = new MySqlDataAdapter(cmd);
@@ -76,6 +100,17 @@ namespace Project
                 while (dr.Read())
                 {
 
+=======
+                string sql = "UPDATE employees SET Username='"+username+ "',Email='" + email + "',Password='" + Cry.Encrypt(password) + "',FirstName='" + firstname + "',LastName='" + lastname + "',DateOfBirth='" + dob.ToString("dd-MM-yyyy") + "',PhoneNumber='" + phone + "',Nationality='" + nationality + "',Adress='" + address + "',City='" + city + "',ZipCode='" + zipcode + "' WHERE UserID= '" + userID + "'";
+                cmd = new MySqlCommand(sql, conn);
+                adpt = new MySqlDataAdapter(cmd);
+               
+                dr = cmd.ExecuteReader();
+                
+                while (dr.Read())
+                {
+                   
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
                 }
             }
             catch (Exception ex)
@@ -87,7 +122,11 @@ namespace Project
                 conn.Close();
             }
         }
+<<<<<<< HEAD
 
 
+=======
+    
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
     }
 }

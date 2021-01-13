@@ -55,9 +55,12 @@
             this.gbEmployee = new System.Windows.Forms.GroupBox();
             this.RowResetbtn = new System.Windows.Forms.Button();
             this.Seemorebtn = new System.Windows.Forms.Button();
+<<<<<<< HEAD
             this.lbAccountSecurity = new System.Windows.Forms.Label();
             this.lbSecureText = new System.Windows.Forms.Label();
             this.btnattendance = new System.Windows.Forms.Button();
+=======
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             this.button2 = new System.Windows.Forms.Button();
             this.gbStock.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -71,7 +74,11 @@
             this.gbStock.Controls.Add(this.groupBox1);
             this.gbStock.Controls.Add(this.groupBox3);
             this.gbStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+<<<<<<< HEAD
             this.gbStock.Location = new System.Drawing.Point(812, 101);
+=======
+            this.gbStock.Location = new System.Drawing.Point(796, 85);
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             this.gbStock.Margin = new System.Windows.Forms.Padding(4);
             this.gbStock.Name = "gbStock";
             this.gbStock.Padding = new System.Windows.Forms.Padding(4);
@@ -240,7 +247,11 @@
             this.btnReturnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnReturnMenu.Image")));
             this.btnReturnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< HEAD
             this.btnReturnMenu.Location = new System.Drawing.Point(1161, 596);
+=======
+            this.btnReturnMenu.Location = new System.Drawing.Point(1152, 580);
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             this.btnReturnMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReturnMenu.Name = "btnReturnMenu";
             this.btnReturnMenu.Size = new System.Drawing.Size(172, 39);
@@ -289,13 +300,18 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+<<<<<<< HEAD
             this.dataGridView1.Location = new System.Drawing.Point(13, 30);
+=======
+            this.dataGridView1.Location = new System.Drawing.Point(4, 14);
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(777, 560);
             this.dataGridView1.TabIndex = 11;
             // 
+<<<<<<< HEAD
             // btnLogout
             // 
             this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -310,13 +326,33 @@
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLogout.UseVisualStyleBackColor = true;
             this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+=======
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(859, 585);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 34);
+            this.button1.TabIndex = 38;
+            this.button1.Text = "Log Out";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             // 
             // btnHelp
             // 
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+<<<<<<< HEAD
             this.btnHelp.Location = new System.Drawing.Point(1340, 27);
+=======
+            this.btnHelp.Location = new System.Drawing.Point(1331, 11);
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             this.btnHelp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(117, 37);
@@ -329,7 +365,11 @@
             // 
             this.rbSHowStocFunctions.AutoSize = true;
             this.rbSHowStocFunctions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.rbSHowStocFunctions.Location = new System.Drawing.Point(812, 70);
+=======
+            this.rbSHowStocFunctions.Location = new System.Drawing.Point(803, 54);
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             this.rbSHowStocFunctions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbSHowStocFunctions.Name = "rbSHowStocFunctions";
             this.rbSHowStocFunctions.Size = new System.Drawing.Size(217, 24);
@@ -343,7 +383,11 @@
             // 
             this.rbSHowPeronalFunctions.AutoSize = true;
             this.rbSHowPeronalFunctions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.rbSHowPeronalFunctions.Location = new System.Drawing.Point(1129, 70);
+=======
+            this.rbSHowPeronalFunctions.Location = new System.Drawing.Point(1120, 54);
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             this.rbSHowPeronalFunctions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbSHowPeronalFunctions.Name = "rbSHowPeronalFunctions";
             this.rbSHowPeronalFunctions.Size = new System.Drawing.Size(336, 24);
@@ -361,7 +405,11 @@
             this.gbEmployee.Controls.Add(this.btnDetails);
             this.gbEmployee.Controls.Add(this.tbPassword);
             this.gbEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+<<<<<<< HEAD
             this.gbEmployee.Location = new System.Drawing.Point(1129, 118);
+=======
+            this.gbEmployee.Location = new System.Drawing.Point(1120, 102);
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             this.gbEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbEmployee.Name = "gbEmployee";
             this.gbEmployee.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -374,7 +422,11 @@
             // RowResetbtn
             // 
             this.RowResetbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+<<<<<<< HEAD
             this.RowResetbtn.Location = new System.Drawing.Point(150, 599);
+=======
+            this.RowResetbtn.Location = new System.Drawing.Point(141, 583);
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             this.RowResetbtn.Margin = new System.Windows.Forms.Padding(4);
             this.RowResetbtn.Name = "RowResetbtn";
             this.RowResetbtn.Size = new System.Drawing.Size(100, 36);
@@ -386,7 +438,11 @@
             // Seemorebtn
             // 
             this.Seemorebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+<<<<<<< HEAD
             this.Seemorebtn.Location = new System.Drawing.Point(13, 598);
+=======
+            this.Seemorebtn.Location = new System.Drawing.Point(4, 582);
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             this.Seemorebtn.Margin = new System.Windows.Forms.Padding(4);
             this.Seemorebtn.Name = "Seemorebtn";
             this.Seemorebtn.Size = new System.Drawing.Size(129, 37);
@@ -395,6 +451,7 @@
             this.Seemorebtn.UseVisualStyleBackColor = true;
             this.Seemorebtn.Click += new System.EventHandler(this.Seemorebtn_Click);
             // 
+<<<<<<< HEAD
             // lbAccountSecurity
             // 
             this.lbAccountSecurity.AutoSize = true;
@@ -432,6 +489,15 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(197, 41);
             this.button2.TabIndex = 53;
+=======
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(276, 578);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(197, 41);
+            this.button2.TabIndex = 49;
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             this.button2.Text = "Personal Info";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -440,11 +506,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(1465, 647);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnattendance);
             this.Controls.Add(this.lbAccountSecurity);
             this.Controls.Add(this.lbSecureText);
+=======
+            this.ClientSize = new System.Drawing.Size(1111, 631);
+            this.Controls.Add(this.button2);
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             this.Controls.Add(this.RowResetbtn);
             this.Controls.Add(this.Seemorebtn);
             this.Controls.Add(this.gbEmployee);
@@ -499,9 +570,12 @@
         private System.Windows.Forms.GroupBox gbEmployee;
         private System.Windows.Forms.Button RowResetbtn;
         private System.Windows.Forms.Button Seemorebtn;
+<<<<<<< HEAD
         private System.Windows.Forms.Label lbAccountSecurity;
         private System.Windows.Forms.Label lbSecureText;
         private System.Windows.Forms.Button btnattendance;
+=======
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
         private System.Windows.Forms.Button button2;
     }
 }

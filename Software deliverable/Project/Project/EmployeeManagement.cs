@@ -505,9 +505,16 @@ namespace Project
             adminlog.Show();
         }
 
+<<<<<<< HEAD
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             emd.LogOut(this);
+=======
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            UpdateDetailsForm update = new UpdateDetailsForm(4);
+            update.Show();
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
         }
 
         //private void button1_Click(object sender, EventArgs e)

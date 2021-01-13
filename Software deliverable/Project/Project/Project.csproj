@@ -64,7 +64,8 @@
     <ApplicationIcon>hierarchy_group_team_business_management_icon_153147.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
     <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
@@ -74,15 +75,15 @@
       <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
     </Reference>
     <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
     </Reference>
     <Reference Include="JTextBox">
       <HintPath>..\..\..\..\..\..\..\..\Downloads\JTextBox.dll</HintPath>
     </Reference>
     <Reference Include="MySql.Data, Version=8.0.21.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="QRCoder, Version=1.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\QRCoder.1.4.1\lib\net40\QRCoder.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -96,7 +97,18 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+<<<<<<< HEAD
     <Reference Include="WindowsBase" />
+=======
+    <Reference Include="zxing, Version=0.16.6.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ZXing.Net.0.16.6\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.6.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\ZXing.Net.0.16.6\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
@@ -190,12 +202,15 @@
     <Compile Include="StockInput.Designer.cs">
       <DependentUpon>StockInput.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="ChangePwdForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ChangePwdForm.Designer.cs">
       <DependentUpon>ChangePwdForm.cs</DependentUpon>
     </Compile>
+=======
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
     <Compile Include="Update.cs" />
     <Compile Include="UpdateDetailsForm.cs">
       <SubType>Form</SubType>
@@ -246,9 +261,12 @@
     <EmbeddedResource Include="StockInput.resx">
       <DependentUpon>StockInput.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="ChangePwdForm.resx">
       <DependentUpon>ChangePwdForm.cs</DependentUpon>
     </EmbeddedResource>
+=======
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
     <EmbeddedResource Include="UpdateDetailsForm.resx">
       <DependentUpon>UpdateDetailsForm.cs</DependentUpon>
     </EmbeddedResource>

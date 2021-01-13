@@ -7,9 +7,6 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Windows.Forms;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
-using System.IO;
 
 namespace Project
 {
@@ -243,7 +240,11 @@ namespace Project
                 MySqlCommand cmd = new MySqlCommand(sql1, conn);
                 Object result = cmd.ExecuteScalar();
                 int maxID = Convert.ToInt32(result);
+<<<<<<< HEAD
                 string sql2 = $"INSERT INTO `stockinventory`(`ProductID`, `Name`, `Price`, `Description`, `Quantity`, `StockDate`, `Category`) VALUES ('{maxID + 1}','{name}','{price}','{desc}','{quan}','{Date}','{Category}')";
+=======
+                string sql2 = $"INSERT INTO `stockinventory`(`ProductID`, `Name`, `Price`, `Description`, `Quantity`, `MinimumQuantity`, `Category`) VALUES ('{maxID + 1}','{name}','{price}','{desc}','{quan}','{minquan}','{Category}')";
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
                 MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
                 cmd2.ExecuteScalar();
                 a.Text = "";
@@ -383,6 +384,7 @@ namespace Project
                 conn.Close();
             }
         }
+<<<<<<< HEAD
 
         public void ExportToPdf(DataGridView dgv)
         {
@@ -419,6 +421,8 @@ namespace Project
             doc.Add(table);
             doc.Close();
         }
+=======
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
     }
 
 }

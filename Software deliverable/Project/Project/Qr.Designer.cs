@@ -35,23 +35,29 @@ namespace Project
             // 
             // pictureBox1
             // 
+<<<<<<< HEAD
             this.pictureBox1.Location = new System.Drawing.Point(24, 13);
+=======
+            this.pictureBox1.Location = new System.Drawing.Point(16, 15);
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(816, 630);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // Qr
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(868, 673);
+=======
+            this.ClientSize = new System.Drawing.Size(872, 671);
+>>>>>>> a7aae29b865f182903ef8db676b12eb8721c006a
             this.Controls.Add(this.pictureBox1);
             this.Name = "Qr";
             this.Text = "Qr";
-            this.Load += new System.EventHandler(this.Qr_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
