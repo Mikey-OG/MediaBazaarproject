@@ -48,16 +48,16 @@
 				<div class="actionBar">
 					<div class='text'>From Week:</div>
 					<select class="category" name="date2">
-						<option value="11-01-2021">2</option>d
-						<option value="18-01-2021">3</option>
-						<option value="25-01-2021">4</option>
-					</select>
-					<div class='text'>Until Week:</div>
-					<select class="category" name="until">
-						<option value="11-01-2021">2</option>
 						<option value="18-01-2021">3</option>
 						<option value="25-01-2021">4</option>
 						<option value="01-02-2021">5</option>
+					</select>
+					<div class='text'>Until Week:</div>
+					<select class="category" name="until">
+						<option value="18-01-2021">3</option>
+						<option value="25-01-2021">4</option>
+						<option value="01-02-2021">5</option>
+						<option value="08-02-2021">6</option>
 					</select>
 					<input type="submit" value="Submit weekly set" class="button">
 				</div>

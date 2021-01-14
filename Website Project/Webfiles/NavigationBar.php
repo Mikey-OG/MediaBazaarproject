@@ -1,6 +1,6 @@
 <?php 
 	session_start(); 
-	if (!isset($_SESSION['userName'])) { echo "<script> location.href='../Webfiles/LoginPage.php'</script>"; }
+	if (!isset($_SESSION['userName'])) { echo "<script> location.href='../Webfiles/index.php'</script>"; }
  ?>
 
 <link rel="stylesheet" href="../Css/NavigationBarStylesheet.css">

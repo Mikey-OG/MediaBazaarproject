@@ -1,4 +1,4 @@
-	<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 	<link rel="stylesheet" href="../Css/ScheduleViewPageStylesheet.css">
@@ -66,7 +66,7 @@
 			echo "
 			<div class='card'>
 				<div class='card-date'>
-					". $ScheduleInput->Date($countDay) ."
+					". $ScheduleInput->Date($countDay, $_SESSION['Date']) ."
 				</div>
 				<div class='card-schedule'>
 					<div class='card-schedule-column'>

@@ -13,13 +13,13 @@
 	$sundayDate = date("d-m-Y", strtotime($_POST['date2'] . ' + 6 days'));
 
 	while ($count < $Availability->CalculateFromUntill()) {
-		$Availability->SetAvailabilityMonday($mondayDate);
-		$Availability->SetAvailabilityTuesday($tuesdayDate);
-		$Availability->SetAvailabilityWednesday($wednesdayDate);
-		$Availability->SetAvailabilityThursday($thursdayDate);
-		$Availability->SetAvailabilityFriday($fridayDate);
-		$Availability->SetAvailabilitySaturday($saturdayDate);
-		$Availability->SetAvailabilitySunday($sundayDate);
+		$Availability->SetAvailabilityMonday($Availability->ChangeToDateFormat($mondayDate));
+		$Availability->SetAvailabilityTuesday($Availability->ChangeToDateFormat($tuesdayDate));
+		$Availability->SetAvailabilityWednesday($Availability->ChangeToDateFormat($wednesdayDate));
+		$Availability->SetAvailabilityThursday($Availability->ChangeToDateFormat($thursdayDate));
+		$Availability->SetAvailabilityFriday($Availability->ChangeToDateFormat($fridayDate));
+		$Availability->SetAvailabilitySaturday($Availability->ChangeToDateFormat($saturdayDate));
+		$Availability->SetAvailabilitySunday($Availability->ChangeToDateFormat($sundayDate));
 		$mondayDate = date("d-m-Y", strtotime($mondayDate . ' + 7 days'));
 		$tuesdayDate = date("d-m-Y", strtotime($tuesdayDate . ' + 7 days'));
 		$wednesdayDate = date("d-m-Y", strtotime($wednesdayDate . ' + 7 days'));
@@ -34,6 +34,16 @@
 
 	
  	class Availability {
+
+ 		public function ChangeToDateFormat(string $date) : string {
+ 			$year = substr($date, 0, 4);
+ 			$day = substr($date, 8, 2);
+ 			$month = substr($date, 5, 2);
+
+ 			return $day."-".$month."-".$year;
+ 		}
+
+
  		public function CalculateFromUntill() : int {
  			$fromDate = $_POST['date2'];
  			$untilDate = $_POST['until'];
