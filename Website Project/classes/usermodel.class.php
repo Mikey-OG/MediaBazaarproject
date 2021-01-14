@@ -14,7 +14,7 @@ class UserModel
 
 	public function ShowUserInformationUsingPreparedStatements($username)
 	{
-		$sql = "SELECT * FROM employees WHERE UserName = :username";
+		$sql = "SELECT * FROM employee WHERE UserName = :username";
 		$stmt = $this->conn->connect()->prepare($sql);
 		$stmt->execute(array(':username' => $username));
 		while ($row = $stmt->fetch())
@@ -25,7 +25,7 @@ class UserModel
 
 	public function ShowAllEmployees()
 	{
-		$sql = "SELECT UserName, Email, FirstName, LastName, Nationality, Salary, DepartmentName, RoleName FROM employees";
+		$sql = "SELECT employee.UserName, employee.Email, employee.FirstName, employee.LastName, employee.Nationality, employee.Salary, departments.DepartmentName, roles.RoleName FROM employee INNER JOIN roles ON employee.RoleID = roles.RoleID INNER JOIN departments ON employee.DepartmentID = departments.DepartmentID";
 		$stmt = $this->conn->connect()->query($sql);
 		if($stmt)
 		{
@@ -66,7 +66,7 @@ class UserModel
 
 	public function ShowUserSelectedUserInfo($Search,$String)
 	{
-		$sql = "SELECT UserName, Email, FirstName, LastName, Nationality, Salary, DepartmentName, RoleName FROM employees WHERE $String LIKE '%$Search%'";
+		$sql = "SELECT employee.UserName, employee.Email, employee.FirstName, employee.LastName, employee.Nationality, employee.Salary, departments.DepartmentName, roles.RoleName FROM employee INNER JOIN 	roles ON employee.RoleID = roles.RoleID INNER JOIN departments ON employee.DepartmentID = departments.DepartmentID WHERE employee.$String LIKE '%$Search%'";
 		$stmt = $this->conn->connect()->query($sql);
 		if($stmt)
 		{
@@ -107,7 +107,7 @@ class UserModel
 
 	public function ShowEmployeesPerRole()
 	{
-		$sql = "SELECT COUNT(UserName) AS EmployeePerRole, RoleName FROM employees GROUP BY RoleName";
+		$sql = "SELECT COUNT(employee.UserName) AS EmployeePerRole, roles.RoleName FROM employee INNER JOIN roles ON employee.RoleID = roles.RoleID GROUP BY roles.RoleName";
 		$stmt = $this->conn->connect()->query($sql);
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) 
         {
@@ -116,8 +116,8 @@ class UserModel
 	}
 
 	public function ShowEmployeesPerDepartment()
-	{
-		$sql = "SELECT COUNT(UserName) AS EmployeePerDepartment, DepartmentName FROM employees GROUP BY DepartmentName";
+	{	
+		$sql = "SELECT COUNT(employee.UserName) AS EmployeePerDepartment, departments.DepartmentName FROM employee INNER JOIN departments ON employee.DepartmentID = departments.DepartmentID GROUP BY departments.DepartmentName";
 		$stmt = $this->conn->connect()->query($sql);
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) 
         {
@@ -137,7 +137,7 @@ class UserModel
 
 	public function ShowEmployeesPerCity()
 	{
-		$sql = "SELECT COUNT(UserName) AS EmployeePerCity, City FROM employees GROUP BY City";
+		$sql = "SELECT COUNT(UserName) AS EmployeePerCity, City FROM employee GROUP BY City";
 		$stmt = $this->conn->connect()->query($sql);
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) 
         {

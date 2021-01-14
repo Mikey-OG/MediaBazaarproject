@@ -7,6 +7,7 @@
 
 <nav>
 	<a href="ScheduleViewPage.php">Schedule</a>
+	<a href="AvailabilityPage.php">Availability</a>
 	<a href="PersonalDetails.php">Personal Details</a>
 	<a href="newstock.php">Stock</a>
 	<?php 
