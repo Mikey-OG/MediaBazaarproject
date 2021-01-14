@@ -10,7 +10,7 @@
 
             $Connection = new Connection();
 
-            $sql = "SELECT UserName, Password, FormAccess, UserID FROM employees WHERE UserName = ?";
+            $sql = "SELECT employee.UserName, employee.Password, roles.FormAccess, employee.UserID FROM employee INNER JOIN roles ON employee.RoleID = roles.RoleID WHERE employee.UserName = ?";
             $stmt = $Connection->connect()->prepare($sql);
 
             $stmt->execute([$userName]);

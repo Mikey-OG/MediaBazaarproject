@@ -8,7 +8,7 @@ session_start();
   mysqli_select_db($conn,'dbi435115');
   $usr = $_SESSION['userName'];
   
-$result = mysqli_query($conn,"SELECT * FROM employees WHERE UserName = '$usr'");
+$result = mysqli_query($conn,"SELECT * FROM employee WHERE UserName = '$usr'");
  while($rowval = mysqli_fetch_array($result))
  {
  $Id = $rowval['UserID'];
@@ -38,7 +38,7 @@ $zipcode= $rowval['ZipCode'];
   {
     $username = $_POST['username'];
     
-    $sql = "UPDATE `employees` SET UserName = '$_POST[uname]', FirstName = '$_POST[fname]', LastName = '$_POST[lname]', Email = '$_POST[email]', DateOfBirth = '$_POST[dob]', PhoneNumber = '$_POST[phone]', Nationality = '$_POST[nationality]',City = '$_POST[city]', ZipCode = '$_POST[zipcode]', Adress = '$_POST[address]' WHERE UserID= '$_POST[Id]'";
+    $sql = "UPDATE `employee` SET UserName = '$_POST[uname]', FirstName = '$_POST[fname]', LastName = '$_POST[lname]', Email = '$_POST[email]', DateOfBirth = '$_POST[dob]', PhoneNumber = '$_POST[phone]', Nationality = '$_POST[nationality]',City = '$_POST[city]', ZipCode = '$_POST[zipcode]', Adress = '$_POST[address]' WHERE UserID= '$_POST[Id]'";
     
     $sql_run = mysqli_query($conn, $sql);
     $username = $_POST[uname];
