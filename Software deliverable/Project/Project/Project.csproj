@@ -131,7 +131,7 @@
     <Compile Include="EmployeeScheduling.Designer.cs">
       <DependentUpon>EmployeeScheduling.cs</DependentUpon>
     </Compile>
-    <Compile Include="Encryption.cs" />
+    <Compile Include="LGC\Encryption.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

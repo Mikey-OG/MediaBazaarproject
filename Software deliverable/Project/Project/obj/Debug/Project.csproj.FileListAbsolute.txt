@@ -495,7 +495,6 @@ C:\Users\usuario\Desktop\Software deliverable\Project\Project\obj\Debug\Project.
 C:\Users\usuario\Desktop\Software deliverable\Project\Project\obj\Debug\Project.exe
 C:\Users\usuario\Desktop\Software deliverable\Project\Project\obj\Debug\Project.pdb
 C:\Users\usuario\Desktop\Project\Project\obj\Debug\Project.AdminLog.resources
-C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.test.resources
 C:\Users\mikos\Downloads\Semester_2_project\testing\Software deliverable\Project\Project\obj\Debug\Project.csprojAssemblyReference.cache
 C:\Users\mikos\Downloads\Semester_2_project\testing\Software deliverable\Project\Project\obj\Debug\Project.AdminLog.resources
 C:\Users\mikos\Downloads\Semester_2_project\testing\Software deliverable\Project\Project\obj\Debug\Project.DepartmentManagement.resources
@@ -546,3 +545,15 @@ C:\Users\mikos\Downloads\Semester_2_project\testing\Software deliverable\Project
 C:\Users\mikos\Downloads\Semester_2_project\testing\Software deliverable\Project\Project\bin\Debug\Common.Logging.Core.xml
 C:\Users\mikos\Downloads\Semester_2_project\testing\Software deliverable\Project\Project\bin\Debug\itextsharp.xml
 C:\Users\mikos\Downloads\Semester_2_project\testing\Software deliverable\Project\Project\obj\Debug\Project.UpdateDetailsForm.resources
+C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\bin\Debug\Common.Logging.Core.dll
+C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\bin\Debug\Common.Logging.dll
+C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\bin\Debug\itextsharp.dll
+C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\bin\Debug\QRCoder.dll
+C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\bin\Debug\Common.Logging.pdb
+C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\bin\Debug\Common.Logging.xml
+C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\bin\Debug\Common.Logging.Core.pdb
+C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\bin\Debug\Common.Logging.Core.xml
+C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\bin\Debug\itextsharp.xml
+C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.Qr.resources
+C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.ChangePwdForm.resources
+C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.UpdateDetailsForm.resources
