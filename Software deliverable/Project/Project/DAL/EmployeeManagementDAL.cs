@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Text.RegularExpressions;
+using Project.LGC;
+
 
 namespace Project.DAL
 {

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using Project.DAL;
+using Project.LGC;
 
 namespace Project
 {
