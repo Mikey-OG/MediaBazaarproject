@@ -19,7 +19,7 @@ namespace Project
         public string LastSQL = $"";
         private Encryption Cry = new Encryption();
 
-        public void Insert(string username, string email, string password,string firstname, string lastname, DateTime dob, string phone, string nationality, string address, string city, string zipcode)
+        public void Insert(string username, string email, string password, string firstname, string lastname, DateTime dob, string phone, string nationality, string address, string city, string zipcode)
         {
             Account account;
             account = new Account();
@@ -32,11 +32,11 @@ namespace Project
                 adpt = new MySqlDataAdapter(cmd);
                 // dt = new DataTable();
                 dr = cmd.ExecuteReader();
-                while(dr.Read())
+                while (dr.Read())
                 {
                     username = dr.GetValue(0).ToString();
                     email = dr.GetValue(1).ToString();
-                    password= Cry.Decrypt(dr.GetValue(2).ToString());
+                    password = Cry.Decrypt(dr.GetValue(2).ToString());
                     firstname = dr.GetValue(3).ToString();
                     lastname = dr.GetValue(4).ToString();
                     dob = Convert.ToDateTime(dr.GetValue(5));
@@ -44,10 +44,10 @@ namespace Project
                     nationality = dr.GetValue(7).ToString();
                     address = dr.GetValue(8).ToString();
                     city = dr.GetValue(9).ToString();
-                    zipcode= dr.GetValue(10).ToString();
-                    
+                    zipcode = dr.GetValue(10).ToString();
+
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -61,21 +61,21 @@ namespace Project
 
         }
 
-        public void UpdateDetails(int userID,string username,string email,string password,string firstname,string lastname,DateTime dob,string phone,string nationality,string address,string city,string zipcode)
+        public void UpdateDetails(int userID, string username, string email, string password, string firstname, string lastname, DateTime dob, string phone, string nationality, string address, string city, string zipcode)
         {
             Account account = new Account();
             try
             {
                 conn.Open();
-                string sql = "UPDATE employees SET Username='"+username+ "',Email='" + email + "',Password='" + Cry.Encrypt(password) + "',FirstName='" + firstname + "',LastName='" + lastname + "',DateOfBirth='" + dob.ToString("dd-MM-yyyy") + "',PhoneNumber='" + phone + "',Nationality='" + nationality + "',Adress='" + address + "',City='" + city + "',ZipCode='" + zipcode + "' WHERE UserID= '" + userID + "'";
+                string sql = "UPDATE employee SET Username='" + username + "',Email='" + email + "',Password='" + Cry.Encrypt(password) + "',FirstName='" + firstname + "',LastName='" + lastname + "',DateOfBirth='" + dob.ToString("dd-MM-yyyy") + "',PhoneNumber='" + phone + "',Nationality='" + nationality + "',Adress='" + address + "',City='" + city + "',ZipCode='" + zipcode + "' WHERE UserID= '" + userID + "'";
                 cmd = new MySqlCommand(sql, conn);
                 adpt = new MySqlDataAdapter(cmd);
-               
+
                 dr = cmd.ExecuteReader();
-                
+
                 while (dr.Read())
                 {
-                   
+
                 }
             }
             catch (Exception ex)
@@ -87,6 +87,7 @@ namespace Project
                 conn.Close();
             }
         }
-    
+
+
     }
 }

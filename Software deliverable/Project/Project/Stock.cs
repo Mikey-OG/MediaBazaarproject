@@ -7,6 +7,9 @@ using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data;
 using System.Windows.Forms;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace Project
 {
@@ -225,7 +228,7 @@ namespace Project
                 conn.Close();
             }
         }
-        public void StockInput(TextBox a, TextBox b, TextBox c, ComboBox d, TextBox f, RichTextBox e)
+        public void StockInput(TextBox a, TextBox b, TextBox c, ComboBox d, DateTimePicker f, RichTextBox e)
         {
             try
             {
@@ -233,14 +236,14 @@ namespace Project
                 double price = Convert.ToDouble(b.Text);
                 string desc = e.Text;
                 int quan = Convert.ToInt32(c.Text);
-                int minquan = Convert.ToInt32(f.Text);
+                string Date = f.Value.ToString("yyyy-M-d");
                 string Category = Convert.ToString(d.Text);
                 conn.Open();
                 string sql1 = "SELECT MAX(ProductID) FROM stockinventory;";
                 MySqlCommand cmd = new MySqlCommand(sql1, conn);
                 Object result = cmd.ExecuteScalar();
                 int maxID = Convert.ToInt32(result);
-                string sql2 = $"INSERT INTO `stockinventory`(`ProductID`, `Name`, `Price`, `Description`, `Quantity`, `MinimumQuantity`, `Category`) VALUES ('{maxID + 1}','{name}','{price}','{desc}','{quan}','{minquan}','{Category}')";
+                string sql2 = $"INSERT INTO `stockinventory`(`ProductID`, `Name`, `Price`, `Description`, `Quantity`, `StockDate`, `Category`) VALUES ('{maxID + 1}','{name}','{price}','{desc}','{quan}','{Date}','{Category}')";
                 MySqlCommand cmd2 = new MySqlCommand(sql2, conn);
                 cmd2.ExecuteScalar();
                 a.Text = "";
@@ -379,6 +382,42 @@ namespace Project
             {
                 conn.Close();
             }
+        }
+
+        public void ExportToPdf(DataGridView dgv)
+        {
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            PdfWriter w = PdfWriter.GetInstance(doc, new FileStream(@"Stock.pdf", FileMode.Create));
+            doc.Open();
+            //Add border to page
+            PdfContentByte content = w.DirectContent;
+            iTextSharp.text.Font font = iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_ROMAN, 30, BaseColor.BLACK);
+            iTextSharp.text.Font font2 = iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_ROMAN, 11, BaseColor.BLACK);
+            Paragraph prg = new Paragraph();
+            prg.Alignment = Element.ALIGN_CENTER; // adjust the alignment of the heading
+            prg.Add(new Chunk("Stock", font)); //adding a heading to the PDF
+            doc.Add(prg); //add the component we created to the document
+            PdfPTable table = new PdfPTable(dgv.Columns.Count);
+            for (int j = 0; j < dgv.Columns.Count; j++)
+            {
+                PdfPCell cell = new PdfPCell(); //create object from the pdfpcell class
+                cell.BackgroundColor = BaseColor.LIGHT_GRAY; //set color of cells to gray
+                cell.AddElement(new Chunk(dgv.Columns[j].HeaderText.ToUpper(), font2));
+                table.AddCell(cell);
+            }
+            for (int i = 0; i < dgv.Rows.Count; i++)
+            {
+                table.WidthPercentage = 100; //set width of the table
+                for (int k = 0; k < dgv.Columns.Count; k++)
+                {
+                    if (dgv[k, i].Value != null)
+                        // get the value of   each cell in the dataTable tblemp
+                        table.AddCell(new Phrase(dgv[k, i].Value.ToString(), font2));
+                }
+            }
+            //add the table to document
+            doc.Add(table);
+            doc.Close();
         }
     }
 

@@ -8,7 +8,7 @@ using System.IO;
 
 namespace Project
 {
-    class Encryption
+    public class Encryption
     {
         public string EncryptString(string plainText, byte[] key, byte[] iv)
         {

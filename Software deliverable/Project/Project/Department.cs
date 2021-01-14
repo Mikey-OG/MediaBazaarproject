@@ -8,15 +8,28 @@ namespace Project
 {
     public class Department
     {
+        private int id;
         private string departmentName;
         private List<Employee> employees;
 
         //fields
         //initialization
-        public Department(string departmentName)
+        public Department()
         {
-            this.departmentName = departmentName;
+            this.DepartmentName = departmentName;
             this.employees = new List<Employee>();
+        }
+
+        public int ID
+        {
+            get
+            {
+                return id;
+            }
+            set
+            {
+                id = value;
+            }
         }
 
         public string DepartmentName
@@ -38,8 +51,7 @@ namespace Project
 
         public override string ToString()
         {
-            return "Dept Name:" + DepartmentName;
-
+            return $"{ID} {DepartmentName}";
         }
     }
 }

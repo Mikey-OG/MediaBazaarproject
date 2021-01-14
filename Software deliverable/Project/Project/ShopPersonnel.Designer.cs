@@ -48,13 +48,16 @@
             this.btnChangePassword = new System.Windows.Forms.Button();
             this.btnSchedule = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.btnHelp = new System.Windows.Forms.Button();
             this.rbSHowStocFunctions = new System.Windows.Forms.RadioButton();
             this.rbSHowPeronalFunctions = new System.Windows.Forms.RadioButton();
             this.gbEmployee = new System.Windows.Forms.GroupBox();
             this.RowResetbtn = new System.Windows.Forms.Button();
             this.Seemorebtn = new System.Windows.Forms.Button();
+            this.lbAccountSecurity = new System.Windows.Forms.Label();
+            this.lbSecureText = new System.Windows.Forms.Label();
+            this.btnattendance = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.gbStock.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -68,7 +71,7 @@
             this.gbStock.Controls.Add(this.groupBox1);
             this.gbStock.Controls.Add(this.groupBox3);
             this.gbStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.gbStock.Location = new System.Drawing.Point(796, 85);
+            this.gbStock.Location = new System.Drawing.Point(812, 101);
             this.gbStock.Margin = new System.Windows.Forms.Padding(4);
             this.gbStock.Name = "gbStock";
             this.gbStock.Padding = new System.Windows.Forms.Padding(4);
@@ -237,7 +240,7 @@
             this.btnReturnMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnReturnMenu.Image")));
             this.btnReturnMenu.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReturnMenu.Location = new System.Drawing.Point(1152, 580);
+            this.btnReturnMenu.Location = new System.Drawing.Point(1161, 596);
             this.btnReturnMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnReturnMenu.Name = "btnReturnMenu";
             this.btnReturnMenu.Size = new System.Drawing.Size(172, 39);
@@ -286,34 +289,34 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(4, 14);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 30);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(777, 560);
             this.dataGridView1.TabIndex = 11;
             // 
-            // button1
+            // btnLogout
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(859, 585);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 34);
-            this.button1.TabIndex = 38;
-            this.button1.Text = "Log Out";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnLogout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+            this.btnLogout.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.Location = new System.Drawing.Point(1340, 597);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(117, 34);
+            this.btnLogout.TabIndex = 38;
+            this.btnLogout.Text = "Log Out";
+            this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLogout.UseVisualStyleBackColor = true;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // btnHelp
             // 
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(1331, 11);
+            this.btnHelp.Location = new System.Drawing.Point(1340, 27);
             this.btnHelp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(117, 37);
@@ -326,7 +329,7 @@
             // 
             this.rbSHowStocFunctions.AutoSize = true;
             this.rbSHowStocFunctions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbSHowStocFunctions.Location = new System.Drawing.Point(803, 54);
+            this.rbSHowStocFunctions.Location = new System.Drawing.Point(812, 70);
             this.rbSHowStocFunctions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbSHowStocFunctions.Name = "rbSHowStocFunctions";
             this.rbSHowStocFunctions.Size = new System.Drawing.Size(217, 24);
@@ -340,7 +343,7 @@
             // 
             this.rbSHowPeronalFunctions.AutoSize = true;
             this.rbSHowPeronalFunctions.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbSHowPeronalFunctions.Location = new System.Drawing.Point(1120, 54);
+            this.rbSHowPeronalFunctions.Location = new System.Drawing.Point(1129, 70);
             this.rbSHowPeronalFunctions.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.rbSHowPeronalFunctions.Name = "rbSHowPeronalFunctions";
             this.rbSHowPeronalFunctions.Size = new System.Drawing.Size(336, 24);
@@ -358,7 +361,7 @@
             this.gbEmployee.Controls.Add(this.btnDetails);
             this.gbEmployee.Controls.Add(this.tbPassword);
             this.gbEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbEmployee.Location = new System.Drawing.Point(1120, 102);
+            this.gbEmployee.Location = new System.Drawing.Point(1129, 118);
             this.gbEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbEmployee.Name = "gbEmployee";
             this.gbEmployee.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -371,7 +374,7 @@
             // RowResetbtn
             // 
             this.RowResetbtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.RowResetbtn.Location = new System.Drawing.Point(141, 583);
+            this.RowResetbtn.Location = new System.Drawing.Point(150, 599);
             this.RowResetbtn.Margin = new System.Windows.Forms.Padding(4);
             this.RowResetbtn.Name = "RowResetbtn";
             this.RowResetbtn.Size = new System.Drawing.Size(100, 36);
@@ -383,7 +386,7 @@
             // Seemorebtn
             // 
             this.Seemorebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.Seemorebtn.Location = new System.Drawing.Point(4, 582);
+            this.Seemorebtn.Location = new System.Drawing.Point(13, 598);
             this.Seemorebtn.Margin = new System.Windows.Forms.Padding(4);
             this.Seemorebtn.Name = "Seemorebtn";
             this.Seemorebtn.Size = new System.Drawing.Size(129, 37);
@@ -392,13 +395,43 @@
             this.Seemorebtn.UseVisualStyleBackColor = true;
             this.Seemorebtn.Click += new System.EventHandler(this.Seemorebtn_Click);
             // 
+            // lbAccountSecurity
+            // 
+            this.lbAccountSecurity.AutoSize = true;
+            this.lbAccountSecurity.Location = new System.Drawing.Point(118, 9);
+            this.lbAccountSecurity.Name = "lbAccountSecurity";
+            this.lbAccountSecurity.Size = new System.Drawing.Size(20, 17);
+            this.lbAccountSecurity.TabIndex = 51;
+            this.lbAccountSecurity.Text = "...";
+            // 
+            // lbSecureText
+            // 
+            this.lbSecureText.AutoSize = true;
+            this.lbSecureText.Location = new System.Drawing.Point(12, 9);
+            this.lbSecureText.Name = "lbSecureText";
+            this.lbSecureText.Size = new System.Drawing.Size(108, 17);
+            this.lbSecureText.TabIndex = 50;
+            this.lbSecureText.Text = "Account Secure";
+            // 
+            // btnattendance
+            // 
+            this.btnattendance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnattendance.Location = new System.Drawing.Point(629, 599);
+            this.btnattendance.Margin = new System.Windows.Forms.Padding(4);
+            this.btnattendance.Name = "btnattendance";
+            this.btnattendance.Size = new System.Drawing.Size(161, 37);
+            this.btnattendance.TabIndex = 52;
+            this.btnattendance.Text = "Mark Present";
+            this.btnattendance.UseVisualStyleBackColor = true;
+            this.btnattendance.Click += new System.EventHandler(this.btnattendance_Click);
+            // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(276, 578);
+            this.button2.Location = new System.Drawing.Point(272, 597);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(197, 41);
-            this.button2.TabIndex = 49;
+            this.button2.TabIndex = 53;
             this.button2.Text = "Personal Info";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -407,8 +440,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1111, 631);
+            this.ClientSize = new System.Drawing.Size(1465, 647);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnattendance);
+            this.Controls.Add(this.lbAccountSecurity);
+            this.Controls.Add(this.lbSecureText);
             this.Controls.Add(this.RowResetbtn);
             this.Controls.Add(this.Seemorebtn);
             this.Controls.Add(this.gbEmployee);
@@ -416,7 +452,7 @@
             this.Controls.Add(this.rbSHowStocFunctions);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.btnReturnMenu);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnLogout);
             this.Controls.Add(this.gbStock);
             this.Controls.Add(this.dataGridView1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -452,7 +488,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button btnSchedule;
         private System.Windows.Forms.Button btnReturnMenu;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Button btnChangePassword;
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.Label label3;
@@ -463,6 +499,9 @@
         private System.Windows.Forms.GroupBox gbEmployee;
         private System.Windows.Forms.Button RowResetbtn;
         private System.Windows.Forms.Button Seemorebtn;
+        private System.Windows.Forms.Label lbAccountSecurity;
+        private System.Windows.Forms.Label lbSecureText;
+        private System.Windows.Forms.Button btnattendance;
         private System.Windows.Forms.Button button2;
     }
 }

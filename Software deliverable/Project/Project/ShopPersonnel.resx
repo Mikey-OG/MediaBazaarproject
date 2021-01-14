@@ -260,7 +260,7 @@
         TkSuQmCC
 </value>
   </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnLogout.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAfJJREFUOE+l
         kt9Lk1Ecxg+EYDdelJUXy1wzY/5azl8zQ0VtF7JsqDAt2VLXlKmvU9deJJUxLIy8CUQQxBZExW7EGiiy

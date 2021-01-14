@@ -20,25 +20,22 @@ namespace Project
         MySqlDataAdapter adpt;
         MySqlCommand cmd;
         MySqlDataReader dr;
-      
-        private Encryption Cry = new Encryption();
 
+        private Encryption Cry = new Encryption();
         public UpdateDetailsForm(int id)
         {
             InitializeComponent();
-
             employee = new Employee("bjnkmnb", "bjnkmnb",
-            "bjnkmnb", "bjnkmnb", "bjnkmnb", "bjnkmnb",
-            "bjnkmnb", "bjnkmnb", "bjnkmnb",
-            "bjnkmnb", Convert.ToInt32(2000));
+                       "bjnkmnb", "bjnkmnb", "bjnkmnb", "bjnkmnb",
+                       "bjnkmnb", "bjnkmnb", "bjnkmnb",
+                       Convert.ToInt32(2000));
             //int val = 1;
-            this.tbID.Text= Convert.ToString(id);
-            update.Insert(tbUpUsername.Text, tbUpEmail.Text, tbUpPassword.Text, tbUpFirstname.Text,tbUpLastname.Text, dtUpDOB.Value, tbUpPhone.Text, tbUpNationality.Text, tbUpAddress.Text, tbUpCity.Text, tbUpZipcode.Text);
+            this.tbID.Text = Convert.ToString(id);
+            update.Insert(tbUpUsername.Text, tbUpEmail.Text, tbUpPassword.Text, tbUpFirstname.Text, tbUpLastname.Text, dtUpDOB.Value, tbUpPhone.Text, tbUpNationality.Text, tbUpAddress.Text, tbUpCity.Text, tbUpZipcode.Text);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-
             if (employee.SetPassword(tbUpPassword.Text) == false)
             {
                 MessageBox.Show("Please ensure your password" +
@@ -51,14 +48,14 @@ namespace Project
             else
             {
                 this.update.UpdateDetails(Convert.ToInt32(tbID.Text), tbUpUsername.Text, tbUpEmail.Text, tbUpPassword.Text, tbUpFirstname.Text, tbUpLastname.Text, dtUpDOB.Value, tbUpPhone.Text, tbUpNationality.Text, tbUpAddress.Text, tbUpCity.Text, tbUpZipcode.Text);
-               
+
                 if (DialogResult.OK == MessageBox.Show("Your details have been updated"))
                 {
                     this.Hide();
                 }
             }
-            
-            
+
+
 
         }
 
@@ -71,7 +68,7 @@ namespace Project
                 conn.Open();
                 if (tbID.Text != "")
                 {
-                    string sql = "SELECT UserName,Email,FirstName,LastName,DateOfBirth,PhoneNumber,Nationality,Adress,City,ZipCode FROM employees WHERE UserID = @userID";
+                    string sql = "SELECT UserName,Email,FirstName,LastName,DateOfBirth,PhoneNumber,Nationality,Adress,City,ZipCode FROM employee WHERE UserID = @userID";
                     cmd = new MySqlCommand(sql, conn);
                     //LastSQL = sql;
                     adpt = new MySqlDataAdapter(cmd);
@@ -91,9 +88,9 @@ namespace Project
                         tbUpCity.Text = dr.GetValue(8).ToString();
                         tbUpZipcode.Text = dr.GetValue(9).ToString();
                     }
-                    
+
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -105,7 +102,7 @@ namespace Project
             }
         }
 
-        private void cbShowPassword_CheckedChanged(object sender, EventArgs e)
+        private void cbShowPassword_TextChanged(object sender, EventArgs e)
         {
             if (cbShowPassword.Checked)
             {
@@ -117,7 +114,7 @@ namespace Project
             }
         }
 
-        private void cbShowOldPassword_CheckedChanged(object sender, EventArgs e)
+        private void cbShowOldPassword_TextChanged(object sender, EventArgs e)
         {
             if (cbShowOldPassword.Checked)
             {

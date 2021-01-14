@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbShowPassword = new System.Windows.Forms.CheckBox();
+            this.btnViewPassword = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbUserName = new System.Windows.Forms.TextBox();
@@ -39,6 +40,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.tSuspend = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -46,7 +48,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cbShowPassword);
+            this.groupBox1.Controls.Add(this.btnViewPassword);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.tbUserName);
@@ -57,22 +59,24 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(408, 186);
+            this.groupBox1.Size = new System.Drawing.Size(394, 186);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Log in";
             // 
-            // cbShowPassword
+            // btnViewPassword
             // 
-            this.cbShowPassword.AutoSize = true;
-            this.cbShowPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbShowPassword.Image = ((System.Drawing.Image)(resources.GetObject("cbShowPassword.Image")));
-            this.cbShowPassword.Location = new System.Drawing.Point(354, 95);
-            this.cbShowPassword.Name = "cbShowPassword";
-            this.cbShowPassword.Size = new System.Drawing.Size(42, 24);
-            this.cbShowPassword.TabIndex = 5;
-            this.cbShowPassword.UseVisualStyleBackColor = true;
-            this.cbShowPassword.CheckedChanged += new System.EventHandler(this.cbShowPassword_CheckedChanged);
+            this.btnViewPassword.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnViewPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnViewPassword.Image = ((System.Drawing.Image)(resources.GetObject("btnViewPassword.Image")));
+            this.btnViewPassword.Location = new System.Drawing.Point(354, 95);
+            this.btnViewPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnViewPassword.Name = "btnViewPassword";
+            this.btnViewPassword.Size = new System.Drawing.Size(31, 25);
+            this.btnViewPassword.TabIndex = 6;
+            this.btnViewPassword.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnViewPassword.UseVisualStyleBackColor = true;
+            this.btnViewPassword.Click += new System.EventHandler(this.btnViewPassword_Click);
             // 
             // label2
             // 
@@ -149,7 +153,7 @@
             this.panel1.Location = new System.Drawing.Point(303, 2);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(408, 85);
+            this.panel1.Size = new System.Drawing.Size(394, 85);
             this.panel1.TabIndex = 6;
             // 
             // label3
@@ -162,11 +166,16 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Media Bazzar";
             // 
+            // tSuspend
+            // 
+            this.tSuspend.Interval = 30000;
+            this.tSuspend.Tick += new System.EventHandler(this.tSuspend_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(726, 286);
+            this.ClientSize = new System.Drawing.Size(709, 286);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
@@ -193,6 +202,7 @@
         private System.Windows.Forms.TextBox tbUserName;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox cbShowPassword;
+        private System.Windows.Forms.Button btnViewPassword;
+        private System.Windows.Forms.Timer tSuspend;
     }
 }

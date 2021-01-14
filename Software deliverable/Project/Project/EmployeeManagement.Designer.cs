@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Employee_Management));
-            this.DataGridEmployees = new System.Windows.Forms.DataGridView();
+            this.dgvEmployees = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.btnSearchForEmployee = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
@@ -38,7 +38,6 @@
             this.label17 = new System.Windows.Forms.Label();
             this.dtDismissalDate = new System.Windows.Forms.DateTimePicker();
             this.label16 = new System.Windows.Forms.Label();
-            this.cmbFormAccess = new System.Windows.Forms.ComboBox();
             this.cmbDepartmentName = new System.Windows.Forms.ComboBox();
             this.dtDateOfHire = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
@@ -49,7 +48,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.tbCity = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.tbNationality = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -69,7 +67,6 @@
             this.tbUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnOpenAdminLog = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnViewDismissedEmployees = new System.Windows.Forms.Button();
@@ -81,26 +78,29 @@
             this.btnHelp = new System.Windows.Forms.Button();
             this.RowResetbtn = new System.Windows.Forms.Button();
             this.Seemorebtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridEmployees)).BeginInit();
+            this.btnLogOut = new System.Windows.Forms.Button();
+            this.lbSecureText = new System.Windows.Forms.Label();
+            this.lbAccountSecurity = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // DataGridEmployees
+            // dgvEmployees
             // 
-            this.DataGridEmployees.AllowUserToAddRows = false;
-            this.DataGridEmployees.AllowUserToDeleteRows = false;
-            this.DataGridEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridEmployees.Location = new System.Drawing.Point(12, 52);
-            this.DataGridEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.DataGridEmployees.Name = "DataGridEmployees";
-            this.DataGridEmployees.ReadOnly = true;
-            this.DataGridEmployees.RowHeadersWidth = 51;
-            this.DataGridEmployees.RowTemplate.Height = 24;
-            this.DataGridEmployees.ShowEditingIcon = false;
-            this.DataGridEmployees.Size = new System.Drawing.Size(1117, 466);
-            this.DataGridEmployees.TabIndex = 0;
-            this.DataGridEmployees.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridEmployees_CellMouseClick);
+            this.dgvEmployees.AllowUserToAddRows = false;
+            this.dgvEmployees.AllowUserToDeleteRows = false;
+            this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEmployees.Location = new System.Drawing.Point(12, 52);
+            this.dgvEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvEmployees.Name = "dgvEmployees";
+            this.dgvEmployees.ReadOnly = true;
+            this.dgvEmployees.RowHeadersWidth = 51;
+            this.dgvEmployees.RowTemplate.Height = 24;
+            this.dgvEmployees.ShowEditingIcon = false;
+            this.dgvEmployees.Size = new System.Drawing.Size(1117, 466);
+            this.dgvEmployees.TabIndex = 0;
+            this.dgvEmployees.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridEmployees_CellMouseClick);
             // 
             // groupBox3
             // 
@@ -111,7 +111,6 @@
             this.groupBox3.Controls.Add(this.label17);
             this.groupBox3.Controls.Add(this.dtDismissalDate);
             this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.cmbFormAccess);
             this.groupBox3.Controls.Add(this.cmbDepartmentName);
             this.groupBox3.Controls.Add(this.dtDateOfHire);
             this.groupBox3.Controls.Add(this.label15);
@@ -122,7 +121,6 @@
             this.groupBox3.Controls.Add(this.label10);
             this.groupBox3.Controls.Add(this.tbCity);
             this.groupBox3.Controls.Add(this.label9);
-            this.groupBox3.Controls.Add(this.label14);
             this.groupBox3.Controls.Add(this.tbNationality);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label13);
@@ -156,7 +154,7 @@
             this.btnSearchForEmployee.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnSearchForEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchForEmployee.Image")));
             this.btnSearchForEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchForEmployee.Location = new System.Drawing.Point(21, 591);
+            this.btnSearchForEmployee.Location = new System.Drawing.Point(267, 593);
             this.btnSearchForEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearchForEmployee.Name = "btnSearchForEmployee";
             this.btnSearchForEmployee.Size = new System.Drawing.Size(216, 39);
@@ -170,7 +168,7 @@
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(7, 537);
+            this.label18.Location = new System.Drawing.Point(253, 539);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(175, 20);
             this.label18.TabIndex = 48;
@@ -178,7 +176,7 @@
             // 
             // tbUserFirstName
             // 
-            this.tbUserFirstName.Location = new System.Drawing.Point(12, 558);
+            this.tbUserFirstName.Location = new System.Drawing.Point(258, 560);
             this.tbUserFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbUserFirstName.Multiline = true;
             this.tbUserFirstName.Name = "tbUserFirstName";
@@ -188,7 +186,7 @@
             // cmbRoleName
             // 
             this.cmbRoleName.FormattingEnabled = true;
-            this.cmbRoleName.Location = new System.Drawing.Point(257, 434);
+            this.cmbRoleName.Location = new System.Drawing.Point(257, 370);
             this.cmbRoleName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbRoleName.Name = "cmbRoleName";
             this.cmbRoleName.Size = new System.Drawing.Size(224, 24);
@@ -198,7 +196,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(253, 412);
+            this.label17.Location = new System.Drawing.Point(253, 348);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(87, 20);
             this.label17.TabIndex = 45;
@@ -208,7 +206,7 @@
             // 
             this.dtDismissalDate.CustomFormat = "dd-MM-yyyy";
             this.dtDismissalDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtDismissalDate.Location = new System.Drawing.Point(259, 559);
+            this.dtDismissalDate.Location = new System.Drawing.Point(259, 495);
             this.dtDismissalDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtDismissalDate.Name = "dtDismissalDate";
             this.dtDismissalDate.Size = new System.Drawing.Size(223, 22);
@@ -218,20 +216,11 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(255, 539);
+            this.label16.Location = new System.Drawing.Point(255, 475);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(125, 20);
             this.label16.TabIndex = 43;
             this.label16.Text = "Dismissal Date";
-            // 
-            // cmbFormAccess
-            // 
-            this.cmbFormAccess.FormattingEnabled = true;
-            this.cmbFormAccess.Location = new System.Drawing.Point(257, 370);
-            this.cmbFormAccess.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.cmbFormAccess.Name = "cmbFormAccess";
-            this.cmbFormAccess.Size = new System.Drawing.Size(224, 24);
-            this.cmbFormAccess.TabIndex = 42;
             // 
             // cmbDepartmentName
             // 
@@ -246,7 +235,7 @@
             // 
             this.dtDateOfHire.CustomFormat = "dd-MM-yyyy";
             this.dtDateOfHire.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtDateOfHire.Location = new System.Drawing.Point(259, 495);
+            this.dtDateOfHire.Location = new System.Drawing.Point(259, 431);
             this.dtDateOfHire.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtDateOfHire.Name = "dtDateOfHire";
             this.dtDateOfHire.Size = new System.Drawing.Size(223, 22);
@@ -256,7 +245,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(253, 478);
+            this.label15.Location = new System.Drawing.Point(253, 414);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(101, 20);
             this.label15.TabIndex = 37;
@@ -325,16 +314,6 @@
             this.label9.Size = new System.Drawing.Size(43, 20);
             this.label9.TabIndex = 22;
             this.label9.Text = "City:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(253, 348);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(104, 20);
-            this.label14.TabIndex = 32;
-            this.label14.Text = "FormAccess";
             // 
             // tbNationality
             // 
@@ -501,7 +480,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnUpdate);
             this.groupBox1.Controls.Add(this.btnOpenAdminLog);
             this.groupBox1.Controls.Add(this.btnRefresh);
             this.groupBox1.Controls.Add(this.btnViewDismissedEmployees);
@@ -519,17 +497,6 @@
             this.groupBox1.TabIndex = 15;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Functions";
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUpdate.Location = new System.Drawing.Point(477, 83);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(168, 49);
-            this.btnUpdate.TabIndex = 20;
-            this.btnUpdate.Text = "Personal Info";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
             // btnOpenAdminLog
             // 
@@ -552,7 +519,7 @@
             this.btnRefresh.Location = new System.Drawing.Point(304, 82);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(143, 50);
+            this.btnRefresh.Size = new System.Drawing.Size(122, 50);
             this.btnRefresh.TabIndex = 7;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -654,7 +621,7 @@
             this.btnHelp.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
             this.btnHelp.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHelp.Location = new System.Drawing.Point(1489, 12);
+            this.btnHelp.Location = new System.Drawing.Point(1529, 11);
             this.btnHelp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnHelp.Name = "btnHelp";
             this.btnHelp.Size = new System.Drawing.Size(117, 37);
@@ -687,31 +654,68 @@
             this.Seemorebtn.UseVisualStyleBackColor = true;
             this.Seemorebtn.Click += new System.EventHandler(this.Seemorebtn_Click);
             // 
+            // btnLogOut
+            // 
+            this.btnLogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogOut.Image = ((System.Drawing.Image)(resources.GetObject("btnLogOut.Image")));
+            this.btnLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogOut.Location = new System.Drawing.Point(1529, 714);
+            this.btnLogOut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnLogOut.Name = "btnLogOut";
+            this.btnLogOut.Size = new System.Drawing.Size(117, 38);
+            this.btnLogOut.TabIndex = 9;
+            this.btnLogOut.Text = "Log out";
+            this.btnLogOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnLogOut.UseVisualStyleBackColor = true;
+            this.btnLogOut.Click += new System.EventHandler(this.btnLogOut_Click);
+            // 
+            // lbSecureText
+            // 
+            this.lbSecureText.AutoSize = true;
+            this.lbSecureText.Location = new System.Drawing.Point(9, 23);
+            this.lbSecureText.Name = "lbSecureText";
+            this.lbSecureText.Size = new System.Drawing.Size(108, 17);
+            this.lbSecureText.TabIndex = 48;
+            this.lbSecureText.Text = "Account Secure";
+            // 
+            // lbAccountSecurity
+            // 
+            this.lbAccountSecurity.AutoSize = true;
+            this.lbAccountSecurity.Location = new System.Drawing.Point(115, 23);
+            this.lbAccountSecurity.Name = "lbAccountSecurity";
+            this.lbAccountSecurity.Size = new System.Drawing.Size(20, 17);
+            this.lbAccountSecurity.TabIndex = 49;
+            this.lbAccountSecurity.Text = "...";
+            // 
             // Employee_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 903);
+            this.ClientSize = new System.Drawing.Size(1680, 756);
+            this.Controls.Add(this.lbAccountSecurity);
+            this.Controls.Add(this.lbSecureText);
+            this.Controls.Add(this.btnLogOut);
             this.Controls.Add(this.RowResetbtn);
             this.Controls.Add(this.Seemorebtn);
             this.Controls.Add(this.btnHelp);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.DataGridEmployees);
+            this.Controls.Add(this.dgvEmployees);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Employee_Management";
             this.Text = "Employee_Management";
-            ((System.ComponentModel.ISupportInitialize)(this.DataGridEmployees)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView DataGridEmployees;
+        private System.Windows.Forms.DataGridView dgvEmployees;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DateTimePicker dtDOB;
         private System.Windows.Forms.TextBox tbCity;
@@ -731,7 +735,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbUserName;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox tbSalary;
         private System.Windows.Forms.Label label12;
@@ -750,7 +753,6 @@
         private System.Windows.Forms.ComboBox cmbDepartmentName;
         private System.Windows.Forms.DateTimePicker dtDismissalDate;
         private System.Windows.Forms.Label label16;
-        public System.Windows.Forms.ComboBox cmbFormAccess;
         private System.Windows.Forms.Button btnViewDismissedEmployees;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnHelp;
@@ -763,6 +765,8 @@
         private System.Windows.Forms.Button Seemorebtn;
 
         private System.Windows.Forms.Button btnOpenAdminLog;
-        private System.Windows.Forms.Button btnUpdate;
+        private System.Windows.Forms.Button btnLogOut;
+        private System.Windows.Forms.Label lbSecureText;
+        private System.Windows.Forms.Label lbAccountSecurity;
     }
 }
