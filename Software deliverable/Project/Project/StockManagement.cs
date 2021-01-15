@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Project.DAL;
+using System;
 using System.Windows.Forms;
-using MySql.Data;
-using MySql.Data.MySqlClient;
-using Project.DAL;
 
 namespace Project
 {
@@ -127,6 +118,7 @@ namespace Project
         private void button3_Click(object sender, EventArgs e)
         {
             stock.ExportToPdf(dataGridView1);
+            MessageBox.Show("Export To PDF SUccessful", "Stock data Exported", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

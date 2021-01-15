@@ -515,38 +515,55 @@ namespace Project
 
         public void ExportToPdf(string fileName)
         {
-            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-            PdfWriter w = PdfWriter.GetInstance(doc, new FileStream(fileName, FileMode.Create));
-            doc.Open();
-            //Add border to page
-            PdfContentByte content = w.DirectContent;
-            iTextSharp.text.Font font = iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_ROMAN, 30, BaseColor.BLACK);
-            iTextSharp.text.Font font2 = iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_ROMAN, 11, BaseColor.BLACK);
-            Paragraph prg = new Paragraph();
-            prg.Alignment = Element.ALIGN_CENTER; // adjust the alignment of the heading
-            prg.Add(new Chunk("Stock", font)); //adding a heading to the PDF
-            doc.Add(prg); //add the component we created to the document
-            PdfPTable table = new PdfPTable(dgvEmployees.Columns.Count);
-            for (int j = 0; j < dgvEmployees.Columns.Count; j++)
+            string pdfDocName = fileName + ".pdf";
+            BaseFont bf = BaseFont.CreateFont(BaseFont.TIMES_ROMAN, BaseFont.CP1250, BaseFont.EMBEDDED);
+            PdfPTable pdftable = new PdfPTable(dgvEmployees.Columns.Count);
+            pdftable.DefaultCell.Padding = 3;
+            pdftable.WidthPercentage = 100;
+            pdftable.HorizontalAlignment = Element.ALIGN_LEFT;
+            pdftable.DefaultCell.BorderWidth = 1;
+            iTextSharp.text.Font text = new iTextSharp.text.Font(bf, 10, iTextSharp.text.Font.NORMAL);
+            //add header
+            foreach (DataGridViewColumn column in dgvEmployees.Columns)
             {
-                PdfPCell cell = new PdfPCell(); //create object from the pdfpcell class
-                cell.BackgroundColor = BaseColor.LIGHT_GRAY; //set color of cells to gray
-                cell.AddElement(new Chunk(dgvEmployees.Columns[j].HeaderText.ToUpper(), font2));
-                table.AddCell(cell);
+                PdfPCell cell = new PdfPCell(new Phrase(column.HeaderText, text));
+                cell.BackgroundColor = BaseColor.LIGHT_GRAY;
+                pdftable.AddCell(cell);
             }
-            for (int i = 0; i < dgvEmployees.Rows.Count; i++)
+
+            foreach (DataGridViewRow row in dgvEmployees.Rows)
             {
-                table.WidthPercentage = 100; //set width of the table
-                for (int k = 0; k < dgvEmployees.Columns.Count; k++)
+                foreach (DataGridViewCell cell in row.Cells)
                 {
-                    if (dgvEmployees[k, i].Value != null)
-                        // get the value of   each cell in the dataTable tblemp
-                        table.AddCell(new Phrase(dgvEmployees[k, i].Value.ToString(), font2));
+                    if (cell.Value != null)
+                    {
+                        pdftable.AddCell(new Phrase(cell.Value.ToString(), text));
+                    }
                 }
             }
-            //add the table to document
-            doc.Add(table);
-            doc.Close();
+
+            //for (int j = 0; j < dgvEmployees.Columns.Count; j++)
+            //{
+            //    PdfPCell cell = new PdfPCell(); //create object from the pdfpcell class
+            //    cell.BackgroundColor = BaseColor.LIGHT_GRAY; //set color of cells to gray
+            //    cell.AddElement(new Chunk(dgvEmployees.Columns[j].HeaderText.ToUpper(), text));
+            //    pdftable.AddCell(cell);
+            //}
+            //for (int i = 0; i < dgvEmployees.Rows.Count; i++)
+            //{
+            //    pdftable.WidthPercentage = 100; //set width of the table
+            //    for (int k = 0; k < dgv.Columns.Count; k++)
+            //    {
+            //        if (dgvEmployees[k, i].Value != null)
+            //            // get the value of   each cell in the dataTable tblemp
+            //            pdftable.AddCell(new Phrase(dgvEmployees[k, i].Value.ToString(), font2));
+            //    }
+            //}
+            Document pdfdoc = new Document(PageSize.A4, 10f, 10f, 10f, 0f);
+            PdfWriter.GetInstance(pdfdoc, new FileStream(pdfDocName, FileMode.Create));
+            pdfdoc.Open();
+            pdfdoc.Add(pdftable);
+            pdfdoc.Close();
         }
 
         private void btnExportToPDF_Click(object sender, EventArgs e)
@@ -557,7 +574,8 @@ namespace Project
             {
                 fileName = sfd.FileName;
                 ExportToPdf(fileName);
-            }         
+                MessageBox.Show("Export To PDF SUccessful", "EMployee data Exported", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         //private void button1_Click(object sender, EventArgs e)

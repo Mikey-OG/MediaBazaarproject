@@ -67,6 +67,7 @@
             this.tbUserName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnExportToPDF = new System.Windows.Forms.Button();
             this.btnOpenAdminLog = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnViewDismissedEmployees = new System.Windows.Forms.Button();
@@ -81,7 +82,6 @@
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lbSecureText = new System.Windows.Forms.Label();
             this.lbAccountSecurity = new System.Windows.Forms.Label();
-            this.btnExportToPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -90,12 +90,10 @@
             // dgvEmployees
             // 
             this.dgvEmployees.AllowUserToAddRows = false;
-            this.dgvEmployees.AllowUserToDeleteRows = false;
             this.dgvEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEmployees.Location = new System.Drawing.Point(12, 52);
             this.dgvEmployees.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvEmployees.Name = "dgvEmployees";
-            this.dgvEmployees.ReadOnly = true;
             this.dgvEmployees.RowHeadersWidth = 51;
             this.dgvEmployees.RowTemplate.Height = 24;
             this.dgvEmployees.ShowEditingIcon = false;
@@ -500,6 +498,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Functions";
             // 
+            // btnExportToPDF
+            // 
+            this.btnExportToPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportToPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExportToPDF.Location = new System.Drawing.Point(453, 82);
+            this.btnExportToPDF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExportToPDF.Name = "btnExportToPDF";
+            this.btnExportToPDF.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnExportToPDF.Size = new System.Drawing.Size(177, 50);
+            this.btnExportToPDF.TabIndex = 9;
+            this.btnExportToPDF.Text = "Export To PDF";
+            this.btnExportToPDF.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExportToPDF.UseVisualStyleBackColor = true;
+            this.btnExportToPDF.Click += new System.EventHandler(this.btnExportToPDF_Click);
+            // 
             // btnOpenAdminLog
             // 
             this.btnOpenAdminLog.Location = new System.Drawing.Point(1153, 106);
@@ -688,21 +701,6 @@
             this.lbAccountSecurity.Size = new System.Drawing.Size(20, 17);
             this.lbAccountSecurity.TabIndex = 49;
             this.lbAccountSecurity.Text = "...";
-            // 
-            // btnExportToPDF
-            // 
-            this.btnExportToPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExportToPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnExportToPDF.Location = new System.Drawing.Point(453, 82);
-            this.btnExportToPDF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnExportToPDF.Name = "btnExportToPDF";
-            this.btnExportToPDF.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.btnExportToPDF.Size = new System.Drawing.Size(177, 50);
-            this.btnExportToPDF.TabIndex = 9;
-            this.btnExportToPDF.Text = "Export To PDF";
-            this.btnExportToPDF.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnExportToPDF.UseVisualStyleBackColor = true;
-            this.btnExportToPDF.Click += new System.EventHandler(this.btnExportToPDF_Click);
             // 
             // Employee_Management
             // 
