@@ -14,6 +14,9 @@ using System.Net.Mail;
 using System.Runtime.CompilerServices;
 using Project.LGC;
 using Project.DAL;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
 
 namespace Project
 {
@@ -508,6 +511,53 @@ namespace Project
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             emd.LogOut(this);
+        }
+
+        public void ExportToPdf(string fileName)
+        {
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            PdfWriter w = PdfWriter.GetInstance(doc, new FileStream(fileName, FileMode.Create));
+            doc.Open();
+            //Add border to page
+            PdfContentByte content = w.DirectContent;
+            iTextSharp.text.Font font = iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_ROMAN, 30, BaseColor.BLACK);
+            iTextSharp.text.Font font2 = iTextSharp.text.FontFactory.GetFont(FontFactory.TIMES_ROMAN, 11, BaseColor.BLACK);
+            Paragraph prg = new Paragraph();
+            prg.Alignment = Element.ALIGN_CENTER; // adjust the alignment of the heading
+            prg.Add(new Chunk("Stock", font)); //adding a heading to the PDF
+            doc.Add(prg); //add the component we created to the document
+            PdfPTable table = new PdfPTable(dgvEmployees.Columns.Count);
+            for (int j = 0; j < dgvEmployees.Columns.Count; j++)
+            {
+                PdfPCell cell = new PdfPCell(); //create object from the pdfpcell class
+                cell.BackgroundColor = BaseColor.LIGHT_GRAY; //set color of cells to gray
+                cell.AddElement(new Chunk(dgvEmployees.Columns[j].HeaderText.ToUpper(), font2));
+                table.AddCell(cell);
+            }
+            for (int i = 0; i < dgvEmployees.Rows.Count; i++)
+            {
+                table.WidthPercentage = 100; //set width of the table
+                for (int k = 0; k < dgvEmployees.Columns.Count; k++)
+                {
+                    if (dgvEmployees[k, i].Value != null)
+                        // get the value of   each cell in the dataTable tblemp
+                        table.AddCell(new Phrase(dgvEmployees[k, i].Value.ToString(), font2));
+                }
+            }
+            //add the table to document
+            doc.Add(table);
+            doc.Close();
+        }
+
+        private void btnExportToPDF_Click(object sender, EventArgs e)
+        {
+            string fileName;
+            SaveFileDialog sfd = new SaveFileDialog();
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                fileName = sfd.FileName;
+                ExportToPdf(fileName);
+            }         
         }
 
         //private void button1_Click(object sender, EventArgs e)

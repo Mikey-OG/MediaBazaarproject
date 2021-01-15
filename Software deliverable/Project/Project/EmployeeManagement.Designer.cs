@@ -81,6 +81,7 @@
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lbSecureText = new System.Windows.Forms.Label();
             this.lbAccountSecurity = new System.Windows.Forms.Label();
+            this.btnExportToPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -480,6 +481,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnExportToPDF);
             this.groupBox1.Controls.Add(this.btnOpenAdminLog);
             this.groupBox1.Controls.Add(this.btnRefresh);
             this.groupBox1.Controls.Add(this.btnViewDismissedEmployees);
@@ -687,6 +689,21 @@
             this.lbAccountSecurity.TabIndex = 49;
             this.lbAccountSecurity.Text = "...";
             // 
+            // btnExportToPDF
+            // 
+            this.btnExportToPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportToPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExportToPDF.Location = new System.Drawing.Point(453, 82);
+            this.btnExportToPDF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExportToPDF.Name = "btnExportToPDF";
+            this.btnExportToPDF.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.btnExportToPDF.Size = new System.Drawing.Size(177, 50);
+            this.btnExportToPDF.TabIndex = 9;
+            this.btnExportToPDF.Text = "Export To PDF";
+            this.btnExportToPDF.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnExportToPDF.UseVisualStyleBackColor = true;
+            this.btnExportToPDF.Click += new System.EventHandler(this.btnExportToPDF_Click);
+            // 
             // Employee_Management
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -768,5 +785,6 @@
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Label lbSecureText;
         private System.Windows.Forms.Label lbAccountSecurity;
+        private System.Windows.Forms.Button btnExportToPDF;
     }
 }
