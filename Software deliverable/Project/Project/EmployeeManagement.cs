@@ -39,13 +39,7 @@ namespace Project
             emc = new EmployeeManagementClass();
             if(validation == "Admin")
             {
-                //btnMenuStock.Visible = false;
-                btnMenuSchedule.Visible = false;
-                btnMenuRoleManagement.Visible = false;
-                btnMenuDepartmentManagement.Visible = false;
-                btnMenuAdminLogs.Visible = false;
-
-                btnMenuStock.BackColor = Color.FromArgb(76, 175, 80);
+                btnMenuStock.Visible = false;
                 btnMenuSchedule.Visible = false;
                 btnMenuRoleManagement.Visible = false;
                 btnMenuDepartmentManagement.Visible = false;

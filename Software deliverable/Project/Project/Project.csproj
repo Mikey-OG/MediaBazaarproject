@@ -169,12 +169,6 @@
     <Compile Include="StockManagement.Designer.cs">
       <DependentUpon>StockManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="GeneralEmployeeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GeneralEmployeeForm.Designer.cs">
-      <DependentUpon>GeneralEmployeeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="DAL\EmployeeManagementDAL.cs" />
     <Compile Include="IEmployeeManage.cs" />
     <Compile Include="IStockManage.cs" />
@@ -232,11 +226,11 @@
     <EmbeddedResource Include="Qr.resx">
       <DependentUpon>Qr.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ShoppersonalSchedule.resx">
+      <DependentUpon>ShoppersonalSchedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StockManagement.resx">
       <DependentUpon>StockManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GeneralEmployeeForm.resx">
-      <DependentUpon>GeneralEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
