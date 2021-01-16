@@ -24,6 +24,7 @@ namespace Project
         MySqlDataReader dr;
 
         private Encryption Cry = new Encryption();
+        string userValidation;
         public UpdateDetailsForm()
         {
             InitializeComponent();
@@ -166,7 +167,7 @@ namespace Project
         private void btnMenuEmployeeManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            Employee_Management employee = new Employee_Management();
+            Employee_Management employee = new Employee_Management(userValidation);
             employee.Show();
         }
 

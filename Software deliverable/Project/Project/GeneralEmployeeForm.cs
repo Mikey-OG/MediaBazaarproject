@@ -53,7 +53,7 @@ namespace Project
 
         private void btnEmployeeManagement_Click(object sender, EventArgs e)
         {
-            Employee_Management employee_Management = new Employee_Management();
+            Employee_Management employee_Management = new Employee_Management(UserValidation);
             employee_Management.Show();
             this.Hide();
         }

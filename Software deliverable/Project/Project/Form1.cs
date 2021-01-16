@@ -40,7 +40,7 @@ namespace Project
                     if (UserValidation == "Admin")
                     {
 
-                        Employee_Management em = new Employee_Management();
+                        Employee_Management em = new Employee_Management(UserValidation);
                         em.Show();
                         success = true;
 
@@ -49,7 +49,7 @@ namespace Project
                     {
                         if (UserValidation == "EmployeeManager")
                         {
-                            Employee_Management generalEmployeeForm = new Employee_Management();
+                            Employee_Management generalEmployeeForm = new Employee_Management(UserValidation);
                             generalEmployeeForm.Show();
                             success = true;
                         }

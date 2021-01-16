@@ -31,12 +31,26 @@ namespace Project
         private int roleID;
         private int departmentID;
         private string currentEmail;
-        public Employee_Management()
+        public Employee_Management(string userValidation)
         {
             InitializeComponent();
             em = this;
             emd = new EmployeeManagementDAL();
             emc = new EmployeeManagementClass();
+            if(userValidation == "Admin")
+            {
+                //btnMenuStock.Visible = false;
+                btnMenuSchedule.Visible = false;
+                btnMenuRoleManagement.Visible = false;
+                btnMenuDepartmentManagement.Visible = false;
+                btnMenuAdminLogs.Visible = false;
+
+                btnMenuStock.BackColor = Color.FromArgb(76, 175, 80);
+                btnMenuSchedule.Visible = false;
+                btnMenuRoleManagement.Visible = false;
+                btnMenuDepartmentManagement.Visible = false;
+                btnMenuAdminLogs.Visible = false;
+            }
 
             //to get all the employees
             emc.InitializeListOfClasses();
