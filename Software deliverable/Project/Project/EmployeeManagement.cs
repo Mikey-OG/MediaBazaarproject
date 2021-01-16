@@ -31,13 +31,13 @@ namespace Project
         private int roleID;
         private int departmentID;
         private string currentEmail;
-        public Employee_Management(string userValidation)
+        public Employee_Management(string validation)
         {
             InitializeComponent();
             em = this;
             emd = new EmployeeManagementDAL();
             emc = new EmployeeManagementClass();
-            if(userValidation == "Admin")
+            if(validation == "Admin")
             {
                 //btnMenuStock.Visible = false;
                 btnMenuSchedule.Visible = false;
