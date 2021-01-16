@@ -12,6 +12,7 @@ namespace Project
 {
     public partial class ShoppersonalSchedule : Form
     {
+        string userValidation;
         public ShoppersonalSchedule()
         {
             InitializeComponent();
@@ -48,7 +49,7 @@ namespace Project
         private void btnMenuEmployeeManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            Employee_Management employee = new Employee_Management();
+            Employee_Management employee = new Employee_Management(userValidation);
             employee.Show();
         }
 

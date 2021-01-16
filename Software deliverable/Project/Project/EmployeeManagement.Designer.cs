@@ -605,9 +605,12 @@
             this.btnMenuSchedule.Margin = new System.Windows.Forms.Padding(0);
             this.btnMenuSchedule.Name = "btnMenuSchedule";
             this.btnMenuSchedule.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+
+            this.btnMenuSchedule.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.btnMenuSchedule.Size = new System.Drawing.Size(295, 59);
             this.btnMenuSchedule.TabIndex = 50;
-            this.btnMenuSchedule.Text = "Schedule";
+            this.btnMenuSchedule.Text = "Shop Personnel Schedule";
+
             this.btnMenuSchedule.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuSchedule.UseVisualStyleBackColor = true;
             this.btnMenuSchedule.Click += new System.EventHandler(this.btnMenuSchedule_Click);
@@ -627,7 +630,8 @@
             this.btnMenuStock.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.btnMenuStock.Size = new System.Drawing.Size(295, 59);
             this.btnMenuStock.TabIndex = 49;
-            this.btnMenuStock.Text = "Stock";
+
+            this.btnMenuStock.Text = "Shop Personnel Stock View";
             this.btnMenuStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuStock.UseVisualStyleBackColor = true;
             this.btnMenuStock.Click += new System.EventHandler(this.btnMenuStock_Click);

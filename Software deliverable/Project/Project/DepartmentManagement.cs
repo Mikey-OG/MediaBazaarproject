@@ -228,7 +228,11 @@ namespace Project
         private void btnMenuEmployeeManagement_Click(object sender, EventArgs e)
         {
             this.Close();
+<<<<<<< HEAD
             Employee_Management employee = new Employee_Management();
+=======
+            Employee_Management employee = new Employee_Management(UserValidation);
+>>>>>>> Osuntuyi-Michael
             employee.Show();
         }
 

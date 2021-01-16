@@ -157,7 +157,7 @@ namespace Project
         private void btnMenuEmployeeManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            Employee_Management employee = new Employee_Management();
+            Employee_Management employee = new Employee_Management(UserValidation);
             employee.Show();
         }
 

@@ -14,6 +14,7 @@ namespace Project
     public partial class AdminLog : Form
     {
         EmployeeManagementDAL gm;
+        string UserValidation;
 
         public AdminLog()
         {
@@ -69,7 +70,7 @@ namespace Project
         private void btnMenuEmployeeManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            Employee_Management employee = new Employee_Management();
+            Employee_Management employee = new Employee_Management(UserValidation);
             employee.Show();
         }
 
