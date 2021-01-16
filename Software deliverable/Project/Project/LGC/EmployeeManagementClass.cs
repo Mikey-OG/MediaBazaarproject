@@ -21,6 +21,7 @@ namespace Project.LGC
             roles = new List<Role>();
             departments = new List<Department>();
             emd = new EmployeeManagementDAL();
+            InitializeListOfClasses();
         }
         public void InitializeListOfClasses()
         {

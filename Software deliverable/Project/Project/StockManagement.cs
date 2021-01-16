@@ -18,20 +18,11 @@ namespace Project
         string UserValidation;
         private StockManager stock = new StockManager();
         EmployeeManagementDAL generalManagement = new EmployeeManagementDAL();
-        public StockManagement(string validation)
+        public StockManagement()
         {
             InitializeComponent();
             this.dataGridView1.DataError += this.DataGridView1_DataError;
             stock.FillTable(dataGridView1);
-            if (validation == "Admin")
-            {
-                UserValidation = "Admin";
-            }
-            else
-            {
-                btnReturnMenu.Visible = false;
-            }
-            generalManagement.AccountSecurity(generalManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
         }
 
         private void DataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs anError)
@@ -114,7 +105,6 @@ namespace Project
 
         private void RowResetbtn_Click(object sender, EventArgs e)
         {
-            generalManagement.AccountSecurity(generalManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
             stock.MaxRows = 0;
             stock.SeeMore(dataGridView1, stock.LastSQL, 10);
         }
@@ -127,6 +117,69 @@ namespace Project
         private void button3_Click(object sender, EventArgs e)
         {
             stock.ExportToPdf(dataGridView1);
+        }
+
+        private void btnLogOut_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 login = new Form1();
+            login.Show();
+        }
+
+        private void btnMenuAdminLogs_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminLog admin = new AdminLog();
+            admin.Show();
+        }
+
+        private void btnMenuScheduling_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            EmployeeScheduling scheduling = new EmployeeScheduling();
+            scheduling.Show();
+        }
+
+        private void btnMenuDepartmentManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            DepartmentManagement department = new DepartmentManagement();
+            department.Show();
+        }
+
+        private void btnMenuRoleManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            RoleManagement role = new RoleManagement();
+            role.Show();
+        }
+
+        private void btnMenuEmployeeManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Employee_Management employee = new Employee_Management();
+            employee.Show();
+        }
+
+        private void btnMenuSchedule_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ShoppersonalSchedule shoppersonal = new ShoppersonalSchedule();
+            shoppersonal.Show();
+        }
+
+        private void btnMenuPersonalDetails_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            UpdateDetailsForm update = new UpdateDetailsForm();
+            update.Show();
+        }
+
+        private void btnMenuStock_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ShopPersonnel shop = new ShopPersonnel();
+            shop.Show();
         }
     }
 }

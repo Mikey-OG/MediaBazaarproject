@@ -24,7 +24,7 @@ namespace Project
         MySqlDataReader dr;
 
         private Encryption Cry = new Encryption();
-        public UpdateDetailsForm(int id)
+        public UpdateDetailsForm()
         {
             InitializeComponent();
             employee = new Employee("bjnkmnb", "bjnkmnb",
@@ -32,7 +32,7 @@ namespace Project
                        "bjnkmnb", "bjnkmnb", "bjnkmnb",
                        Convert.ToInt32(2000));
             //int val = 1;
-            this.tbID.Text = Convert.ToString(id);
+            //this.tbID.Text = Convert.ToString(id);
             update.Insert(tbUpUsername.Text, tbUpEmail.Text, tbUpPassword.Text, tbUpFirstname.Text, tbUpLastname.Text, dtUpDOB.Value, tbUpPhone.Text, tbUpNationality.Text, tbUpAddress.Text, tbUpCity.Text, tbUpZipcode.Text);
         }
 
@@ -49,7 +49,7 @@ namespace Project
             }
             else
             {
-                this.update.UpdateDetails(Convert.ToInt32(tbID.Text), tbUpUsername.Text, tbUpEmail.Text, tbUpPassword.Text, tbUpFirstname.Text, tbUpLastname.Text, dtUpDOB.Value, tbUpPhone.Text, tbUpNationality.Text, tbUpAddress.Text, tbUpCity.Text, tbUpZipcode.Text);
+                //this.update.UpdateDetails(Convert.ToInt32(tbID.Text), tbUpUsername.Text, tbUpEmail.Text, tbUpPassword.Text, tbUpFirstname.Text, tbUpLastname.Text, dtUpDOB.Value, tbUpPhone.Text, tbUpNationality.Text, tbUpAddress.Text, tbUpCity.Text, tbUpZipcode.Text);
 
                 if (DialogResult.OK == MessageBox.Show("Your details have been updated"))
                 {
@@ -68,14 +68,14 @@ namespace Project
             try
             {
                 conn.Open();
-                if (tbID.Text != "")
+                //if (tbID.Text != "")
                 {
                     string sql = "SELECT UserName,Email,FirstName,LastName,DateOfBirth,PhoneNumber,Nationality,Adress,City,ZipCode FROM employee WHERE UserID = @userID";
                     cmd = new MySqlCommand(sql, conn);
                     //LastSQL = sql;
                     adpt = new MySqlDataAdapter(cmd);
                     // dt = new DataTable();
-                    cmd.Parameters.AddWithValue("@userID", int.Parse(tbID.Text));
+                    //cmd.Parameters.AddWithValue("@userID", int.Parse(tbID.Text));
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
                     {
@@ -126,6 +126,69 @@ namespace Project
             {
                 tbUpOldPassword.UseSystemPasswordChar = false;
             }
+        }
+
+        private void btnLogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 login = new Form1();
+            login.Show();
+        }
+
+        private void btnMenuAdminLogs_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminLog admin = new AdminLog();
+            admin.Show();
+        }
+
+        private void btnMenuScheduling_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            EmployeeScheduling scheduling = new EmployeeScheduling();
+            scheduling.Show();
+        }
+
+        private void btnMenuDepartmentManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            DepartmentManagement department = new DepartmentManagement();
+            department.Show();
+        }
+
+        private void btnMenuRoleManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            RoleManagement role = new RoleManagement();
+            role.Show();
+        }
+
+        private void btnMenuEmployeeManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Employee_Management employee = new Employee_Management();
+            employee.Show();
+        }
+
+        private void btnMenuStockManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            StockManagement stock = new StockManagement();
+            stock.Show();
+        }
+
+        private void btnMenuSchedule_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ShoppersonalSchedule shoppersonal = new ShoppersonalSchedule();
+            shoppersonal.Show();
+        }
+
+        private void btnMenuStock_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ShopPersonnel shop = new ShopPersonnel();
+            shop.Show();
         }
     }
 }

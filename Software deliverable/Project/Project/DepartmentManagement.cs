@@ -20,7 +20,7 @@ namespace Project
         EmployeeManagementDAL gm;      
         Department department;
         DepartmentManagementClass dmc;
-        public DepartmentManagement(string validation)
+        public DepartmentManagement()
         {
             InitializeComponent();
 
@@ -30,12 +30,6 @@ namespace Project
 
             dmc.InitializeListOfClasses();
             dgvDepartments.DataSource = dmc.GetAllDepartments();
-
-            if (validation == "Admin")
-            {
-                UserValidation = "Admin";
-            }
-            gm.AccountSecurity(gm.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
         }
 
         public void LoadNewData()
@@ -189,7 +183,6 @@ namespace Project
 
         private void RowResetbtn_Click(object sender, EventArgs e)
         {
-            gm.AccountSecurity(gm.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
             //stock.MaxRows = 0;
             //stock.SeeMore(dataGridView1, gm.LastSQL,10);
         }
@@ -202,6 +195,69 @@ namespace Project
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             gm.LogOut(this);
+        }
+
+        private void btnLogOut_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 login = new Form1();
+            login.Show();
+        }
+
+        private void btnMenuAdminLogs_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminLog admin = new AdminLog();
+            admin.Show();
+        }
+
+        private void btnMenuScheduling_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            EmployeeScheduling scheduling = new EmployeeScheduling();
+            scheduling.Show();
+        }
+
+        private void btnMenuRoleManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            RoleManagement role = new RoleManagement();
+            role.Show();
+        }
+
+        private void btnMenuEmployeeManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Employee_Management employee = new Employee_Management();
+            employee.Show();
+        }
+
+        private void btnMenuStockManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            StockManagement stock = new StockManagement();
+            stock.Show();
+        }
+
+        private void btnMenuSchedule_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ShoppersonalSchedule shoppersonal = new ShoppersonalSchedule();
+            shoppersonal.Show();
+        }
+
+        private void btnMenuPersonalDetails_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            UpdateDetailsForm update = new UpdateDetailsForm();
+            update.Show();
+        }
+
+        private void btnMenuStock_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ShopPersonnel shop = new ShopPersonnel();
+            shop.Show();
         }
     }
 }

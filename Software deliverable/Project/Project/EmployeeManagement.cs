@@ -31,7 +31,7 @@ namespace Project
         private int roleID;
         private int departmentID;
         private string currentEmail;
-        public Employee_Management(string validation)
+        public Employee_Management()
         {
             InitializeComponent();
             em = this;
@@ -43,18 +43,6 @@ namespace Project
             GetAllRolesForCmb();
             GetAllDepartmentsForCmb();
             dgvEmployees.DataSource = emc.GetAllEmployees();
-            if (validation == "Admin")
-            {
-                UserValidation = "Admin";
-            }
-            else
-            {
-                if (validation == "EmployeeManager")
-                {
-                    UserValidation = "EmployeeManager";
-                }
-            }
-            emd.AccountSecurity(emd.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
         }
 
         //email
@@ -494,7 +482,6 @@ namespace Project
         {
             stock.MaxRows = 0;
             stock.SeeMore(dgvEmployees, emd.LastSQL, 10);
-            emd.AccountSecurity(emd.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
         }
 
 
@@ -507,7 +494,65 @@ namespace Project
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
-            emd.LogOut(this);
+            this.Close();
+            Form1 login = new Form1();
+            login.Show();
+        }
+
+        private void btnMenuAdminLogs_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminLog admin = new AdminLog();
+            admin.Show();
+        }
+
+        private void btnMenuScheduling_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            EmployeeScheduling scheduling = new EmployeeScheduling();
+            scheduling.Show();
+        }
+
+        private void btnMenuDepartmentManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            DepartmentManagement department = new DepartmentManagement();
+            department.Show();
+        }
+
+        private void btnMenuRoleManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            RoleManagement role = new RoleManagement();
+            role.Show();
+        }
+
+        private void btnMenuStockManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            StockManagement stock = new StockManagement();
+            stock.Show();
+        }
+
+        private void btnMenuSchedule_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ShoppersonalSchedule shoppersonal = new ShoppersonalSchedule();
+            shoppersonal.Show();
+        }
+
+        private void btnMenuPersonalDetails_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            UpdateDetailsForm update = new UpdateDetailsForm();
+            update.Show();
+        }
+
+        private void btnMenuStock_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ShopPersonnel shop = new ShopPersonnel();
+            shop.Show();
         }
 
         //private void button1_Click(object sender, EventArgs e)

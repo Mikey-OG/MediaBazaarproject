@@ -38,14 +38,14 @@ namespace Project
 
         private void btnDepartmentManagement_Click(object sender, EventArgs e)
         {
-            DepartmentManagement departmentManagement = new DepartmentManagement(UserValidation);
+            DepartmentManagement departmentManagement = new DepartmentManagement();
             departmentManagement.Show();
             this.Hide();
         }
 
         private void btnRoleManagement_Click(object sender, EventArgs e)
         {
-            RoleManagement roleManagement = new RoleManagement(UserValidation);
+            RoleManagement roleManagement = new RoleManagement();
             roleManagement.Show();
             this.Hide();
         }
@@ -53,28 +53,28 @@ namespace Project
 
         private void btnEmployeeManagement_Click(object sender, EventArgs e)
         {
-            Employee_Management employee_Management = new Employee_Management(UserValidation);
+            Employee_Management employee_Management = new Employee_Management();
             employee_Management.Show();
             this.Hide();
         }
 
         private void btnSchedulingEmployees_Click(object sender, EventArgs e)
         {
-            EmployeeScheduling employeeScheduling = new EmployeeScheduling(UserValidation);
+            EmployeeScheduling employeeScheduling = new EmployeeScheduling();
             employeeScheduling.Show();
             this.Hide();
         }
 
         private void btnViewStock_Click(object sender, EventArgs e)
         {
-            StockManagement stockManagement = new StockManagement(UserValidation);
+            StockManagement stockManagement = new StockManagement();
             stockManagement.Show();
             this.Hide();
         }
 
         private void btnViewShopPersonnel_Click(object sender, EventArgs e)
         {
-            ShopPersonnel shopPersonnel = new ShopPersonnel(UserValidation);
+            ShopPersonnel shopPersonnel = new ShopPersonnel();
             shopPersonnel.Show();
             this.Hide();
         }
@@ -92,7 +92,7 @@ namespace Project
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            UpdateDetailsForm update = new UpdateDetailsForm(1);
+            UpdateDetailsForm update = new UpdateDetailsForm();
             update.Show();
         }
     }

@@ -377,7 +377,6 @@ namespace Project.DAL
             return allEmployeesInDatabase;
         }
 
-
         public void AddAllRolesFromDtb()
         {
             try
@@ -439,33 +438,6 @@ namespace Project.DAL
         {
             return this.allDepartments;
         }
-
-        public bool AddSchedule(int UserID, string Date, string TimeShift)
-        {
-            try
-            {
-                conn.Open();
-                int space1 = Date.IndexOf(' ');
-                string DateSubstring = Date.Substring(0, space1);
-                string sql = "INSERT INTO schedules (UserID, WorkDate, TimeShift) VALUES (@UserID, @WorkDate, @TimeShift)";
-                cmd = new MySqlCommand(sql, conn);
-                cmd.Parameters.AddWithValue("@UserID", UserID);
-                cmd.Parameters.AddWithValue("@WorkDate", DateSubstring);
-                cmd.Parameters.AddWithValue("@TimeShift", TimeShift);
-                cmd.ExecuteNonQuery();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-            return false;
-        }
-
 
         public void FillDataGridTable(string sql, DataGridView dataGrid)
         {
@@ -612,22 +584,6 @@ namespace Project.DAL
                 listbox.Items.Add(dr["Logs"].ToString());
             }
 
-        }
-
-        public void RemoveSchedule(int ScheduleID)
-        {
-            try
-            {
-                conn.Open();
-                cmd = new MySqlCommand($"DELETE FROM schedules WHERE ScheduleID= @ScheduleID", conn);
-                cmd.Parameters.AddWithValue("@ScheduleID", ScheduleID);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally { conn.Close(); }
         }
 
         public bool RemoveScheduleMessageBoxYesNo()

@@ -19,19 +19,10 @@ namespace Project
         private StockManager stock = new StockManager();
         private Encryption Cry = new Encryption();
         private EmployeeManagementDAL generalManagement = new EmployeeManagementDAL();
-        public ShopPersonnel(string validation)
+        public ShopPersonnel()
         {
             InitializeComponent();
             stock.FillTable(dataGridView1);
-            if (validation == "Admin")
-            {
-                UserValidation = "Admin";
-            }
-            else
-            {
-                btnReturnMenu.Visible = false;
-            }
-            generalManagement.AccountSecurity(generalManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -73,27 +64,27 @@ namespace Project
             this.Hide();
         }
 
-        private void btnChangePassword_Click(object sender, EventArgs e)
-        {
-            if (Regex.IsMatch(tbPassword.Text, "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,15}$"))
-            {
-                if (generalManagement.ChangePasswordMessageBoxYesNo() == true)
-                {
-                    generalManagement.ChangePassword(Convert.ToString(Variables.User), tbPassword.Text);
-                    tbPassword.Text = "";
-                    MessageBox.Show("Password changed", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Please ensure your password" +
-                " possesses at least one lowercase character " +
-                " at least one uppercase charater " +
-                " at least one numeric character between 0-9 " +
-                " and is at least 8-15 characters long " +
-                " e.g (Mikoko02, Kirill02, lucM2002) ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+        ////private void btnChangePassword_Click(object sender, EventArgs e)
+        //{
+        //   // if (Regex.IsMatch(tbPassword.Text, "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,15}$"))
+        //    {
+        //        if (generalManagement.ChangePasswordMessageBoxYesNo() == true)
+        //        {
+        //           // generalManagement.ChangePassword(Convert.ToString(Variables.User), tbPassword.Text);
+        //            //tbPassword.Text = "";
+        //            MessageBox.Show("Password changed", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Please ensure your password" +
+        //        " possesses at least one lowercase character " +
+        //        " at least one uppercase charater " +
+        //        " at least one numeric character between 0-9 " +
+        //        " and is at least 8-15 characters long " +
+        //        " e.g (Mikoko02, Kirill02, lucM2002) ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //    }
+        //}
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
@@ -116,14 +107,14 @@ namespace Project
 
         private void rbSHowStocFunctions_CheckedChanged(object sender, EventArgs e)
         {
-            gbStock.Visible = true;
-            gbEmployee.Visible = false;
+            //gbStock.Visible = true;
+            //gbEmployee.Visible = false;
         }
 
         private void rbSHowPeronalFunctions_CheckedChanged(object sender, EventArgs e)
         {
-            gbStock.Visible = false;
-            gbEmployee.Visible = true;
+            //gbStock.Visible = false;
+            //gbEmployee.Visible = true;
         }
 
         private void Seemorebtn_Click(object sender, EventArgs e)
@@ -133,7 +124,6 @@ namespace Project
 
         private void RowResetbtn_Click(object sender, EventArgs e)
         {
-            generalManagement.AccountSecurity(generalManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
             stock.MaxRows = 0;
             stock.SeeMore(dataGridView1, stock.LastSQL, 10);
         }
@@ -151,7 +141,70 @@ namespace Project
 
         private void button2_Click(object sender, EventArgs e)
         {
-            UpdateDetailsForm update = new UpdateDetailsForm(2);
+            UpdateDetailsForm update = new UpdateDetailsForm();
+            update.Show();
+        }
+
+        private void btnLogOut_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 login = new Form1();
+            login.Show();
+        }
+
+        private void btnMenuAdminLogs_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AdminLog admin = new AdminLog();
+            admin.Show();
+        }
+
+        private void btnMenuScheduling_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            EmployeeScheduling scheduling = new EmployeeScheduling();
+            scheduling.Show();
+        }
+
+        private void btnMenuDepartmentManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            DepartmentManagement department = new DepartmentManagement();
+            department.Show();
+        }
+
+        private void btnMenuRoleManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            RoleManagement role = new RoleManagement();
+            role.Show();
+        }
+
+        private void btnMenuEmployeeManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Employee_Management employee = new Employee_Management();
+            employee.Show();
+        }
+
+        private void btnMenuStockManagement_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            StockManagement stock = new StockManagement();
+            stock.Show();
+        }
+
+        private void btnMenuSchedule_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ShoppersonalSchedule shoppersonal = new ShoppersonalSchedule();
+            shoppersonal.Show();
+        }
+
+        private void btnMenuPersonalDetails_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            UpdateDetailsForm update = new UpdateDetailsForm();
             update.Show();
         }
     }

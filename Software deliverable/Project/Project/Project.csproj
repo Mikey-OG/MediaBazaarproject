@@ -106,7 +106,15 @@
     <Compile Include="AdminLog.Designer.cs">
       <DependentUpon>AdminLog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Availability.cs" />
     <Compile Include="DAL\BaseDAL.cs" />
+    <Compile Include="DAL\SchedulingManagementDAL.cs" />
+    <Compile Include="ShoppersonalSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShoppersonalSchedule.Designer.cs">
+      <DependentUpon>ShoppersonalSchedule.cs</DependentUpon>
+    </Compile>
     <Compile Include="LGC\LogInClass.cs" />
     <Compile Include="Department.cs" />
     <Compile Include="DepartmentManagement.cs">
@@ -143,6 +151,7 @@
     <Compile Include="IRoleManage.cs" />
     <Compile Include="IScheduleManage.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
+    <Compile Include="LGC\SchedulingManagementClass.cs" />
     <Compile Include="LogManager.cs" />
     <Compile Include="Logs.cs" />
     <Compile Include="LGC\RoleManagementClass.cs" />
@@ -221,6 +230,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Qr.resx">
       <DependentUpon>Qr.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShoppersonalSchedule.resx">
+      <DependentUpon>ShoppersonalSchedule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StockManagement.resx">
       <DependentUpon>StockManagement.cs</DependentUpon>

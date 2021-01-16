@@ -59,7 +59,7 @@ namespace Project
                         {
                             if (UserValidation == "StockManager")
                             {
-                                StockManagement stockmanager = new StockManagement(UserValidation);
+                                StockManagement stockmanager = new StockManagement();
                                 stockmanager.Show();
                                 success = true;
                             }
@@ -67,7 +67,7 @@ namespace Project
                             {
                                 if (UserValidation == "ShopPersonnel")
                                 {
-                                    ShopPersonnel shopPersonnel = new ShopPersonnel(UserValidation);
+                                    ShopPersonnel shopPersonnel = new ShopPersonnel();
                                     shopPersonnel.Show();
                                     success = true;
                                 }
@@ -139,6 +139,12 @@ namespace Project
             access = true;
             lc.RemoveAllFailedAttempts();
             MessageBox.Show("You can now Log in\n", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EmployeeScheduling employee = new EmployeeScheduling();
+            employee.Show();
         }
     }
 }
