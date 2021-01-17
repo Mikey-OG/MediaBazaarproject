@@ -35,6 +35,7 @@
             this.dtEnd = new System.Windows.Forms.DateTimePicker();
             this.dtBegin = new System.Windows.Forms.DateTimePicker();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMenuStockManagement = new System.Windows.Forms.Button();
             this.btnMenuPersonalDetails = new System.Windows.Forms.Button();
             this.btnMenuSchedule = new System.Windows.Forms.Button();
             this.btnMenuRoleManagement = new System.Windows.Forms.Button();
@@ -43,7 +44,6 @@
             this.btnMenuDepartmentManagement = new System.Windows.Forms.Button();
             this.btnMenuScheduling = new System.Windows.Forms.Button();
             this.btnMenuEmployeeManagement = new System.Windows.Forms.Button();
-            this.btnMenuStockManagement = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -59,16 +59,20 @@
             this.btnAddSchedule = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.dtAddRemove = new System.Windows.Forms.DateTimePicker();
-            this.dataViewSchedules = new System.Windows.Forms.DataGridView();
             this.dataViewEmployees = new System.Windows.Forms.DataGridView();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lblScheduleDate = new System.Windows.Forms.Label();
+            this.btnScheduleRight = new System.Windows.Forms.Button();
+            this.btnScheduleLeft = new System.Windows.Forms.Button();
+            this.lbSchedule = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.numEmployeesAShift)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewSchedules)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewEmployees)).BeginInit();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogOut
@@ -188,6 +192,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(295, 532);
             this.panel1.TabIndex = 66;
+            // 
+            // btnMenuStockManagement
+            // 
+            this.btnMenuStockManagement.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuStockManagement.FlatAppearance.BorderSize = 0;
+            this.btnMenuStockManagement.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnMenuStockManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuStockManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuStockManagement.ForeColor = System.Drawing.Color.White;
+            this.btnMenuStockManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuStockManagement.Location = new System.Drawing.Point(0, 473);
+            this.btnMenuStockManagement.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMenuStockManagement.Name = "btnMenuStockManagement";
+            this.btnMenuStockManagement.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnMenuStockManagement.Size = new System.Drawing.Size(295, 59);
+            this.btnMenuStockManagement.TabIndex = 52;
+            this.btnMenuStockManagement.Text = "Stock Management";
+            this.btnMenuStockManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuStockManagement.UseVisualStyleBackColor = true;
+            this.btnMenuStockManagement.Click += new System.EventHandler(this.btnMenuStockManagement_Click);
             // 
             // btnMenuPersonalDetails
             // 
@@ -348,26 +372,6 @@
             this.btnMenuEmployeeManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuEmployeeManagement.UseVisualStyleBackColor = true;
             this.btnMenuEmployeeManagement.Click += new System.EventHandler(this.btnMenuEmployeeManagement_Click);
-            // 
-            // btnMenuStockManagement
-            // 
-            this.btnMenuStockManagement.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuStockManagement.FlatAppearance.BorderSize = 0;
-            this.btnMenuStockManagement.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnMenuStockManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuStockManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuStockManagement.ForeColor = System.Drawing.Color.White;
-            this.btnMenuStockManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuStockManagement.Location = new System.Drawing.Point(0, 473);
-            this.btnMenuStockManagement.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMenuStockManagement.Name = "btnMenuStockManagement";
-            this.btnMenuStockManagement.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnMenuStockManagement.Size = new System.Drawing.Size(295, 59);
-            this.btnMenuStockManagement.TabIndex = 52;
-            this.btnMenuStockManagement.Text = "Stock Management";
-            this.btnMenuStockManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuStockManagement.UseVisualStyleBackColor = true;
-            this.btnMenuStockManagement.Click += new System.EventHandler(this.btnMenuStockManagement_Click);
             // 
             // panel2
             // 
@@ -551,17 +555,6 @@
             this.dtAddRemove.Size = new System.Drawing.Size(184, 22);
             this.dtAddRemove.TabIndex = 67;
             // 
-            // dataViewSchedules
-            // 
-            this.dataViewSchedules.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewSchedules.Location = new System.Drawing.Point(737, 205);
-            this.dataViewSchedules.Margin = new System.Windows.Forms.Padding(0);
-            this.dataViewSchedules.Name = "dataViewSchedules";
-            this.dataViewSchedules.RowHeadersWidth = 51;
-            this.dataViewSchedules.RowTemplate.Height = 24;
-            this.dataViewSchedules.Size = new System.Drawing.Size(737, 256);
-            this.dataViewSchedules.TabIndex = 67;
-            // 
             // dataViewEmployees
             // 
             this.dataViewEmployees.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -574,14 +567,82 @@
             this.dataViewEmployees.TabIndex = 72;
             this.dataViewEmployees.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataViewEmployees_CellMouseClick);
             // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.panel7.Controls.Add(this.lblScheduleDate);
+            this.panel7.Controls.Add(this.btnScheduleRight);
+            this.panel7.Controls.Add(this.btnScheduleLeft);
+            this.panel7.Location = new System.Drawing.Point(737, 205);
+            this.panel7.Margin = new System.Windows.Forms.Padding(0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(737, 37);
+            this.panel7.TabIndex = 73;
+            // 
+            // lblScheduleDate
+            // 
+            this.lblScheduleDate.AutoSize = true;
+            this.lblScheduleDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScheduleDate.ForeColor = System.Drawing.Color.White;
+            this.lblScheduleDate.Location = new System.Drawing.Point(268, -2);
+            this.lblScheduleDate.Margin = new System.Windows.Forms.Padding(0);
+            this.lblScheduleDate.Name = "lblScheduleDate";
+            this.lblScheduleDate.Size = new System.Drawing.Size(0, 38);
+            this.lblScheduleDate.TabIndex = 1;
+            // 
+            // btnScheduleRight
+            // 
+            this.btnScheduleRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnScheduleRight.FlatAppearance.BorderSize = 0;
+            this.btnScheduleRight.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnScheduleRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScheduleRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScheduleRight.ForeColor = System.Drawing.Color.White;
+            this.btnScheduleRight.Location = new System.Drawing.Point(658, 0);
+            this.btnScheduleRight.Margin = new System.Windows.Forms.Padding(4);
+            this.btnScheduleRight.Name = "btnScheduleRight";
+            this.btnScheduleRight.Size = new System.Drawing.Size(79, 40);
+            this.btnScheduleRight.TabIndex = 68;
+            this.btnScheduleRight.Text = ">";
+            this.btnScheduleRight.UseVisualStyleBackColor = false;
+            this.btnScheduleRight.Click += new System.EventHandler(this.btnScheduleRight_Click);
+            // 
+            // btnScheduleLeft
+            // 
+            this.btnScheduleLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnScheduleLeft.FlatAppearance.BorderSize = 0;
+            this.btnScheduleLeft.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnScheduleLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnScheduleLeft.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnScheduleLeft.ForeColor = System.Drawing.Color.White;
+            this.btnScheduleLeft.Location = new System.Drawing.Point(0, 0);
+            this.btnScheduleLeft.Margin = new System.Windows.Forms.Padding(4);
+            this.btnScheduleLeft.Name = "btnScheduleLeft";
+            this.btnScheduleLeft.Size = new System.Drawing.Size(79, 40);
+            this.btnScheduleLeft.TabIndex = 67;
+            this.btnScheduleLeft.Text = "<";
+            this.btnScheduleLeft.UseVisualStyleBackColor = false;
+            this.btnScheduleLeft.Click += new System.EventHandler(this.btnScheduleLeft_Click);
+            // 
+            // lbSchedule
+            // 
+            this.lbSchedule.FormattingEnabled = true;
+            this.lbSchedule.ItemHeight = 16;
+            this.lbSchedule.Location = new System.Drawing.Point(737, 242);
+            this.lbSchedule.Margin = new System.Windows.Forms.Padding(0);
+            this.lbSchedule.Name = "lbSchedule";
+            this.lbSchedule.Size = new System.Drawing.Size(737, 212);
+            this.lbSchedule.TabIndex = 74;
+            // 
             // EmployeeScheduling
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1500, 800);
+            this.Controls.Add(this.lbSchedule);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.dataViewEmployees);
-            this.Controls.Add(this.dataViewSchedules);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel6);
@@ -602,8 +663,9 @@
             this.panel5.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewSchedules)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewEmployees)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -634,7 +696,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.DataGridView dataViewSchedules;
         private System.Windows.Forms.DataGridView dataViewEmployees;
         private System.Windows.Forms.ComboBox cbShifts;
         private System.Windows.Forms.Button btnRemoveSchedule;
@@ -642,5 +703,10 @@
         private System.Windows.Forms.Button btnAddSchedule;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtAddRemove;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label lblScheduleDate;
+        private System.Windows.Forms.Button btnScheduleRight;
+        private System.Windows.Forms.Button btnScheduleLeft;
+        private System.Windows.Forms.ListBox lbSchedule;
     }
 }

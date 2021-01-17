@@ -16,6 +16,7 @@ namespace Project
     {
         SchedulingManagement scheduling;
         int UserID;
+        DateTime Date = DateTime.Now.Date;
         private string userValidation;
 
         public void DeactivateAdminBtn()
@@ -51,6 +52,19 @@ namespace Project
             dtBegin.MinDate = DateTime.Now.Date;
             dtEnd.MinDate = DateTime.Now.Date;
             LoadEmployeeView();
+            LoadSchedule(Date.ToString("dd-MM-yyyy"));
+        }
+
+        public void LoadSchedule(string Date)
+        {
+            lblScheduleDate.Text = Date;
+            foreach (Schedule schedule in scheduling.GetSchedules())
+            {
+                if (schedule.Date == Date)
+                {
+                    lbSchedule.Items.Add($"Employee: {scheduling.GetName(schedule.UserId)} Shift: {schedule.Shift}");
+                }
+            }
         }
 
         public void LoadEmployeeView()
@@ -165,6 +179,18 @@ namespace Project
         private void btnMenuScheduling_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnScheduleLeft_Click(object sender, EventArgs e)
+        {
+            Date = Date.AddDays(-1);
+            LoadSchedule(Date.ToString("dd-MM-yyyy"));
+        }
+
+        private void btnScheduleRight_Click(object sender, EventArgs e)
+        {
+            Date = Date.AddDays(1);
+            LoadSchedule(Date.ToString("dd-MM-yyyy"));
         }
     }
 }
