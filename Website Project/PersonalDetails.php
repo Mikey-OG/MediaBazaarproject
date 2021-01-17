@@ -1,6 +1,6 @@
 <?php
 require_once ('NavigationBar.php');
-require_once ('Logic/Update.inc.php');
+require_once ('Logic/ShowPersonal.inc.php');
 ?>
 <main>
   <link rel="stylesheet" href="Css/personalDetailsStyle.css">
@@ -11,7 +11,7 @@ require_once ('Logic/Update.inc.php');
       Personal Details
     </div>
 
-  <form action="Logic/Update.inc.php" method="POST" id="uform">
+  <form action="Logic/UpdatePersonalDetails.inc.php" method="POST" id="uform">
     <div class="content" >
       <div class='name'>ID</div><div class='item'><input type="text" name='Id' readonly value="<?php echo $Id;?>"/></div>
       <div class='name'>Username</div><div class='item'><input type="text" name='uname' size="103"  value="<?php echo $username;?>"/></div>

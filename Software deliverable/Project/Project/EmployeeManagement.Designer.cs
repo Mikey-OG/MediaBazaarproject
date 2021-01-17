@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvEmployees = new System.Windows.Forms.DataGridView();
-            this.btnSearchForEmployee = new System.Windows.Forms.Button();
-            this.tbUserFirstName = new System.Windows.Forms.TextBox();
             this.cmbRoleName = new System.Windows.Forms.ComboBox();
             this.dtDismissalDate = new System.Windows.Forms.DateTimePicker();
             this.cmbDepartmentName = new System.Windows.Forms.ComboBox();
@@ -71,8 +69,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -96,7 +92,6 @@
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,33 +110,6 @@
             this.dgvEmployees.Size = new System.Drawing.Size(1027, 355);
             this.dgvEmployees.TabIndex = 0;
             this.dgvEmployees.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DataGridEmployees_CellMouseClick);
-            // 
-            // btnSearchForEmployee
-            // 
-            this.btnSearchForEmployee.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnSearchForEmployee.FlatAppearance.BorderSize = 0;
-            this.btnSearchForEmployee.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnSearchForEmployee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearchForEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearchForEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnSearchForEmployee.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSearchForEmployee.Location = new System.Drawing.Point(19, 52);
-            this.btnSearchForEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnSearchForEmployee.Name = "btnSearchForEmployee";
-            this.btnSearchForEmployee.Size = new System.Drawing.Size(257, 40);
-            this.btnSearchForEmployee.TabIndex = 8;
-            this.btnSearchForEmployee.Text = "Search Employee";
-            this.btnSearchForEmployee.UseVisualStyleBackColor = false;
-            this.btnSearchForEmployee.Click += new System.EventHandler(this.btnSearchForEmployee_Click);
-            // 
-            // tbUserFirstName
-            // 
-            this.tbUserFirstName.Location = new System.Drawing.Point(137, 16);
-            this.tbUserFirstName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tbUserFirstName.Multiline = true;
-            this.tbUserFirstName.Name = "tbUserFirstName";
-            this.tbUserFirstName.Size = new System.Drawing.Size(161, 25);
-            this.tbUserFirstName.TabIndex = 47;
             // 
             // cmbRoleName
             // 
@@ -676,34 +644,11 @@
             this.panel3.Controls.Add(this.btnClearFields);
             this.panel3.Controls.Add(this.btnRefresh);
             this.panel3.Controls.Add(this.btnViewDismissedEmployees);
-            this.panel3.Location = new System.Drawing.Point(334, 332);
+            this.panel3.Location = new System.Drawing.Point(334, 207);
             this.panel3.Margin = new System.Windows.Forms.Padding(0);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(297, 230);
             this.panel3.TabIndex = 76;
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.panel8.Controls.Add(this.label18);
-            this.panel8.Controls.Add(this.tbUserFirstName);
-            this.panel8.Controls.Add(this.btnSearchForEmployee);
-            this.panel8.Location = new System.Drawing.Point(334, 207);
-            this.panel8.Margin = new System.Windows.Forms.Padding(0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(321, 105);
-            this.panel8.TabIndex = 77;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(14, 14);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(117, 24);
-            this.label18.TabIndex = 78;
-            this.label18.Text = "First Name:";
             // 
             // panel10
             // 
@@ -929,7 +874,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1718, 858);
             this.Controls.Add(this.panel10);
-            this.Controls.Add(this.panel8);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.panel6);
@@ -950,8 +894,6 @@
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.ResumeLayout(false);
@@ -983,8 +925,6 @@
         private System.Windows.Forms.Button btnViewDismissedEmployees;
         private System.Windows.Forms.Button btnRefresh;
         public System.Windows.Forms.ComboBox cmbRoleName;
-        private System.Windows.Forms.Button btnSearchForEmployee;
-        private System.Windows.Forms.TextBox tbUserFirstName;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnLogOut;
         private System.Windows.Forms.Panel panel4;
@@ -1003,8 +943,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label33;

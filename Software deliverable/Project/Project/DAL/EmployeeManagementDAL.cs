@@ -167,7 +167,7 @@ namespace Project.DAL
             try
             {
                 conn.Open();
-                string sql = "UPDATE employees SET  DismissalDate = @DismissalDate WHERE UserID = @UserID";
+                string sql = "UPDATE employee SET  DismissalDate = @DismissalDate WHERE UserID = @UserID";
                 cmd = new MySqlCommand(sql, conn);
                 cmd.Parameters.AddWithValue("@UserID", UserID);
                 cmd.Parameters.AddWithValue("@DismissalDate", employee.DismissDate);
@@ -276,7 +276,7 @@ namespace Project.DAL
             {
                 conn.Open();
                 //sql code for selecting all th data from the table 
-                string sql = "SELECT * FROM employee";
+                string sql = "SELECT * FROM employee WHERE DismissalDate IS NULL";
                 cmd = new MySqlCommand(sql, conn);
                 dr = cmd.ExecuteReader();
 
