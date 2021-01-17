@@ -213,7 +213,7 @@ namespace Project.DAL
             try
             {
                 string sql = "SELECT employee.UserName AS EmployeePerDepartment, departments.DepartmentName AS Departments FROM employee " +
-                "INNER JOIN departments ON employee.DepartmentID = departments.DepartmentID GROUP BY departments.DepartmentName";
+                "INNER JOIN departments ON employee.DepartmentID = departments.DepartmentID";
                 conn.Open();
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();

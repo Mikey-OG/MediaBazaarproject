@@ -240,7 +240,7 @@ namespace Project.DAL
             try
             {
                 string sql = "SELECT employee.UserName AS EmployeePerRole, roles.RoleName As Roles FROM employee " +
-                    "INNER JOIN roles ON employee.RoleID = roles.RoleID GROUP BY roles.RoleName";
+                    "INNER JOIN roles ON employee.RoleID = roles.RoleID";
                 conn.Open();
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
