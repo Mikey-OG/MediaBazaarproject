@@ -444,7 +444,6 @@ C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software delive
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.EmployeeScheduling.resources
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.Form1.resources
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.StockManagement.resources
-C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.GeneralEmployeeForm.resources
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.Properties.Resources.resources
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.RoleManagement.resources
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.ShopPersonnel.resources
@@ -557,3 +556,4 @@ C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software delive
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.Qr.resources
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.ChangePwdForm.resources
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.UpdateDetailsForm.resources
+C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.ShoppersonalSchedule.resources

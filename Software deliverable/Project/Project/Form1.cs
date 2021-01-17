@@ -56,7 +56,7 @@ namespace Project
                         {
                             if (UserValidation == "StockManager")
                             {
-                                StockManagement stockmanager = new StockManagement();
+                                StockManagement stockmanager = new StockManagement(UserValidation);
                                 stockmanager.Show();
                                 success = true;
                             }
@@ -64,7 +64,7 @@ namespace Project
                             {
                                 if (UserValidation == "ShopPersonnel")
                                 {
-                                    ShopPersonnel shopPersonnel = new ShopPersonnel();
+                                    ShopPersonnel shopPersonnel = new ShopPersonnel(UserValidation);
                                     shopPersonnel.Show();
                                     success = true;
                                 }
@@ -140,8 +140,44 @@ namespace Project
 
         private void button1_Click(object sender, EventArgs e)
         {
+            UserValidation = "Admin";
+            if (UserValidation == "Admin")
+            {
+                Employee_Management em = new Employee_Management(UserValidation);
+                em.Show();
+
+            }
+            else
+            {
+                if (UserValidation == "EmployeeManager")
+                {
+                    Employee_Management em = new Employee_Management(UserValidation);
+                    em.Show();
+                }
+                else
+                {
+                    if (UserValidation == "StockManager")
+                    {
+                        StockManagement stockmanager = new StockManagement(UserValidation);
+                        stockmanager.Show();
+                    }
+                    else
+                    {
+                        if (UserValidation == "ShopPersonnel")
+                        {
+                            ShopPersonnel shopPersonnel = new ShopPersonnel(UserValidation);
+                            shopPersonnel.Show();
+                        }
+                    }
+                }
+            }
             //EmployeeScheduling employee = new EmployeeScheduling();
             //employee.Show();
+        }
+
+        private void btnEndProgram_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

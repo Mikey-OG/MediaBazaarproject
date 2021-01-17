@@ -13,9 +13,28 @@ namespace Project
     public partial class ShoppersonalSchedule : Form
     {
         string userValidation;
-        public ShoppersonalSchedule()
+        public void DeactivateAdminBtn()
+        {
+            btnMenuAdminLogs.Visible = false;
+            btnMenuDepartmentManagement.Visible = false;
+            btnMenuRoleManagement.Visible = false;
+        }
+
+        public void DeactivateEmployeeManagementBtn()
+        {
+            btnMenuScheduling.Visible = false;
+            btnMenuEmployeeManagement.Visible = false;
+        }
+        public ShoppersonalSchedule(string validation)
         {
             InitializeComponent();
+            if (validation == "ShopPersonnel")
+            {
+                DeactivateAdminBtn();
+                DeactivateEmployeeManagementBtn();
+                btnMenuStockManagement.Visible = false;
+                userValidation = validation;
+            }
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -27,22 +46,22 @@ namespace Project
 
         private void btnMenuStock_Click(object sender, EventArgs e)
         {
-            this.Close();
-            ShopPersonnel shop = new ShopPersonnel();
-            shop.Show();
+            //this.Close();
+            //ShopPersonnel shop = new ShopPersonnel();
+            //shop.Show();
         }
 
         private void btnMenuPersonalDetails_Click(object sender, EventArgs e)
         {
             this.Close();
-            UpdateDetailsForm update = new UpdateDetailsForm();
+            UpdateDetailsForm update = new UpdateDetailsForm(userValidation);
             update.Show();
         }
 
         private void btnMenuStockManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            StockManagement stock = new StockManagement();
+            StockManagement stock = new StockManagement(userValidation);
             stock.Show();
         }
 
@@ -56,28 +75,28 @@ namespace Project
         private void btnMenuRoleManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            RoleManagement role = new RoleManagement();
+            RoleManagement role = new RoleManagement(userValidation);
             role.Show();
         }
 
         private void btnMenuDepartmentManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            DepartmentManagement department = new DepartmentManagement();
+            DepartmentManagement department = new DepartmentManagement(userValidation);
             department.Show();
         }
 
         private void btnMenuScheduling_Click(object sender, EventArgs e)
         {
             this.Close();
-            EmployeeScheduling scheduling = new EmployeeScheduling();
+            EmployeeScheduling scheduling = new EmployeeScheduling(userValidation);
             scheduling.Show();
         }
 
         private void btnMenuAdminLogs_Click(object sender, EventArgs e)
         {
             this.Close();
-            AdminLog admin = new AdminLog();
+            AdminLog admin = new AdminLog(userValidation);
             admin.Show();
         }
     }

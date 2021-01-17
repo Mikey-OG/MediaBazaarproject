@@ -15,13 +15,32 @@ namespace Project
 {
     public partial class ShopPersonnel : Form
     {
-        string UserValidation;
+        private string userValidation;
         private StockManager stock = new StockManager();
         private Encryption Cry = new Encryption();
         private EmployeeManagementDAL generalManagement = new EmployeeManagementDAL();
-        public ShopPersonnel()
+        public void DeactivateAdminBtn()
+        {
+            btnMenuAdminLogs.Visible = false;
+            btnMenuDepartmentManagement.Visible = false;
+            btnMenuRoleManagement.Visible = false;
+        }
+
+        public void DeactivateEmployeeManagementBtn()
+        {
+            btnMenuScheduling.Visible = false;
+            btnMenuEmployeeManagement.Visible = false;
+        }
+        public ShopPersonnel(string validation)
         {
             InitializeComponent();
+            if (validation == "ShopPersonnel")
+            {
+                DeactivateAdminBtn();
+                DeactivateEmployeeManagementBtn();
+                btnMenuStockManagement.Visible = false;
+                userValidation = validation;
+            }
             stock.FillTable(dataGridView1);
         }
 
@@ -59,9 +78,9 @@ namespace Project
 
         private void btnReturnMenu_Click(object sender, EventArgs e)
         {
-            GeneralEmployeeForm generalEmployeeForm = new GeneralEmployeeForm(UserValidation);
-            generalEmployeeForm.Show();
-            this.Hide();
+            //GeneralEmployeeForm generalEmployeeForm = new GeneralEmployeeForm(UserValidation);
+            //generalEmployeeForm.Show();
+            //this.Hide();
         }
 
         ////private void btnChangePassword_Click(object sender, EventArgs e)
@@ -141,7 +160,7 @@ namespace Project
 
         private void button2_Click(object sender, EventArgs e)
         {
-            UpdateDetailsForm update = new UpdateDetailsForm();
+            UpdateDetailsForm update = new UpdateDetailsForm(userValidation);
             update.Show();
         }
 
@@ -155,56 +174,56 @@ namespace Project
         private void btnMenuAdminLogs_Click(object sender, EventArgs e)
         {
             this.Close();
-            AdminLog admin = new AdminLog();
+            AdminLog admin = new AdminLog(userValidation);
             admin.Show();
         }
 
         private void btnMenuScheduling_Click(object sender, EventArgs e)
         {
             this.Close();
-            EmployeeScheduling scheduling = new EmployeeScheduling();
+            EmployeeScheduling scheduling = new EmployeeScheduling(userValidation);
             scheduling.Show();
         }
 
         private void btnMenuDepartmentManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            DepartmentManagement department = new DepartmentManagement();
+            DepartmentManagement department = new DepartmentManagement(userValidation);
             department.Show();
         }
 
         private void btnMenuRoleManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            RoleManagement role = new RoleManagement();
+            RoleManagement role = new RoleManagement(userValidation);
             role.Show();
         }
 
         private void btnMenuEmployeeManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            Employee_Management employee = new Employee_Management(UserValidation);
+            Employee_Management employee = new Employee_Management(userValidation);
             employee.Show();
         }
 
         private void btnMenuStockManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            StockManagement stock = new StockManagement();
+            StockManagement stock = new StockManagement(userValidation);
             stock.Show();
         }
 
         private void btnMenuSchedule_Click(object sender, EventArgs e)
         {
             this.Close();
-            ShoppersonalSchedule shoppersonal = new ShoppersonalSchedule();
+            ShoppersonalSchedule shoppersonal = new ShoppersonalSchedule(userValidation);
             shoppersonal.Show();
         }
 
         private void btnMenuPersonalDetails_Click(object sender, EventArgs e)
         {
             this.Close();
-            UpdateDetailsForm update = new UpdateDetailsForm();
+            UpdateDetailsForm update = new UpdateDetailsForm(userValidation);
             update.Show();
         }
     }

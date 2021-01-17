@@ -43,6 +43,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnMenuPersonalDetails = new System.Windows.Forms.Button();
             this.btnMenuRoleManagement = new System.Windows.Forms.Button();
             this.btnMenuStock = new System.Windows.Forms.Button();
             this.btnMenuAdminLogs = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.btnMenuScheduling = new System.Windows.Forms.Button();
             this.btnMenuEmployeeManagement = new System.Windows.Forms.Button();
             this.btnMenuStockManagement = new System.Windows.Forms.Button();
-            this.btnMenuPersonalDetails = new System.Windows.Forms.Button();
             this.btnMenuSchedule = new System.Windows.Forms.Button();
             this.cmbFormAccess = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -256,20 +256,40 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.panel5.Controls.Add(this.btnMenuStockManagement);
+            this.panel5.Controls.Add(this.btnMenuPersonalDetails);
             this.panel5.Controls.Add(this.btnMenuRoleManagement);
             this.panel5.Controls.Add(this.btnMenuStock);
             this.panel5.Controls.Add(this.btnMenuAdminLogs);
             this.panel5.Controls.Add(this.btnMenuDepartmentManagement);
             this.panel5.Controls.Add(this.btnMenuScheduling);
             this.panel5.Controls.Add(this.btnMenuEmployeeManagement);
-            this.panel5.Controls.Add(this.btnMenuStockManagement);
-            this.panel5.Controls.Add(this.btnMenuPersonalDetails);
             this.panel5.Controls.Add(this.btnMenuSchedule);
             this.panel5.Location = new System.Drawing.Point(0, 166);
             this.panel5.Margin = new System.Windows.Forms.Padding(0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(295, 532);
             this.panel5.TabIndex = 71;
+            // 
+            // btnMenuPersonalDetails
+            // 
+            this.btnMenuPersonalDetails.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuPersonalDetails.FlatAppearance.BorderSize = 0;
+            this.btnMenuPersonalDetails.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnMenuPersonalDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuPersonalDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuPersonalDetails.ForeColor = System.Drawing.Color.White;
+            this.btnMenuPersonalDetails.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuPersonalDetails.Location = new System.Drawing.Point(0, 413);
+            this.btnMenuPersonalDetails.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMenuPersonalDetails.Name = "btnMenuPersonalDetails";
+            this.btnMenuPersonalDetails.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnMenuPersonalDetails.Size = new System.Drawing.Size(295, 59);
+            this.btnMenuPersonalDetails.TabIndex = 51;
+            this.btnMenuPersonalDetails.Text = "Personal Details";
+            this.btnMenuPersonalDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuPersonalDetails.UseVisualStyleBackColor = true;
+            this.btnMenuPersonalDetails.Click += new System.EventHandler(this.btnMenuPersonalDetails_Click);
             // 
             // btnMenuRoleManagement
             // 
@@ -280,7 +300,7 @@
             this.btnMenuRoleManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuRoleManagement.ForeColor = System.Drawing.Color.White;
             this.btnMenuRoleManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuRoleManagement.Location = new System.Drawing.Point(0, 354);
+            this.btnMenuRoleManagement.Location = new System.Drawing.Point(0, 177);
             this.btnMenuRoleManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btnMenuRoleManagement.Name = "btnMenuRoleManagement";
             this.btnMenuRoleManagement.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -299,7 +319,7 @@
             this.btnMenuStock.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuStock.ForeColor = System.Drawing.Color.White;
             this.btnMenuStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuStock.Location = new System.Drawing.Point(0, 236);
+            this.btnMenuStock.Location = new System.Drawing.Point(0, 295);
             this.btnMenuStock.Margin = new System.Windows.Forms.Padding(0);
             this.btnMenuStock.Name = "btnMenuStock";
             this.btnMenuStock.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -319,7 +339,7 @@
             this.btnMenuAdminLogs.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuAdminLogs.ForeColor = System.Drawing.Color.White;
             this.btnMenuAdminLogs.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuAdminLogs.Location = new System.Drawing.Point(0, 472);
+            this.btnMenuAdminLogs.Location = new System.Drawing.Point(0, 236);
             this.btnMenuAdminLogs.Margin = new System.Windows.Forms.Padding(0);
             this.btnMenuAdminLogs.Name = "btnMenuAdminLogs";
             this.btnMenuAdminLogs.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -339,7 +359,7 @@
             this.btnMenuDepartmentManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuDepartmentManagement.ForeColor = System.Drawing.Color.White;
             this.btnMenuDepartmentManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuDepartmentManagement.Location = new System.Drawing.Point(0, 413);
+            this.btnMenuDepartmentManagement.Location = new System.Drawing.Point(0, 118);
             this.btnMenuDepartmentManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btnMenuDepartmentManagement.Name = "btnMenuDepartmentManagement";
             this.btnMenuDepartmentManagement.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -359,7 +379,7 @@
             this.btnMenuScheduling.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuScheduling.ForeColor = System.Drawing.Color.White;
             this.btnMenuScheduling.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuScheduling.Location = new System.Drawing.Point(0, 177);
+            this.btnMenuScheduling.Location = new System.Drawing.Point(0, 59);
             this.btnMenuScheduling.Margin = new System.Windows.Forms.Padding(0);
             this.btnMenuScheduling.Name = "btnMenuScheduling";
             this.btnMenuScheduling.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -379,7 +399,7 @@
             this.btnMenuEmployeeManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuEmployeeManagement.ForeColor = System.Drawing.Color.White;
             this.btnMenuEmployeeManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuEmployeeManagement.Location = new System.Drawing.Point(0, 118);
+            this.btnMenuEmployeeManagement.Location = new System.Drawing.Point(0, 0);
             this.btnMenuEmployeeManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btnMenuEmployeeManagement.Name = "btnMenuEmployeeManagement";
             this.btnMenuEmployeeManagement.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -399,7 +419,7 @@
             this.btnMenuStockManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuStockManagement.ForeColor = System.Drawing.Color.White;
             this.btnMenuStockManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuStockManagement.Location = new System.Drawing.Point(0, 59);
+            this.btnMenuStockManagement.Location = new System.Drawing.Point(0, 472);
             this.btnMenuStockManagement.Margin = new System.Windows.Forms.Padding(0);
             this.btnMenuStockManagement.Name = "btnMenuStockManagement";
             this.btnMenuStockManagement.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -410,26 +430,6 @@
             this.btnMenuStockManagement.UseVisualStyleBackColor = true;
             this.btnMenuStockManagement.Click += new System.EventHandler(this.btnMenuStockManagement_Click);
             // 
-            // btnMenuPersonalDetails
-            // 
-            this.btnMenuPersonalDetails.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuPersonalDetails.FlatAppearance.BorderSize = 0;
-            this.btnMenuPersonalDetails.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnMenuPersonalDetails.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuPersonalDetails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuPersonalDetails.ForeColor = System.Drawing.Color.White;
-            this.btnMenuPersonalDetails.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuPersonalDetails.Location = new System.Drawing.Point(0, 0);
-            this.btnMenuPersonalDetails.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMenuPersonalDetails.Name = "btnMenuPersonalDetails";
-            this.btnMenuPersonalDetails.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnMenuPersonalDetails.Size = new System.Drawing.Size(295, 59);
-            this.btnMenuPersonalDetails.TabIndex = 51;
-            this.btnMenuPersonalDetails.Text = "Personal Details";
-            this.btnMenuPersonalDetails.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuPersonalDetails.UseVisualStyleBackColor = true;
-            this.btnMenuPersonalDetails.Click += new System.EventHandler(this.btnMenuPersonalDetails_Click);
-            // 
             // btnMenuSchedule
             // 
             this.btnMenuSchedule.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -439,7 +439,7 @@
             this.btnMenuSchedule.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMenuSchedule.ForeColor = System.Drawing.Color.White;
             this.btnMenuSchedule.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuSchedule.Location = new System.Drawing.Point(0, 295);
+            this.btnMenuSchedule.Location = new System.Drawing.Point(0, 354);
             this.btnMenuSchedule.Margin = new System.Windows.Forms.Padding(0);
             this.btnMenuSchedule.Name = "btnMenuSchedule";
             this.btnMenuSchedule.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
