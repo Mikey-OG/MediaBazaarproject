@@ -56,7 +56,7 @@ namespace Project.DAL
                 {
                     bool addToDtbList = true;
                     //here we are changing all results into objects employee
-                    Logs logs = new Logs(dr[1].ToString(), dr[4].ToString());
+                    Logs logs = new Logs(dr[0].ToString(), dr[1].ToString());
 
                     if (addToDtbList == true)
                     {
@@ -286,14 +286,14 @@ namespace Project.DAL
         }
 
 
-        //public bool RemoveLog(Logs logs)
-        //{
-        //    //conn.Open();
-        //    //cmd = new MySqlCommand("DELETE FROM logs WHERE Logs=@LogName", conn);
-        //    //cmd.Parameters.AddWithValue("@LogName", logs.NameOfLog);
-        //    //cmd.ExecuteNonQuery();
-
-        //}
+        public bool RemoveLog(Logs logs)
+        {
+            conn.Open();
+            cmd = new MySqlCommand("DELETE FROM logs WHERE Logs=@LogName", conn);
+            cmd.Parameters.AddWithValue("@LogName", logs.NameOfLog);
+            cmd.ExecuteNonQuery();
+            return true;
+        }
 
         public List<Logs> GetAllLogsFromDtb()
         {

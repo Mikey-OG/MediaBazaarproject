@@ -3,7 +3,6 @@
 include ('Config.php');
 
 class Connection {
-
 	private $username = DBUSER;
 	private $password = DBPWD;
 	private $host = DBHOST;

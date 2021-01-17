@@ -43,7 +43,10 @@ namespace Project.LGC
             emd.AddToDtbListOfDismmisedEmployees();
             foreach (var item in emd.GetAllDismissedEmployeesFromDtb())
             {
-                dismissedEmployees.Add(item);
+                if(!dismissedEmployees.Contains(item))
+                {
+                    dismissedEmployees.Add(item);
+                }          
             }
         }
 
@@ -55,6 +58,7 @@ namespace Project.LGC
                 roles.Add(item);
             }
         }
+
 
         public void AddAllDepartments()
         {

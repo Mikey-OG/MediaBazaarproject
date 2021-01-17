@@ -30,7 +30,6 @@
         {
             this.btnViewLogs = new System.Windows.Forms.Button();
             this.ltbAdminLog = new System.Windows.Forms.ListBox();
-            this.btnDeleteLog = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -38,6 +37,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMenuStockManagement = new System.Windows.Forms.Button();
             this.btnMenuPersonalDetails = new System.Windows.Forms.Button();
             this.btnMenuAdminLogs = new System.Windows.Forms.Button();
             this.btnMenuRoleManagement = new System.Windows.Forms.Button();
@@ -45,7 +45,6 @@
             this.btnMenuDepartmentManagement = new System.Windows.Forms.Button();
             this.btnMenuScheduling = new System.Windows.Forms.Button();
             this.btnMenuEmployeeManagement = new System.Windows.Forms.Button();
-            this.btnMenuStockManagement = new System.Windows.Forms.Button();
             this.btnMenuSchedule = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel6.SuspendLayout();
@@ -80,23 +79,6 @@
             this.ltbAdminLog.Name = "ltbAdminLog";
             this.ltbAdminLog.Size = new System.Drawing.Size(1140, 439);
             this.ltbAdminLog.TabIndex = 1;
-            // 
-            // btnDeleteLog
-            // 
-            this.btnDeleteLog.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnDeleteLog.FlatAppearance.BorderSize = 0;
-            this.btnDeleteLog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.btnDeleteLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDeleteLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteLog.ForeColor = System.Drawing.Color.White;
-            this.btnDeleteLog.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteLog.Location = new System.Drawing.Point(556, 15);
-            this.btnDeleteLog.Name = "btnDeleteLog";
-            this.btnDeleteLog.Size = new System.Drawing.Size(568, 55);
-            this.btnDeleteLog.TabIndex = 3;
-            this.btnDeleteLog.Text = "Deleted Logs";
-            this.btnDeleteLog.UseVisualStyleBackColor = false;
-            this.btnDeleteLog.Click += new System.EventHandler(this.btnDeleteLog_Click);
             // 
             // panel6
             // 
@@ -183,6 +165,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(295, 532);
             this.panel1.TabIndex = 71;
+            // 
+            // btnMenuStockManagement
+            // 
+            this.btnMenuStockManagement.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuStockManagement.FlatAppearance.BorderSize = 0;
+            this.btnMenuStockManagement.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnMenuStockManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuStockManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuStockManagement.ForeColor = System.Drawing.Color.White;
+            this.btnMenuStockManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuStockManagement.Location = new System.Drawing.Point(0, 473);
+            this.btnMenuStockManagement.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMenuStockManagement.Name = "btnMenuStockManagement";
+            this.btnMenuStockManagement.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnMenuStockManagement.Size = new System.Drawing.Size(295, 59);
+            this.btnMenuStockManagement.TabIndex = 52;
+            this.btnMenuStockManagement.Text = "Stock Management";
+            this.btnMenuStockManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuStockManagement.UseVisualStyleBackColor = true;
+            this.btnMenuStockManagement.Click += new System.EventHandler(this.btnMenuStockManagement_Click);
             // 
             // btnMenuPersonalDetails
             // 
@@ -323,26 +325,6 @@
             this.btnMenuEmployeeManagement.UseVisualStyleBackColor = true;
             this.btnMenuEmployeeManagement.Click += new System.EventHandler(this.btnMenuEmployeeManagement_Click);
             // 
-            // btnMenuStockManagement
-            // 
-            this.btnMenuStockManagement.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuStockManagement.FlatAppearance.BorderSize = 0;
-            this.btnMenuStockManagement.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnMenuStockManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuStockManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuStockManagement.ForeColor = System.Drawing.Color.White;
-            this.btnMenuStockManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuStockManagement.Location = new System.Drawing.Point(0, 473);
-            this.btnMenuStockManagement.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMenuStockManagement.Name = "btnMenuStockManagement";
-            this.btnMenuStockManagement.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnMenuStockManagement.Size = new System.Drawing.Size(295, 59);
-            this.btnMenuStockManagement.TabIndex = 52;
-            this.btnMenuStockManagement.Text = "Stock Management";
-            this.btnMenuStockManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuStockManagement.UseVisualStyleBackColor = true;
-            this.btnMenuStockManagement.Click += new System.EventHandler(this.btnMenuStockManagement_Click);
-            // 
             // btnMenuSchedule
             // 
             this.btnMenuSchedule.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -366,12 +348,11 @@
             // panel8
             // 
             this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.panel8.Controls.Add(this.btnDeleteLog);
             this.panel8.Controls.Add(this.btnViewLogs);
-            this.panel8.Location = new System.Drawing.Point(334, 687);
+            this.panel8.Location = new System.Drawing.Point(592, 675);
             this.panel8.Margin = new System.Windows.Forms.Padding(0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(1140, 85);
+            this.panel8.Size = new System.Drawing.Size(576, 85);
             this.panel8.TabIndex = 76;
             // 
             // AdminLog
@@ -404,7 +385,6 @@
         private System.Windows.Forms.ListBox ltbAdminLog;
 
         private System.Windows.Forms.Button btnViewLogs;
-        private System.Windows.Forms.Button btnDeleteLog;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;

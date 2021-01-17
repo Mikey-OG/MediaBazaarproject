@@ -1,7 +1,6 @@
 <?php 
 
 	include 'autoloader.inc.php';
-	session_start();
 
 	$Validate = new Validate();
 
@@ -16,7 +15,7 @@
 
 
 			if ($userName == $UserInfo->getUserInlog($userName, 0) && $cry->Encrypt($password) == $UserInfo->getUserInlog($userName, 1)) {
-
+				session_start();
 				$_SESSION['userName'] = $userName; 
 				$_SESSION['FormAccess'] = $UserInfo->getUserInlog($userName, 2);
 				$_SESSION['UserID'] = $UserInfo->getUserInlog($userName, 3);
