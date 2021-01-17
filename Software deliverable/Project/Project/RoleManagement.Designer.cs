@@ -43,6 +43,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btnMenuStockManagement = new System.Windows.Forms.Button();
             this.btnMenuPersonalDetails = new System.Windows.Forms.Button();
             this.btnMenuRoleManagement = new System.Windows.Forms.Button();
             this.btnMenuStock = new System.Windows.Forms.Button();
@@ -50,13 +51,13 @@
             this.btnMenuDepartmentManagement = new System.Windows.Forms.Button();
             this.btnMenuScheduling = new System.Windows.Forms.Button();
             this.btnMenuEmployeeManagement = new System.Windows.Forms.Button();
-            this.btnMenuStockManagement = new System.Windows.Forms.Button();
             this.btnMenuSchedule = new System.Windows.Forms.Button();
             this.cmbFormAccess = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.btnRoleExport = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoles)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -108,7 +109,7 @@
             this.btnRefresh.Location = new System.Drawing.Point(108, 83);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(418, 55);
+            this.btnRefresh.Size = new System.Drawing.Size(179, 55);
             this.btnRefresh.TabIndex = 19;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = false;
@@ -270,6 +271,26 @@
             this.panel5.Size = new System.Drawing.Size(295, 532);
             this.panel5.TabIndex = 71;
             // 
+            // btnMenuStockManagement
+            // 
+            this.btnMenuStockManagement.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuStockManagement.FlatAppearance.BorderSize = 0;
+            this.btnMenuStockManagement.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnMenuStockManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuStockManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuStockManagement.ForeColor = System.Drawing.Color.White;
+            this.btnMenuStockManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuStockManagement.Location = new System.Drawing.Point(0, 472);
+            this.btnMenuStockManagement.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMenuStockManagement.Name = "btnMenuStockManagement";
+            this.btnMenuStockManagement.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnMenuStockManagement.Size = new System.Drawing.Size(295, 59);
+            this.btnMenuStockManagement.TabIndex = 52;
+            this.btnMenuStockManagement.Text = "Stock Management";
+            this.btnMenuStockManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuStockManagement.UseVisualStyleBackColor = true;
+            this.btnMenuStockManagement.Click += new System.EventHandler(this.btnMenuStockManagement_Click);
+            // 
             // btnMenuPersonalDetails
             // 
             this.btnMenuPersonalDetails.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -409,26 +430,6 @@
             this.btnMenuEmployeeManagement.UseVisualStyleBackColor = true;
             this.btnMenuEmployeeManagement.Click += new System.EventHandler(this.btnMenuEmployeeManagement_Click);
             // 
-            // btnMenuStockManagement
-            // 
-            this.btnMenuStockManagement.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuStockManagement.FlatAppearance.BorderSize = 0;
-            this.btnMenuStockManagement.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnMenuStockManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuStockManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuStockManagement.ForeColor = System.Drawing.Color.White;
-            this.btnMenuStockManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuStockManagement.Location = new System.Drawing.Point(0, 472);
-            this.btnMenuStockManagement.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMenuStockManagement.Name = "btnMenuStockManagement";
-            this.btnMenuStockManagement.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnMenuStockManagement.Size = new System.Drawing.Size(295, 59);
-            this.btnMenuStockManagement.TabIndex = 52;
-            this.btnMenuStockManagement.Text = "Stock Management";
-            this.btnMenuStockManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuStockManagement.UseVisualStyleBackColor = true;
-            this.btnMenuStockManagement.Click += new System.EventHandler(this.btnMenuStockManagement_Click);
-            // 
             // btnMenuSchedule
             // 
             this.btnMenuSchedule.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -499,6 +500,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.panel7.Controls.Add(this.btnRoleExport);
             this.panel7.Controls.Add(this.btnVIewEmployeeandRoles);
             this.panel7.Controls.Add(this.btnRefresh);
             this.panel7.Location = new System.Drawing.Point(334, 610);
@@ -506,6 +508,23 @@
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(629, 162);
             this.panel7.TabIndex = 77;
+            // 
+            // btnRoleExport
+            // 
+            this.btnRoleExport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnRoleExport.FlatAppearance.BorderSize = 0;
+            this.btnRoleExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnRoleExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRoleExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRoleExport.ForeColor = System.Drawing.Color.White;
+            this.btnRoleExport.Location = new System.Drawing.Point(317, 83);
+            this.btnRoleExport.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnRoleExport.Name = "btnRoleExport";
+            this.btnRoleExport.Size = new System.Drawing.Size(209, 55);
+            this.btnRoleExport.TabIndex = 22;
+            this.btnRoleExport.Text = "Export Role To PDF";
+            this.btnRoleExport.UseVisualStyleBackColor = false;
+            this.btnRoleExport.Click += new System.EventHandler(this.btnRoleExport_Click);
             // 
             // RoleManagement
             // 
@@ -569,5 +588,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button btnRoleExport;
     }
 }

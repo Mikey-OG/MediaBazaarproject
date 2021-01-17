@@ -55,6 +55,7 @@
             this.btnMenuScheduling = new System.Windows.Forms.Button();
             this.btnMenuPersonalDetails = new System.Windows.Forms.Button();
             this.btnMenuSchedule = new System.Windows.Forms.Button();
+            this.btnExportPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDepartments)).BeginInit();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -127,7 +128,7 @@
             this.btnRefresh.Location = new System.Drawing.Point(81, 83);
             this.btnRefresh.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRefresh.Name = "btnRefresh";
-            this.btnRefresh.Size = new System.Drawing.Size(418, 55);
+            this.btnRefresh.Size = new System.Drawing.Size(155, 55);
             this.btnRefresh.TabIndex = 12;
             this.btnRefresh.Text = "Refresh";
             this.btnRefresh.UseVisualStyleBackColor = false;
@@ -190,6 +191,7 @@
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.panel7.Controls.Add(this.btnExportPDF);
             this.panel7.Controls.Add(this.btnRefresh);
             this.panel7.Controls.Add(this.btnVIewEmployeeDepartments);
             this.panel7.Location = new System.Drawing.Point(334, 610);
@@ -488,6 +490,24 @@
             this.btnMenuSchedule.UseVisualStyleBackColor = true;
             this.btnMenuSchedule.Click += new System.EventHandler(this.btnMenuSchedule_Click);
             // 
+            // btnExportPDF
+            // 
+            this.btnExportPDF.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnExportPDF.FlatAppearance.BorderSize = 0;
+            this.btnExportPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnExportPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExportPDF.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExportPDF.ForeColor = System.Drawing.Color.White;
+            this.btnExportPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnExportPDF.Location = new System.Drawing.Point(340, 83);
+            this.btnExportPDF.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExportPDF.Name = "btnExportPDF";
+            this.btnExportPDF.Size = new System.Drawing.Size(159, 55);
+            this.btnExportPDF.TabIndex = 15;
+            this.btnExportPDF.Text = "Export To PDf";
+            this.btnExportPDF.UseVisualStyleBackColor = false;
+            this.btnExportPDF.Click += new System.EventHandler(this.btnExportPDF_Click);
+            // 
             // DepartmentManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -549,5 +569,6 @@
         private System.Windows.Forms.Button btnMenuPersonalDetails;
         private System.Windows.Forms.Button btnMenuSchedule;
         private System.Windows.Forms.Button btnMenuStock;
+        private System.Windows.Forms.Button btnExportPDF;
     }
 }
