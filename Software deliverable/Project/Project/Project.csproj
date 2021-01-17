@@ -110,6 +110,7 @@
     <Compile Include="DAL\BaseDAL.cs" />
     <Compile Include="DAL\LogsDAL.cs" />
     <Compile Include="DAL\SchedulingManagementDAL.cs" />
+    <Compile Include="DAL\UpdateDetailsDAL.cs" />
     <Compile Include="LGC\Encryption.cs" />
     <Compile Include="LGC\LogInClass.cs" />
     <Compile Include="Department.cs" />
@@ -202,7 +203,6 @@
     <Compile Include="ChangePwdForm.Designer.cs">
       <DependentUpon>ChangePwdForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Update.cs" />
     <Compile Include="UpdateDetailsForm.cs">
       <SubType>Form</SubType>
     </Compile>

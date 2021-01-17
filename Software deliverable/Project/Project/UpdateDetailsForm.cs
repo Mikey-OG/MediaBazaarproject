@@ -9,16 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Project.LGC;
+using Project.DAL;
 
 
 namespace Project
 {
     public partial class UpdateDetailsForm : Form
     {
-        Update update = new Update();
+        UpdateDetailsDAL update = new UpdateDetailsDAL();
         Employee employee;
         Account account = new Account();
-        MySqlConnection conn = new MySqlConnection("server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;");
+        //MySqlConnection conn = new MySqlConnection("server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;");
         MySqlDataAdapter adpt;
         MySqlCommand cmd;
         MySqlDataReader dr;
@@ -101,16 +102,17 @@ namespace Project
             }
             else
             {
-                //this.update.UpdateDetails(Convert.ToInt32(tbID.Text), tbUpUsername.Text, tbUpEmail.Text, tbUpPassword.Text, tbUpFirstname.Text, tbUpLastname.Text, dtUpDOB.Value, tbUpPhone.Text, tbUpNationality.Text, tbUpAddress.Text, tbUpCity.Text, tbUpZipcode.Text);
+                this.update.UpdateDetails(tbUpUsername.Text, tbUpEmail.Text, tbUpPassword.Text, tbUpFirstname.Text, tbUpLastname.Text, dtUpDOB.Value, tbUpPhone.Text, tbUpNationality.Text, tbUpAddress.Text, tbUpCity.Text, tbUpZipcode.Text);
+                MessageBox.Show("Your details have been updated");
 
-                if (DialogResult.OK == MessageBox.Show("Your details have been updated"))
+                /*if (DialogResult.OK == )
                 {
                     this.Hide();
-                }
+                }*/
             }
         }
 
-        private void tbID_TextChanged(object sender, EventArgs e)
+        /*private void tbID_TextChanged(object sender, EventArgs e)
         {
             Account account;
             account = new Account();
@@ -151,7 +153,7 @@ namespace Project
             {
                 conn.Close();
             }
-        }
+        }*/
 
         private void cbShowPassword_TextChanged(object sender, EventArgs e)
         {
