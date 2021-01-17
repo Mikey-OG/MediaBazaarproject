@@ -33,7 +33,7 @@ namespace Project
 
         private void btnViewLogs_Click(object sender, EventArgs e)
         {
-            gm.FillWithLogs(ltbAdminLog);
+            //gm.FillWithLogs(ltbAdminLog);
         }
 
         private void btnDeleteLog_Click(object sender, EventArgs e)

@@ -7,7 +7,7 @@ using Project.DAL;
 
 namespace Project.LGC
 {
-    class SchedulingManagement
+    class SchedulingManagement: IObjectList
     {
         private List<Employee> employees;
         private List<Employee> shoppersonal;

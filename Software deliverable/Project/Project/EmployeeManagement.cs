@@ -22,8 +22,9 @@ namespace Project
         static string to;
         static Employee_Management em;
         Employee employee;
-        EmployeeManagementDAL emd;
+        //EmployeeManagementDAL emd;
         EmployeeManagementClass emc;
+        LogsClass lc;
         private StockManager stock = new StockManager();
         private int UserID;
         private int roleID;
@@ -45,9 +46,10 @@ namespace Project
         {
             InitializeComponent();
             em = this;
-            emd = new EmployeeManagementDAL();
+            //emd = new EmployeeManagementDAL();
             emc = new EmployeeManagementClass();
-            if(validation == "EmployeeManager")
+            lc = new LogsClass();
+            if (validation == "EmployeeManager")
             {
                 DeactivateAdminBtn();
                 DeactivateShopPersonnelbtn();
@@ -56,7 +58,7 @@ namespace Project
             }
             else
             {
-                if(validation == "Admin")
+                if (validation == "Admin")
                 {
                     DeactivateShopPersonnelbtn();
                     userValidation = validation;
@@ -67,6 +69,7 @@ namespace Project
             GetAllRolesForCmb();
             GetAllDepartmentsForCmb();
             dgvEmployees.DataSource = emc.GetAllEmployees();
+            emc.AddAllDismissedEmployees();
         }
 
         //email
@@ -239,6 +242,7 @@ namespace Project
                         //GeneralManagement.FillWithEmployee(DataGridEmployees);
                         MessageBox.Show("Employee dissmissal date has been added", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadNewData();
+                        lc.AddNewEmployeeDismmisalLog(employee);
                     }
                 }
                 else
@@ -327,6 +331,7 @@ namespace Project
                                         //GeneralManagement.NewEmployeeLog(employee);
                                         //GeneralManagement.FillWithEmployee(DataGridEmployees);
                                         LoadNewData();
+                                        lc.AddNewEmployeeLog(employee);
                                         MessageBox.Show("Information Added", "Employee Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     }
                                 }
@@ -431,6 +436,7 @@ namespace Project
                     else
                     {
                         AllChecks();
+                        lc.AddNewEmployeeUpdateLog(employee);
                     }
                 }
             }
@@ -446,27 +452,21 @@ namespace Project
 
         private void btnViewDismissedEmployees_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    GeneralManagement.FillWithDIsmissedEmployee(DataGridEmployees);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            try
+            {
+                dgvEmployees.DataSource = null;
+                dgvEmployees.Rows.Clear();
+                dgvEmployees.DataSource = emc.GetAllDismissedEmployees();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    GeneralManagement.FillWithEmployee(DataGridEmployees);
-            //    GeneralManagement.AccountSecurity(GeneralManagement.GetUsername(Convert.ToString(Variables.User)), lbAccountSecurity);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
+            LoadNewData();
         }
 
         private void btnHelp_Click(object sender, EventArgs e)
@@ -487,33 +487,14 @@ namespace Project
 
         private void btnSearchForEmployee_Click(object sender, EventArgs e)
         {
-            try
-            {
-                emd.Search(dgvEmployees, tbUserFirstName.Text);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void Seemorebtn_Click(object sender, EventArgs e)
-        {
-            stock.SeeMore(dgvEmployees, emd.LastSQL, 10);
-        }
-
-        private void RowResetbtn_Click(object sender, EventArgs e)
-        {
-            stock.MaxRows = 0;
-            stock.SeeMore(dgvEmployees, emd.LastSQL, 10);
-        }
-
-
-        private void btnOpenAdminLog_Click(object sender, EventArgs e)
-        {
-            //works
-            //AdminLog adminlog = new AdminLog();
-            //adminlog.Show();
+            //try
+            //{
+            //    emd.Search(dgvEmployees, tbUserFirstName.Text);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -578,10 +559,5 @@ namespace Project
             ShopPersonnel shop = new ShopPersonnel(userValidation);
             shop.Show();
         }
-
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    label19.Text = GeneralManagement.LastSQL;
-        //}
     }
 }

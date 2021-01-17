@@ -183,7 +183,6 @@
             this.Seemorebtn.TabIndex = 46;
             this.Seemorebtn.Text = "See more";
             this.Seemorebtn.UseVisualStyleBackColor = true;
-            this.Seemorebtn.Click += new System.EventHandler(this.Seemorebtn_Click);
             // 
             // panel6
             // 

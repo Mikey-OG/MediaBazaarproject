@@ -49,6 +49,7 @@ namespace Project
            string ZipCode, string DOB, string hireDate, string address, int salary, string dismissDate)
         {
             base.UserName = userName;
+            base.accountSecurity = false;
             this.firstName = firstName;
             this.lastName = lastName;
             this.nationality = nationality;
@@ -59,6 +60,8 @@ namespace Project
             this.address = address;
             this.salary = salary;
             this.dismissDate = dismissDate;
+            role = new Role();
+            department = new Department();        
         }
         public bool SetRoleID(int roleID)
         {

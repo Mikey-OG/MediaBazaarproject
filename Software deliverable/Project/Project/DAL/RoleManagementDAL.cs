@@ -14,6 +14,7 @@ namespace Project.DAL
     public class RoleManagementDAL: BaseDAL
     {
         private string log;
+        DataTable dt;
         public string LastSQL = $"";
         private List<Role> allRolesInDatabase;
         private List<string> allFormAccess;
@@ -233,6 +234,27 @@ namespace Project.DAL
             }
             finally { conn.Close(); }
         }
+
+        public DataTable FIllWithEmployeeAndRole()
+        {
+            try
+            {
+                string sql = "SELECT employee.UserName AS EmployeePerRole, roles.RoleName As Roles FROM employee " +
+                    "INNER JOIN roles ON employee.RoleID = roles.RoleID GROUP BY roles.RoleName";
+                conn.Open();
+                adpt = new MySqlDataAdapter(sql, conn);
+                dt = new DataTable();
+                adpt.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally { conn.Close(); }
+            return null;
+        }
+
         public List<Role> GetListOfAllRolesFromDatabase()
         {
             return allRolesInDatabase;
@@ -242,68 +264,5 @@ namespace Project.DAL
         {
             return allFormAccess;
         }
-
-        //Role page logs
-        public void NewRolesLog(Role role)
-        {
-            try
-            {
-                conn.Open();
-                log = $"New role {role.RoleName} has been added, Time of addition {DateTime.Now}";
-                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-
-        public void RoleUpdateLog(Role role)
-        {
-            try
-            {
-                conn.Open();
-                log = $"Role {role.RoleName} was updated, Time of update {DateTime.Now}";
-                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public void RoleRemovelLog(string roleName)
-        {
-            try
-            {
-                conn.Open();
-                log = $"Role {roleName} was removed, Time of removal {DateTime.Now}";
-                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
     }
 }

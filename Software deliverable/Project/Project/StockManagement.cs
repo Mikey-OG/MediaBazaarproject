@@ -141,10 +141,6 @@ namespace Project
             stock.SeeMore(dataGridView1, stock.LastSQL, 10);
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            generalManagement.LogOut(this);
-        }
 
         private void button3_Click(object sender, EventArgs e)
         {

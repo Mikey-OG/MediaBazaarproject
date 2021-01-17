@@ -19,8 +19,9 @@ namespace Project
         private string userValidation;
         Role role;
         StockManager stock;
-        EmployeeManagementDAL gm;
+        //EmployeeManagementDAL gm;
         RoleManagementClass rmc;
+        LogsClass lc;
         MySqlConnection conn = new MySqlConnection("server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;");
         int roleID;
         public void DeactivateShopPersonnelbtn()
@@ -37,9 +38,9 @@ namespace Project
                 userValidation = validation;
             }
             stock = new StockManager();
-            gm = new EmployeeManagementDAL();
+            //gm = new EmployeeManagementDAL();
             rmc = new RoleManagementClass();
-
+            lc = new LogsClass();
             GetAllFormAcess();
             rmc.InitializeListOfClasses();
             dgvRoles.DataSource = rmc.GetAllRoles();
@@ -90,6 +91,7 @@ namespace Project
                 //rm.NewRolesLog(role);
                 MessageBox.Show("Information Added", "Role Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LoadNewData();
+                lc.AddNewRoleLog(role);
             }
         }
 
@@ -122,6 +124,7 @@ namespace Project
                         //dm.DepartmentRemovelLog(tbDepartmentName.Text);
                         MessageBox.Show("Information Removed", "Role Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadNewData();
+                        lc.AddNewRoleRemoveLog(role);
                     }
                 }
             }
@@ -145,6 +148,7 @@ namespace Project
                     //dm.DepartmentUpdateLog(department);
                     MessageBox.Show("Information Updated", "Role Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadNewData();
+                    lc.AddNewRoleUpdateLog(role);
                 }
             }
             catch (Exception ex)
@@ -153,23 +157,6 @@ namespace Project
             }
         }
 
-
-
-        //create a yes or no message box here
-        private void btnReturnToMenu_Click(object sender, EventArgs e)
-        {
-            //GeneralEmployeeForm generalEmployeeForm;
-            //try
-            //{
-            //    generalEmployeeForm = new GeneralEmployeeForm(UserValidation);
-            //    generalEmployeeForm.Show();
-            //    this.Hide();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-        }
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
@@ -197,28 +184,12 @@ namespace Project
         {
             try
             {
-                gm.FIllWithEmployeeAndRole(dgvRoles);
+                dgvRoles.DataSource = rmc.FIllWithEmployeeAndRoles();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void Seemorebtn_Click(object sender, EventArgs e)
-        {
-            stock.SeeMore(dgvRoles, gm.LastSQL, 10);
-        }
-
-        private void RowResetbtn_Click(object sender, EventArgs e)
-        {
-            //stock.MaxRows = 0;
-            //stock.SeeMore(dataGridView1, gm.LastSQL,10);
-        }
-
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
-            gm.LogOut(this);
         }
 
         private void btnLogOut_Click_1(object sender, EventArgs e)
