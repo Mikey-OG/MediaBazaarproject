@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using Project.LGC;
 using Project.DAL;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
@@ -19,7 +20,8 @@ namespace Project
     public partial class StockManagement : Form
     {
         private string userValidation;
-        private StockManager stock = new StockManager();
+        StockManager stock = new StockManager();
+        StockDAL sdl = new StockDAL();
         EmployeeManagementDAL generalManagement = new EmployeeManagementDAL();
         public void DeactivateShopPersonnelbtn()
         {
@@ -57,7 +59,8 @@ namespace Project
                 }
             }
             this.dataGridView1.DataError += this.DataGridView1_DataError;
-            stock.FillTable(dataGridView1);
+            sdl.FillTable(dataGridView1);
+            stock.FillCombo(comboBox1);
         }
 
         private void DataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs anError)
@@ -101,13 +104,6 @@ namespace Project
         }
 
 
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            StockInput InputForm = new StockInput();
-            InputForm.Show();
-        }
-
         private void btnLowStock_Click(object sender, EventArgs e)
         {
             stock.EmptyStock(dataGridView1);
@@ -118,12 +114,6 @@ namespace Project
             stock.ShowEmployees(dataGridView1);
         }
 
-        private void btnReturnMenu_Click(object sender, EventArgs e)
-        {
-            //GeneralEmployeeForm generalEmployeeForm = new GeneralEmployeeForm(UserValidation);
-            //generalEmployeeForm.Show();
-            //this.Hide();
-        }
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
@@ -135,13 +125,13 @@ namespace Project
 
         private void Seemorebtn_Click(object sender, EventArgs e)
         {
-            stock.SeeMore(dataGridView1, stock.LastSQL, 10);
+            stock.SeeMore(dataGridView1, sdl.LastSQL, 10);
         }
 
         private void RowResetbtn_Click(object sender, EventArgs e)
         {
-            stock.MaxRows = 0;
-            stock.SeeMore(dataGridView1, stock.LastSQL, 10);
+            sdl.MaxRows = 0;
+            stock.SeeMore(dataGridView1, sdl.LastSQL, 10);
         }
 
         public string ChooseFile()
@@ -260,6 +250,24 @@ namespace Project
             this.Close();
             ShopPersonnel shop = new ShopPersonnel(userValidation);
             shop.Show();
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string a = tbProductName.Text;
+                double b = Convert.ToDouble(tbProductPrice.Text);
+                int c = Convert.ToInt32(tbProductQuantity.Text);
+                string d = comboBox1.Text;
+                int mq = Convert.ToInt32(tbProductMinQuantity.Text);
+                string f = tbProductDescription.Text;
+                stock.StockInput(a, b, c, d, mq, f);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
