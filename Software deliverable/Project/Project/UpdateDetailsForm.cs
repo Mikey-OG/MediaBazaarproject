@@ -24,10 +24,61 @@ namespace Project
         MySqlDataReader dr;
 
         private Encryption Cry = new Encryption();
-        string userValidation;
-        public UpdateDetailsForm()
+        private string userValidation;
+
+        public void DeactivateShopPersonnelbtn()
+        {
+            btnMenuStock.Visible = false;
+            btnMenuSchedule.Visible = false;
+        }
+        public void DeactivateAdminBtn()
+        {
+            btnMenuAdminLogs.Visible = false;
+            btnMenuDepartmentManagement.Visible = false;
+            btnMenuRoleManagement.Visible = false;
+        }
+
+        public void DeactivateEmployeeManagementBtn()
+        {
+            btnMenuScheduling.Visible = false;
+            btnMenuEmployeeManagement.Visible = false;
+        }
+        public UpdateDetailsForm(string validation)
         {
             InitializeComponent();
+            if(validation == "Admin")
+            {
+                DeactivateShopPersonnelbtn();
+                userValidation = validation;
+            }
+            else
+            {
+                if(validation == "EmployeeManager")
+                {
+                    DeactivateShopPersonnelbtn();
+                    DeactivateAdminBtn();
+                    btnMenuStockManagement.Visible = false;
+                    userValidation = validation;
+
+                }
+                else
+                {
+                    if(validation == "StockManager")
+                    {
+                        DeactivateAdminBtn();
+                        DeactivateShopPersonnelbtn();
+                        DeactivateEmployeeManagementBtn();
+                        userValidation = validation;
+                    }
+                }
+            }
+            if (validation == "ShopPersonnel")
+            {
+                DeactivateAdminBtn();
+                DeactivateEmployeeManagementBtn();        
+                btnMenuStockManagement.Visible = false;
+                userValidation = validation;
+            }
             employee = new Employee("bjnkmnb", "bjnkmnb",
                        "bjnkmnb", "bjnkmnb", "bjnkmnb", "bjnkmnb",
                        "bjnkmnb", "bjnkmnb", "bjnkmnb",
@@ -57,9 +108,6 @@ namespace Project
                     this.Hide();
                 }
             }
-
-
-
         }
 
         private void tbID_TextChanged(object sender, EventArgs e)
@@ -139,28 +187,28 @@ namespace Project
         private void btnMenuAdminLogs_Click(object sender, EventArgs e)
         {
             this.Close();
-            AdminLog admin = new AdminLog();
+            AdminLog admin = new AdminLog(userValidation);
             admin.Show();
         }
 
         private void btnMenuScheduling_Click(object sender, EventArgs e)
         {
             this.Close();
-            EmployeeScheduling scheduling = new EmployeeScheduling();
+            EmployeeScheduling scheduling = new EmployeeScheduling(userValidation);
             scheduling.Show();
         }
 
         private void btnMenuDepartmentManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            DepartmentManagement department = new DepartmentManagement();
+            DepartmentManagement department = new DepartmentManagement(userValidation);
             department.Show();
         }
 
         private void btnMenuRoleManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            RoleManagement role = new RoleManagement();
+            RoleManagement role = new RoleManagement(userValidation);
             role.Show();
         }
 
@@ -174,21 +222,21 @@ namespace Project
         private void btnMenuStockManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            StockManagement stock = new StockManagement();
+            StockManagement stock = new StockManagement(userValidation);
             stock.Show();
         }
 
         private void btnMenuSchedule_Click(object sender, EventArgs e)
         {
             this.Close();
-            ShoppersonalSchedule shoppersonal = new ShoppersonalSchedule();
+            ShoppersonalSchedule shoppersonal = new ShoppersonalSchedule(userValidation);
             shoppersonal.Show();
         }
 
         private void btnMenuStock_Click(object sender, EventArgs e)
         {
             this.Close();
-            ShopPersonnel shop = new ShopPersonnel();
+            ShopPersonnel shop = new ShopPersonnel(userValidation);
             shop.Show();
         }
     }

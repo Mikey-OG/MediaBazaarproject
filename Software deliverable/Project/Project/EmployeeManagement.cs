@@ -21,31 +21,47 @@ namespace Project
     {
         static string to;
         static Employee_Management em;
-        string UserValidation;
         Employee employee;
         EmployeeManagementDAL emd;
         EmployeeManagementClass emc;
         private StockManager stock = new StockManager();
-        //MySqlConnection conn = new MySqlConnection("server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;");
         private int UserID;
         private int roleID;
         private int departmentID;
         private string currentEmail;
+        private string userValidation;
+        public void DeactivateShopPersonnelbtn()
+        {
+            btnMenuStock.Visible = false;
+            btnMenuSchedule.Visible = false;
+        }
+        public void DeactivateAdminBtn()
+        {
+            btnMenuAdminLogs.Visible = false;
+            btnMenuDepartmentManagement.Visible = false;
+            btnMenuRoleManagement.Visible = false;
+        }
         public Employee_Management(string validation)
         {
             InitializeComponent();
             em = this;
             emd = new EmployeeManagementDAL();
             emc = new EmployeeManagementClass();
-            if(validation == "Admin")
+            if(validation == "EmployeeManager")
             {
-                btnMenuStock.Visible = false;
-                btnMenuSchedule.Visible = false;
-                btnMenuRoleManagement.Visible = false;
-                btnMenuDepartmentManagement.Visible = false;
-                btnMenuAdminLogs.Visible = false;
+                DeactivateAdminBtn();
+                DeactivateShopPersonnelbtn();
+                btnMenuStockManagement.Visible = false;
+                userValidation = validation;
             }
-
+            else
+            {
+                if(validation == "Admin")
+                {
+                    DeactivateShopPersonnelbtn();
+                    userValidation = validation;
+                }
+            }
             //to get all the employees
             emc.InitializeListOfClasses();
             GetAllRolesForCmb();
@@ -186,9 +202,9 @@ namespace Project
 
         private void btnReturnMenu_Click(object sender, EventArgs e)
         {
-            GeneralEmployeeForm generalEmployeeForm = new GeneralEmployeeForm(UserValidation);
-            generalEmployeeForm.Show();
-            this.Hide();
+            //GeneralEmployeeForm generalEmployeeForm = new GeneralEmployeeForm(UserValidation);
+            //generalEmployeeForm.Show();
+            //this.Hide();
         }
 
         public bool DissmissMessageBoxYesNo()
@@ -496,8 +512,8 @@ namespace Project
         private void btnOpenAdminLog_Click(object sender, EventArgs e)
         {
             //works
-            AdminLog adminlog = new AdminLog();
-            adminlog.Show();
+            //AdminLog adminlog = new AdminLog();
+            //adminlog.Show();
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
@@ -510,56 +526,56 @@ namespace Project
         private void btnMenuAdminLogs_Click(object sender, EventArgs e)
         {
             this.Close();
-            AdminLog admin = new AdminLog();
+            AdminLog admin = new AdminLog(userValidation);
             admin.Show();
         }
 
         private void btnMenuScheduling_Click(object sender, EventArgs e)
         {
             this.Close();
-            EmployeeScheduling scheduling = new EmployeeScheduling();
+            EmployeeScheduling scheduling = new EmployeeScheduling(userValidation);
             scheduling.Show();
         }
 
         private void btnMenuDepartmentManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            DepartmentManagement department = new DepartmentManagement();
+            DepartmentManagement department = new DepartmentManagement(userValidation);
             department.Show();
         }
 
         private void btnMenuRoleManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            RoleManagement role = new RoleManagement();
+            RoleManagement role = new RoleManagement(userValidation);
             role.Show();
         }
 
         private void btnMenuStockManagement_Click(object sender, EventArgs e)
         {
             this.Close();
-            StockManagement stock = new StockManagement();
+            StockManagement stock = new StockManagement(userValidation);
             stock.Show();
         }
 
         private void btnMenuSchedule_Click(object sender, EventArgs e)
         {
             this.Close();
-            ShoppersonalSchedule shoppersonal = new ShoppersonalSchedule();
+            ShoppersonalSchedule shoppersonal = new ShoppersonalSchedule(userValidation);
             shoppersonal.Show();
         }
 
         private void btnMenuPersonalDetails_Click(object sender, EventArgs e)
         {
             this.Close();
-            UpdateDetailsForm update = new UpdateDetailsForm();
+            UpdateDetailsForm update = new UpdateDetailsForm(userValidation);
             update.Show();
         }
 
         private void btnMenuStock_Click(object sender, EventArgs e)
         {
             this.Close();
-            ShopPersonnel shop = new ShopPersonnel();
+            ShopPersonnel shop = new ShopPersonnel(userValidation);
             shop.Show();
         }
 

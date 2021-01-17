@@ -39,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnEndProgram = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -156,12 +157,32 @@
             this.label1.TabIndex = 64;
             this.label1.Text = "Password:";
             // 
+            // btnEndProgram
+            // 
+            this.btnEndProgram.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.btnEndProgram.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEndProgram.FlatAppearance.BorderSize = 0;
+            this.btnEndProgram.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(63)))), ((int)(((byte)(63)))));
+            this.btnEndProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEndProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEndProgram.ForeColor = System.Drawing.Color.White;
+            this.btnEndProgram.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEndProgram.Location = new System.Drawing.Point(568, 0);
+            this.btnEndProgram.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnEndProgram.Name = "btnEndProgram";
+            this.btnEndProgram.Size = new System.Drawing.Size(75, 35);
+            this.btnEndProgram.TabIndex = 65;
+            this.btnEndProgram.Text = "X";
+            this.btnEndProgram.UseVisualStyleBackColor = false;
+            this.btnEndProgram.Click += new System.EventHandler(this.btnEndProgram_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
-            this.ClientSize = new System.Drawing.Size(638, 351);
+            this.ClientSize = new System.Drawing.Size(645, 339);
+            this.Controls.Add(this.btnEndProgram);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -190,5 +211,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnEndProgram;
     }
 }
