@@ -67,6 +67,12 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.6.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\packages\BouncyCastle.1.8.6.1\lib\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="Common.Logging, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.4.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp, Version=5.5.13.2, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.13.2\lib\itextsharp.dll</HintPath>
     </Reference>
@@ -91,12 +97,6 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
-    <Reference Include="zxing, Version=0.16.6.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
-      <HintPath>..\packages\ZXing.Net.0.16.6\lib\net47\zxing.dll</HintPath>
-    </Reference>
-    <Reference Include="zxing.presentation, Version=0.16.6.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
-      <HintPath>..\packages\ZXing.Net.0.16.6\lib\net47\zxing.presentation.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account.cs" />
@@ -106,6 +106,12 @@
     <Compile Include="AdminLog.Designer.cs">
       <DependentUpon>AdminLog.cs</DependentUpon>
     </Compile>
+    <Compile Include="Availability.cs" />
+    <Compile Include="DAL\BaseDAL.cs" />
+    <Compile Include="DAL\SchedulingManagementDAL.cs" />
+    <Compile Include="DAL\StockDAL.cs" />
+    <Compile Include="LGC\Encryption.cs" />
+    <Compile Include="LGC\LogInClass.cs" />
     <Compile Include="Department.cs" />
     <Compile Include="DepartmentManagement.cs">
       <SubType>Form</SubType>
@@ -113,7 +119,8 @@
     <Compile Include="DepartmentManagement.Designer.cs">
       <DependentUpon>DepartmentManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="DepartmentManager.cs" />
+    <Compile Include="LGC\DepartmentManagementClass.cs" />
+    <Compile Include="DAL\DepartmentManagementDAL.cs" />
     <Compile Include="EmployeeManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +128,7 @@
       <DependentUpon>EmployeeManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs" />
+    <Compile Include="LGC\EmployeeManagementClass.cs" />
     <Compile Include="EmployeeScheduling.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,28 +143,35 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="IDepartmentManage.cs" />
+    <Compile Include="IObjectList.cs" />
     <Compile Include="IRoleManage.cs" />
     <Compile Include="IScheduleManage.cs" />
+    <Compile Include="DAL\LoginDAL.cs" />
+    <Compile Include="LGC\SchedulingManagementClass.cs" />
+    <Compile Include="LogManager.cs" />
+    <Compile Include="Logs.cs" />
+    <Compile Include="LGC\RoleManagementClass.cs" />
+    <Compile Include="DAL\RoleManagementDAL.cs" />
     <Compile Include="Qr.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Qr.Designer.cs">
       <DependentUpon>Qr.cs</DependentUpon>
     </Compile>
-    <Compile Include="RoleManager.cs" />
+    <Compile Include="ShoppersonalSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShoppersonalSchedule.Designer.cs">
+      <DependentUpon>ShoppersonalSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StockItem.cs" />
     <Compile Include="StockManagement.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="StockManagement.Designer.cs">
       <DependentUpon>StockManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="GeneralEmployeeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GeneralEmployeeForm.Designer.cs">
-      <DependentUpon>GeneralEmployeeForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GeneralManagement.cs" />
+    <Compile Include="DAL\EmployeeManagementDAL.cs" />
     <Compile Include="IEmployeeManage.cs" />
     <Compile Include="IStockManage.cs" />
     <Compile Include="Program.cs" />
@@ -167,19 +182,26 @@
     <Compile Include="RoleManagement.Designer.cs">
       <DependentUpon>RoleManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="Roles.cs" />
+    <Compile Include="Role.cs" />
     <Compile Include="ShopPersonnel.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ShopPersonnel.Designer.cs">
       <DependentUpon>ShopPersonnel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock.cs" />
-    <Compile Include="StockInput.cs">
+    <Compile Include="LGC\StockClass.cs" />
+    <Compile Include="ChangePwdForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StockInput.Designer.cs">
-      <DependentUpon>StockInput.cs</DependentUpon>
+    <Compile Include="ChangePwdForm.Designer.cs">
+      <DependentUpon>ChangePwdForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Update.cs" />
+    <Compile Include="UpdateDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateDetailsForm.Designer.cs">
+      <DependentUpon>UpdateDetailsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Variables.cs" />
     <EmbeddedResource Include="AdminLog.resx">
@@ -200,11 +222,11 @@
     <EmbeddedResource Include="Qr.resx">
       <DependentUpon>Qr.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ShoppersonalSchedule.resx">
+      <DependentUpon>ShoppersonalSchedule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StockManagement.resx">
       <DependentUpon>StockManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GeneralEmployeeForm.resx">
-      <DependentUpon>GeneralEmployeeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -221,8 +243,11 @@
     <EmbeddedResource Include="ShopPersonnel.resx">
       <DependentUpon>ShopPersonnel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="StockInput.resx">
-      <DependentUpon>StockInput.cs</DependentUpon>
+    <EmbeddedResource Include="ChangePwdForm.resx">
+      <DependentUpon>ChangePwdForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateDetailsForm.resx">
+      <DependentUpon>UpdateDetailsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Project_TemporaryKey.pfx" />

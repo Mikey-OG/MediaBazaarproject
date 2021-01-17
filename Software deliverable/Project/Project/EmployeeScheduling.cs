@@ -7,114 +7,164 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project.DAL;
+using Project.LGC;
 
 namespace Project
 {
     public partial class EmployeeScheduling : Form
     {
-        string UserValidation;
-        GeneralManagement GeneralManagement;
-        private StockManager stock = new StockManager();
-        private int UserID, ScheduleID;
+        SchedulingManagement scheduling;
+        int UserID;
+        private string userValidation;
+
+        public void DeactivateAdminBtn()
+        {
+            btnMenuAdminLogs.Visible = false;
+            btnMenuDepartmentManagement.Visible = false;
+            btnMenuRoleManagement.Visible = false;
+        }
+        public void DeactivateShopPersonnelbtn()
+        {
+            btnMenuStock.Visible = false;
+            btnMenuSchedule.Visible = false;
+        }
         public EmployeeScheduling(string validation)
         {
             InitializeComponent();
-            GeneralManagement = new GeneralManagement();
-            GeneralManagement.FillWithEmployeeSchedule(DataGridEmployees);
-            dtWorkDate.MinDate = DateTime.Today;
-
             if(validation == "Admin")
             {
-                UserValidation = "Admin";
+                DeactivateShopPersonnelbtn();
+                userValidation = validation;
             }
             else
             {
                 if(validation == "EmployeeManager")
                 {
-                    UserValidation = "EmployeeManager";
+                    DeactivateShopPersonnelbtn();
+                    DeactivateAdminBtn();
+                    btnMenuStockManagement.Visible = false;
+                    userValidation = validation;
                 }
             }
+            scheduling = new SchedulingManagement();
+            dtBegin.MinDate = DateTime.Now.Date;
+            dtEnd.MinDate = DateTime.Now.Date;
+            LoadEmployeeView();
         }
 
-        private void DataGridEmployees_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void LoadEmployeeView()
         {
-            try
-            {
-                DataGridViewRow row = DataGridEmployees.Rows[e.RowIndex];
-                UserID = Convert.ToInt32(row.Cells[0].Value);
-                GeneralManagement.FillWithSchedule(DataGridSchedule, UserID);
-            }
-            catch
-            {
-                MessageBox.Show("You can't select this row.");
-            }
+            dataViewEmployees.DataSource = scheduling.GetShoppersonal();
+            dataViewEmployees.Columns["UserID"].Visible = false;
+            dataViewEmployees.Columns["UserName"].Visible = false;
+            dataViewEmployees.Columns["AccountSecurity"].Visible = false;
+            dataViewEmployees.Columns["DismissDate"].Visible = false;
+            dataViewEmployees.Columns["Salary"].Visible = false;
+            dataViewEmployees.Columns["HireDate"].Visible = false;
+            dataViewEmployees.Columns["DateOfBirth"].Visible = false;
+            dataViewEmployees.Columns["Zipcode"].Visible = false;
+            dataViewEmployees.Columns["City"].Visible = false;
+            dataViewEmployees.Columns["Nationality"].Visible = false;
+            dataViewEmployees.Columns["DepartmentID"].Visible = false;
+            dataViewEmployees.Columns["RoleID"].Visible = false;
+
         }
 
-        private void DataGridSchedule_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void btnLogOut_Click(object sender, EventArgs e)
         {
-            try
-            {
-                DataGridViewRow row = DataGridSchedule.Rows[e.RowIndex];
-                ScheduleID = Convert.ToInt32(row.Cells[0].Value);
-            }
-            catch
-            {
-                MessageBox.Show("You can't select this row.");
-            }
+            this.Close();
+            Form1 login = new Form1();
+            login.Show();
         }
 
-        private void btnRemoveSchedule_Click(object sender, EventArgs e)
+        private void btnGenerateSchedule_Click(object sender, EventArgs e)
         {
-            if (GeneralManagement.RemoveScheduleMessageBoxYesNo() == true)
-            {
-                GeneralManagement.RemoveSchedule(ScheduleID);
-                GeneralManagement.FillWithSchedule(DataGridSchedule, UserID);
-            }
-            else
-            {
-                MessageBox.Show("Schedule not removed.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            scheduling.GenerateSchedule(dtBegin.Value.Date, dtEnd.Value.Date, Convert.ToInt32(numEmployeesAShift.Value));
+            dtBegin.Value = DateTime.Now.Date;
+            dtEnd.Value = DateTime.Now.Date;
+            numEmployeesAShift.Value = 1;
         }
 
-        private void btnReturnMenu_Click(object sender, EventArgs e)
+        private void btnMenuAdminLogs_Click(object sender, EventArgs e)
         {
-            GeneralEmployeeForm generalEmployeeForm = new GeneralEmployeeForm(UserValidation);
-            generalEmployeeForm.Show();
-            this.Hide();
+            this.Close();
+            AdminLog admin = new AdminLog(userValidation);
+            admin.Show();
         }
 
-        private void btnSearchSchedule_Click(object sender, EventArgs e)
+        private void btnMenuDepartmentManagement_Click(object sender, EventArgs e)
         {
-            GeneralManagement.FillWithScheduleSearch(DataGridSchedule, cmbSearchShiftTime.Text, dtSearchWorkDate.Value.ToString());
+            this.Close();
+            DepartmentManagement department = new DepartmentManagement(userValidation);
+            department.Show();
         }
 
-        private void btnHelp_Click(object sender, EventArgs e)
+        private void btnMenuRoleManagement_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Here you can look up schedules and create/ remove schedules " +
-                " 1) The add button requires user to input the required data in the combobox and calender " +
-                " 2) The remove button requires user to select the schedule row he wants to delete" +
-                " 3) The search button requeres user ti input the required data in the combobox and calender" +
-                " 4) Return menu button takes user back to the meu button where he can slect a new form to access", "Help", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            this.Close();
+            RoleManagement role = new RoleManagement(userValidation);
+            role.Show();
         }
 
-        private void Seemorebtn_Click(object sender, EventArgs e)
+        private void btnMenuEmployeeManagement_Click(object sender, EventArgs e)
         {
-            stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL,10);
+            this.Close();
+            Employee_Management employee = new Employee_Management(userValidation);
+            employee.Show();
         }
 
-        private void RowResetbtn_Click(object sender, EventArgs e)
+        private void btnMenuStockManagement_Click(object sender, EventArgs e)
         {
-            stock.MaxRows = 0;
-            stock.SeeMore(DataGridEmployees, GeneralManagement.LastSQL,10);
+            this.Close();
+            StockManagement stock = new StockManagement(userValidation);
+            stock.Show();
+        }
+
+        private void btnMenuSchedule_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ShoppersonalSchedule shoppersonal = new ShoppersonalSchedule(userValidation);
+            shoppersonal.Show();
+            
+        }
+
+        private void btnMenuPersonalDetails_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            UpdateDetailsForm update = new UpdateDetailsForm(userValidation);
+            update.Show();
+        }
+
+        private void btnMenuStock_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ShopPersonnel shop = new ShopPersonnel(userValidation);
+            shop.Show();
         }
 
         private void btnAddSchedule_Click(object sender, EventArgs e)
         {
-            if(GeneralManagement.AddSchedule(UserID, dtWorkDate.Value.ToString(), cmbTimeShift.Text)==true)
+            scheduling.AddSchedule(UserID,dtAddRemove.Value.Date.ToString("dd-MM-yyyy"), cbShifts.Text);
+        }
+
+        private void btnRemoveSchedule_Click(object sender, EventArgs e)
+        {
+            scheduling.RemoveSchedule(UserID, dtAddRemove.Value.Date.ToString("dd-MM-yyyy"), cbShifts.Text);
+        }
+
+        private void dataViewEmployees_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.RowIndex >= 0)
             {
-                MessageBox.Show("Information Added", "Schedule Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                GeneralManagement.FillWithSchedule(DataGridSchedule, UserID);
+                DataGridViewRow row = dataViewEmployees.Rows[e.RowIndex];
+                UserID = Convert.ToInt32(row.Cells[14].Value);
             }
+        }
+
+        private void btnMenuScheduling_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

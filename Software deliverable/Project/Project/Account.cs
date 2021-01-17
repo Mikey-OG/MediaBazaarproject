@@ -12,9 +12,20 @@ namespace Project
         protected int userID;
         protected string password;
         protected string userName;
-        protected string formAccess;
+        protected bool accountSecurity;
 
-        public int UserID { get; set; }
+        public int UserID 
+        {
+            get
+            {
+                return userID;
+            }
+
+            set
+            {
+                userID = value;
+            }
+        }
 
         //regex
         public bool SetPassword(string password)
@@ -31,19 +42,34 @@ namespace Project
         {
             return password;
         }
-        public string UserName { get; set; }
-
-        public string FormAccess
+        public string UserName
         {
             get
             {
-                return formAccess;
+                return userName;
             }
             set
             {
-                formAccess = value;
+                userName = value;
             }
         }
+
+        public bool AccountSecurity
+        {
+            get
+            {
+                return accountSecurity;
+            }
+            set
+            {
+                accountSecurity = value;
+            }
+        }
+
+        //public string GetFormAccess(Role role)
+        //{
+        //    return role.FormAccess;
+        //}
 
     }
 }
