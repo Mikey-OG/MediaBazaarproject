@@ -21,7 +21,8 @@ namespace Project.DAL
         public BaseDAL()
         {
             ds = new DataSet();
-            connectionString = "server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;";
+            //connectionString = "server=studmysql01.fhict.local;database=dbi435115;uid=dbi435115;password=group3;";
+            connectionString = "server=localhost;database=dbi435115;uid=root;password=;";
         }
 
         public MySqlConnection CreateConnection()

@@ -190,10 +190,17 @@ namespace Project
         }
         public void ClassIntializer()
         {
-            employee = new Employee(tbUserName.Text, tbFirstName.Text,
-            tbLastName.Text, tbNationality.Text, tbCity.Text, tbZipCode.Text,
-            dtDOB.Text, dtDateOfHire.Text, tbAdress.Text,
-            Convert.ToInt32(tbSalary.Text));
+            try
+            {
+                employee = new Employee(tbUserName.Text, tbFirstName.Text,
+        tbLastName.Text, tbNationality.Text, tbCity.Text, tbZipCode.Text,
+        dtDOB.Text, dtDateOfHire.Text, tbAdress.Text,
+        Convert.ToInt32(tbSalary.Text));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -242,6 +249,7 @@ namespace Project
                         //GeneralManagement.FillWithEmployee(DataGridEmployees);
                         MessageBox.Show("Employee dissmissal date has been added", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadNewData();
+                        emc.AddAllDismissedEmployees();
                         lc.AddNewEmployeeDismmisalLog(employee);
                     }
                 }

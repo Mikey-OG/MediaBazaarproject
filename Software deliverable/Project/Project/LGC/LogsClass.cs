@@ -23,7 +23,10 @@ namespace Project.LGC
             ld.AddToDtbListOfLogs();
             foreach (var item in ld.GetAllLogsFromDtb())
             {
-                allLogs.Add(item);
+                if(!allLogs.Contains(item))
+                {
+                    allLogs.Add(item);
+                }     
             }
         }
         public bool LogDoesNotExistInList()
@@ -221,6 +224,16 @@ namespace Project.LGC
             {
                 return false;
             }
+        }
+
+        public bool RemoveLog(Logs log)
+        {
+            if(ld.RemoveLog(log) == true)
+            {
+                allLogs.Clear();
+                return true;
+            }
+            return false;
         }
         public List<Logs> GetAllLogs()
         {

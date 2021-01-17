@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Project.DAL;
+using Project.LGC;
 
 namespace Project
 {
     public partial class AdminLog : Form
     {
-        EmployeeManagementDAL gm;
+        LogsClass lc;
         private string userValidation;
         public void DeactivateShopPersonnelbtn()
         {
@@ -23,23 +23,27 @@ namespace Project
         public AdminLog(string validation)
         {
             InitializeComponent();
-            if(validation == "Admin")
+            lc = new LogsClass();
+            lc.AddAllLogs();
+            if (validation == "Admin")
             {
                 DeactivateShopPersonnelbtn();
                 userValidation = validation;
-            }
-            gm = new EmployeeManagementDAL();
+            }      
         }
 
         private void btnViewLogs_Click(object sender, EventArgs e)
         {
-            //gm.FillWithLogs(ltbAdminLog);
+            foreach (var item in lc.GetAllLogs())
+            {
+                ltbAdminLog.Items.Add(item);
+            }
         }
 
-        private void btnDeleteLog_Click(object sender, EventArgs e)
-        {
-            //gm.RemoveLog();
-        }
+        //private void btnDeleteLog_Click(object sender, EventArgs e)
+        //{
+        //    lc.RemoveLog(((Logs)ltbAdminLog.SelectedItem));
+        //}
 
         private void btnLogOut_Click(object sender, EventArgs e)
         {
