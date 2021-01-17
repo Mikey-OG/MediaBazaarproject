@@ -8,18 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Project.LGC;
-using Project.DAL;
 
 namespace Project
 {
     public partial class DepartmentManagement : Form
     {
         int departmentID = 0;
-        private string userValidation;
-        StockManager stock;
-        EmployeeManagementDAL gm;      
+        private string userValidation;   
         Department department;
         DepartmentManagementClass dmc;
+        LogsClass lc;
         public void DeactivateShopPersonnelbtn()
         {
             btnMenuStock.Visible = false;
@@ -34,9 +32,8 @@ namespace Project
                 userValidation = validation;
             }
 
-            stock = new StockManager();
-            gm = new EmployeeManagementDAL();
             dmc = new DepartmentManagementClass();
+            lc = new LogsClass();
 
             dmc.InitializeListOfClasses();
             dgvDepartments.DataSource = dmc.GetAllDepartments();
@@ -76,6 +73,7 @@ namespace Project
                     //dm.NewDepartmentLog(department);
                     MessageBox.Show("Information Added", "Department Added", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadNewData();
+                    lc.AddNewDepartmentLog(department);
                 }
             }
             catch (Exception ex)
@@ -113,6 +111,7 @@ namespace Project
                         //dm.DepartmentRemovelLog(tbDepartmentName.Text);
                         MessageBox.Show("Information Removed", "Department Removed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         LoadNewData();
+                        lc.AddNewDepartmentRemoveLog(department);
                     }
                 }
             }
@@ -134,27 +133,13 @@ namespace Project
                     //dm.DepartmentUpdateLog(department);
                     MessageBox.Show("Information Updated", "Department Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadNewData();
+                    lc.AddNewDepartmentUpdateLog(department);
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void btnReturnToMenu_Click(object sender, EventArgs e)
-        {
-            //GeneralEmployeeForm generalEmployeeForm;
-            //try
-            //{
-            //    generalEmployeeForm = new GeneralEmployeeForm(UserValidation);
-            //    generalEmployeeForm.Show();
-            //    this.Hide();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
         }
 
         private void btnRefresh_Click(object sender, EventArgs e)
@@ -183,28 +168,12 @@ namespace Project
         {
             try
             {
-                gm.FIllWithEmployeeAndDepartment(dgvDepartments);
+                dgvDepartments.DataSource = dmc.FIllWithEmployeeAndDepartment();
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void RowResetbtn_Click(object sender, EventArgs e)
-        {
-            //stock.MaxRows = 0;
-            //stock.SeeMore(dataGridView1, gm.LastSQL,10);
-        }
-
-        private void Seemorebtn_Click(object sender, EventArgs e)
-        {
-            stock.SeeMore(dgvDepartments, gm.LastSQL,10);
-        }
-
-        private void btnLogOut_Click(object sender, EventArgs e)
-        {
-            gm.LogOut(this);
         }
 
         private void btnLogOut_Click_1(object sender, EventArgs e)

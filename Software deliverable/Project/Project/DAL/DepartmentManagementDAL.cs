@@ -13,14 +13,17 @@ namespace Project.DAL
 {
     public class DepartmentManagementDAL: BaseDAL
     {
+        DataTable dt;
         private string log;
-        public string LastSQL = $"";
+        public string LastSQL = $""; 
         private List<Department> allDepartmentsInDatabse;
+        private List<Employee> allEmployees;
 
         public DepartmentManagementDAL()
         {
             base.CreateConnection();
             allDepartmentsInDatabse = new List<Department>();
+            allEmployees = new List<Employee>();
         }
 
         //Database Logic
@@ -205,6 +208,27 @@ namespace Project.DAL
             return false;
         }
 
+        public DataTable FIllWithEmployeeAndDepartment()
+        {
+            try
+            {
+                string sql = "SELECT employee.UserName AS EmployeePerDepartment, departments.DepartmentName AS Departments FROM employee " +
+                "INNER JOIN departments ON employee.DepartmentID = departments.DepartmentID GROUP BY departments.DepartmentName";
+                conn.Open();
+                adpt = new MySqlDataAdapter(sql, conn);
+                dt = new DataTable();
+                adpt.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally { conn.Close(); }
+            return null;
+        }
+
+
         ////this is to update the data updated in the database
         //public void UpdateDataInDatabaseList(Department department)
         //{
@@ -212,71 +236,10 @@ namespace Project.DAL
         //    FindDepartment(department);
         //}
 
-     
+
         public List<Department> GetListOfAllDepartmentsFromDatabase()
         {
             return allDepartmentsInDatabse;
-        }
-
-        //Department Logs
-        public void NewDepartmentLog(Department department)
-        {
-            try
-            {
-                conn.Open();
-                log = $"New Department {department.DepartmentName} has been added, Time of addition {DateTime.Now}";
-                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public void DepartmentUpdateLog(Department department)
-        {
-            try
-            {
-                conn.Open();
-                log = $"Department {department.DepartmentName} was updated, Time of update {DateTime.Now}";
-                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public void DepartmentRemovelLog(string departmentName)
-        {
-            try
-            {
-                conn.Open();
-                log = $"Department {departmentName} was removed, Time of removal {DateTime.Now}";
-                cmd = new MySqlCommand("INSERT INTO logs(Logs) VALUE(@Logs)", conn);
-                cmd.Parameters.AddWithValue("@Logs", log);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
         }
     }
 }

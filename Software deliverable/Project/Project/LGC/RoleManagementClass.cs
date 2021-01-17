@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 using Project.DAL;
 
 namespace Project.LGC
@@ -133,6 +134,19 @@ namespace Project.LGC
             else
             {
                 return false;
+            }
+        }
+
+
+        public DataTable FIllWithEmployeeAndRoles()
+        {
+            if (rmd.FIllWithEmployeeAndRole() != null)
+            {
+                return rmd.FIllWithEmployeeAndRole();
+            }
+            else
+            {
+                return null;
             }
         }
 

@@ -12,6 +12,7 @@ namespace Project.LGC
         
         private EmployeeManagementDAL emd;
         private List<Employee> employees;
+        private List<Employee> dismissedEmployees;
         private List<Role> roles;
         private List<Department> departments;
 
@@ -20,14 +21,29 @@ namespace Project.LGC
             employees = new List<Employee>();
             roles = new List<Role>();
             departments = new List<Department>();
-            emd = new EmployeeManagementDAL();
+            dismissedEmployees = new List<Employee>();
+            emd = new EmployeeManagementDAL(); 
         }
         public void InitializeListOfClasses()
+        {
+            AddAllEmployees();
+        }
+
+        public void AddAllEmployees()
         {
             emd.AddToDtbListOfEmployees();
             foreach (var item in emd.GetListOfAllEmployeesFromDatabase())
             {
                 employees.Add(item);
+            }
+        }
+
+        public void AddAllDismissedEmployees()
+        {
+            emd.AddToDtbListOfDismmisedEmployees();
+            foreach (var item in emd.GetAllDismissedEmployeesFromDtb())
+            {
+                dismissedEmployees.Add(item);
             }
         }
 
@@ -120,6 +136,17 @@ namespace Project.LGC
             }
         }
 
+        //public bool SearchForEmployee(string name)
+        //{
+        //    foreach (var item in GetAllEmployees())
+        //    {
+        //        if(item.FirstName.Contains(name))
+        //        {
+
+        //        }
+        //    }
+        //}
+
         public List<Employee> GetAllEmployees()
         {
             return employees;
@@ -133,6 +160,11 @@ namespace Project.LGC
         public List<Department> GetAllDepartments()
         {
             return departments;
+        }
+
+        public List<Employee> GetAllDismissedEmployees()
+        {
+            return dismissedEmployees;
         }
     }
 }

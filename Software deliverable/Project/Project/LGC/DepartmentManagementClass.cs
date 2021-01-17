@@ -8,7 +8,7 @@ using Project.DAL;
 
 namespace Project.LGC
 {
-    public class DepartmentManagementClass: IObjectList
+    public class DepartmentManagementClass : IObjectList
     {
         private DepartmentManagementDAL dmd;
         private List<Department> departments;
@@ -124,6 +124,18 @@ namespace Project.LGC
             else
             {
                 return false;
+            }
+        }
+
+        public DataTable FIllWithEmployeeAndDepartment()
+        {
+            if (dmd.FIllWithEmployeeAndDepartment() != null)
+            {
+                return dmd.FIllWithEmployeeAndDepartment();
+            }
+            else
+            {
+                return null;
             }
         }
 

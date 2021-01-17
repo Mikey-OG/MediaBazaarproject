@@ -9,10 +9,9 @@ namespace Project
     public class Logs
     {
         private string nameOfLog;
-        private DateTime logDate;
-        private int logID;
+        private string logDate;
 
-        public Logs(string nameOfLog, DateTime logDate)
+        public Logs(string nameOfLog, string logDate)
         {
             this.nameOfLog = nameOfLog;
             this.logDate = logDate;
@@ -23,6 +22,13 @@ namespace Project
             get
             {
                 return nameOfLog;
+            }
+        }
+        public string LogDate
+        {
+            get
+            {
+                return logDate;
             }
         }
         public override string ToString()

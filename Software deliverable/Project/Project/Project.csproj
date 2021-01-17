@@ -108,6 +108,7 @@
     </Compile>
     <Compile Include="Availability.cs" />
     <Compile Include="DAL\BaseDAL.cs" />
+    <Compile Include="DAL\LogsDAL.cs" />
     <Compile Include="DAL\SchedulingManagementDAL.cs" />
     <Compile Include="LGC\Encryption.cs" />
     <Compile Include="LGC\LogInClass.cs" />
@@ -146,6 +147,7 @@
     <Compile Include="IRoleManage.cs" />
     <Compile Include="IScheduleManage.cs" />
     <Compile Include="DAL\LoginDAL.cs" />
+    <Compile Include="LGC\LogsClass.cs" />
     <Compile Include="LGC\SchedulingManagementClass.cs" />
     <Compile Include="LogManager.cs" />
     <Compile Include="Logs.cs" />
