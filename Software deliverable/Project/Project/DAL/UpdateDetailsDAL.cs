@@ -19,14 +19,16 @@ namespace Project.DAL
         MySqlDataReader dr;
         public string LastSQL = $"";
         private Encryption Cry;
+        List<Employee> foundEmployee;
 
         public UpdateDetailsDAL()
         {
             base.CreateConnection();
             Cry = new Encryption();
+            foundEmployee = new List<Employee>();
         }
 
-        public void Insert(string username, string email, string password, string firstname, string lastname, DateTime dob, string phone, string nationality, string city, string zipcode, string address)
+        public List<Employee> Insert()
         {
             Account account;
             account = new Account();
@@ -34,6 +36,9 @@ namespace Project.DAL
             try
             {
                 conn.Open();
+
+
+                string test = "";
                 string sql1 = $"SELECT UserID FROM employee WHERE UserName = '{Variables.User}'";
                 MySqlCommand cmd = new MySqlCommand(sql1, conn);
                 Object result = cmd.ExecuteScalar();
@@ -46,22 +51,14 @@ namespace Project.DAL
                 dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    username = dr.GetValue(0).ToString();
-                    email = dr.GetValue(1).ToString();
-                    password = Cry.Decrypt(dr.GetValue(2).ToString());
-                    firstname = dr.GetValue(3).ToString();
-                    lastname = dr.GetValue(4).ToString();
-                    dob = Convert.ToDateTime(dr.GetValue(5));
-                    phone = dr.GetValue(6).ToString();
-                    nationality = dr.GetValue(7).ToString();
-                    city = dr.GetValue(8).ToString();
-                    zipcode = dr.GetValue(9).ToString();
-                    address = dr.GetValue(10).ToString();
-
-
-
+                    Employee employee = new Employee(dr[0].ToString(), dr[3].ToString(), dr[4].ToString(), dr[7].ToString(),
+                    dr[8].ToString(), dr[9].ToString(), dr[5].ToString(), "", dr[10].ToString(), 0);
+                    foundEmployee.Add(employee);
+                    employee.SetEmail(dr[1].ToString());
+                    employee.SetPhoneNO(dr[6].ToString());
+                    employee.SetPassword(Cry.Decrypt(dr[2].ToString()));
                 }
-
+                return foundEmployee;
             }
             catch (Exception ex)
             {
@@ -71,8 +68,7 @@ namespace Project.DAL
             {
                 conn.Close();
             }
-
-
+            return null;
         }
 
         public void UpdateDetails(string username, string email, string password, string firstname, string lastname, DateTime dob, string phone, string nationality, string address, string city, string zipcode)

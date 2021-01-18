@@ -86,7 +86,21 @@ namespace Project
                        Convert.ToInt32(2000));
             //int val = 1;
             //this.tbID.Text = Convert.ToString(id);
-            update.Insert(tbUpUsername.Text, tbUpEmail.Text, tbUpPassword.Text, tbUpFirstname.Text, tbUpLastname.Text, dtUpDOB.Value, tbUpPhone.Text, tbUpNationality.Text, tbUpAddress.Text, tbUpCity.Text, tbUpZipcode.Text);
+            update.Insert();
+            foreach (var item in update.Insert())
+            {
+                tbUpUsername.Text = item.UserName;
+                tbUpFirstname.Text = item.FirstName;
+                tbUpLastname.Text = item.LastName;
+                tbUpEmail.Text = item.Email;
+                tbUpCity.Text = item.City;
+                tbUpAddress.Text = item.Address;
+                tbUpNationality.Text = item.Nationality;
+                tbUpPhone.Text = item.PhoneNo;
+                tbUpZipcode.Text = item.Zipcode;
+                tbUpPassword.Text = item.GetPassword();
+                tbUpOldPassword.Text = item.GetPassword();
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -109,73 +123,6 @@ namespace Project
                 {
                     this.Hide();
                 }*/
-            }
-        }
-
-        /*private void tbID_TextChanged(object sender, EventArgs e)
-        {
-            Account account;
-            account = new Account();
-            try
-            {
-                conn.Open();
-                //if (tbID.Text != "")
-                {
-                    string sql = "SELECT UserName,Email,FirstName,LastName,DateOfBirth,PhoneNumber,Nationality,Adress,City,ZipCode FROM employee WHERE UserID = @userID";
-                    cmd = new MySqlCommand(sql, conn);
-                    //LastSQL = sql;
-                    adpt = new MySqlDataAdapter(cmd);
-                    // dt = new DataTable();
-                    //cmd.Parameters.AddWithValue("@userID", int.Parse(tbID.Text));
-                    dr = cmd.ExecuteReader();
-                    while (dr.Read())
-                    {
-                        tbUpUsername.Text = dr.GetValue(0).ToString();
-                        tbUpEmail.Text = dr.GetValue(1).ToString();
-                        tbUpFirstname.Text = dr.GetValue(2).ToString();
-                        tbUpLastname.Text = dr.GetValue(3).ToString();
-                        dtUpDOB.Value = Convert.ToDateTime(dr.GetValue(4));
-                        tbUpPhone.Text = dr.GetValue(5).ToString();
-                        tbUpNationality.Text = dr.GetValue(6).ToString();
-                        tbUpAddress.Text = dr.GetValue(7).ToString();
-                        tbUpCity.Text = dr.GetValue(8).ToString();
-                        tbUpZipcode.Text = dr.GetValue(9).ToString();
-                    }
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }*/
-
-        private void cbShowPassword_TextChanged(object sender, EventArgs e)
-        {
-            if (cbShowPassword.Checked)
-            {
-                tbUpPassword.UseSystemPasswordChar = true;
-            }
-            else
-            {
-                tbUpPassword.UseSystemPasswordChar = false;
-            }
-        }
-
-        private void cbShowOldPassword_TextChanged(object sender, EventArgs e)
-        {
-            if (cbShowOldPassword.Checked)
-            {
-                tbUpOldPassword.UseSystemPasswordChar = true;
-            }
-            else
-            {
-                tbUpOldPassword.UseSystemPasswordChar = false;
             }
         }
 
@@ -240,6 +187,30 @@ namespace Project
             this.Close();
             ShopPersonnel shop = new ShopPersonnel(userValidation);
             shop.Show();
+        }
+
+        private void cbShowPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowPassword.Checked)
+            {
+                tbUpPassword.UseSystemPasswordChar = true;
+            }
+            else
+            {
+                tbUpPassword.UseSystemPasswordChar = false;
+            }
+        }
+
+        private void cbShowOldPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbShowOldPassword.Checked)
+            {
+                tbUpOldPassword.UseSystemPasswordChar = true;
+            }
+            else
+            {
+                tbUpOldPassword.UseSystemPasswordChar = false;
+            }
         }
     }
 }
