@@ -110,6 +110,7 @@
     <Compile Include="DAL\BaseDAL.cs" />
     <Compile Include="DAL\LogsDAL.cs" />
     <Compile Include="DAL\SchedulingManagementDAL.cs" />
+    <Compile Include="DAL\StockDAL.cs" />
     <Compile Include="DAL\UpdateDetailsDAL.cs" />
     <Compile Include="LGC\Encryption.cs" />
     <Compile Include="LGC\LogInClass.cs" />
@@ -150,6 +151,7 @@
     <Compile Include="DAL\LoginDAL.cs" />
     <Compile Include="LGC\LogsClass.cs" />
     <Compile Include="LGC\SchedulingManagementClass.cs" />
+    <Compile Include="LGC\StockManager.cs" />
     <Compile Include="LogManager.cs" />
     <Compile Include="Logs.cs" />
     <Compile Include="LGC\RoleManagementClass.cs" />
@@ -160,12 +162,14 @@
     <Compile Include="Qr.Designer.cs">
       <DependentUpon>Qr.cs</DependentUpon>
     </Compile>
+    <Compile Include="Schedule.cs" />
     <Compile Include="ShoppersonalSchedule.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ShoppersonalSchedule.Designer.cs">
       <DependentUpon>ShoppersonalSchedule.cs</DependentUpon>
     </Compile>
+    <Compile Include="StockItem.cs" />
     <Compile Include="StockManagement.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,7 +194,6 @@
     <Compile Include="ShopPersonnel.Designer.cs">
       <DependentUpon>ShopPersonnel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Stock.cs" />
     <Compile Include="StockInput.cs">
       <SubType>Form</SubType>
     </Compile>

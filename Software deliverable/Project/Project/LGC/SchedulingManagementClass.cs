@@ -13,6 +13,7 @@ namespace Project.LGC
         private List<Employee> shoppersonal;
         private List<Availability> availabilities;
         private EmployeeManagementDAL emd;
+        private List<Schedule> schedules;
         private SchedulingManagementDAL smd;
 
         public SchedulingManagement()
@@ -21,12 +22,18 @@ namespace Project.LGC
             availabilities = new List<Availability>();
             shoppersonal = new List<Employee>();
             emd = new EmployeeManagementDAL();
+            schedules = new List<Schedule>();
             smd = new SchedulingManagementDAL();
             InitializeListOfClasses();
         }
 
         public void InitializeListOfClasses()
         {
+            smd.AddToDtbListOfSchedules();
+            foreach (var item in smd.GetListOfAllSchedulesFromDataBase())
+            {
+                schedules.Add(item);
+            }
             smd.AddToDtbListOfAvailability();
             foreach (var item in smd.GetListOfAllAvailabilitiesFromDatabase())
             {
@@ -46,6 +53,10 @@ namespace Project.LGC
             }
         }
 
+        public List<Schedule> GetSchedules()
+        {
+            return schedules;
+        }
         public List<Employee> GetShoppersonal()
         {
             return shoppersonal;
@@ -122,6 +133,19 @@ namespace Project.LGC
         public void RemoveSchedule(int UserID, string Date, string Shift)
         {
             smd.RemoveSchedule(UserID, Date, Shift);
+        }
+
+        public string GetName(int userID)
+        {
+            foreach (Employee employee in shoppersonal)
+            {
+                if (employee.UserID == userID)
+                {
+                    string result = $"{employee.FirstName} {employee.LastName}";
+                    return result;
+                }
+            }
+            return null;
         }
     }
 }

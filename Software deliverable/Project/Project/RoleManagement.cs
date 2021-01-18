@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using MySql.Data;
+using Project.LGC;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
-using Project.LGC;
-using Project.DAL;
 
 namespace Project
 {
@@ -21,7 +20,6 @@ namespace Project
     {
         private string userValidation;
         Role role;
-        StockManager stock;
         //EmployeeManagementDAL gm;
         RoleManagementClass rmc;
         LogsClass lc;
@@ -40,7 +38,6 @@ namespace Project
                 DeactivateShopPersonnelbtn();
                 userValidation = validation;
             }
-            stock = new StockManager();
             //gm = new EmployeeManagementDAL();
             rmc = new RoleManagementClass();
             lc = new LogsClass();

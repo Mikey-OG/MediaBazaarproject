@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project.LGC;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
-using Project.LGC;
 
 namespace Project
 {
@@ -251,7 +251,7 @@ namespace Project
                 string extension = ".pdf";
                 filename = sfd.FileName + extension;
                 return filename;
-                
+
             }
             return null;
         }
@@ -292,7 +292,8 @@ namespace Project
             doc.Close();
             MessageBox.Show("Department info Exported", "File Exported", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnExportPDF_Click(object sender, EventArgs e)
         {
             ExportToPdf(dgvDepartments);
         }

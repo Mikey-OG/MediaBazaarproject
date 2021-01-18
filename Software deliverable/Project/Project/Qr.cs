@@ -21,7 +21,7 @@ namespace Project
 
         private void Qr_Load(object sender, EventArgs e)
         {
-            string code = "http://localhost/Website%20Project/Webfiles/Attendance.php?Key=" + encry.Encrypt(DateTime.Now.ToString("dd-MM-yyyy") + Variables.User);
+            string code = "http://i433436.hera.fhict.nl/Webfiles/Attendance.php?Key=" + encry.Encrypt(DateTime.Now.ToString("dd-MM-yyyy") + Variables.User);
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
             QRCodeData qrCodeData = qrGenerator.CreateQrCode(code, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
@@ -31,7 +31,8 @@ namespace Project
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://localhost/Website%20Project/Webfiles/Attendance.php?Key=" + encry.Encrypt(DateTime.Now.ToString("dd-MM-yyyy") + Variables.User));
+            System.Diagnostics.Process.Start("http://i433436.hera.fhict.nl/Webfiles/Attendance.php?Key=" + encry.Encrypt(DateTime.Now.ToString("dd-MM-yyyy") + Variables.User));
+            MessageBox.Show("Employee attendance recorded", "Attendacne recorded", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
 

@@ -50,6 +50,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMenuStockManagement = new System.Windows.Forms.Button();
             this.btnMenuPersonalDetails = new System.Windows.Forms.Button();
             this.btnMenuRoleManagement = new System.Windows.Forms.Button();
             this.btnMenuStock = new System.Windows.Forms.Button();
@@ -57,7 +58,6 @@
             this.btnMenuDepartmentManagement = new System.Windows.Forms.Button();
             this.btnMenuScheduling = new System.Windows.Forms.Button();
             this.btnMenuEmployeeManagement = new System.Windows.Forms.Button();
-            this.btnMenuStockManagement = new System.Windows.Forms.Button();
             this.btnMenuSchedule = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -65,8 +65,6 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.tbProductQuantity = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -76,6 +74,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tbProductName = new System.Windows.Forms.TextBox();
             this.btnAddProduct = new System.Windows.Forms.Button();
+            this.tbProductMinQuantity = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -409,6 +409,25 @@
             this.panel1.Size = new System.Drawing.Size(295, 532);
             this.panel1.TabIndex = 71;
             // 
+            // btnMenuStockManagement
+            // 
+            this.btnMenuStockManagement.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuStockManagement.FlatAppearance.BorderSize = 0;
+            this.btnMenuStockManagement.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnMenuStockManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuStockManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuStockManagement.ForeColor = System.Drawing.Color.White;
+            this.btnMenuStockManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuStockManagement.Location = new System.Drawing.Point(0, 473);
+            this.btnMenuStockManagement.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMenuStockManagement.Name = "btnMenuStockManagement";
+            this.btnMenuStockManagement.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnMenuStockManagement.Size = new System.Drawing.Size(295, 59);
+            this.btnMenuStockManagement.TabIndex = 52;
+            this.btnMenuStockManagement.Text = "Stock Management";
+            this.btnMenuStockManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuStockManagement.UseVisualStyleBackColor = true;
+            // 
             // btnMenuPersonalDetails
             // 
             this.btnMenuPersonalDetails.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -549,25 +568,6 @@
             this.btnMenuEmployeeManagement.UseVisualStyleBackColor = true;
             this.btnMenuEmployeeManagement.Click += new System.EventHandler(this.btnMenuEmployeeManagement_Click);
             // 
-            // btnMenuStockManagement
-            // 
-            this.btnMenuStockManagement.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuStockManagement.FlatAppearance.BorderSize = 0;
-            this.btnMenuStockManagement.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnMenuStockManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuStockManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuStockManagement.ForeColor = System.Drawing.Color.White;
-            this.btnMenuStockManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuStockManagement.Location = new System.Drawing.Point(0, 473);
-            this.btnMenuStockManagement.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMenuStockManagement.Name = "btnMenuStockManagement";
-            this.btnMenuStockManagement.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnMenuStockManagement.Size = new System.Drawing.Size(295, 59);
-            this.btnMenuStockManagement.TabIndex = 52;
-            this.btnMenuStockManagement.Text = "Stock Management";
-            this.btnMenuStockManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuStockManagement.UseVisualStyleBackColor = true;
-            // 
             // btnMenuSchedule
             // 
             this.btnMenuSchedule.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -630,10 +630,10 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.panel9.Controls.Add(this.tbProductMinQuantity);
+            this.panel9.Controls.Add(this.label6);
             this.panel9.Controls.Add(this.label7);
             this.panel9.Controls.Add(this.comboBox1);
-            this.panel9.Controls.Add(this.label6);
-            this.panel9.Controls.Add(this.dateTimePicker1);
             this.panel9.Controls.Add(this.label5);
             this.panel9.Controls.Add(this.tbProductQuantity);
             this.panel9.Controls.Add(this.label3);
@@ -669,25 +669,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(145, 33);
             this.comboBox1.TabIndex = 72;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(415, 55);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(88, 32);
-            this.label6.TabIndex = 71;
-            this.label6.Text = "Date:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(561, 63);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(4);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(145, 22);
-            this.dateTimePicker1.TabIndex = 70;
             // 
             // label5
             // 
@@ -785,6 +766,27 @@
             this.btnAddProduct.TabIndex = 32;
             this.btnAddProduct.Text = "Add\r\nProduct\r\n";
             this.btnAddProduct.UseVisualStyleBackColor = false;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
+            // 
+            // tbProductMinQuantity
+            // 
+            this.tbProductMinQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbProductMinQuantity.Location = new System.Drawing.Point(561, 54);
+            this.tbProductMinQuantity.Margin = new System.Windows.Forms.Padding(4);
+            this.tbProductMinQuantity.Name = "tbProductMinQuantity";
+            this.tbProductMinQuantity.Size = new System.Drawing.Size(145, 30);
+            this.tbProductMinQuantity.TabIndex = 76;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.2F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(388, 54);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(153, 26);
+            this.label6.TabIndex = 75;
+            this.label6.Text = "Min Quantity:";
             // 
             // StockManagement
             // 
@@ -871,9 +873,9 @@
         private System.Windows.Forms.TextBox tbProductDescription;
         private System.Windows.Forms.TextBox tbProductQuantity;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbProductMinQuantity;
+        private System.Windows.Forms.Label label6;
     }
 }

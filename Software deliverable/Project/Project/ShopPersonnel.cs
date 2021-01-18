@@ -19,6 +19,7 @@ namespace Project
         private StockManager stock = new StockManager();
         private Encryption Cry = new Encryption();
         private EmployeeManagementDAL generalManagement = new EmployeeManagementDAL();
+        StockDAL sdal;
         public void DeactivateAdminBtn()
         {
             btnMenuAdminLogs.Visible = false;
@@ -41,7 +42,7 @@ namespace Project
                 btnMenuStockManagement.Visible = false;
                 userValidation = validation;
             }
-            stock.FillTable(dataGridView1);
+            sdal.FillTable(dataGridView1);  
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
