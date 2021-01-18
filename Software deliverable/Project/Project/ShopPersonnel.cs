@@ -35,6 +35,7 @@ namespace Project
         public ShopPersonnel(string validation)
         {
             InitializeComponent();
+            StockDAL sdal = new StockDAL();
             if (validation == "ShopPersonnel")
             {
                 DeactivateAdminBtn();

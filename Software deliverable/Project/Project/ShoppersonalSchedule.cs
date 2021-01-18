@@ -103,5 +103,11 @@ namespace Project
             AdminLog admin = new AdminLog(userValidation);
             admin.Show();
         }
+
+        private void btnattendance_Click(object sender, EventArgs e)
+        {
+            Qr qr = new Qr();
+           qr.Show();
+        }
     }
 }
