@@ -447,7 +447,6 @@ C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software delive
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.Properties.Resources.resources
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.RoleManagement.resources
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.ShopPersonnel.resources
-C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.StockInput.resources
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.csproj.GenerateResource.cache
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
 C:\Users\mikos\Downloads\Semester_2_project\project-sem2-group-6\Software deliverable\Project\Project\obj\Debug\Project.exe.manifest

@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Project.LGC;
 
 namespace Project
 {
     public partial class ShoppersonalSchedule : Form
     {
         string userValidation;
+        private StockManager sm;
         public void DeactivateAdminBtn()
         {
             btnMenuAdminLogs.Visible = false;
@@ -28,6 +30,7 @@ namespace Project
         public ShoppersonalSchedule(string validation)
         {
             InitializeComponent();
+            sm = new StockManager();
             if (validation == "ShopPersonnel")
             {
                 DeactivateAdminBtn();
@@ -35,6 +38,7 @@ namespace Project
                 btnMenuStockManagement.Visible = false;
                 userValidation = validation;
             }
+            sm.ShowSchedule(dataGridView1);
         }
 
         private void btnLogOut_Click(object sender, EventArgs e)
