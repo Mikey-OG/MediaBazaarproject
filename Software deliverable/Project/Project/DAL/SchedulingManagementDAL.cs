@@ -107,7 +107,7 @@ namespace Project.DAL
             {
                 conn.Open();
                 //sql code for selecting all th data from the table 
-                string sql = "SELECT UserID, WorkDate, TimeShift FROM schedule";
+                string sql = "SELECT UserID, WorkDate, TimeShift FROM schedules";
                 cmd = new MySqlCommand(sql, conn);
                 dr = cmd.ExecuteReader();
 

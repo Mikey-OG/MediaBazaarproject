@@ -35,6 +35,7 @@ namespace Project
         public ShopPersonnel(string validation)
         {
             InitializeComponent();
+            StockDAL sdal = new StockDAL();
             if (validation == "ShopPersonnel")
             {
                 DeactivateAdminBtn();
@@ -139,13 +140,13 @@ namespace Project
 
         private void Seemorebtn_Click(object sender, EventArgs e)
         {
-            stock.SeeMore(dataGridView1, stock.LastSQL, 10);
+            stock.SeeMore(dataGridView1, sdal.LastSQL, 10);
         }
 
         private void RowResetbtn_Click(object sender, EventArgs e)
         {
-            stock.MaxRows = 0;
-            stock.SeeMore(dataGridView1, stock.LastSQL, 10);
+            sdal.MaxRows = 0;
+            stock.SeeMore(dataGridView1, sdal.LastSQL, 10);
         }
 
 

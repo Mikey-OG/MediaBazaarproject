@@ -365,7 +365,7 @@ namespace Project.DAL
             try
             {
                 conn.Open();
-                string sql1 = $"SELECT UserID FROM `employees` WHERE `UserName` = '{Variables.User}'";
+                string sql1 = $"SELECT UserID FROM `employee` WHERE `UserName` = '{Variables.User}'";
                 MySqlCommand cmd = new MySqlCommand(sql1, conn);
                 Object result = cmd.ExecuteScalar();
                 int ID = Convert.ToInt32(result);
@@ -391,8 +391,10 @@ namespace Project.DAL
         {
             try
             {
+
                 conn.Open();
-                string sql = $"SELECT `UserID`, `FirstName`, `LastName`,  `Salary` FROM `employees` WHERE `FormAccess` = 'ShopPersonnelForm' and `DepartmentName`= 'Sales' LIMIT {MaxRows};";
+                string sql = $"SELECT employee.UserID, employee.FirstName, employee.LastName, employee.Salary FROM employee " +
+$"INNER JOIN departments ON employee.DepartmentID = departments.DepartmentID WHERE departments.DepartmentName = 'Sales' LIMIT {MaxRows};";
                 LastSQL = sql;
                 adpt = new MySqlDataAdapter(sql, conn);
                 dt = new DataTable();
