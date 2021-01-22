@@ -43,7 +43,7 @@ namespace Project
         public StockManagement(string validation)
         {
             InitializeComponent();
-            if(validation == "StockManager")
+            if (validation == "StockManager")
             {
                 DeactivateAdminBtn();
                 DeactivateShopPersonnelbtn();
@@ -52,7 +52,7 @@ namespace Project
             }
             else
             {
-                if(validation == "Admin")
+                if (validation == "Admin")
                 {
                     DeactivateShopPersonnelbtn();
                     userValidation = validation;
@@ -61,6 +61,7 @@ namespace Project
             this.dataGridView1.DataError += this.DataGridView1_DataError;
             sdl.FillTable(dataGridView1);
             stock.FillCombo(comboBox1);
+            stock.Refresh(dataGridView1);
         }
 
         private void DataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs anError)
@@ -86,11 +87,13 @@ namespace Project
         private void IncreaseBtn_Click_2(object sender, EventArgs e)
         {
             stock.Increase(dataGridView1, ValueBox);
+            this.dataGridView1.CurrentCell = this.dataGridView1[0, 0];
         }
 
         private void DecreaseBtn_Click_1(object sender, EventArgs e)
         {
             stock.Decrease(dataGridView1, ValueBox);
+            this.dataGridView1.CurrentCell = this.dataGridView1[0, 0];
         }
 
         private void RefreshBtn_Click_1(object sender, EventArgs e)
@@ -186,7 +189,7 @@ namespace Project
         }
         private void button3_Click(object sender, EventArgs e)
         {
-           ExportToPdf(dataGridView1);
+            ExportToPdf(dataGridView1);
         }
 
         private void btnLogOut_Click_1(object sender, EventArgs e)
@@ -264,7 +267,7 @@ namespace Project
                 string f = tbProductDescription.Text;
                 stock.StockInput(a, b, c, d, mq, f);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

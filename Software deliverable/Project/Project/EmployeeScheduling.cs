@@ -160,6 +160,7 @@ namespace Project
         private void btnAddSchedule_Click(object sender, EventArgs e)
         {
             scheduling.AddSchedule(UserID,dtAddRemove.Value.Date.ToString("dd-MM-yyyy"), cbShifts.Text);
+            MessageBox.Show("Schedule Added", "Operation complete", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnRemoveSchedule_Click(object sender, EventArgs e)
@@ -183,14 +184,17 @@ namespace Project
 
         private void btnScheduleLeft_Click(object sender, EventArgs e)
         {
+            lbSchedule.Items.Clear();
             Date = Date.AddDays(-1);
             LoadSchedule(Date.ToString("dd-MM-yyyy"));
         }
 
         private void btnScheduleRight_Click(object sender, EventArgs e)
         {
+            lbSchedule.Items.Clear();
             Date = Date.AddDays(1);
             LoadSchedule(Date.ToString("dd-MM-yyyy"));
+            
         }
     }
 }

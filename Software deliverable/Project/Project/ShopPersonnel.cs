@@ -18,8 +18,7 @@ namespace Project
         private string userValidation;
         private StockManager stock = new StockManager();
         private Encryption Cry = new Encryption();
-        private EmployeeManagementDAL generalManagement = new EmployeeManagementDAL();
-        StockDAL sdal;
+        StockDAL sdl;
         public void DeactivateAdminBtn()
         {
             btnMenuAdminLogs.Visible = false;
@@ -35,7 +34,7 @@ namespace Project
         public ShopPersonnel(string validation)
         {
             InitializeComponent();
-            StockDAL sdal = new StockDAL();
+            sdl = new StockDAL();
             if (validation == "ShopPersonnel")
             {
                 DeactivateAdminBtn();
@@ -43,7 +42,8 @@ namespace Project
                 btnMenuStockManagement.Visible = false;
                 userValidation = validation;
             }
-            sdal.FillTable(dataGridView1);  
+            sdl.FillTable(dataGridView1);
+            stock.Refresh(dataGridView1);
         }
 
         private void btnSearch_Click(object sender, EventArgs e)
@@ -59,53 +59,16 @@ namespace Project
         private void btnIncrease_Click(object sender, EventArgs e)
         {
             stock.Increase(dataGridView1, tbQuantityChange);
+            this.dataGridView1.CurrentCell = this.dataGridView1[0, 0];
         }
 
         private void btnDecrease_Click(object sender, EventArgs e)
         {
             stock.Decrease(dataGridView1, tbQuantityChange);
-        }
-
-        private void btnUpdate_Click(object sender, EventArgs e)
-        {
-            stock.Save();
-            stock.Refresh(dataGridView1);
-        }
-
-        private void btnSchedule_Click(object sender, EventArgs e)
-        {
-            stock.ShowSchedule(dataGridView1);
+            this.dataGridView1.CurrentCell = this.dataGridView1[0, 0];
         }
 
 
-        private void btnReturnMenu_Click(object sender, EventArgs e)
-        {
-            //GeneralEmployeeForm generalEmployeeForm = new GeneralEmployeeForm(UserValidation);
-            //generalEmployeeForm.Show();
-            //this.Hide();
-        }
-
-        ////private void btnChangePassword_Click(object sender, EventArgs e)
-        //{
-        //   // if (Regex.IsMatch(tbPassword.Text, "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,15}$"))
-        //    {
-        //        if (generalManagement.ChangePasswordMessageBoxYesNo() == true)
-        //        {
-        //           // generalManagement.ChangePassword(Convert.ToString(Variables.User), tbPassword.Text);
-        //            //tbPassword.Text = "";
-        //            MessageBox.Show("Password changed", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("Please ensure your password" +
-        //        " possesses at least one lowercase character " +
-        //        " at least one uppercase charater " +
-        //        " at least one numeric character between 0-9 " +
-        //        " and is at least 8-15 characters long " +
-        //        " e.g (Mikoko02, Kirill02, lucM2002) ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //    }
-        //}
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
@@ -121,40 +84,17 @@ namespace Project
                 "8) The logout button signs the user out of the system", "Help", MessageBoxButtons.OK, MessageBoxIcon.Question);
         }
 
-        private void btnDetails_Click(object sender, EventArgs e)
-        {
-            stock.ShowDetails(dataGridView1);
-        }
-
-        private void rbSHowStocFunctions_CheckedChanged(object sender, EventArgs e)
-        {
-            //gbStock.Visible = true;
-            //gbEmployee.Visible = false;
-        }
-
-        private void rbSHowPeronalFunctions_CheckedChanged(object sender, EventArgs e)
-        {
-            //gbStock.Visible = false;
-            //gbEmployee.Visible = true;
-        }
-
         private void Seemorebtn_Click(object sender, EventArgs e)
         {
-            stock.SeeMore(dataGridView1, sdal.LastSQL, 10);
+            stock.SeeMore(dataGridView1, sdl.LastSQL, 10);
         }
 
         private void RowResetbtn_Click(object sender, EventArgs e)
         {
-            sdal.MaxRows = 0;
-            stock.SeeMore(dataGridView1, sdal.LastSQL, 10);
+            sdl.MaxRows = 0;
+            stock.SeeMore(dataGridView1, sdl.LastSQL, 10);
         }
 
-
-        private void btnattendance_Click(object sender, EventArgs e)
-        {
-            Qr qrform = new Qr();
-            qrform.Show();
-        }
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -223,6 +163,18 @@ namespace Project
             this.Close();
             UpdateDetailsForm update = new UpdateDetailsForm(userValidation);
             update.Show();
+        }
+
+        private void btnUpdate_Click_1(object sender, EventArgs e)
+        {
+            stock.Save();
+        }
+
+        private void btnMenuStock_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            ShopPersonnel shoppersonnelstock = new ShopPersonnel(userValidation);
+            shoppersonnelstock.Show();
         }
     }
 }

@@ -46,6 +46,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnMenuStockManagement = new System.Windows.Forms.Button();
             this.btnMenuPersonalDetails = new System.Windows.Forms.Button();
             this.btnMenuRoleManagement = new System.Windows.Forms.Button();
             this.btnMenuStock = new System.Windows.Forms.Button();
@@ -53,7 +54,6 @@
             this.btnMenuDepartmentManagement = new System.Windows.Forms.Button();
             this.btnMenuScheduling = new System.Windows.Forms.Button();
             this.btnMenuEmployeeManagement = new System.Windows.Forms.Button();
-            this.btnMenuStockManagement = new System.Windows.Forms.Button();
             this.btnMenuSchedule = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -146,7 +146,7 @@
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "Save Changes";
             this.btnUpdate.UseVisualStyleBackColor = false;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click_1);
             // 
             // btnDecrease
             // 
@@ -312,6 +312,26 @@
             this.panel1.Size = new System.Drawing.Size(295, 532);
             this.panel1.TabIndex = 71;
             // 
+            // btnMenuStockManagement
+            // 
+            this.btnMenuStockManagement.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMenuStockManagement.FlatAppearance.BorderSize = 0;
+            this.btnMenuStockManagement.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
+            this.btnMenuStockManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMenuStockManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMenuStockManagement.ForeColor = System.Drawing.Color.White;
+            this.btnMenuStockManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuStockManagement.Location = new System.Drawing.Point(0, 473);
+            this.btnMenuStockManagement.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMenuStockManagement.Name = "btnMenuStockManagement";
+            this.btnMenuStockManagement.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.btnMenuStockManagement.Size = new System.Drawing.Size(295, 59);
+            this.btnMenuStockManagement.TabIndex = 52;
+            this.btnMenuStockManagement.Text = "Stock Management";
+            this.btnMenuStockManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnMenuStockManagement.UseVisualStyleBackColor = true;
+            this.btnMenuStockManagement.Click += new System.EventHandler(this.btnMenuStockManagement_Click);
+            // 
             // btnMenuPersonalDetails
             // 
             this.btnMenuPersonalDetails.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -370,6 +390,7 @@
             this.btnMenuStock.Text = "Shop Personel Stock View";
             this.btnMenuStock.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuStock.UseVisualStyleBackColor = true;
+            this.btnMenuStock.Click += new System.EventHandler(this.btnMenuStock_Click);
             // 
             // btnMenuAdminLogs
             // 
@@ -450,26 +471,6 @@
             this.btnMenuEmployeeManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnMenuEmployeeManagement.UseVisualStyleBackColor = true;
             this.btnMenuEmployeeManagement.Click += new System.EventHandler(this.btnMenuEmployeeManagement_Click);
-            // 
-            // btnMenuStockManagement
-            // 
-            this.btnMenuStockManagement.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMenuStockManagement.FlatAppearance.BorderSize = 0;
-            this.btnMenuStockManagement.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(175)))), ((int)(((byte)(80)))));
-            this.btnMenuStockManagement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMenuStockManagement.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMenuStockManagement.ForeColor = System.Drawing.Color.White;
-            this.btnMenuStockManagement.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuStockManagement.Location = new System.Drawing.Point(0, 473);
-            this.btnMenuStockManagement.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMenuStockManagement.Name = "btnMenuStockManagement";
-            this.btnMenuStockManagement.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.btnMenuStockManagement.Size = new System.Drawing.Size(295, 59);
-            this.btnMenuStockManagement.TabIndex = 52;
-            this.btnMenuStockManagement.Text = "Stock Management";
-            this.btnMenuStockManagement.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMenuStockManagement.UseVisualStyleBackColor = true;
-            this.btnMenuStockManagement.Click += new System.EventHandler(this.btnMenuStockManagement_Click);
             // 
             // btnMenuSchedule
             // 

@@ -50,9 +50,9 @@ namespace Project
 
         private void btnMenuStock_Click(object sender, EventArgs e)
         {
-            //this.Close();
-            //ShopPersonnel shop = new ShopPersonnel();
-            //shop.Show();
+            this.Close();
+            ShopPersonnel shoppersonnelstock = new ShopPersonnel(userValidation);
+            shoppersonnelstock.Show();
         }
 
         private void btnMenuPersonalDetails_Click(object sender, EventArgs e)

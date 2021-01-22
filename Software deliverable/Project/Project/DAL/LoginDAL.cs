@@ -119,7 +119,7 @@ namespace Project.DAL
                 if (Regex.IsMatch(Password, "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,15}$"))
                 {
                     conn.Open();
-                    string sql = "UPDATE employee SET Password= @Password, AccountSecure = True WHERE UserName = @UserName";
+                    string sql = "UPDATE employee SET Password= @Password, AccountSecure = true WHERE UserName = @UserName";
                     cmd = new MySqlCommand(sql, conn);
                     cmd.Parameters.AddWithValue("@UserName", UserName);
                     cmd.Parameters.AddWithValue("@Password", Cry.Encrypt(Password));

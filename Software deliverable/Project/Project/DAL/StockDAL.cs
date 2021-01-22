@@ -11,15 +11,18 @@ using System.Windows.Forms;
 
 namespace Project.DAL
 {
-    public class StockDAL: BaseDAL
+    public class StockDAL : BaseDAL
     {
         public int MaxRows = 10;
         public string LastSQL = $"";
         DataTable dt;
         private List<StockItem> allStockItems;
         MySqlCommandBuilder cmdbld;
+
         public StockDAL()
         {
+            adpt = new MySqlDataAdapter();
+            dt = new DataTable();
             base.CreateConnection();
             allStockItems = new List<StockItem>();
         }

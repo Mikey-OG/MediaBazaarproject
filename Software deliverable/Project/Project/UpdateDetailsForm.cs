@@ -118,11 +118,6 @@ namespace Project
             {
                 this.update.UpdateDetails(tbUpUsername.Text, tbUpEmail.Text, tbUpPassword.Text, tbUpFirstname.Text, tbUpLastname.Text, dtUpDOB.Value, tbUpPhone.Text, tbUpNationality.Text, tbUpAddress.Text, tbUpCity.Text, tbUpZipcode.Text);
                 MessageBox.Show("Your details have been updated");
-
-                /*if (DialogResult.OK == )
-                {
-                    this.Hide();
-                }*/
             }
         }
 

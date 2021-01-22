@@ -82,7 +82,8 @@ namespace Project
                                         success = false;
                                         tSuspend.Start();
                                         access = false;
-                                        MessageBox.Show("You have exceeded the limit for loginning in please wiat for 5seconds before you try again\n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        MessageBox.Show("You have exceeded the limit for loginning in please wait for 30seconds before you try again," +
+                                        " you will be notified when the timer is over\n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                     }
 
                                 }
@@ -93,8 +94,8 @@ namespace Project
                 else
                 {
                     success = false;
-                    MessageBox.Show("You have exceeded the limit for loginning in please wiat for 30seconds before you try again," +
-                        " you will be notified when the timer is over\n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("You have exceeded the limit for loginning in please wait for 30seconds before you try again," +
+                    " you will be notified when the timer is over\n", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 return true;
             }
