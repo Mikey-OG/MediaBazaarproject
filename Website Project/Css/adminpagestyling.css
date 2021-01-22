@@ -1,0 +1,76 @@
+.adminpage table{
+	width : 80%;
+	background-color: white;
+	border-left: 1px solid black;
+	border-bottom: 1px solid black;
+	border-right: 1px solid black;
+}
+
+.adminpage tr:nth-child(even){
+	background-color: #D9D9D9;
+ }
+
+ .adminpage tr:nth-child(odd){
+	background-color: white;
+ }
+
+.adminpage tr td{
+ background-color: #333;
+ color: white;
+ text-align: center;
+ font-weight: bold;
+}
+
+.CompanyStats h3{
+ font-size: 26px;
+ color:green;
+}
+
+.CompanyStats p{
+ margin-top:-1%;	
+ font-size: 23px;
+}
+
+.CompanyStats button{
+	margin-top:-20px;
+	font-size: 20px;
+}
+
+.actionBar {
+	display: block;
+	background: #333;
+	max-width: 80%;
+	margin: 0 auto;
+	margin-top: 1%;
+	color: white;
+	margin-bottom: -1.1%;
+}
+
+.button {
+	background: #4CAF50;
+	text-decoration: none;
+	color: white;
+	padding: 1%;
+	border-radius: 5px;
+	margin-top: -0.3%;
+	border: none;
+	font-weight: bold;
+}
+
+.button:hover {
+	opacity: 0.8;
+}
+
+.textbox {
+	width: 50%;
+	text-align: center;
+	padding: 0.7%;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+.category {
+  text-align: center;
+  padding: 0.7%;
+  margin-left: 17%;
+}
