@@ -1,6 +1,6 @@
-#S-CB-S2-CMK-GROUP-6-Project-Git
+#S-CB-S2-CMK-GROUP-3-Project-Git
 
-#Project-semester2-Group6
+#Project-semester2-Group3
 
 Project Members:
 
@@ -8,3 +8,4 @@ Project Members:
 - Smirnov Kirill 3775321
 - Moonen Luc 435115
 - Ebowusim Michael 4050630
+
